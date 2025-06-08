@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Network security</title>
+    <link rel="stylesheet" href="../../../../public/style.css">
+    <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+</head>
+
+<body class="bg-c">
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html" class="home">back</a>
+        <div class="fix-column-links">
+            <a href="#" class="link"></a>
+            <div class="botbut">
+                <a href="../unit2/index.html" class="link">Next Topic &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <div id="navbar" class="grad">
+        <div>
+            <div class="openbtn" onclick="openNav()">
+                <div id="nav-icon1" for="nav-menu1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Introduction to Network security</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <h1>Introduction to Network security</h1>
+        <ul>
+            <li>Network Security is the practice of protecting a computer network and its resources from unauthorized
+                access, cyberattacks, and data breaches. It ensures that only authorized users can access information
+                while keeping data confidential, intact, and available.</li>
+            <li>In simple words, Network Security is like a protective shield that safeguards computers, devices, and
+                data from cyber threats.</li>
+
+        </ul>
+        <p><strong>Why is Network Security Important?</strong>
+        <ul class="lstn">
+            <li>📌 <strong>Protects Sensitive Data</strong> – Ensures that personal and business data is safe from
+                cybercriminals.</li>
+            <li>📌 <strong>Prevents Unauthorized Access</strong> – Only trusted users can access private networks.</li>
+            <li>📌 <strong>Ensures Data Integrity</strong> – Prevents hackers from modifying important information.</li>
+            <li>📌 <strong>Maintains Network Availability</strong> – Stops attacks that can crash or disrupt services.
+            </li>
+        </ul>
+        Example: If a hacker gains access to an online banking system, they could:
+        <ul>
+            <li>Steal customer login details.</li>
+            <li>Transfer money illegally.</li>
+            <li>Leak sensitive financial data.</li>
+        </ul>
+        Network security prevents these threats and keeps systems safe and functional.
+        </p>
+        <p><strong>Common Threats in Network Security</strong></p>
+        <ul class="lstn">
+            <li><strong>🔹 Unauthorized Access</strong> – Hackers breaking into a system without permission.
+                <ul>
+                    <li>Example: Guessing or stealing passwords to log into someone’s account.</li>
+                </ul>
+            </li>
+            <li>🔹 <strong>Malware (Viruses, Worms, Trojans, Ransomware)</strong> – Malicious programs that harm or
+                control systems.
+                <ul>
+                    <li>Example: A virus that corrupts important files and makes them unusable.</li>
+                </ul>
+            </li>
+            <li>🔹 <strong>Phishing Attacks</strong> – Fake emails/websites tricking users into sharing sensitive data.
+                <ul>
+                    <li>Example: A fake email pretending to be from a bank, asking for login details.</li>
+                </ul>
+            </li>
+            <li>🔹 <strong>Denial of Service (DoS) Attacks</strong> – Overloading a website or system to make it crash.
+                <ul>
+                    <li>Example: A hacker sending thousands of fake requests to a website, making it unavailable for
+                        real users.</li>
+                </ul>
+            </li>
+            <li>🔹 <strong>Man-in-the-Middle (MITM) Attacks</strong> – A hacker intercepting and altering communication
+                between two users.
+                <ul>
+                    <li>Example: An attacker spying on an online shopping transaction and stealing credit card details.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>How Network Security Works (Protective Measures)</strong></p>
+        <ul class="lstn">
+            <li>🔹 <strong>Firewalls</strong> – Work like security guards, blocking harmful traffic.</li>
+            <li>🔹 <strong>Encryption</strong> – Converts data into unreadable code to keep it safe.</li>
+            <li>🔹 <strong>Two-Factor Authentication (2FA)</strong> – Adds an extra verification step before login.</li>
+            <li>🔹 <strong>Virtual Private Networks (VPNs)</strong> – Encrypts internet traffic for secure browsing.
+            </li>
+            <li>🔹 <strong>Antivirus & Anti-malware</strong> – Detects and removes malicious software.</li>
+        </ul>
+        <div class="compact-extended">
+            <div class="wh compact">
+                <h2>Goals of Network Security</h2>
+                <p>Network security aims to protect data and systems from threats. Its main goals are:</p>
+                <ol>
+                    <li><strong>Confidentiality:</strong> Keeping data private and ensuring only authorized access. For
+                        example, using encryption to secure passwords.</li>
+                    <li><strong>Integrity:</strong> Ensuring data is accurate and unaltered. Hashing techniques help
+                        maintain data accuracy.</li>
+                    <li><strong>Availability:</strong> Ensuring systems are always accessible. Network security prevents
+                        DDoS attacks that cause downtime.</li>
+                    <li><strong>Authentication:</strong> Verifying identity before granting access. This is like showing
+                        an ID before entering a building, often enhanced with two-factor authentication.</li>
+                    <li><strong>Non-repudiation:</strong> Ensuring actions can't be denied. Digital signatures and logs
+                        provide proof of transactions.</li>
+                </ol>
+            </div>
+            <div class="wh extended">
+                <h2>Goals of Network Security</h2>
+                <p>When we talk about network security, it’s not just about putting up firewalls or installing antivirus
+                    software. The ultimate aim is to achieve specific goals that ensure your data and systems remain
+                    safe
+                    and functional. Think of network security like a castle's defense system—it's not just about
+                    building
+                    walls, but about protecting the kingdom in several different ways.
+                    <br>So, what are the goals of network security?:
+                </p>
+                <ol>
+                    <li><strong>Confidentiality:</strong> Confidentiality is about keeping sensitive data private and
+                        ensuring that only authorized people have access to it. The idea is to prevent anyone (hackers,
+                        unauthorized employees, etc.) from viewing or accessing private information.
+                        <ul>
+                            <li>Just like you wouldn’t want someone snooping through your personal documents or stealing
+                                your password, businesses and individuals need to make sure that sensitive
+                                information—like
+                                financial records, customer details, or trade secrets—stay hidden from unwanted eyes.
+                            </li>
+                            <li>Imagine you're sending a password to someone through email. Without proper security, a
+                                hacker could intercept the message and steal the password. Using encryption, you make
+                                sure
+                                that even if someone intercepts the email, the password is unreadable to them.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Integrity:</strong> Integrity ensures that the data being transmitted or stored is
+                        accurate
+                        and has not been altered by unauthorized individuals. It means that the data you send or store
+                        is
+                        the same as when it was created or shared, without tampering.
+                        <ul>
+                            <li>Imagine you’re ordering a product online. What if someone changed the quantity or price
+                                of
+                                the item during the transaction? You’d end up paying more or receiving the wrong
+                                product.
+                                Integrity ensures that this doesn’t happen, protecting the accuracy of your information.
+                            </li>
+                            <li>During a financial transaction, if a hacker changes the amount being transferred from
+                                your
+                                account, that would be an integrity breach. By using techniques like hashing (to check
+                                data
+                                integrity), systems can ensure data is not tampered with.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Availability:</strong> Availability means that the network, systems, and data are always
+                        accessible when needed. It’s about making sure that legitimate users can always access the
+                        resources
+                        they require, without interruptions or downtime.
+                        <ul>
+                            <li>Imagine a hospital’s computer system crashes during an emergency. That would be
+                                catastrophic. Whether it’s cloud storage, business applications, or even websites,
+                                availability is crucial for business operations and user trust.</li>
+                            <li>In a DDoS (Distributed Denial of Service) attack, hackers flood a website with so many
+                                requests that the site becomes unavailable. Network security prevents such attacks,
+                                ensuring
+                                that websites, systems, and apps remain available to their users.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Authentication:</strong> Authentication is the process of verifying who you are before
+                        granting access to a network or system. Think of it like showing your ID card before entering a
+                        building. It ensures that only authorized users can access resources.
+                        <ul>
+                            <li>You don’t want just anyone logging into your bank account or accessing your personal
+                                files.
+                                Authentication is the first line of defense against unauthorized access.</li>
+                            <li>When you log in to a website using your username and password, that’s authentication in
+                                action. To strengthen it, many websites also use two-factor authentication (2FA), where
+                                you
+                                get a code on your phone to prove it’s really you trying to log in.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Non-repudiation:</strong> Non-repudiation means that once something is done, it can’t be
+                        denied. It ensures that someone cannot deny their actions or the authenticity of the data.
+                        <ul>
+                            <li>If you make an online purchase, you want to be sure that the transaction is legitimate.
+                                Non-repudiation guarantees that there’s evidence proving the action took place, such as
+                                logs
+                                or signatures.</li>
+                            <li>If a company makes a financial transfer, the transaction is logged with digital
+                                signatures
+                                to prove that the transfer was legitimate and authorized. This prevents someone from
+                                saying,
+                                "I didn’t make that payment," even if they did.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="wh">
+            <h2>OSI Security Architecture (Also Referred to as ISO Security Architecture)</h2>
+            <ul>
+                <li>Security is a critical aspect of any networked system. The OSI Security Architecture, defined by ISO
+                    (International Organization for Standardization), outlines how security threats are categorized,
+                    what mechanisms are used to prevent or mitigate them, and what services ensure a secure
+                    communication environment.</li>
+
+                <li>The reason it is sometimes called <strong>ISO Security Architecture</strong> is because the OSI
+                    (Open Systems Interconnection) model itself was developed by ISO. Since ISO is the organization that
+                    defined this security framework, some materials refer to it as "ISO Security Architecture." However,
+                    the correct and widely used term is <strong>OSI Security Architecture</strong>, as it specifically
+                    applies to securing network communication under the OSI model.</li>
+                <li>The OSI Security Architecture is a framework that defines security requirements for network
+                    communication. It is part of the Open Systems Interconnection (OSI) model and provides a structured
+                    way to understand and implement security measures across different layers of a network.</li>
+                <li>In a network, data passes through multiple layers, and each layer can be vulnerable to different
+                    types of attacks. The OSI Security Architecture helps identify security threats and suggests
+                    countermeasures at each level.</li>
+            </ul>
+
+            <div class="in">
+                <h3>Understanding Threats and Attacks</h3>
+                <ul>
+                    <li><strong>Threat: The Potential for Danger</strong>
+                        <ul>
+                            <li>A threat is a potential risk that can exploit a weakness in the system.</li>
+                            <li>Your Wi-Fi network at home has no password. Even if no one has hacked it yet, the
+                                possibility of someone stealing your internet or spying on your online activity is a
+                                threat.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Attack: When the Threat Becomes Real</strong>
+                        <ul>
+                            <li>An attack is a deliberate attempt to compromise a system’s security by exploiting a
+                                vulnerability.</li>
+                            <li>If a hacker connects to your unprotected Wi-Fi, intercepts your network traffic, and
+                                steals your personal information, this is an attack.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Three Components of OSI Security Architecture</h3>
+                <ol>
+                    <li><strong>Security Attacks</strong> – Different types of attacks that can compromise security.
+                    </li>
+                    <li><strong>Security Mechanisms</strong> – Methods used to prevent, detect, or respond to these
+                        attacks.</li>
+                    <li><strong>Security Services</strong> – Services designed to achieve security goals like
+                        confidentiality and authentication.</li>
+                </ol>
+            </div>
+            <div class="in">
+                <h3>Security Attacks</h3>
+                <ul>
+                    <li>Security attack matlab koi bhi aisi activity jo system, kisi person ya organization ki security ko tod de. Isse kya kya ho sakta hai:
+                        <ol>
+                            <li>Data ka loss (important files delete ya chori ho jaana)</li>
+                            <li>Data kharab ho jaana (files bina permission ke change ho jaana)</li>
+                            <li>Ransomware attacks (hackers aapki files lock kar lete hain aur paise maangte hain)</li>
+                            <li>Virus aur malware attacks (harmful programs jo system ko damage kar dete hain)</li>
+                            <li>Server ka defacement (website ko hack karke galat messages dikhana ya misinformation failana)</li>
+                        </ol>
+                    </li>
+                    <li>Security attacks do types ke hote hain:
+                        <ol>
+                            <li>Passive Attacks – Attacker chupke se data ko sunta ya monitor karta hai.</li>
+                            <li>Active Attacks – Attacker data ko change karta hai, disrupt karta hai ya jhootha data create karta hai.</li>
+                        </ol>
+                    </li>
+                </ul>
+                <h4>Passive Attack</h4>
+                <ul>
+                    <li>Passive attack mein attacker chupke se communication ko sunta hai bina kuch change kiye.</li>
+                    <li>Passive Attack ke main points:
+                        <ul class="lstn">
+                            <li>✔ Data mein koi change nahi hota</li>
+                            <li>✔ Sirf padhna, dekhna ya chupke se sunna</li>
+                            <li>✔ Detect karna mushkil hota hai kyunki koi badlav nahi hota</li>
+                        </ul>
+                    </li>
+                    <li>Socho Bob aur Alice baat kar rahe hain. Darth naam ka hacker chupke se unki baat sun raha hai, bina kuch interfere kiye. Ye hi hota hai passive attack.</li>
+                </ul>
+                <p>Types of Passive Attacks
+                <ol>
+                    <li>Release of Message Contents: Attacker confidential information ko padh leta hai jo exchange ho rahi hoti hai.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Tum apne bank ko ek private email bhejte ho, aur ek hacker use chupke se padh leta hai.</li>
+                                    <li>Ek spy do diplomats ke secret phone call ko sunta hai.</li>
+                                </ul>
+                            </li>
+                            <li>Prevention:
+                                <ul>
+                                    <li>Encryption – Agar Bob apna message encrypt karke bhejta hai toh Darth usse nahi padh sakta.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Traffic Analysis: Agar data encrypt bhi ho, phir bhi attacker jaan sakta hai kaun kis se baat kar raha hai, kitni baar aur kitni der tak.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Ek hacker dekhta hai ki ek CEO aur CFO baar-baar email kar rahe hain, chahe emails encrypted hi kyu na ho. Shayad koi important deal ho rahi ho.</li>
+                                </ul>
+                            </li>
+                            <li>Prevention:
+                                <ul>
+                                    <li>VPNs ya Tor Networks use karo – Ye communication pattern ko chhupa dete hain.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                </p>
+                <h4>Active Attacks</h4>
+                <ul>
+                    <li>Active attack mein attacker data ko modify karta hai, communication ko disrupt karta hai ya jhooti information bhejta hai.</li>
+                    <li>Active Attack ke main points:
+                        <ul class="lstn">
+                            <li>✔ Data ko change, delete ya insert kiya ja sakta hai</li>
+                            <li>✔ Passive attacks se zyada harmful hote hain</li>
+                            <li>✔ Detect karna easy hota hai, par prevent karna difficult</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Chalo active attacks ke 4 main types dekhte hain.</p>
+                <ol>
+                    <li><strong>Masquerade Attack (Bhram ya Nakal)</strong>: Attacker kisi aur ke naam pe access lene ki koshish karta hai.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Ek hacker tumhara login username aur password chura leta hai aur tumhare naam se login karta hai.</li>
+                                    <li>Ek fake email aata hai jo tumhare bank ka lagta hai, aur tumse password maangta hai.</li>
+                                </ul>
+                            </li>
+                            <li>Prevention: Two-factor authentication (2FA) – Agar hacker password chura bhi le, toh second step ke bina login nahi kar paayega.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Replay Attack (Copy-Paste Attack)</strong>: Attacker ek original message ko record karke dubara bhejta hai taaki recipient ko confuse kar sake.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Tumne message bheja: "Transfer ₹10,000 to Alice."</li>
+                                    <li>Attacker is message ko record karke baad mein fir se bhej deta hai, jisse ek aur transaction ho jaata hai bina tumhare jaane.</li>
+                                </ul>
+                            </li>
+                            <li>Prevention: Timestamps aur session tokens ka use – Ye purane messages ko dubara use hone se rokta hai.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Modification of Messages (Message Tampering)</strong>: Attacker message ko beech mein hi change kar deta hai.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Bob message bhejta hai: "Allow John to access the files."</li>
+                                    <li>Darth beech mein message ko change karke bana deta hai: "Allow Tim to access the files."</li>
+                                    <li>Ab galat insaan ko access mil gaya!</li>
+                                </ul>
+                            </li>
+                            <li>Prevention: Digital signatures – Ye ensure karta hai ki message transmit hote time change na ho.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Denial of Service (DoS Attack)</strong>: Attacker system ko itna busy kar deta hai ki asli users use access nahi kar paate.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Ek hacker website pe itne zyada requests bhejta hai ki wo crash ho jaati hai.</li>
+                                    <li>Ek spam bot hazaron login attempts bhejta hai, jisse real users login nahi kar paate.</li>
+                                </ul>
+                            </li>
+                            <li>Prevention: Firewalls aur rate-limiting ka use – Ye unusual traffic ko block karte hain.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h4>Differences Between Passive and Active Attacks</h4>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Passive Attack</th>
+                                <th>Active Attack</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nature</td>
+                                <td>Communication ko sirf observe karta hai, koi change nahi karta</td>
+                                <td>Data ko modify ya disrupt karta hai</td>
+                            </tr>
+                            <tr>
+                                <td>Harm Level</td>
+                                <td>Kam harmful hota hai; sirf information collect karta hai</td>
+                                <td>Zyada harmful; data ko badal sakta hai ya damage kar sakta hai</td>
+                            </tr>
+                            <tr>
+                                <td>Detectability</td>
+                                <td>Detect karna mushkil (kyunki koi interfere nahi karta)</td>
+                                <td>Asaani se detect ho jata hai (kyunki disruption hoti hai)</td>
+                            </tr>
+                            <tr>
+                                <td>Example</td>
+                                <td>Network pe chupke se baatein sunna</td>
+                                <td>Data ko hack karke usme badlav karna</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="in">
+                <h3>Security Services</h3>
+                <ul>
+                    <li>Security service ek aisi feature hoti hai jo data ko protect karti hai aur users ya systems ke beech secure communication ensure karti hai.</li>
+                    <li>Yeh important kyun hain?
+                        <ul class="lstn">
+                            <li>✔ Unauthorized logon ka access rokta hai</li>
+                            <li>✔ Data private bana ke rakhta hai</li>
+                            <li>✔ Communication mein trust aur authenticity banaye rakhta hai</li>
+                            <li>✔ Cyberattacks aur fraud se protection deta hai</li>
+                        </ul>
+                    </li>
+                    <li>Security services ek secured system ke through provide hoti hain taaki communication safe aur reliable ho.</li>
+                    <li>Types of Security Services: 6 major security services hoti hain jo data aur communication ko secure banati hain:
+                        <ol>
+                            <li>Authentication
+                                <ol>
+                                    <li>Peer Entity Authentication</li>
+                                    <li>Data Origin Authentication</li>
+                                </ol>
+                            </li>
+                            <li>Access Control</li>
+                            <li>Data Confidentiality</li>
+                            <li>Data Integrity</li>
+                            <li>Non-Repudiation</li>
+                        </ol>
+                    </li>
+                </ul>
+                <p><strong>1: Authentication (Identity verify karna)</strong></p>
+                <p>Authentication ensure karta hai ki sender aur receiver wahi log hain jo wo claim kar rahe hain. Isse imposter ya fake log sensitive info tak nahi pahuch paate.
+                    <br>Authentication ke do types hote hain:
+                </p>
+                <ol>
+                    <li><strong>Peer Entity Authentication (Real-Time Verification)</strong>: Isme check hota hai ki jis entity se aap baat kar rahe ho, wo real hai ya nahi jab tak session chal raha hai.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Jab aap kisi banking website me login karte ho, to system baar-baar check karta hai ki abhi bhi wahi user ho ya koi hacker replace toh nahi kar gaya.</li>
+                                    <li>Do devices network pe connected hote hain aur real-time me ek dusre ki identity verify karte hain.</li>
+                                </ul>
+                            </li>
+                            <li>Protection Methods: Multi-factor authentication (MFA) jisse extra security milti hai</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Origin Authentication (Sender ka verification)</strong>: Ye confirm karta hai ki data kisne bheja hai. Isse yeh ensure hota hai ki message jisne bhejne ka claim kiya hai, wahi bhejne wala hai — koi attacker nahi.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Agar aapko aapke bank se email aata hai, to yeh service ensure karti hai ki email sach me bank se aaya hai, scammer se nahi.</li>
+                                    <li>Ek document pe digital signature hota hai jo prove karta hai ki sender correct tha.</li>
+                                </ul>
+                            </li>
+                            <li>Protection Methods:
+                                Digital signatures aur cryptographic verification</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>2: Access Control (Kisko kya access mil sakta hai?)</strong></p>
+                <ul>
+                    <li>Access control decide karta hai ki kaun data ko access kar sakta hai aur us data ke sath kya kar sakta hai.</li>
+                    <li>Example:
+                        <ul>
+                            <li>Ek company ka HR system sirf HR employees ko salary data dekhne deta hai.</li>
+                            <li>Aapka cloud storage (jaise Google Drive) aapko decide karne deta hai ki kaun aapke files dekh sakta hai, edit kar sakta hai ya download kar sakta hai.</li>
+                        </ul>
+                    </li>
+                    <li>Protection Methods:
+                        <ul>
+                            <li>Role-Based Access Control (RBAC) – Users ko unke role ke hisaab se permissions milti hain.</li>
+                            <li>User authentication (passwords, biometrics, etc.)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>3: Data Confidentiality (Data ko private rakhna)</strong></p>
+                <ul>
+                    <li>Confidentiality ensure karta hai ki sirf authorized users hi data ko read kar saken. Agar hacker data chura bhi le, to bina decrypt kiye use samajh nahi payega.</li>
+                    <li>Example:
+                        <ul>
+                            <li>Jab aap WhatsApp message bhejte ho, to wo encrypted hota hai, matlab sirf receiver hi usse padh sakta hai.</li>
+                            <li>HTTPS website pe shopping karte waqt aapke credit card details safe rahte hain.</li>
+                        </ul>
+                    </li>
+                    <li>Protection Methods:
+                        <ul>
+                            <li>Encryption – Data ko unreadable format me convert karta hai (e.g., AES, RSA).</li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>4: Data Integrity (Data badla toh nahi?)</strong></p>
+                <ul>
+                    <li>Integrity ensure karta hai ki data transmission ke dauraan change nahi hua hai. Agar koi data modify kare, to receiver ko pata chal jaata hai.</li>
+                    <li>Example:
+                        <ul>
+                            <li>Aap jab kisi official website se software download karte ho, to checksum (hash value) check karta hai ki data modify toh nahi hua.</li>
+                            <li>Bank transaction ensure karta hai ki amount beech me kisi attacker ne change nahi kiya hai.</li>
+                        </ul>
+                    </li>
+                    <li>Protection Methods: Hash functions (SHA-256, MD5) – Data ka unique fingerprint banate hain.</li>
+                </ul>
+                <p><strong>5: Non-Repudiation (Baad me mana na kar paaye)</strong></p>
+                <ul>
+                    <li>Ye ensure karta hai ki sender baad me ye na keh paaye ki usne message ya transaction nahi kiya. Isme proof hota hai ki kaun user responsible tha.</li>
+                    <li>Example:
+                        <ul>
+                            <li>Agar koi person email bhejta hai aur baad me keh deta hai ki usne nahi bheja, to Non-repudiation proof deta hai ki email usi ne bheja tha.</li>
+                            <li>Online banking me agar customer money transfer karta hai, to system uske digital signature ko record karta hai — jisse woh deny nahi kar sakta.</li>
+                        </ul>
+                    </li>
+                    <li>Protection Methods:
+                        <ul>
+                            <li>Digital Signatures – Message ko specific sender se link karta hai.</li>
+                            <li>Transaction logs – Saari activities ka record rakhta hai.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Security Mechanisms</h3>
+                <ul>
+                    <li>Security mechanism ek aisa tool ya process hota hai jo data aur systems ko attack se bachata hai.</li>
+                    <li>Security mechanisms important kyun hote hain?
+                        <ul class="lstn">
+                            <li>✔ Ye security rules ko follow karwate hain</li>
+                            <li>✔ Attacks ko detect aur prevent karte hain</li>
+                            <li>✔ Secure communication aur data protection mein help karte hain</li>
+                        </ul>
+                    </li>
+                    <li>Aise samjho: agar security services law hain, toh security mechanisms un laws ko follow karwane waale police ya tools hote hain. 🚓🔒</li>
+                    <li>Security mechanisms do types ke hote hain:
+                        <ol>
+                            <li>Specific Security Mechanisms (Jo particular security task ke liye banaye jaate hain)</li>
+                            <li>Pervasive Security Mechanisms (Jo background mein continuously kaam karte hain security maintain karne ke liye)</li>
+                        </ol>
+                    </li>
+                </ul>
+                <p><strong>1. Specific Security Mechanisms</strong></p>
+                <p>Ye mechanisms directly security dene ke liye use hote hain. Ye special security kaam jaise encryption, authentication, aur access control ke liye design kiye jaate hain.
+                    <br>Chalo kuch important specific mechanisms dekhte hain:
+                </p>
+                <ol>
+                    <li>Encipherment (Encryption): Is mechanism mein readable data (plaintext) ko unreadable format (ciphertext) mein convert kiya jaata hai taaki koi unauthorized banda use samajh na paaye.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>WhatsApp messages encrypted hote hain, matlab sirf sender aur receiver hi unhe padh sakte hain.</li>
+                                    <li>HTTPS websites aapki credit card details ko secure rakhti hain jab aap online shopping karte ho.</li>
+                                </ul>
+                            </li>
+                            <li>Methods Used:
+                                <ul>
+                                    <li>Symmetric Encryption – Encrypt aur decrypt dono ke liye same key use hoti hai (AES, DES).</li>
+                                    <li>Asymmetric Encryption – Encryption ke liye public key aur decryption ke liye private key use hoti hai (RSA, ECC).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Digital Signatures: Digital signature ensure karta hai ki message ya document asli hai aur beech mein modify nahi hua.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Jab aap koi software download karte ho, digital signature confirm karta hai ki wo official source se hi aaya hai.</li>
+                                    <li>Online contracts mein fraud avoid karne ke liye digital signatures use hote hain.</li>
+                                </ul>
+                            </li>
+                            <li>Methods Used:
+                                <ul>
+                                    <li>Hash functions (SHA-256, MD5)</li>
+                                    <li>Public Key Infrastructure (PKI)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Access Control: Ye decide karta hai ki kaun kisi resource ko dekh sakta hai, change kar sakta hai ya use kar sakta hai.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Sirf HR team hi payroll data dekh sakti hai.</li>
+                                    <li>Online banking mein 2-factor authentication use hota hai.</li>
+                                </ul>
+                            </li>
+                            <li>Methods Used:
+                                <ul>
+                                    <li>Role-Based Access Control (RBAC)</li>
+                                    <li>Multi-Factor Authentication (MFA)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Authentication Exchange: Ye verify karta hai ki user kaun hai usse access dene se pehle.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Website login karte waqt username aur password se verify karna.</li>
+                                    <li>Smartphone ka fingerprint ya face unlock.</li>
+                                </ul>
+                            </li>
+                            <li>Methods Used:
+                                <ul>
+                                    <li>Biometric authentication (fingerprint, retina scan, face ID)</li>
+                                    <li>Password-based authentication</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>2. Pervasive Security Mechanisms</strong></p>
+                <p>Specific mechanisms ke opposite, ye background mein silently kaam karte hain taaki overall system secure rahe. Ye detect, prevent aur recovery mein help karte hain.
+                    <br>Yahan kuch important pervasive mechanisms hain:
+                </p>
+                <ol>
+                    <li>Security Audit & Monitoring: System ke activities track karta hai taaki security threats detect ho sakein.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Bank unusual transactions ko monitor karta hai taaki fraud detect ho sake.</li>
+                                    <li>Companies unauthorized access track karne ke liye firewalls use karti hain.</li>
+                                </ul>
+                            </li>
+                            <li>Methods Used:
+                                <ul>
+                                    <li>Log analysis</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Security Recovery: Attack hone ke baad system ko wapas normal state mein laata hai.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Ransomware attack ke baad backup se files ko restore karna.</li>
+                                    <li>Server crash ke baad data ko restore karna disaster recovery plan se.</li>
+                                </ul>
+                            </li>
+                            <li>Methods Used:
+                                <ul>
+                                    <li>Backup and restore</li>
+                                    <li>Disaster recovery planning</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Event Logging: Sabhi security-related events ka record rakhta hai taaki future analysis ya investigation ho sake.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Failed login attempts ka record hacking attempt detect karne mein help karta hai.</li>
+                                    <li>Security systems critical file changes ko log karte hain.</li>
+                                </ul>
+                            </li>
+                            <li>Methods Used: Automated log analyzers</li>
+                        </ul>
+                    </li>
+                    <li>Security Awareness & Training: Users ko cyber threats aur unse kaise bacha jaaye iski training di jaati hai.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>Employees ko phishing emails se kaise bachein, iski training di jaati hai.</li>
+                                    <li>Schools students ko cybersecurity ke basics sikhate hain.</li>
+                                </ul>
+                            </li>
+                            <li>Mehods Used:
+                                <ul>
+                                    <li>Cybersecurity Workshops.</li>
+                                    <li>Regular security drills.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            
+        </div>
+        <div class="wh">
+            <h2>Authentication Applications</h2>
+<p>Ab jab humne security ke baare mein thoda samajh liya, toh chalo ab authentication pe focus karte hain, jo ensure karta hai ki sirf sahi log hi access le saken.</p>
+<div class="in">
+    <h3>Authentication ki Zarurat Samjho</h3>
+    <ul>
+        <li>Socho tum apne bank account mein login kar rahe ho. System kaise jaanega ki sach mein tum hi ho? Yahi kaam karta hai authentication!</li>
+        <li>Authentication ensure karta hai ki sirf sahi aadmi (ya device) ko hi system ka access mile, unauthorized logon ko rokta hai.</li>
+        <li>Networks mein authentication users, devices, aur systems ki identity verify karta hai, tabhi unhe sensitive data ya services tak access milta hai.</li>
+        <li>Agar authentication na ho, toh koi bhi tumhari jagah ban sakta hai, jis se data breach, identity theft, aur system ka galat istemal ho sakta hai.</li>
+    </ul>
+
+    <h3>Authentication se judi common threats kya hain?</h3>
+    <ul>
+        <li><strong>Phishing Attacks:</strong> Hackers users ko trick karte hain apne passwords dene ke liye, jaise ki fake websites ke through.</li>
+        <li><strong>Brute Force Attacks:</strong> Automated programs kayi passwords try karte hain jab tak sahi password na mil jaye.</li>
+        <li><strong>Man-in-the-Middle (MITM) Attacks:</strong> Hacker chupke se do parties ke beech ki baat cheet ko intercept aur badal deta hai.</li>
+        <li><strong>Credential Stuffing:</strong> Attackers chori kiye hue username-password ek site se leke doosri site pe login karne ki koshish karte hain.</li>
+        <li><strong>Session Hijacking:</strong> Ek attacker kisi user ki active session chura leta hai aur bina permission ke uske account mein ghus jata hai.</li>
+    </ul>
+
+    <h3>Authentication communication mein security kaise ensure karta hai?</h3>
+    <ul>
+        <li><strong>Username & Password:</strong> Sabse basic tareeka hai, par weak ho sakta hai agar password strong na ho ya bar bar use ho raha ho.</li>
+        <li><strong>Two-Factor Authentication (2FA):</strong> Ek extra security layer add karta hai, jisme second step hota hai jaise phone pe bheja gaya code.</li>
+        <li><strong>Biometric Authentication:</strong> Fingerprints, face recognition, ya retina scans ka use karta hai unique aur secure identification ke liye.</li>
+        <li><strong>Digital Certificates (SSL/TLS):</strong> Internet jaise networks pe encrypted aur secure communication ensure karta hai.</li>
+        <li><strong>Kerberos Authentication:</strong> Network authentication protocol hai jo encrypted tickets use karta hai user ki identity verify karne ke liye bina passwords bheje.</li>
+    </ul>
+
+</div>
+<h3>Authentication Mechanisms</h3>
+
+<ul>
+    <li>Authentication mechanisms wo alag-alag tareeke hain jo user, device, ya system ki identity verify karne ke liye use hote hain pehle access dene se pehle.</li>
+    <li>Sirf passwords secure nahi hote, isliye advanced mechanisms cryptography, certificates, ya secure ticket-based systems use karte hain taaki security badh sake.</li>
+    <li>
+        Do famous authentication mechanisms hain <strong>Kerberos</strong> aur <strong>X.509</strong>, jo alag-alag situations ke liye banaye gaye hain:
+        <ul>
+            <li>
+                <strong>Kerberos:</strong> Network environments mein use hota hai jahan users ko baar-baar password enter kiye bina securely authenticate karna hota hai.
+                <br><em>Real-life example:</em> Jab ek employee apne office computer mein login karta hai aur bina baar-baar password dale emails, files, printers access karta hai — yehi Kerberos ka kamaal hai.
+                <br><strong>Crux:</strong> Kerberos network ke andar <u>user</u> ko authenticate karta hai.
+            </li>
+            <li>
+                <strong>X.509:</strong> Internet security mein use hota hai, jaise SSL/TLS certificates, online identities verify karne ke liye.
+                <br><em>Real-life example:</em> Jab tum kisi secure website pe jaate ho jaise <code>https://yourbank.com</code> aur browser mein padlock icon dikhta hai — yehi X.509 site ki identity prove kar raha hota hai.
+                <br><strong>Crux:</strong> X.509 internet pe <u>website/server</u> ko authenticate karta hai.
+            </li>
+        </ul>
+        <p>
+            <strong>Summary:</strong> Kerberos internal networks jaise office ya school mein users ko authenticate karta hai taaki wo multiple services secure tarike se bina baar-baar login kiye use kar saken. Dusri taraf, X.509 internet pe websites ko authenticate karta hai SSL/TLS ke through, taaki users asli aur secure sites se hi connect karen.
+        </p>
+    </li>
+</ul>
+
+            </ul>
+            <div class="in">
+                <h3>Kerberos</h3>
+                <ul>
+                    <li>Kerberos ek network authentication protocol hai, matlab yeh check karta hai ki user asli hai ya nahi aur trusted hai ya nahi, uske baad hi network ka access deta hai. Socho tum ek high-security building mein jaana chahte ho. Tum bas aise andar nahi jaa sakte; tumhe ek ID card ya pass chahiye jo prove kare ki tum authorized ho. Kerberos bhi waise hi computer networks ke liye kaam karta hai.</li>
+                    <li>Kerberos ka main goal security hai. Yeh ensure karta hai ki sirf verified users hi network resources use kar sakein aur attackers kisi aur ke naam pe pretend na kar paayein.</li>
+                </ul>
+                <h3>Why Do We Need Kerberos?</h3>
+                <ul>
+                    <li>Maan lo tum college Wi-Fi ya company server mein login kar rahe ho. System ko confirm karna hota hai ki:
+                        <ol>
+                            <li>Tum wahi ho jo tum kehte ho (authentication).</li>
+                            <li>Tumhe kuch specific resources access karne ki permission hai (authorization).</li>
+                            <li>Tumhare login details network pe bhejte waqt chori nahi ho rahe.</li>
+                        </ol>
+                    </li>
+                    <li>Agar proper authentication na ho toh hackers tumhare passwords chura ke asli user ban sakte hain. Kerberos is problem ko tickets use karke solve karta hai, passwords ke bajaye.</li>
+                </ul>
+                <h3>Key Features of Kerberos</h3>
+                <ol>
+                    <li>Client-Server Architecture
+                        <ul>
+                            <li>User (client) network services ke liye request bhejta hai.</li>
+                            <li>Server tabhi access deta hai jab authentication ho jaaye.</li>
+                        </ul>
+                    </li>
+                    <li>Uses Symmetric Key Encryption
+                        <ul>
+                            <li>Wohi key encryption aur decryption dono ke liye use hoti hai, jisse communication secure hota hai.</li>
+                        </ul>
+                    </li>
+                    <li>Relies on a Trusted Third Party (TTP)
+                        <ul>
+                            <li>Is trusted authority ko Key Distribution Center (KDC) kehte hain.</li>
+                            <li>KDC authentication manage karta hai aur secret keys securely provide karta hai.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3>Understanding Kerberos with an Example</h3>
+                <img src="../../images/cl1.jpeg" alt="">
+                <p>Maan lo tum company ke internal database ko access karna chahte ho. Yeh raha step-by-step process jisse Kerberos secure access deta hai:</p>
+                <ol>
+                    <li>You Request Access
+                        <ul>
+                            <li>Tum (user) Kerberos ke Key Distribution Center (KDC) ko request bhejte ho, "Hey, mujhe database access karna hai!"</li>
+                        </ul>
+                    </li>
+                    <li>Authentication Server (AS) Checks Your Identity
+                        <ul>
+                            <li>KDC ke do parts hote hain:
+                                <ol>
+                                    <li>Authentication Server (AS) – Yeh check karta hai ki tum kaun ho.</li>
+                                    <li>Ticket Granting Server (TGS) – Network services ke liye access deta hai.</li>
+                                </ol>
+                                AS check karta hai ki tum system mein registered ho ya nahi. Agar valid ho toh AS tumhe encrypted ticket bhejta hai.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>You Decrypt the Ticket
+                        <ul>
+                            <li>Yeh ticket ek sealed letter jaisa hota hai jo sirf tum khol sakte ho. Tum apni secret key (jaise password) se ise decrypt karte ho. Decrypted ticket mein ek hash code hota hai (special encrypted signature).</li>
+                        </ul>
+                    </li>
+                    <li>Proving Your Identity
+                        <ul>
+                            <li>Tum hash code wapas AS ko bhejte ho proof ke liye ki tumne ticket sahi se decrypt kiya. Agar hash code sahi hua, toh AS confirm karta hai, "Haan, yeh banda asli hai!"</li>
+                        </ul>
+                    </li>
+                    <li>Getting a Service Ticket
+                        <ul>
+                            <li>Ab AS Ticket Granting Server (TGS) ko involve karta hai. TGS ek Service Ticket (session key bhi kehte hain) banata hai. Yeh ticket ek VIP pass jaisa hota hai jo tumhe network services use karne deta hai.</li>
+                        </ul>
+                    </li>
+                    <li>Accessing the Network
+                        <ul>
+                            <li>Service ticket ke saath ab tum securely database ya kisi aur network service se baat kar sakte ho. Tumhe apna password baar-baar bhejne ki zarurat nahi, ticket se apni authenticity prove karte ho.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3>Why is Kerberos Secure?</h3>
+                <ol>
+                    <li>No Passwords Sent Over the Network
+                        <ul>
+                            <li>Kerberos tumhara password network pe nahi bhejta, balki encrypted tickets use karta hai.</li>
+                        </ul>
+                    </li>
+                    <li>Session Keys for Each Login
+                        <ul>
+                            <li>Har session ke liye alag secret key hoti hai, jis se attackers purani data reuse nahi kar pate.</li>
+                        </ul>
+                    </li>
+                    <li>Mutual Authentication
+                        <ul>
+                            <li>Sirf server hi user ko verify nahi karta, user bhi server ko verify karta hai, jis se phishing attacks nahi hote.</li>
+                        </ul>
+                    </li>
+                    <li>Prevents Replay Attacks
+                        <ul>
+                            <li>Agar attacker tumhara ticket capture kar bhi le, tab bhi wo usse dubara use nahi kar sakta kyunki Kerberos har ticket pe timestamp lagata hai.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Kerberos corporate networks, government systems, aur Windows Active Directory mein bahut use hota hai. Yeh ensure karta hai ki sirf asli aur trusted users hi network resources access kar sakein aur sab kuch secure rahe.</p>
+            </div>
+            
+
+            <div class="in">
+                <h3>X.509 Authentication Service</h3>
+<ul>
+    <li>
+        <strong>X.509</strong> ek popular <strong>digital certificate standard</strong> hai jo internet security me bahut important role play karta hai. 
+        Ye mainly <strong>SSL/TLS protocol</strong> me use hota hai, jo aapke browser aur website ke beech communication ko secure banata hai.
+    </li>
+    <li>
+        <strong>X.509</strong> website ki asli hone ki guarantee deta hai digital certificate ke through. Is certificate me website ka public key hota hai aur ye ek trusted third party, jise <strong>Certificate Authority (CA)</strong> kehte hain, ke dwara issue kiya jata hai. Ye certificate website ki identity proof karta hai aur communication secure banata hai.
+    </li>
+    <li>
+        Ye digital certificates important info contain karte hain jaise:
+        <ul>
+            <li><strong>Website ka domain name:</strong> jaise <code>example.com</code></li>
+            <li><strong>Website ka public key</strong></li>
+            <li><strong>Issuing Certificate Authority (CA)</strong></li>
+            <li><strong>Certificate ka expiration date</strong></li>
+        </ul>
+    </li>
+    <li>
+        <strong>Real-life example:</strong> Jab aap <code>https://yourbank.com</code> jaisi website visit karte ho, toh aapka browser automatic check karta hai ki site ke paas valid <strong>X.509 certificate</strong> hai ya nahi. 
+        Agar sab kuch theek hai, toh address bar me <strong>padlock icon (🔒)</strong> dikhata hai, matlab connection secure hai aur site verified hai.
+    </li>
+    <li>
+        Agar certificate <strong>invalid</strong>, <strong>expired</strong>, ya <strong>fake</strong> hai, toh browser aapko warning deta hai jaise <em>"Your connection is not private,"</em> taaki aap apni personal ya financial info na daalein.
+    </li>
+    <li>
+        <strong>Simple words me:</strong> X.509 certificates aapko un attackers se bachate hain jo fake websites bana ke asli websites ka naam use karte hain. Ye ensure karta hai ki aap asli website se hi baat kar rahe ho, na ki kisi fake ya harmful site se.
+    </li>
+</ul>
+
+
+                <h3>Why Do We Need X.509?</h3>
+
+                <ul>
+                    <li>Bina proper authentication ke, attackers <strong>websites, servers, ya logon ka naam badal ke</strong> fraud kar sakte hain.</li>
+                    <li>X.509 aise attacks ko rokta hai by:
+                        <ul>
+                            <li><strong>Trusted tareeke</strong> se identities verify karne ke liye digital certificates provide karta hai.</li>
+                            <li><strong>Public Key Infrastructure (PKI)</strong> use karke communication encrypt karta hai.</li>
+                            <li><strong>Man-in-the-Middle (MITM) attacks</strong> ko rokta hai, jahan attacker data ko beech me intercept karta hai.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>How Does X.509 Work?</h3>
+
+                <ul>
+                    <li>X.509 <strong>public key cryptography</strong> use karta hai, jisme har user ke paas hota hai:
+                        <ul>
+                            <li>Ek <strong>public key</strong> (jo dusro ke sath share hoti hai).</li>
+                            <li>Ek <strong>private key</strong> (jo sirf user ke paas secret hoti hai).</li>
+                        </ul>
+                    </li>
+                    <li>Ek <strong>Certificate Authority (CA)</strong> digital certificates issue karta hai jo public key ko kisi specific user ya organization se jodta hai.</li>
+                </ul>
+
+                <h3>Structure of an X.509 Certificate</h3>
+                <img src="../../images/cl2.jpeg" alt="">
+                <ul>
+                    <li>Har X.509 certificate ek fixed format follow karta hai jisme important details hoti hain.</li>
+                    <li><strong>📌 X.509 Certificate ke key fields:</strong>
+                        <ul>
+                            <li><strong>Version (V1, V2, V3):</strong> Certificate ka format define karta hai. 
+                                <strong>V3</strong> latest version hai jisme extra security features hote hain.
+                            </li>
+                            <li><strong>Serial Number:</strong> Certificate Authority ke dwara diya gaya unique ID.</li>
+                            <li><strong>Signature Algorithm Identifier:</strong> Wo algorithm jo certificate ko sign karne me use hota hai (jaise <strong>RSA, SHA-256</strong>).</li>
+                            <li><strong>Issuer Name:</strong> Wo Certificate Authority (CA) jinhone certificate issue kiya.</li>
+                            <li><strong>Validity Period:</strong>
+                                <ul>
+                                    <li>Certificate ka start aur expiration date batata hai.</li>
+                                    <li>Expiration ke baad certificate ko trust nahi kiya jata.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Subject Name:</strong> Wo entity (person, organization, ya website) jiske naam certificate hai.</li>
+                            <li><strong>Public Key Information:</strong> Public key jo encryption aur authentication me use hoti hai.</li>
+                            <li><strong>Issuer Unique ID (Optional in V2 & V3):</strong> Same CA ke certificates ko alag karne ke liye.</li>
+                            <li><strong>Subject Unique ID (Optional in V2 & V3):</strong> Same subject ko diye gaye multiple certificates ko differentiate karne ke liye.</li>
+                            <li><strong>Extensions (Sirf V3 me):</strong> Extra security features jaise:
+                                <ul>
+                                    <li><strong>Key Usage:</strong> Certificate kis purpose ke liye use ho sakta hai batata hai.</li>
+                                    <li><strong>Certificate Policies:</strong> Certificate use karne ke rules.</li>
+                                    <li><strong>Alternative Subject Names:</strong> Multiple domain names allow karta hai.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Understanding X.509 with an Example</h3>
+
+                <ul>
+                    <li>Maan lo aap visit kar rahe ho <strong>https://www.example.com</strong>. Aapka browser website ke X.509 certificate ko check karta hai:</li>
+                    <li><strong>Issuer (CA) verify karta hai:</strong>
+                        <ul>
+                            <li>Check karta hai ki <strong>Certificate Authority</strong> (jaise <strong>DigiCert, Let’s Encrypt</strong>) trustworthy hai ya nahi.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Validity Period check karta hai:</strong>
+                        <ul>
+                            <li>Agar certificate expire ho gaya hai toh browser warning deta hai.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Public Key website se match karta hai:</strong>
+                        <ul>
+                            <li>Attackers ke fake certificates use karne se rokta hai.</li>
+                        </ul>
+                    </li>
+                    <li>Agar sab kuch sahi hai toh browser website ko trust karta hai aur aap secure browsing kar sakte ho.</li>
+                </ul>
+
+                <h3>Why is X.509 Secure?</h3>
+
+                <ul>
+                    <li><strong>Identity Fraud se bachata hai</strong> – Sirf verified entities ko certificates milte hain.</li>
+                    <li><strong>Strong Cryptography use karta hai</strong> – Public-private key encryption data ko secure banata hai.</li>
+                    <li><strong>Certificate Revocation support karta hai</strong> – Agar certificate compromise ho jaye toh usko revoke kiya ja sakta hai.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div>
+        Overview of Unit 1: Introduction to Network Security
+
+This unit is all about understanding network security, why it's important, and how we protect data from attacks. Here’s how everything fits together and how you can approach studying it:
+Step 1: Understanding the Basics of Network Security
+
+Before jumping into attacks and mechanisms, you first need to know what network security is and why it matters. Think of it like securing your house—you need locks, cameras, and alarms to prevent intruders. Similarly, in networking, security ensures that data stays safe, private, and unchanged.
+
+ Goals of Network Security: Here, you’ll learn about the three main objectives:
+
+    Confidentiality (keeping data private)
+    Integrity (ensuring data isn’t altered)
+    Availability (making sure data is accessible when needed)
+
+Step 2: The ISO Security Architecture & Network Attacks
+
+Now that you know why security is needed, let’s look at what we’re protecting against. The ISO Security Architecture provides a structured way to understand security concepts.
+
+📌 Attacks & Their Categories:
+
+    Active Attacks (altering, modifying data)
+    Passive Attacks (eavesdropping, stealing information)
+    Insider & Outsider Attacks (who is attacking)
+
+Understanding these attacks helps you see what threats exist in a network.
+Step 3: Security Services & Mechanisms
+
+Once you know about attacks, the next step is how to defend against them. Here, you’ll explore Network Security Services & Mechanisms—think of these as tools to secure a network. These include:
+
+    Encryption (hiding data)
+    Firewalls (blocking unauthorized access)
+    Authentication (verifying identities)
+
+Step 4: Authentication Applications (Kerberos & X.509)
+
+Now that we’ve covered security in general, let’s focus on authentication, which ensures that only the right people get access.
+
+🔑 Kerberos
+This is like a digital ticket system—when you log in, you get a ticket that allows you to access services without entering your password repeatedly. It prevents password theft by ensuring your credentials aren’t sent over the network.
+
+📜 X.509 Directory Authentication Service
+This is a certificate-based authentication system. It’s like having a digital ID card that proves your identity. It is widely used in websites (SSL certificates) and secure email systems.
+    </div> -->
+    <div class="content-box">
+        <p>Reference</p>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=UG26SS9pjwE" target="_blank"> The OSI Security Architecture
+                    video lecture &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=yIm0Ol9Dg4Y" target="_blank"> Security Attacks video lecture
+                    &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=bRgL_Dry7uw" target="_blank"> Security Services video lecture
+                    &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=3u1YSCx5q-w" target="_blank">Kerberos - Authentication
+                    Protocol, Working with diagram|CNS| youtube video lecture &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=df6UMCcxN6Y" target="_blank">X- 509 Authentication Service -
+                    Certificate and its Elements |CNS| youtube video lecture &neArr;</a></li>
+        </ul>
+    </div>
+    <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing, Clipping, and Filling Algorithms</title>
+    <link rel="stylesheet" href="../../../../public/style.css">
+    <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+    <link rel="stylesheet" id="highlightStylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-blue.min.css">
+</head>
+
+<body class="bg-c">
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html" class="home">back</a>
+        <div class="fix-column-links">
+            <a href="#" class="link"></a>
+            <div class="botbut">
+                <a href="../unit4/index.html" class="link">Next Topic &rarr;</a>
+                <a href="../unit2/index.html" class="link">&larr; Previous Topic</a>
+            </div>
+        </div>
+    </div>
+    <div id="navbar" class="grad">
+        <div>
+            <div class="openbtn" onclick="openNav()">
+                <div id="nav-icon1" for="nav-menu1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Drawing, Clipping, and Filling Algorithms</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <div class="wh">
+            <h2>Line Drawing Algorithm</h2>
+            <h3>Unit Structure</h3>
+            <pre>
+                <code>
+Computer Graphics: Drawing, Clipping, and Filling Algorithms
+|
+├── 1. Line Drawing Algorithms
+│   ├── DDA Algorithm
+│   ├── Bresenham’s Line Algorithm
+│   └── Circle and Ellipse Generation Algorithm
+│
+├── 2. Clipping
+│   ├── Point Clipping
+│   ├── Line Clipping
+│   └── Polygon Clipping
+│
+└── 3. Filling
+    ├── Inside Tests
+    ├── Flood Fill Algorithm
+    ├── Boundary-Fill Algorithm
+    └── Scan-Line Polygon Fill Algorithm
+                </code>
+            </pre>
+            <div class="in">
+                <h3>DDA Line Drawing Algorithm</h3>
+
+                <p>The DDA (Digital Differential Analyzer) line drawing algorithm is an efficient method for drawing
+                    lines in computer graphics. It uses simple calculations to determine the coordinates of each pixel
+                    along a line.</p>
+
+                <h3>Steps to Draw a Line using DDA Algorithm</h3>
+
+                <ul>
+                    <li><strong>Step 1: Given Two Points</strong>
+                        <p>We are given two points, which define the start and end of the line:</p>
+                        <ul>
+                            <li><strong>Point 1 (x1, y1)</strong> – Start point of the line.</li>
+                            <li><strong>Point 2 (x2, y2)</strong> – End point of the line.</li>
+                        </ul>
+                        <p>The points (x1, y1) and (x2, y2) will define the start and end of the line.</p>
+                    </li>
+
+                    <li><strong>Step 2: Calculate Differences</strong>
+                        <p>We calculate the differences in the X and Y coordinates:</p>
+                        <p class="ms">
+                            \[
+                            \Delta X = x2 - x1
+                            \]
+                        </p>
+                        <br>
+                        <p class="ms">
+                            \[
+                            \Delta Y = y2 - y1
+                            \]
+                        </p>
+                        <p>The values of ΔX and ΔY will help in determining the slope and how to increment X or Y.</p>
+                    </li>
+
+                    <li><strong>Step 3: Calculate the Slope</strong>
+                        <p>The slope (m) of the line is calculated as:</p>
+                        <p class="ms">
+                            \[
+                            m = \frac{\Delta Y}{\Delta X}
+                            \]
+                        </p>
+                        <p>This gives us the direction of the line, which helps in deciding whether to increment X or Y.
+                        </p>
+                    </li>
+
+                    <li><strong>Step 4: Decide Whether to Increment X or Y</strong>
+                        <p>Now, we decide how to move along the line. There are two cases:</p>
+
+                        <ul>
+                            <li><strong>Case 1: When ΔX ≥ ΔY (X changes more than Y)</strong>
+                                <p>In this case, we increment X by 1 in each step. To find the corresponding Y, we use
+                                    the slope:</p>
+                                <p class="ms">
+                                    \[
+                                    \Delta Y = m \times \Delta X
+                                    \]
+                                </p>
+                                <p>Since we are incrementing X by 1 (i.e., ΔX = 1), we substitute this into the
+                                    equation:</p>
+                                <p class="ms">
+                                    \[
+                                    y_{i+1} = y_i + m
+                                    \]
+                                </p>
+                                <p>Now, we increment X by 1:</p>
+                                <p class="ms">
+                                    \[
+                                    x_{i+1} = x_i + 1
+                                    \]
+                                </p>
+                            </li>
+
+                            <li><strong>Case 2: When ΔY > ΔX (Y changes more than X)</strong>
+                                <p>In this case, we increment Y by 1 in each step. To find the corresponding X, we
+                                    rearrange the slope formula:</p>
+                                <p class="ms">
+                                    \[
+                                    \Delta X = \frac{\Delta Y}{m}
+                                    \]
+                                </p>
+                                <p>Since we are incrementing Y by 1 (i.e., ΔY = 1), we substitute this into the
+                                    equation:</p>
+                                <p class="ms">
+                                    \[
+                                    x_{i+1} = x_i + \frac{1}{m}
+                                    \]
+                                </p>
+                                <p>Now, we increment Y by 1:</p>
+                                <p class="ms">
+                                    \[
+                                    y_{i+1} = y_i + 1
+                                    \]
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Step 5: Continue Until the End Point is Reached</strong>
+                        <p>Start at (x1, y1) and keep calculating the next coordinates using the steps above until
+                            reaching (x2, y2). Round the values to get the closest integer pixel positions.</p>
+                    </li>
+                </ul>
+                <hr>
+                <p><strong>Example: Line from (2, 3) to (6, 8)</strong></p>
+
+                <p><strong>Given:</strong></p>
+                <ul>
+                    <li><strong>Point 1 (x1, y1) = (2, 3)</strong></li>
+                    <li><strong>Point 2 (x2, y2) = (6, 8)</strong></li>
+                </ul>
+
+                <p>First, calculate the differences:</p>
+                <p class="ms">
+                    \[
+                    \Delta X = 6 - 2 = 4, \quad \Delta Y = 8 - 3 = 5
+                    \]
+                </p>
+
+                <p>Next, calculate the slope:</p>
+                <p class="ms">
+                    \[
+                    m = \frac{5}{4} = 1.25
+                    \]
+                </p>
+
+                <p>Since ΔY > ΔX, we increment Y by 1 and calculate X for each step. Here’s the calculation for the
+                    points:</p>
+
+                <ul>
+                    <li><strong>Start at (2, 3).</strong></li>
+                    <li><strong>Next point:</strong> Increment Y by 1, calculate X:</li>
+                    <p class="ms">
+                        \[
+                        X_{\text{next}} = X + \frac{1}{m} = 2 + \frac{1}{1.25} = 2.8
+                        \]
+                    </p>
+                    <li>The next point is (2.8, 4).</li>
+
+                    <li><strong>Next point:</strong> Increment Y by 1, calculate X:</li>
+                    <p class="ms">
+                        \[
+                        X_{\text{next}} = X + \frac{1}{m} = 2.8 + \frac{1}{1.25} = 3.6
+                        \]
+                    </p>
+                    <li>The next point is (3.6, 5).</li>
+
+                    <li><strong>Next point:</strong> Increment Y by 1, calculate X:</li>
+                    <p class="ms">
+                        \[
+                        X_{\text{next}} = X + \frac{1}{m} = 3.6 + \frac{1}{1.25} = 4.4
+                        \]
+                    </p>
+                    <li>The next point is (4.4, 6).</li>
+
+                    <li><strong>Next point:</strong> Increment Y by 1, calculate X:</li>
+                    <p class="ms">
+                        \[
+                        X_{\text{next}} = X + \frac{1}{m} = 4.4 + \frac{1}{1.25} = 5.2
+                        \]
+                    </p>
+                    <li>The next point is (5.2, 7).</li>
+
+                    <li><strong>Final point:</strong> Increment Y by 1, calculate X:</li>
+                    <p class="ms">
+                        \[
+                        X_{\text{next}} = X + \frac{1}{m} = 5.2 + \frac{1}{1.25} = 6
+                        \]
+                    </p>
+                    <li>The next point is (6, 8), which is the end point.</li>
+                </ul>
+
+                <p>Here’s the table of values:</p>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                      <tr>
+                        <th>x</th>
+                        <th>y</th>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>3</td>
+                      </tr>
+                      <tr>
+                        <td>2.8</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>3.6</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>4.4</td>
+                        <td>6</td>
+                      </tr>
+                      <tr>
+                        <td>5.2</td>
+                        <td>7</td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>8</td>
+                      </tr>
+                    </table>
+                  </div>
+                  
+
+                <p>This table shows the calculated points from the start to the end point using the DDA algorithm.</p>
+                <hr>
+                <p><strong>Example: Line from (1, 1) to (4, 3)</strong></p>
+
+                <p><strong>Given:</strong></p>
+                <ul>
+                    <li><strong>Point 1 (x1, y1) = (1, 1)</strong></li>
+                    <li><strong>Point 2 (x2, y2) = (4, 3)</strong></li>
+                </ul>
+
+                <p>First, calculate the differences:</p>
+                <p class="ms">
+                    \[
+                    \Delta X = 4 - 1 = 3, \quad \Delta Y = 3 - 1 = 2
+                    \]
+                </p>
+
+                <p>Next, calculate the slope:</p>
+                <p class="ms">
+                    \[
+                    m = \frac{2}{3} \approx 0.6667
+                    \]
+                </p>
+
+                <p>Since ΔX > ΔY, we increment X and calculate Y for each step. Here’s the calculation for the points:
+                </p>
+
+                <ul>
+                    <li><strong>Start at (1, 1).</strong></li>
+                    <li><strong>Next point:</strong> Increment X by 1, calculate Y:</li>
+                    <p class="ms">
+                        \[
+                        Y_{\text{next}} = Y + m = 1 + 0.6667 = 1.6667
+                        \]
+                    </p>
+                    <li>The next point is (2, 1.6667).</li>
+
+                    <li><strong>Next point:</strong> Increment X by 1, calculate Y:</li>
+                    <p class="ms">
+                        \[
+                        Y_{\text{next}} = Y + m = 1.6667 + 0.6667 = 2.3333
+                        \]
+                    </p>
+                    <li>The next point is (3, 2.3333).</li>
+
+                    <li><strong>Final point:</strong> Increment X by 1, calculate Y:</li>
+                    <p class="ms">
+                        \[
+                        Y_{\text{next}} = Y + m = 2.3333 + 0.6667 = 3
+                        \]
+                    </p>
+                    <li>The next point is (4, 3), which is the end point.</li>
+                </ul>
+
+                <p>Here’s the table of values:</p>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                      <tr>
+                        <th>x</th>
+                        <th>y</th>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>1.6667</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>2.3333</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>3</td>
+                      </tr>
+                    </table>
+                  </div>
+                  
+
+
+                <p>This table shows the calculated points from the start to the end point using the DDA algorithm.</p>
+
+            </div>
+            <div class="in">
+                <h3>Bresenham's Line Drawing Algorithm</h3>
+                <ul>
+                    <li>We are familiar with the DDA (Digital Differential Analyzer) algorithm for line drawing, right?
+                        It works by calculating the slope of the line and incrementing the coordinates in steps, using
+                        floating-point arithmetic. While DDA provides a simple and straightforward way to draw lines,
+                        the main drawback is that it uses floating-point calculations, which can lead to rounding errors
+                        and less efficient performance.</li>
+                    <li>This is where Bresenham's Line Drawing Algorithm comes in. Unlike DDA, which uses floating-point
+                        calculations, Bresenham's algorithm works entirely with integer arithmetic. This means it avoids
+                        the use of floating-point numbers, leading to more accurate and efficient calculations. The
+                        result is a much faster and more precise way to draw lines on digital screens, without the risk
+                        of rounding errors.</li>
+                </ul>
+
+                <p><strong>Definition: </strong>The Bresenham's Line Drawing Algorithm is an efficient way to draw a
+                    straight line between two points in computer graphics. The algorithm uses integer calculations to
+                    avoid the use of floating-point operations, making it faster and suitable for raster display
+                    systems.</p>
+
+                <ul>
+                    <li><strong>Step 1: Given Two Points</strong>
+                        <p>We are given two points <strong>(x1, y1)</strong> and <strong>(x2, y2)</strong>, which define
+                            the start and end of the line.</p>
+                    </li>
+
+                    <li><strong>Step 2: Calculate Differences</strong>
+                        <p>First, we calculate the differences in X and Y:</p>
+                        <p class="ms">
+                            \[
+                            \Delta X = x2 - x1, \quad \Delta Y = y2 - y1
+                            \]
+                        </p>
+                        <p><strong>Important:</strong> These values of <strong>ΔX</strong> and <strong>ΔY</strong> are
+                            <strong>calculated once at the beginning</strong> and remain the same throughout the
+                            algorithm. When updating the decision parameter <strong>p</strong>, we always use these
+                            initial values and do not recalculate them based on the updated <strong>x</strong> and
+                            <strong>y</strong>.
+                        </p>
+                    </li>
+
+                    <li><strong>Step 3: Calculate the Slope</strong>
+                        <p>The slope <strong>m</strong> is calculated as:</p>
+                        <p class="ms">
+                            \[
+                            m = \frac{\Delta Y}{\Delta X}
+                            \]
+                        </p>
+                        <p>We use this to determine whether the line is <strong>shallow</strong> or
+                            <strong>steep</strong>.
+                        </p>
+                    </li>
+
+                    <li><strong>Step 4: Initialize the Decision Parameter</strong>
+                        <p>The decision parameter <strong>p</strong> is initialized using the fixed values of
+                            <strong>ΔX</strong> and <strong>ΔY</strong>:
+                        </p>
+                        <p class="ms">
+                            \[
+                            p = 2\Delta Y - \Delta X
+                            \]
+                        </p>
+                        <p><strong>Important:</strong> When updating <strong>p</strong> in later steps, we
+                            <strong>always use the original ΔX and ΔY</strong> that were calculated at the beginning.
+                        </p>
+                    </li>
+
+                    <li><strong>Step 5: Check the Slope</strong>
+                        <p>Now, we check whether the slope <strong>m</strong> is less than 1 or greater than or equal to
+                            1. The algorithm behaves differently based on this value:</p>
+
+                        <ul>
+                            <li><strong>Case 1: When <strong>m &lt; 1</strong> (Shallow Line - More Horizontal)</strong>
+                                <p>If <strong>m &lt; 1</strong>, we <strong>always</strong> increment <strong>x</strong>
+                                    by 1 and decide whether to increment <strong>y</strong>.</p>
+                                <p>Using the fixed values of <strong>ΔX</strong> and <strong>ΔY</strong>, the steps are:
+                                </p>
+
+                                <ul>
+                                    <li><strong>Start:</strong> Let <strong>x0 = x1</strong> and <strong>y0 =
+                                            y1</strong>. We continue until we reach <strong>x2</strong>.</li>
+                                    <li>If <strong>p &lt; 0</strong>:
+                                        <p class="ms">
+                                            \[
+                                            x_{i+1} = x_i + 1, \quad y_{i+1} = y_i
+                                            \]
+                                        </p>
+                                        <p>Update <strong>p</strong> using the <strong>fixed</strong>
+                                            <strong>ΔX</strong> and <strong>ΔY</strong>:
+                                        </p>
+                                        <p class="ms">
+                                            \[
+                                            p = p + 2 \Delta Y
+                                            \]
+                                        </p>
+                                    </li>
+                                    <li>If <strong>p &ge; 0</strong>:
+                                        <p class="ms">
+                                            \[
+                                            x_{i+1} = x_i + 1, \quad y_{i+1} = y_i + 1
+                                            \]
+                                        </p>
+                                        <p>Update <strong>p</strong> using the <strong>fixed</strong>
+                                            <strong>ΔX</strong> and <strong>ΔY</strong>:
+                                        </p>
+                                        <p class="ms">
+                                            \[
+                                            p = p + 2 \Delta Y - 2 \Delta X
+                                            \]
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li><strong>Case 2: When <strong>m &ge; 1</strong> (Steep Line - More Vertical)</strong>
+                                <p>If <strong>m &ge; 1</strong>, we <strong>always</strong> increment <strong>y</strong>
+                                    by 1 and decide whether to increment <strong>x</strong>.</p>
+                                <p>Using the fixed values of <strong>ΔX</strong> and <strong>ΔY</strong>, the steps are:
+                                </p>
+
+                                <ul>
+                                    <li><strong>Start:</strong> Let <strong>x0 = x1</strong> and <strong>y0 =
+                                            y1</strong>. We continue until we reach <strong>y2</strong>.</li>
+                                    <li>If <strong>p &lt; 0</strong>:
+                                        <p class="ms">
+                                            \[
+                                            x_{i+1} = x_i, \quad y_{i+1} = y_i + 1
+                                            \]
+                                        </p>
+                                        <p>Update <strong>p</strong> using the <strong>fixed</strong>
+                                            <strong>ΔX</strong> and <strong>ΔY</strong>:
+                                        </p>
+                                        <p class="ms">
+                                            \[
+                                            p = p + 2 \Delta X
+                                            \]
+                                        </p>
+                                    </li>
+                                    <li>If <strong>p &ge; 0</strong>:
+                                        <p class="ms">
+                                            \[
+                                            x_{i+1} = x_i + 1, \quad y_{i+1} = y_i + 1
+                                            \]
+                                        </p>
+                                        <p>Update <strong>p</strong> using the <strong>fixed</strong>
+                                            <strong>ΔX</strong> and <strong>ΔY</strong>:
+                                        </p>
+                                        <p class="ms">
+                                            \[
+                                            p = p + 2 \Delta X - 2 \Delta Y
+                                            \]
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Step 6: Continue Until the End Point is Reached</strong>
+                        <p>We continue applying the rules above, updating <strong>p</strong> and plotting the points
+                            step by step from <strong>(x1, y1)</strong> to <strong>(x2, y2)</strong>.</p>
+                        <p><strong>Important:</strong> The values of <strong>ΔX</strong> and <strong>ΔY</strong>
+                            <strong>never change</strong> during this process. When updating <strong>p</strong>, we do
+                            not recalculate them using the new <strong>x</strong> and <strong>y</strong>. Instead, we
+                            always use the original values calculated at the beginning.
+                        </p>
+                    </li>
+                </ul>
+
+                <hr>
+                <h4>Bresenham's Line Drawing Algorithm: Example</h4>
+
+                <p>We will use Bresenham's Line Drawing Algorithm to draw a line between the points (1, 1) and (5, 3).
+                </p>
+
+                <h4>Given Two Points:</h4>
+                <p>Let the starting point be:</p>
+                <p class="ms">
+                    \[
+                    x_0 = 1, \quad y_0 = 1
+                    \]
+                </p>
+                <p>We continue until we reach:</p>
+                <p class="ms">
+                    \[
+                    x = 5, \quad y = 3
+                    \]
+                </p>
+
+                <h4>Step 1: Calculate Differences</h4>
+                <p>First, we calculate the differences in the x and y coordinates:</p>
+                <p class="ms">
+                    \[
+                    \Delta X = x_2 - x_1 = 5 - 1 = 4, \quad \Delta Y = y_2 - y_1 = 3 - 1 = 2
+                    \]
+                </p>
+
+                <h4>Step 2: Compute Initial Decision Parameter</h4>
+                <p>The decision parameter \( p \) is calculated as:</p>
+                <p class="ms">
+                    \[
+                    p_0 = 2 \Delta Y - \Delta X = 2 \times 2 - 4 = 0
+                    \]
+                </p>
+
+                <h4>Step 3: Iterating Through Points</h4>
+                <p>Since \( m < 1 \), we increment \( x \) by 1 at each step and decide whether to increment \( y \)
+                        based on \( p \).</p>
+
+                        <ul>
+                            <li><strong>Initially</strong>: \( x_0 = 1, y_0 = 1, p_0 = 0 \).</li>
+
+                            <li><strong>Step 1:</strong> Since \( p_0 \geq 0 \), we increment both \( x \) and \( y \):
+                            </li>
+                            <p class="ms">
+                                \[
+                                x_1 = x_0 + 1 = 2, \quad y_1 = y_0 + 1 = 2
+                                \]
+                            </p>
+                            <p>Update \( p \):</p>
+                            <p class="ms">
+                                \[
+                                p_1 = p_0 + 2 \Delta Y - 2 \Delta X = 0 + 2(2) - 2(4) = -4
+                                \]
+                            </p>
+
+                            <li><strong>Step 2:</strong> Since \( p_1 < 0 \), we only increment \( x \):</li>
+                                    <p class="ms">
+                                        \[
+                                        x_2 = x_1 + 1 = 3, \quad y_2 = y_1 = 2
+                                        \]
+                                    </p>
+                                    <p>Update \( p \):</p>
+                                    <p class="ms">
+                                        \[
+                                        p_2 = p_1 + 2 \Delta Y = -4 + 2(2) = 0
+                                        \]
+                                    </p>
+
+                            <li><strong>Step 3:</strong> Since \( p_2 \geq 0 \), we increment both \( x \) and \( y \):
+                            </li>
+                            <p class="ms">
+                                \[
+                                x_3 = x_2 + 1 = 4, \quad y_3 = y_2 + 1 = 3
+                                \]
+                            </p>
+                            <p>Update \( p \):</p>
+                            <p class="ms">
+                                \[
+                                p_3 = p_2 + 2 \Delta Y - 2 \Delta X = 0 + 2(2) - 2(4) = -4
+                                \]
+                            </p>
+
+                            <li><strong>Step 4:</strong> Since \( p_3 < 0 \), we only increment \( x \):</li>
+                                    <p class="ms">
+                                        \[
+                                        x_4 = x_3 + 1 = 5, \quad y_4 = y_3 = 3
+                                        \]
+                                    </p>
+                                    <p>Since we have reached \( x = 5, y = 3 \), we stop.</p>
+                        </ul>
+
+                        <h4>Table of Calculated Points:</h4>
+                        <div class="table-wrapper">
+                            <table class="new-table">
+                                <tr>
+                                    <th>X</th>
+                                    <th>Y</th>
+                                    <th>p</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>Initial point</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>-4</td>
+                                    <td>Increment X, Increment Y (p ≥ 0)</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>Increment X only (p &lt; 0)</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>3</td>
+                                    <td>-4</td>
+                                    <td>Increment X, Increment Y (p ≥ 0)</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>-</td>
+                                    <td>Increment X only, reached endpoint</td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <p>The points (1,1), (2,2), (3,2), (4,3), and (5,3) are plotted following Bresenham's algorithm.
+                            The decision parameter is used to determine whether to increment Y in each step while always
+                            incrementing X by 1.</p>
+
+            </div>
+        </div>
+        <div class="wh">
+            <h2>Midpoint Circle Drawing Algorithm (Mathematical Approach)</h2>
+
+            <p>The Midpoint Circle Algorithm is an efficient method for drawing circles using only integer calculations.
+                It avoids floating-point arithmetic, making it faster for computers.</p>
+
+            <h3>Why Do We Need This Algorithm?</h3>
+
+            <p>A circle is defined by the equation:</p>
+            <p class="ms">
+                \[
+                x^2 + y^2 = r^2
+                \]
+            </p>
+            <p>However, solving for \( y \) requires square roots and floating-point calculations, which are
+                inefficient. The Midpoint Circle Algorithm helps determine the next pixel using integer calculations
+                only.</p>
+
+            <h3>Steps to Draw a Circle using the Midpoint Algorithm</h3>
+
+            <ul>
+                <li><strong>Step 1: Start from (0, r) and Consider the Next Point</strong>
+                    <p>We start at \( (0, r) \), the top of the circle (90°), and move towards the 45° line.</p>
+                    <p>At each step, we have two possible choices for the next pixel:</p>
+                    <ul>
+                        <li><strong>Move right → \( (x+1, y) \)</strong></li>
+                        <li><strong>Move diagonally down-right → \( (x+1, y-1) \)</strong></li>
+                    </ul>
+                    <p>We need a way to decide which point is closer to the actual circle.</p>
+                </li>
+
+                <li><strong>Step 2: Define the Midpoint Decision Parameter</strong>
+                    <p>To make this decision, we use the midpoint between the two possible points:</p>
+                    <p class="ms">
+                        \[
+                        \text{Midpoint} = (x+1, y - \frac{1}{2})
+                        \]
+                    </p>
+                    <p>We check whether this midpoint is inside or outside the circle to decide the next point.</p>
+                </li>
+
+                <li><strong>Step 3: Using the Circle Equation to Check the Midpoint</strong>
+                    <p>The equation of a circle is:</p>
+                    <p class="ms">
+                        \[
+                        x^2 + y^2 - r^2 = 0
+                        \]
+                    </p>
+                    <p>For the midpoint, we define the decision parameter:</p>
+                    <p class="ms">
+                        \[
+                        p = f(x+1, y - \frac{1}{2}) = (x+1)^2 + (y - \frac{1}{2})^2 - r^2
+                        \]
+                    </p>
+                    <p>To avoid fractions, we multiply everything by 2 and simplify. The initial decision parameter at
+                        \( (0, r) \) is:</p>
+                    <p class="ms">
+                        \[
+                        p = 1 - r
+                        \]
+                    </p>
+                </li>
+
+                <li><strong>Step 4: Decision Making and Updating \( p \)</strong>
+                    <p>At each step, we check the midpoint \( (x+1, y - \frac{1}{2}) \) using the decision parameter \(
+                        p \).</p>
+
+                    <ul>
+                        <li><strong>Case 1: If \( p < 0 \) (Midpoint is inside the circle) → Move Right</strong>
+                                    <p>Since the midpoint is inside the circle, the actual circle passes above it, so we
+                                        move right to \( (x+1, y) \).</p>
+                                    <p>We update the decision parameter:</p>
+                                    <p class="ms">
+                                        \[
+                                        p_{\text{new}} = p + 2x + 3
+                                        \]
+                                    </p>
+                        </li>
+
+                        <li><strong>Case 2: If \( p \geq 0 \) (Midpoint is outside or on the circle) → Move Diagonally
+                                Down-Right</strong>
+                            <p>Since the midpoint is outside the circle, the actual circle passes below it, so we move
+                                diagonally to \( (x+1, y-1) \).</p>
+                            <p>We update the decision parameter:</p>
+                            <p class="ms">
+                                \[
+                                p_{\text{new}} = p + 2x - 2y + 5
+                                \]
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><strong>Step 5: Stopping Condition – When Do We Stop?</strong>
+                    <p>We start at \( (0, r) \) (top of the circle at 90°) and move downward until we reach the 45°
+                        line.</p>
+                    <p>We stop when:</p>
+                    <p class="ms">
+                        \[
+                        x \geq y
+                        \]
+                    </p>
+                    <p>This happens because:</p>
+                    <ul>
+                        <li>At \( x = 0, y = r \), the point is at the top of the circle.</li>
+                        <li>As \( x \) increases and \( y \) decreases, the points curve toward the right.</li>
+                        <li>When \( x = y \), we reach exactly 45° (the diagonal line).</li>
+                        <li>Beyond this point, values will mirror the already-calculated points.</li>
+                    </ul>
+                </li>
+
+                <li><strong>Why Are We Calculating Only 1/8th of the Circle?</strong>
+                    <p>We calculate only 1/8th of the circle because:</p>
+                    <ul>
+                        <li>We start at \( (0, r) \), which is at 90° (topmost point).</li>
+                        <li>We compute points until \( x = y \), which is exactly 45°.</li>
+                        <li>The rest of the circle is drawn using symmetry.</li>
+                    </ul>
+                    <p>By using symmetry, we save computation time and ensure efficient drawing of the full circle.</p>
+                </li>
+            </ul>
+
+            <div class="in">
+                <h3>Example: Draw a Circle with Center (0,0) and Radius 5</h3>
+
+                <h3>Step 1: Given Information</h3>
+                <ul>
+                    <li><strong>Center of the Circle:</strong> \( (0,0) \)</li>
+                    <li><strong>Radius:</strong> \( r = 5 \)</li>
+                </ul>
+
+                <h3>Step 2: Initial Setup</h3>
+                <p>We start from the topmost point of the circle at \( (0,5) \).
+                    The decision parameter helps us determine the next point.</p>
+
+                <h3>Step 3: Compute Initial Decision Parameter</h3>
+                <p>The initial decision parameter is given by:</p>
+                <p class="ms">
+                    \[
+                    p_0 = 1 - r
+                    \]
+                </p>
+                <p>Substituting \( r = 5 \):</p>
+                <p class="ms">
+                    \[
+                    p_0 = 1 - 5 = -4
+                    \]
+                </p>
+
+                <h3>Step 4: Compute Points Step by Step</h3>
+                <p>We use the decision rule:</p>
+                <ul>
+                    <li><strong>If \( p_k < 0 \):</strong> Next point is \( (x+1, y) \), update \( p \) using:
+                                <p class="ms">
+                                    \[
+                                    p_{\text{new}} = p + 2x + 3
+                                    \]
+                                </p>
+                    </li>
+                    <li><strong>If \( p_k \geq 0 \):</strong> Next point is \( (x+1, y-1) \), update \( p \) using:
+                        <p class="ms">
+                            \[
+                            p_{\text{new}} = p + 2x - 2y + 5
+                            \]
+                        </p>
+                    </li>
+                </ul>
+
+                <h3>Step-by-Step Calculations</h3>
+                <p>Starting from \( (0,5) \):</p>
+
+                <ul>
+                    <li><strong>Step 1:</strong> We start with \( p_0 = -4 \), which is calculated using the formula \(
+                        p_0 = 1 - r \) where \( r = 5 \).
+                        <p>At this point, the current values of \( x = 0 \) and \( y = 5 \). Since \( p_0 < 0 \), we
+                                move horizontally to the right, meaning the next point will be \( (x+1, y)=(1, 5) \),
+                                and we update the decision parameter:</p>
+                                <p class="ms">\( p_1 = p_0 + 2x + 3 = -4 + 2(0) + 3 = -1 \)</p>
+                    </li>
+
+                    <li><strong>Step 2:</strong> Now we have \( p_1 = -1 \), and the current values of \( x = 1 \) and
+                        \( y = 5 \). Since \( p_1 < 0 \), we again move horizontally to the right, meaning the next
+                            point will be \( (x+1, y)=(2, 5) \). We update the decision parameter:</p>
+                            <p class="ms">\( p_2 = p_1 + 2x + 3 = -1 + 2(1) + 3 = 4 \)</p>
+                    </li>
+
+                    <li><strong>Step 3:</strong> Now we have \( p_2 = 4 \), and the current values of \( x = 2 \) and \(
+                        y = 5 \). Since \( p_2 \geq 0 \), we move diagonally, meaning the next point will be \( (x+1,
+                        y-1) = (3, 4) \). We then update the decision parameter:</p>
+                        <p class="ms">\( p_3 = p_2 + 2x - 2y + 5 = 4 + 2(2) - 2(5) + 5 = 3 \)</p>
+                    </li>
+
+                    <li><strong>Step 4:</strong> Now we have \( p_3 = 3 \), and the current values of \( x = 3 \) and \(
+                        y = 4 \). Since \( p_3 \geq 0 \), we again move diagonally, meaning the next point will be \(
+                        (x+1, y-1) = (4, 3) \). However, since \( x = 4 \) and \( y = 3 \), we stop the algorithm here
+                        as the condition \( x \geq y \) is satisfied (we have completed one-eighth of the circle). </p>
+                    </li>
+                </ul>
+
+
+                <h3>Final Points</h3>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>x</th>
+                            <th>y</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <p>These points are calculated for one-eighth of the circle.</p>
+            </div>
+
+        </div>
+        <div class="wh">
+            <h2>Clipping</h2>
+            <ul>
+                <li>
+                    Clipping is a process used in computer graphics to display only the portion of an object that lies
+                    within a defined region known as the <strong>clipping window</strong>. The clipping window is
+                    typically a rectangle on the XY-plane. Any part of the object (such as lines, shapes, or diagrams)
+                    that lies outside this window is discarded and not displayed. This process helps in rendering only
+                    the visible content, improving performance and visual clarity.
+                </li>
+            </ul>
+            <img class="wb" src="../../images/cg7.svg" alt="Clipping concept illustration">
+
+            <div class="in">
+                <h3>Point Clipping</h3>
+                <ul>
+                    <li>In point clipping, we work specifically with individual points rather than lines or shapes.</li>
+                    <li>We determine whether a given point lies inside or outside the clipping window.</li>
+                    <li>
+                        For example, consider two points: P1 (x₁, y₁) and P2 (x₂, y₂). If P1 is outside the clipping
+                        window and P2 is inside, we need a method to confirm this based on their coordinates.
+                    </li>
+                </ul>
+                <img src="../../images/cg8.svg" alt="Point clipping example" class="wb">
+
+                <ul>
+                    <li>
+                        To determine if a point lies inside the rectangular window, we use the boundary values:
+                        <strong>x<sub>min</sub>, x<sub>max</sub>, y<sub>min</sub>, and y<sub>max</sub></strong>.
+                    </li>
+                </ul>
+                <img src="../../images/cg9.svg" alt="Window boundaries for clipping" class="wb">
+
+                <ul>
+                    <li>
+                        If a point satisfies all four boundary conditions, it is considered inside the window.
+                        Otherwise, it is outside. Let the point be P(x, y). The conditions are:
+                        <ol>
+                            <li>x ≥ x<sub>min</sub></li>
+                            <li>x ≤ x<sub>max</sub></li>
+                            <li>y ≥ y<sub>min</sub></li>
+                            <li>y ≤ y<sub>max</sub></li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <p><strong>Numerical:</strong> Consider two points: P1 (5, 1) and P2 (6, 9), and a clipping window with
+                    the following boundaries:</p>
+                <ul>
+                    <li>x<sub>min</sub> = 2</li>
+                    <li>x<sub>max</sub> = 9</li>
+                    <li>y<sub>min</sub> = 3</li>
+                    <li>y<sub>max</sub> = 11</li>
+                </ul>
+                <img src="../../images/cg10.svg" alt="Numerical example for point clipping" class="wb">
+
+                <p><strong>Solution:</strong> Evaluate point P1 (5, 1):</p>
+                <ul>
+                    <li>5 ≥ 2 → True</li>
+                    <li>5 ≤ 9 → True</li>
+                    <li>1 ≥ 3 → False</li>
+                </ul>
+                <p>Since one condition is false, P1 is outside the clipping window.</p>
+
+                <p>Now evaluate point P2 (6, 9):</p>
+                <ul>
+                    <li>6 ≥ 2 → True</li>
+                    <li>6 ≤ 9 → True</li>
+                    <li>9 ≥ 3 → True</li>
+                    <li>9 ≤ 11 → True</li>
+                </ul>
+                <p>All conditions are satisfied, so P2 lies inside the clipping window.</p>
+            </div>
+            <div class="in">
+                <h3>Line Clipping (Cohen–Sutherland Algorithm)</h3>
+                <ul>
+                    <li>The Cohen–Sutherland algorithm is used to clip lines to a rectangular clipping window. The goal
+                        is to identify which portion of a line lies within the window and discard the portion that lies
+                        outside.</li>
+                </ul>
+                <img class="wb" src="../../images/cg13.svg" alt="Basic concept of line clipping">
+
+                <ul>
+                    <li>To determine which part of the line is inside the clipping window, we use a 4-bit region code,
+                        also known as the TBRL code — representing Top, Bottom, Right, and Left. Each bit indicates
+                        whether the point lies outside the respective boundary.</li>
+                    <li>In the diagram below, the entire 2D plane is divided into 9 regions. The central region (region
+                        5) represents the clipping window.</li>
+                </ul>
+                <img src="../../images/cg11.svg" alt="9-region code layout for clipping" class="wb">
+
+                <ul>
+                    <li>
+                        Each region is assigned a unique 4-bit code based on its position relative to the clipping
+                        window. The code for the center region (inside the window) is <strong>0000</strong>, meaning the
+                        point lies within all four boundaries.
+                    </li>
+                </ul>
+                <img class="wb" src="../../images/cg12.svg" alt="Region codes with respect to center window">
+
+                <ul>
+                    <li>
+                        There are three possible cases for any line segment:
+                        <ol>
+                            <li>
+                                <strong>Completely Inside:</strong> A line with both endpoints having the region code
+                                <strong>0000</strong> lies entirely within the clipping window. No clipping is needed.
+                                <br>
+                                <img class="wb" src="../../images/cg14.svg" alt="Line completely inside">
+                            </li>
+                            <li>
+                                <strong>Completely Outside:</strong> If both endpoints of the line lie in the same
+                                region outside the window and share a common set bit in their region codes, the result
+                                of the bitwise AND operation is non-zero. This means the line is completely outside and
+                                can be rejected.
+                                <pre>
+                                    <code>
+  0001
+& 0001
+-------
+  0001
+                                </code>
+                            </pre> <br>
+                                <img src="../../images/cg15.svg" class="wb" alt="Line completely outside">
+                            </li>
+                            <li>
+                                <strong>Partially Inside (Intersecting):</strong> One endpoint lies inside the clipping
+                                window (region code <strong>0000</strong>), and the other lies outside (non-zero region
+                                code). In this case, the line intersects the boundary of the window, and clipping must
+                                be performed. <br>
+                                <img src="../../images/cg16.svg" class="wb" alt="Partially inside or outside">
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li>
+                        While the completely inside and completely outside cases are straightforward, the partially
+                        inside case requires more work. You must calculate the intersection point of the line with the
+                        clipping window boundary. This intersection point is used to trim the portion of the line that
+                        lies outside the window.
+                        <br>
+                        Based on the diagram below, we retain the line from the intersection point (x′, y′) to the
+                        endpoint inside the window and discard the portion from the external point to (x′, y′).
+                        <br>
+                        <img src="../../images/cg17.svg" alt="Finding intersection points" class="wb">
+                    </li>
+                </ul>
+                <h3>Numerical Example: Line Clipping Through Three Regions (Left → Inside → Top)</h3>
+
+                <ul>
+                    <li><strong>Clipping Window Boundaries:</strong></li>
+                    <ul>
+                        <li>\( x_{\min} = 2 \)</li>
+                        <li>\( x_{\max} = 8 \)</li>
+                        <li>\( y_{\min} = 2 \)</li>
+                        <li>\( y_{\max} = 6 \)</li>
+                    </ul>
+
+                    <li><strong>Given Line Endpoints:</strong></li>
+                    <ul>
+                        <li>Point A: \( (0, 3) \) → Region code: <code>0001</code> (Left)</li>
+                        <li>Point B: \( (7, 7) \) → Region code: <code>1000</code> (Top)</li>
+                    </ul>
+                </ul>
+                <img src="../../images/cg18.svg" alt="" class="wb">
+
+                <h4>Step 1: Calculate the slope of the line (m)</h4>
+                <p class="ms">
+                    \[
+                    m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{7 - 3}{7 - 0} = \frac{4}{7}
+                    \]
+                </p>
+
+
+
+                <h4>Step 2: Clip Point A (Left Region: <strong>0001</strong>) against Left Boundary \( x = 2 \)</h4>
+                <p>We use the vertical clipping formula to find the new y-coordinate:</p>
+                <p class="ms">
+                    \[
+                    y' = y_1 + m \cdot (x_{\text{clip}} - x_1)
+                    \]
+                    \[
+                    y' = 3 + \frac{4}{7} \cdot (2 - 0) = 3 + \frac{8}{7} = \frac{29}{7} \approx 4.14
+                    \]
+                </p>
+                <p>New intersection point A′ is: \( (2, 4.14) \)</p>
+
+
+
+                <h4>Step 3: Clip Point B (Top Region: <code>1000</code>) against Top Boundary \( y = 6 \)</h4>
+                <p>Now use the horizontal clipping formula to find the new x-coordinate:</p>
+                <p class="ms">
+                    \[
+                    x' = x_2 + \frac{1}{m} \cdot (y_{\text{clip}} - y_2)
+                    \]
+                    \[
+                    x' = 7 + \frac{1}{\frac{4}{7}} \cdot (6 - 7) = 7 - \frac{7}{4} = \frac{21}{4} = 5.25
+                    \]
+                </p>
+                <p>New intersection point B′ is: \( (5.25, 6) \)</p>
+
+
+
+                <h4>Final Clipped Line Segment</h4>
+                <ul>
+                    <li>Start: \( A′ = (2, 4.14) \)</li>
+                    <li>End: \( B′ = (5.25, 6) \)</li>
+                </ul>
+                <p>This visible segment lies entirely within the clipping window. The original segment went through:</p>
+                <ol>
+                    <li><strong>Left</strong> — point A was outside on the left</li>
+                    <li><strong>Inside</strong> — clipped segment \( A′ \to B′ \)</li>
+                    <li><strong>Top</strong> — point B was outside the top boundary</li>
+                </ol>
+
+            </div>
+            <div class="in">
+                <h3>Polygon Clipping</h3>
+
+                <ul>
+                    <li>
+                        <strong>Polygon clipping</strong> refers to the process of removing (or "clipping") the parts of
+                        a polygon that lie outside a defined clipping window, typically a rectangular region.
+                    </li>
+                </ul>
+
+                <img src="../../images/cg19.svg" class="wb" alt="Left, Right, Top, Bottom Clipping Diagram">
+
+                <ul>
+                    <li>
+                        In the above diagram, polygon clipping is performed sequentially — we apply clipping against one
+                        boundary at a time: Left, Right, Top, and Bottom.
+                    </li>
+                    <li>
+                        Let's begin with <strong>left clipping</strong>. We conceptually draw a vertical boundary line
+                        at \( x = x_{\min} \). Everything to the left of this boundary is considered
+                        <strong>outside</strong> the window and is discarded. Everything to the right is
+                        <strong>inside</strong> and is retained.
+                    </li>
+                    <li>
+                        We repeat this process for the remaining boundaries:
+                        <ul>
+                            <li><strong>Right Clipping</strong>: Remove parts of the polygon where \( x > x_{\max} \)
+                            </li>
+                            <li><strong>Top Clipping</strong>: Remove parts where \( y > y_{\max} \)</li>
+                            <li><strong>Bottom Clipping</strong>: Remove parts where \( y < y_{\min} \)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        After clipping against all four sides, the final result is the portion of the polygon that lies
+                        entirely within the rectangular window.
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        During the clipping process, whenever a polygon edge crosses a window boundary, an
+                        <strong>intersection point</strong> is calculated. These intersection points become new vertices
+                        of the clipped polygon.
+                    </li>
+                    <li>
+                        The algorithm most commonly used for polygon clipping is the <strong>Sutherland–Hodgman polygon
+                            clipping algorithm</strong>, which works by processing one window edge at a time and
+                        outputting the resulting polygon step-by-step.
+                    </li>
+                </ul>
+
+                <img src="../../images/cg20.svg" alt="Polygon Clipping Example Output" class="wb">
+                <p>
+                    In the process of polygon clipping, we evaluate each edge (line segment) of the polygon based on how
+                    its two endpoints — vertex \( v_1 \) and vertex \( v_2 \) — relate to the current clipping boundary.
+                    Each edge can fall into one of four possible cases:
+                </p>
+
+                <ol>
+                    <li>
+                        <strong>Case 1: Outside to Inside (v₁ is outside, v₂ is inside)</strong><br>
+                        The line segment enters the clipping window. In this case, we calculate the <strong>intersection
+                            point \( v_1' \)</strong> with the clipping boundary and also include \( v_2 \) (since it's
+                        inside).<br>
+                        <strong>Output:</strong> \( v_1', v_2 \)
+                    </li>
+
+                    <li>
+                        <strong>Case 2: Inside to Outside (v₁ is inside, v₂ is outside)</strong><br>
+                        The line segment exits the clipping window. We compute the <strong>intersection point \( v_2'
+                            \)</strong>, but we do not include \( v_2 \) (since it’s outside).<br>
+                        <strong>Output:</strong> \( v_2' \)
+                    </li>
+
+                    <li>
+                        <strong>Case 3: Inside to Inside (both v₁ and v₂ are inside)</strong><br>
+                        The entire edge is within the clipping window, so we keep the second vertex \( v_2 \) as part of
+                        the output polygon.<br>
+                        <strong>Output:</strong> \( v_2 \)
+                    </li>
+
+                    <li>
+                        <strong>Case 4: Outside to Outside (both v₁ and v₂ are outside)</strong><br>
+                        The edge lies completely outside the clipping boundary, so it does not contribute to the output
+                        polygon.<br>
+                        <strong>Output:</strong> Nothing
+                    </li>
+                </ol>
+
+                <p>
+                    This case-by-case approach is applied repeatedly for each edge of the polygon as it is clipped
+                    against each boundary (Left, Right, Top, Bottom).
+                    The output polygon at each stage becomes the input for the next boundary.
+                </p>
+
+            </div>
+        </div>
+        <div class="wh">
+            <h2>Filling</h2>
+
+            <ul>
+                <li>Imagine you’ve drawn an outline of a shape — like a triangle on a digital
+                    canvas. Now, you want to fill that shape with color. That’s exactly what filling is.</li>
+                <li>But before a computer can do that, it has to answer a very simple but important question:
+                    <ul>
+                        <li><strong>“Which pixels are inside the shape and which are outside?”</strong></li>
+                    </ul>
+                </li>
+                <li>That’s where Inside Tests come in.</li>
+                <li>And one of the most commonly used methods for this is the Edge-Based Inside Test, also called the
+                    Odd-Even Rule.</li>
+            </ul>
+            <div class="in">
+                <h3>The Core Idea of the Odd-Even Rule</h3>
+
+                <ul>
+                    <li>It’s kind of like a game:
+                        <ul>
+                            <li>Pick the pixel (point) you want to test.</li>
+                            <li>From that point, draw an imaginary horizontal line to the right.</li>
+                            <li>Count how many times that line crosses the edges of the polygon.</li>
+                            <li>Now check the number:
+                                <ul>
+                                    <li>If it’s odd → the point is inside the shape.</li>
+                                    <li>If it’s even → the point is outside the shape.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>That’s it! Simple logic.</li>
+                </ul>
+                <h4>Point Example (Inside)</h4>
+
+                <ul>
+                    <li>Let’s say we have a triangle like this: <br>
+                        <img src="../../images/cg25.svg" alt="" class="wb">
+                    </li>
+                    <li>We’re testing the point ●.</li>
+                    <li>We draw a ray from ● to the right → it crosses 1 edge of the triangle.</li>
+                    <li><strong>= That’s an odd number → so ● is inside the triangle!</strong></li>
+                </ul>
+
+                <h4>Another Point Example (Outside)</h4>
+
+                <ul>
+                    <li>Now look at this: <br>
+                        <img src="../../images/cg26.svg" alt="" class="wb">
+                    </li>
+                    <li>Here, the point ● is clearly outside.</li>
+                    <li>You draw a ray to the right → it crosses 0 edges.</li>
+                    <li><strong>= That’s even → so the point is outside.</strong></li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Flood Fill Algorithm</h3>
+                <ul>
+                    <li>The Flood Fill algorithm is used in computer graphics to fill a connected region with a specific
+                        color. Starting from a seed point, it recursively (or iteratively) fills all neighboring pixels
+                        of the same initial color with a new color, until it reaches the boundary of the region.</li>
+                    <li>It is commonly implemented in paint applications (e.g., the "bucket" tool in MS Paint) and is an
+                        essential part of region filling in raster graphics.</li>
+                </ul>
+
+                <h4>Key Idea</h4>
+                <ul>
+                    <li>Given:
+                        <ul>
+                            <li>A starting point (x, y)</li>
+                            <li>A target color (the color to be replaced)</li>
+                            <li>A fill color (the new color to apply)</li>
+                        </ul>
+                    </li>
+                    <li>The algorithm replaces the target color with the fill color at the seed point and continues this
+                        process for all connected pixels that have the same target color.</li>
+                </ul>
+
+                <h4>Variants</h4>
+                <ul>
+                    <li>Flood fill can be implemented in two ways, based on how many neighboring pixels are considered:
+                    </li>
+                </ul>
+
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Variant</th>
+                            <th>Neighbors Considered</th>
+                            <th>Directions</th>
+                        </tr>
+                        <tr>
+                            <td>4-connected fill</td>
+                            <td>Up, Down, Left, Right</td>
+                            <td>4 directions</td>
+                        </tr>
+                        <tr>
+                            <td>8-connected fill</td>
+                            <td>Includes diagonals as well</td>
+                            <td>8 directions</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>4-Connected Pixels</h4>
+                <img src="../../images/cg27.svg" alt="" class="wb">
+
+                <h4>8-Connected Pixels</h4>
+                <img src="../../images/cg28.svg" class="wb" alt="">
+
+                <h4>Recursive Algorithm (4-Connected)</h4>
+                <h4>Pseudocode</h4>
+                <pre>
+                    <code>
+void floodFill(int x, int y, int targetColor, int fillColor) {
+    // 1. If the current pixel is not the target color, stop (nothing to replace)
+    if (getPixel(x, y) != targetColor)
+        return;
+
+    // 2. If the current pixel is already filled with the fill color, stop (already done)
+    if (getPixel(x, y) == fillColor)
+        return;
+
+    // 3. Change the pixel color from targetColor to fillColor
+    setPixel(x, y, fillColor);
+
+    // 4. Repeat the same process for the 4 neighboring pixels
+    floodFill(x + 1, y, targetColor, fillColor); // move right
+    floodFill(x - 1, y, targetColor, fillColor); // move left
+    floodFill(x, y + 1, targetColor, fillColor); // move down
+    floodFill(x, y - 1, targetColor, fillColor); // move up
+}
+                    </code>
+                </pre>
+
+                <h4>Working Mechanism</h4>
+                <ul>
+                    <li>Check Base Case: If the current pixel’s color is not the target color or is already filled,
+                        return.</li>
+                    <li>Change Color: Set the pixel’s color to the new fill color.</li>
+                    <li>Recursively Call: Apply the algorithm to each of the neighboring pixels.</li>
+                    <li>This continues until all connected pixels with the target color are replaced.</li>
+                </ul>
+
+                <h4>Limitations</h4>
+
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Issue</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Stack Overflow</td>
+                            <td>Recursive implementation may cause stack overflow for large fill areas.</td>
+                        </tr>
+                        <tr>
+                            <td>Performance</td>
+                            <td>Slow for large images; may be improved using an iterative queue-based approach.</td>
+                        </tr>
+                        <tr>
+                            <td>Edge Leakage</td>
+                            <td>Incorrect fill may occur if boundary conditions are not carefully checked.</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="in">
+                <h3>Boundary-Fill Algorithm – Technical Notes</h3>
+                <ul>
+                    <li>The Boundary-Fill Algorithm is a region-filling technique in raster graphics. It is used to fill
+                        closed figures by starting from a seed point inside the boundary and spreading outwards until a
+                        boundary color is encountered.</li>
+                    <li>Unlike Flood Fill (which fills all areas of a target color), Boundary Fill works based on a
+                        boundary color, and fills everything inside that boundary regardless of the initial color.</li>
+                </ul>
+
+                <h4>Use Case Example</h4>
+                <ul>
+                    <li>Think of coloring a circle drawn on a canvas. You don’t want the color to leak outside the
+                        circle, so you define the circle outline as the boundary, and begin filling from a point inside
+                        the circle. The algorithm fills all connected pixels until it hits the edge of the circle
+                        (boundary color).</li>
+                </ul>
+
+                <h4>Types of Boundary Fill</h4>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Connectivity</th>
+                            <th>Neighbors Considered</th>
+                        </tr>
+                        <tr>
+                            <td>4-connected fill</td>
+                            <td>4-directional</td>
+                            <td>Top, Bottom, Left, Right</td>
+                        </tr>
+                        <tr>
+                            <td>8-connected fill</td>
+                            <td>8-directional</td>
+                            <td>Includes diagonals as well</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>4-Connected Pixels</h4>
+                <img src="../../images/cg27.svg" alt="" class="wb">
+
+                <h4>8-Connected Pixels</h4>
+                <img src="../../images/cg28.svg" alt="" class="wb">
+
+                <h4>Algorithm Steps</h4>
+                <ul>
+                    <li><strong>Inputs:</strong>
+                        <ul>
+                            <li>x, y → Starting seed point (inside region)</li>
+                            <li>boundaryColor → Color of the edge/boundary</li>
+                            <li>fillColor → Color to fill inside the region</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Recursive Pseudocode (4-connected)</h4>
+                <pre>
+                    <code>
+void BoundaryFill4(int x, int y, int fillColor, int boundaryColor) {
+    // 1. Get the color of the current pixel
+    int currentColor = getPixel(x, y);
+
+    // 2. If the current pixel is not the boundary AND not already filled
+    if (currentColor != boundaryColor && currentColor != fillColor) {
+        // 3. Fill the current pixel with the fill color
+        setPixel(x, y, fillColor);
+
+        // 4. Recursively fill the 4 neighboring pixels (4-directional)
+        BoundaryFill4(x + 1, y, fillColor, boundaryColor); // right
+        BoundaryFill4(x - 1, y, fillColor, boundaryColor); // left
+        BoundaryFill4(x, y + 1, fillColor, boundaryColor); // down
+        BoundaryFill4(x, y - 1, fillColor, boundaryColor); // up
+    }
+}
+                    </code>
+                </pre>
+                <ul>
+                    <li><strong>Note:</strong> For 8-connected version, add diagonal calls too.</li>
+                </ul>
+
+                <h4>Important Conditions</h4>
+                <ul>
+                    <li>The fill stops when a boundary color pixel is encountered.</li>
+                    <li>Filling does not overwrite pixels already filled (to prevent infinite recursion).</li>
+                    <li>The algorithm assumes that the boundary forms a closed loop.</li>
+                </ul>
+
+                <h4>Working Mechanism (Step-by-Step)</h4>
+                <ul>
+                    <li>Read the color at the current pixel.</li>
+                    <li>If it's neither the boundaryColor nor the fillColor, fill it with fillColor.</li>
+                    <li>Recursively apply the fill operation to neighboring pixels.</li>
+                </ul>
+
+                <h4>Iterative Approach (Optional)</h4>
+                <ul>
+                    <li>Just like in Flood Fill, the recursive version may lead to stack overflow on large regions. An
+                        iterative method using a stack (manual DFS) is safer in practice.</li>
+                </ul>
+
+                <h4>Boundary Fill vs Flood Fill – Comparison</h4>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Boundary Fill</th>
+                            <th>Flood Fill</th>
+                        </tr>
+                        <tr>
+                            <td>Stops at</td>
+                            <td>Boundary color</td>
+                            <td>When pixel color ≠ target color</td>
+                        </tr>
+                        <tr>
+                            <td>Requires</td>
+                            <td>A closed boundary</td>
+                            <td>Uniform region color</td>
+                        </tr>
+                        <tr>
+                            <td>Fills</td>
+                            <td>All area inside a boundary</td>
+                            <td>All area of the same color</td>
+                        </tr>
+                        <tr>
+                            <td>Risk of leak</td>
+                            <td>High if boundary is not properly closed</td>
+                            <td>Less if target color is correct</td>
+                        </tr>
+                        <tr>
+                            <td>Real-life analogy</td>
+                            <td>Coloring inside a drawn circle</td>
+                            <td>Replacing color inside same-colored region</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4>Example (Conceptual)</h4>
+                <ul>
+                    <li>Assume we have a black-bordered rectangle on screen (black is boundary color). The inner area is
+                        white.
+                        <ul>
+                            <li>Seed Point: (100, 100)</li>
+                            <li>boundaryColor: black</li>
+                            <li>fillColor: red</li>
+                        </ul>
+                    </li>
+                    <li>The algorithm starts at (100, 100) and colors every pixel red until it touches the black
+                        boundary.</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <p>Reference</p>
+        <ul>
+            <li><a href="https://youtu.be/0PgMv8sdXtg?si=VlsQV54bnHx0upso" target="_blank">3.4- DDA Line Drawing
+                    Algorithm In Computer Graphics Hindi | Digital Differential Analyzer Youtube Lecture &neArr;</a>
+            </li>
+            <li><a href="https://www.youtube.com/watch?v=Sm7oUNq2rSM" target="_blank">Mid Point Circle Drawing
+                    Youtube
+                    Video Lecture &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=J7OS_nI4W7Y" target="_blank">Point Clipping Explained in
+                    Hindi
+                    l Computer Graphics Video Lecture &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=MkMK8LvLOjs" target="_blank">Cohen Sutherland Line Clipping
+                    Algorithm Video Lecture &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=2Egy6PFehtU" target="_blank">Sutherland Hodgeman Polygon
+                    Clipping Algorithm Video Lecture &neArr;</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>

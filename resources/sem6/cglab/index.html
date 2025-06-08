@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Graphics Lab</title>
+    <link rel="icon" href="../../../public/logo/favicon_io/favicon.ico">
+    <link rel="stylesheet" href="../../../public/style.css">
+    <link rel="stylesheet" id="highlightStylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-blue.min.css">
+</head>
+
+<body>
+    <div id="navbar" class="grad">
+        <div class="back">
+            <a href="../../../index.html"><img src="../../../public/back.svg" alt=""></a>
+        </div>
+        <div>
+            <h2>Computer Graphics Lab</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <a href="./basics.html">Computer Graphics Program Basics &neArr;</a>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+    Digital Differential Algorithm
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+// Modified according to my linux OS
+#include &lt;graphics.h>
+#include &lt;conio.h>
+#include &lt;math.h>
+#include &lt;stdio.h>
+
+// DDA Algorithm Function
+void dda(int x1, int y1, int x2, int y2) {
+    // Calculate differences in x and y
+    float dx = x2 - x1;
+    float dy = y2 - y1;
+    
+    // Calculate steps required
+    int steps = (fabs(dx) > fabs(dy)) ? fabs(dx) : fabs(dy);
+    
+    // Calculate increments for x and y
+    float xInc = dx / steps;
+    float yInc = dy / steps;
+    
+    // Start at the first point
+    float x = x1;
+    float y = y1;
+    
+    // Plot all points
+    for (int i = 0; i &lt; steps; i++) {
+        putpixel(round(x), round(y), WHITE);  // Plot the pixel
+        x += xInc;
+        y += yInc;
+    }
+}
+
+int main() {
+    int x1, y1, x2, y2;
+    
+    // Input coordinates
+    printf("Enter (x1, y1) for first coordinate: ");
+    scanf("%d%d", &x1, &y1);
+    printf("Enter (x2, y2) for second coordinate: ");
+    scanf("%d%d", &x2, &y2);
+    
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+    
+    // Call the DDA function
+    dda(x1, y1, x2, y2);
+    
+    getch();
+
+    // Close the graphics window
+    closegraph();
+    
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Bresenham's Line Drawing Algorithm
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;stdio.h>
+#include &lt;conio.h>
+
+void bresenhamLine(int x1, int y1, int x2, int y2) {
+    int x = x1, y = y1;
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    int p = (2 * dy) - dx; // Initial decision parameter
+
+    // Plot the first point
+    putpixel(x, y, WHITE);
+
+    // Draw the line
+    while (x <= x2) {
+        if (p < 0) {
+            // Move horizontally
+            x = x + 1;
+            p = p + 2 * dy;
+        } else {
+            // Move diagonally
+            x = x + 1;
+            y = y + 1;
+            p = p + 2 * dy - 2 * dx;
+        }
+        putpixel(x, y, WHITE); // Plot the next pixel
+    }
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+
+    int x1, y1, x2, y2;
+    printf("Enter the coordinates of the first point (x1 y1): ");
+    scanf("%d %d", &x1, &y1);
+    printf("Enter the coordinates of the second point (x2 y2): ");
+    scanf("%d %d", &x2, &y2);
+
+    bresenhamLine(x1, y1, x2, y2);
+
+    getch();
+    closegraph(); // Close the graphics window
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Mid Point Circle Generation Algorithm
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;stdio.h>
+#include &lt;math.h>
+#include &lt;conio.h>
+
+void plot_pts(int x, int y, int x1, int y1) {
+    putpixel(x + x1, y + y1, WHITE);
+    putpixel(x - x1, y + y1, WHITE);
+    putpixel(x + x1, y - y1, WHITE);
+    putpixel(x - x1, y - y1, WHITE);
+    putpixel(x + y1, y + x1, WHITE);
+    putpixel(x - y1, y + x1, WHITE);
+    putpixel(x + y1, y - x1, WHITE);
+    putpixel(x - y1, y - x1, WHITE);
+}
+
+void draw_circle(int xc, int yc, int r) {
+    int x = 0, y = r;
+    float p = (5.0 / 4.0) - r;
+
+    do {
+        plot_pts(xc, yc, x, y);
+        if (p < 0)
+            p = p + (2 * x) + 1;
+        else {
+            p = p + (2 * (x - y)) + 1;
+            y--;
+        }
+        x++;
+    } while (x < y);
+
+    if (x == y)
+        plot_pts(xc, yc, x, y);
+}
+
+void main() {
+    int xc, yc, r;
+    
+    // Input coordinates
+    printf("Enter the center coordinates: ");
+    scanf("%d %d", &xc, &yc);
+    printf("Enter the radius: ");
+    scanf("%d", &r);
+
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+
+    draw_circle(xc, yc, r);
+
+    getch();
+    closegraph();
+}
+
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!-- 
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Traffic Light Simulation
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include&lt;graphics.h>
+#include&lt;stdio.h>
+
+void main()
+{
+   int gd = DETECT, gm, midx, midy;
+
+   initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+
+   midx = getmaxx()/2;
+   midy = getmaxy()/2;
+
+   setcolor(RED);
+   settextstyle(SCRIPT_FONT, HORIZ_DIR, 3);
+   settextjustify(CENTER_TEXT, CENTER_TEXT);
+   outtextxy(midx, midy-10, "Traffic Light Simulation");
+   outtextxy(midx, midy+10, "Press any key to start");
+   getch(); 
+   cleardevice();
+   setcolor(WHITE);
+   settextstyle(DEFAULT_FONT, HORIZ_DIR, 1);
+   
+   // Draw traffic light border
+   rectangle(midx-30, midy-80, midx+30, midy+80);
+   circle(midx, midy-50, 22);
+   setfillstyle(SOLID_FILL, RED);
+   floodfill(midx, midy-50, WHITE);
+   setcolor(BLUE);
+   outtextxy(midx, midy-50, "STOP");
+   
+   delay(2000000); // 2-second delay
+
+   graphdefaults();
+   cleardevice();
+   setcolor(WHITE);
+   
+   // Draw ready signal
+   rectangle(midx-30, midy-80, midx+30, midy+80);
+   circle(midx, midy, 20);
+   setfillstyle(SOLID_FILL, YELLOW);
+   floodfill(midx, midy, WHITE);
+   setcolor(BLUE);
+   outtextxy(midx-18, midy-3, "READY");
+
+   delay(2000000); // 2-second delay
+   cleardevice();
+   setcolor(WHITE);
+   
+   // Draw go signal
+   rectangle(midx-30, midy-80, midx+30, midy+80);
+   circle(midx, midy+50, 22);
+   setfillstyle(SOLID_FILL, GREEN);
+   floodfill(midx, midy+50, WHITE);
+   setcolor(BLUE);
+   outtextxy(midx-7, midy+48, "GO");
+   
+   setcolor(RED);
+   settextstyle(SCRIPT_FONT, HORIZ_DIR, 4);
+   outtextxy(midx-150, midy+100, "Press any key to exit...");
+
+   getch(); // Wait for user input before exiting
+   closegraph();
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div> 
+        -->
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Traffic Light
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;conio.h>
+
+void main()
+{
+    int gd = DETECT, gm, midx, midy;
+
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+
+    midx = getmaxx() / 2;
+    midy = getmaxy() / 2;
+
+    // Draw traffic light border (rectangle)
+    setcolor(WHITE);
+    rectangle(midx - 30, midy - 80, midx + 30, midy + 80);
+
+    // Draw Red Light
+    setfillstyle(SOLID_FILL, RED);
+    circle(midx, midy - 50, 22);
+    floodfill(midx, midy - 50, WHITE);
+
+    // Draw Yellow Light
+    setfillstyle(SOLID_FILL, YELLOW);
+    circle(midx, midy, 22);
+    floodfill(midx, midy, WHITE);
+
+    // Draw Green Light
+    setfillstyle(SOLID_FILL, GREEN);
+    circle(midx, midy + 50, 22);
+    floodfill(midx, midy + 50, WHITE);
+
+    getch(); // Wait for user input before exiting
+    closegraph();
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div> 
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Smiley Face
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;conio.h>
+
+void main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\Turboc3\\BGI"); // Path required in Turbo C, but not in modern compilers
+
+    int faceRadius = 100;  // Face size
+    int eyeRadius = 15;    // Eye size
+    int mouthRadius = 50;  // Mouth arc size
+
+    // Draw Face (Big Circle, just border)
+    setcolor(WHITE);
+    circle(midx, midy, faceRadius);  // Face border
+
+    // Draw Left Eye (Just border)
+    circle(midx - 35, midy - 30, eyeRadius);  // Left eye border
+
+    // Draw Right Eye (Just border)
+    circle(midx + 35, midy - 30, eyeRadius);  // Right eye border
+
+    // Draw Smile (Arc) - Happy face
+    arc(midx, midy + 10, 200, 340, mouthRadius);  // Smile arc
+
+    getch(); // Wait for user input
+    closegraph();
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+    Moving Car
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;conio.h>
+#include &lt;dos.h>
+int main()
+{
+    int i, gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+    settextstyle(DEFAULT_FONT, HORIZ_DIR, 2);
+    outtextxy(25, 240, "Press any key to view the moving car");
+    
+    getch();
+    
+    for (i = 0; i <= 420; i = i + 10)
+    {
+        cleardevice(); // Clear screen first
+        
+        // Car back body
+        rectangle(50 + i, 275, 150 + i, 400);
+        // Car front body
+        rectangle(150 + i, 350, 200 + i, 400);
+        // Wheels
+        circle(75 + i, 410, 10);
+        circle(175 + i, 410, 10);
+        
+        delay(100); // Adjust speed
+    }
+    
+    getch();
+    closegraph();
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Hut
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;dos.h>
+
+int main() {
+    int gd = DETECT, gm;
+    
+    // Initialize the graphics mode
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+
+    // Set the drawing color to WHITE
+    setcolor(WHITE);
+
+    // Draw the left wall of the hut (Main structure)
+    rectangle(150, 180, 250, 300);
+
+    // Draw the right extension of the hut (Additional room)
+    rectangle(250, 180, 420, 300);
+
+    // Draw the door in the left wall
+    rectangle(180, 250, 220, 300);
+
+    // Draw the left slope of the roof
+    line(200, 100, 150, 180);
+
+    // Draw the right slope of the main roof
+    line(200, 100, 250, 180);
+
+    // Draw the extension of the roof (connecting part)
+    line(200, 100, 370, 100);
+
+    // Draw the right slope of the extended roof
+    line(370, 100, 420, 180);
+
+    // Fill the left wall with brown color
+    setfillstyle(SOLID_FILL, BROWN);
+    floodfill(152, 182, WHITE);
+
+    // Fill the right extension with brown color
+    floodfill(252, 182, WHITE);
+
+    // Fill the door with blue color
+    setfillstyle(SLASH_FILL, BLUE);
+    floodfill(182, 252, WHITE);
+
+    // Fill the main roof with green color
+    setfillstyle(HATCH_FILL, GREEN);
+    floodfill(200, 105, WHITE);
+    floodfill(210, 105, WHITE);
+
+    // Add a delay so that the hut remains visible
+    delay(2000);
+
+    // Close the graphics mode
+    closegraph();
+
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Rainbow
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;conio.h>
+#include &lt;dos.h>
+
+void main() {
+    int gdriver = DETECT, gmode;
+    int x, y, i;
+
+    // Initialize graphics mode
+    initgraph(&gdriver, &gmode, "C:\\Turboc3\\BGI");
+
+    int mx = getmaxx() / 2;
+    int my = getmaxy() / 2;
+    int i;
+
+    for (i = 0; i < 7; i++) {
+        int rOff = i * 10;  // Radius offset
+        setcolor(100 + rOff);  // Dynamic color selection
+        arc(mx, my, 0, 180, 80 + rOff);  // Expanding arc effect
+        delay(100);
+    }
+
+    getch();  // Wait for user input before exiting
+    closegraph();  // Close graphics mode
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+    Bar Graph
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-c#">
+#include &lt;graphics.h>
+#include &lt;conio.h>
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+
+    // Set text style and display the title
+    settextstyle(BOLD_FONT, HORIZ_DIR, 2);
+    outtextxy(275, 0, "BAR GRAPH");
+
+    // Draw X and Y axes
+    setlinestyle(SOLID_LINE, 0, 2);
+    line(90, 410, 90, 50);   // Y-axis
+    line(90, 410, 590, 410); // X-axis
+
+    // Draw arrowheads for axes
+    line(85, 60, 90, 50);
+    line(95, 60, 90, 50);
+    line(585, 405, 590, 410);
+    line(585, 415, 590, 410);
+
+    // Label the axes
+    outtextxy(65, 60, "Y");
+    outtextxy(570, 420, "X");
+    outtextxy(70, 415, "O"); // Origin label
+
+    // Draw bars with color fill
+    setfillstyle(XHATCH_FILL, RED);
+    bar(150, 80, 200, 410);
+    bar(225, 100, 275, 410);
+    bar(300, 120, 350, 410);
+    bar(375, 170, 425, 410);
+    bar(450, 135, 500, 410);
+
+    getch();      // Wait for user input
+    closegraph(); // Close graphics mode
+    return 0;
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!--
+    <div class="wh">
+        <div class='code'>
+            <div class='dotc'></div>
+            <button class="ac">
+
+            </button>
+            <div class="panel">
+                <pre>
+                    <code class="language-c#">
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+-->
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script type="module" src="../../../public/main.js"></script>
+</body>
+
+</html>

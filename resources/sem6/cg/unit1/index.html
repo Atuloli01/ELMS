@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Computer Graphics</title>
+    <link rel="stylesheet" href="../../../../public/style.css">
+    <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+</head>
+
+<body class="bg-c">
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html" class="home">back</a>
+        <div class="fix-column-links">
+            <a href="#t1" class="link">Intro to Computer Graphics</a>
+            <a href="#t2" class="link">Pixels</a>
+            <a href="#t3" class="link">Image Resolution and Pixel Density</a>
+            <a href="#t4" class="link">CMY + CMYK Color Model</a>
+            <a href="#t5" class="link">Cathode Ray Tube</a>
+            <a href="#t6" class="link">DVST</a>
+            <a href="#t7" class="link">Plasma Panel Display</a>
+            <a href="#t8" class="link">LED Display</a>
+            <a href="#t9" class="link">LCD Display</a>
+            <a href="#t10" class="link">Input Devices</a>
+            <a href="#t11" class="link">Printers</a>
+            <a href="#t12" class="link">Plotters</a>
+            <a href="#t13" class="link">Digital Image Representation and Rendering Techniques</a>
+            <div class="botbut">
+                <a href="../unit2/index.html" class="link">Next Topic &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <div id="navbar" class="grad">
+        <div>
+            <div class="openbtn" onclick="openNav()">
+                <div id="nav-icon1" for="nav-menu1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Intro to Computer Graphics</h2>
+        </div>
+    </div>
+    <div id="t1" class="content-box">
+        <h1>Intro to Computer Graphics</h1>
+        <ul>
+            <li>Computer Graphics is all about creating, manipulating, and displaying images using computers. In simple
+                words, it deals with generating visuals; whether it's the images you see in video games, the UI of apps,
+                3D animations in movies, or even the graphs and charts in reports.</li>
+            <li>It’s a field that blends mathematics, programming, and design to create visual content. The main goal is
+                to make computers generate images efficiently and allow users to interact with them in meaningful ways.
+            </li>
+            <li><strong>Common Uses of Computer Graphics</strong>
+                <ul>
+                    <li><b>Entertainment:</b> Used in movies, animations, and video games to create realistic graphics
+                        and special effects.</li>
+                    <li><b>Education & Training:</b> Helps in simulations for medical training, flight simulators, and
+                        interactive learning apps.</li>
+                    <li><b>Scientific Visualization:</b> Used to represent complex data, such as weather models, medical
+                        imaging (MRI, CT scans), and engineering designs.</li>
+                    <li><b>Architecture & Design:</b> Enables 3D modeling for buildings, interior design, and urban
+                        planning.</li>
+                    <li><b>UI/UX Design:</b> Enhances user interfaces in websites, mobile apps, and software, making
+                        them more intuitive.</li>
+                    <li><b>Advertising & Marketing:</b> Used in digital posters, product visualizations, and animated
+                        commercials.</li>
+                </ul>
+            </li>
+            <li><strong>How Images are Formed in Computer Graphics?</strong>
+                <ul>
+                    <li>In computer graphics, images are displayed using tiny square units called pixels, arranged in a
+                        grid.</li>
+                    <li>By controlling the color and brightness of each pixel, we can create detailed pictures and
+                        graphics.
+                    </li>
+                </ul>
+            </li>
+
+            <li><strong>Converting Shapes into Pixels</strong>
+                <ul>
+                    <li>When a computer needs to display a shape, it must determine which pixels will best represent it
+                        on
+                        the screen.</li>
+                    <li>This process of converting shapes into a set of pixels is called <b>Rasterization</b>.</li>
+                </ul>
+            </li>
+            <li><strong>Displaying Continuous Images on Screens</strong>
+                <ul>
+                    <li>Real-world images and objects have smooth curves and edges, but digital screens are made up of
+                        individual pixels.</li>
+                    <li>To display continuous images on a screen, they must be broken down into discrete pixels.</li>
+                    <li>This process is known as <b>Scan Conversion</b>, and it helps display curves and lines as
+                        accurately
+                        as possible.</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Advantages of Computer Graphics</h3>
+        <ul>
+            <li><b>Easy Communication with Visuals</b> - Computer graphics allow us to communicate with a computer using
+                <b>visuals</b> instead of just text or numbers. This makes interactions much more intuitive and easier
+                to understand.
+            </li>
+            <li><b>Creation of Real-World and Imaginary Objects</b> - With computer graphics, we can create both
+                <b>real-world images</b> (like photos and 3D models) and <b>imaginary objects</b> (like mathematical
+                shapes or data visualizations that don't physically exist).
+            </li>
+            <li><b>Animation and Moving Pictures</b> - One of the coolest things about computer graphics is that it can
+                produce <b>moving pictures</b>, making animations possible. This allows us to create dynamic visuals
+                that tell a story or explain concepts.</li>
+            <li><b>Control Over Animations</b> - Computer graphics give us full control over animations. We can
+                <b>adjust the speed</b>, zoom in or out, and decide how much detail to show, making the animation
+                exactly how we want it.
+            </li>
+            <li><b>Motion Dynamics</b> - This feature lets us move objects or change viewpoints in real time. It’s great
+                for creating interactive experiences.
+                <ul>
+                    <li>For example, have you ever taken a virtual tour of a house before buying it? That’s motion
+                        dynamics in action!</li>
+                </ul>
+            </li>
+            <li><b>Update Dynamics</b> - With update dynamics, we can change an object’s <b>shape</b>, <b>color</b>, or
+                other properties whenever needed. This flexibility allows us to adapt objects in a scene to fit our
+                needs or create different effects.</li>
+            <li><b>Audio Feedback</b> - Thanks to advancements in digital sound processing, computer graphics now
+                include <b>audio feedback</b>. This means we can add sound to the visuals, making the experience richer
+                and more immersive.</li>
+        </ul>
+
+        <!-- <h3>Applications of Computer Graphics</h3>
+        <ul>
+            <li><b>User Interface:</b> One of the most useful applications of computer graphics is the <b>visual
+                    objects</b> on the screen that help us interact with the computer. These are the buttons, icons, and
+                menus we click or touch, making it easier for us to use software.</li>
+            <li><b>Plotting Graphics and Charts:</b> Computer graphics are used to draw graphs like <b>bars, pie charts,
+                    and histograms</b>. These are super helpful in business, government, and educational organizations
+                for making quick and informed decisions.</li>
+            <li><b>Office Automation and Desktop Publishing:</b> Graphics help in creating and sharing documents with
+                text, tables, graphs, and even scanned or drawn images. It makes office work smoother and helps in
+                <b>printing documents</b> efficiently.
+            </li>
+            <li><b>Computer-Aided Drafting and Design (CAD):</b> Graphics are used to design everything from
+                <b>automobile bodies</b> to <b>building structures</b>. It allows for accurate modeling of components
+                and systems before they are built.
+            </li>
+            <li><b>Simulation and Animation:</b> Computer graphics make <b>mathematical models</b> and mechanical
+                systems more realistic and easy to study. It’s widely used in simulations to understand complex systems
+                better.</li>
+            <li><b>Art and Commerce:</b> Graphics tools are used by artists and advertisers to create <b>animated</b>
+                and eye-catching images for promotions and campaigns.</li>
+            <li><b>Process Control:</b> In modern systems, automation is often graphically displayed on the screen,
+                helping control processes easily and effectively.</li>
+            <li><b>Cartography:</b> Graphics are used to create and display maps—such as <b>geographic maps</b>,
+                <b>weather maps</b>, and <b>oceanographic charts</b>.
+            </li>
+            <li><b>Education and Training:</b> Computer graphics are used to create <b>models</b> of physical,
+                financial, and economic systems. These models can be helpful educational tools to understand complex
+                concepts.</li>
+            <li><b>Image Processing:</b> Graphics help in processing images, such as adjusting their <b>properties</b>
+                (like brightness, contrast, or resolution) to enhance or modify them for specific purposes.</li>
+        </ul> -->
+        <h3>Types of Computer Graphics</h3>
+        <ul>
+            <li><b>NICG (Non-Interactive Computer Graphics):</b> This type of computer graphics involves visuals that
+                are already created and you just watch them. You can't change or interact with them. It's like the
+                graphics are passive because they stay the same, no matter what you do.
+                <ul>
+                    <li>Example: Things like <b>screen savers</b> or movies, where the visuals are played for you to
+                        watch, but you don’t get to click, drag, or do anything to change them. It's all about just
+                        viewing the content as it is.</li>
+                </ul>
+            </li>
+            <li><b>ICG (Interactive Computer Graphics):</b> Unlike NICG, this type of graphics lets you interact with
+                and control what’s happening. You can change things in real-time, like moving objects around, clicking
+                on things, or even changing the entire scene based on your actions.
+                <ul>
+                    <li>Example: Think of things like <b>video games</b>, where you control the character’s movements,
+                        or <b>virtual reality</b>, where you can explore a whole new world and change things as you go.
+                        You can also find this in design software, where you can edit and move things around.</li>
+                </ul>
+            </li>
+            <li><b>How NICG and ICG Are Different:</b> In NICG, everything is pre-made and you just watch it, like a
+                movie or screen saver. You can’t interact with it or change anything. But in ICG, you have control over
+                what happens. You can click, move things, and interact with the graphics as they happen in real time.
+                So, NICG is for passive viewing, and ICG is for an active, hands-on experience.</li>
+        </ul>
+
+
+
+        <div class="wh">
+            <h2>Basic Terminology</h2>
+            <div id="t2" class="in">
+                <h3>Understanding Pixels: The Basics and Color Representation</h3>
+                <p>We see images on our screens every day; whether it's on our phones, computers, or TVs. But have you
+                    ever wondered what actually makes up these images? The answer lies in something called pixels. Let's
+                    break it down in a simple and detailed way.</p>
+                <h3>What is a Pixel?</h3>
+                <p>A pixel (short for picture element) is the smallest unit of a digital image. Think of it as a tiny
+                    square or dot of color that, when combined with millions of other pixels, forms a complete image.
+                </p>
+                <ul>
+                    <li>If you zoom in on a digital image, you'll eventually see a grid of tiny colored squares.</li>
+                    <li>Each square is a pixel, and it has a specific color and brightness.</li>
+                </ul>
+
+                <h3>Why Are Pixels Important?</h3>
+                <p>Everything we see on a screen is made up of pixels. Whether you're watching a movie, playing a game,
+                    or editing a photo, the quality and clarity of what you see depend on how many pixels are there and
+                    how they are arranged.</p>
+
+                <h3>The Components of a Pixel: RGB Color Model</h3>
+                <p>Each pixel in a digital screen isn’t just a single solid color. Instead, it is made up of three
+                    sub-pixels that emit different amounts of Red (R), Green (G), and Blue (B) light.</p>
+                <p>This is called the <strong>RGB (Red, Green, Blue) Color Model</strong> because:</p>
+                <ul>
+                    <li><strong>Red (R)</strong></li>
+                    <li><strong>Green (G)</strong></li>
+                    <li><strong>Blue (B)</strong></li>
+                </ul>
+                <p>By adjusting the brightness of these three colors, we can create millions of different colors.</p>
+
+                <h3>Understanding Bit Depth and Color Representation</h3>
+                <p>To store and display colors, each of the three RGB components has a certain bit depth, which
+                    determines how many different shades each color can have.</p>
+
+                <h3>Bit Depth Explained</h3>
+                <p>Each color channel (Red, Green, and Blue) is assigned a certain number of bits. The most common is
+                    <strong>8-bit per channel</strong>, meaning each color can have 256 different shades (ranging from 0
+                    to 255).
+                </p>
+                <ul>
+                    <li><strong>0</strong> means no intensity (black).</li>
+                    <li><strong>255</strong> means full intensity (brightest).</li>
+                </ul>
+                <p>Since a pixel has three color channels (RGB), the total number of possible colors in an 8-bit system
+                    is:</p>
+                <p><strong>256×256×256 = 16,777,216</strong> (around 16.7 million colors)</p>
+                <p>This is called <strong>24-bit color depth</strong> because each pixel is made up of 8 bits per
+                    channel (8 Red + 8 Green + 8 Blue = 24 bits).</p>
+
+                <h3>Other Bit Depths:</h3>
+                <ul>
+                    <li><strong>1-bit (Black & White only)</strong> → 2 colors</li>
+                    <li><strong>8-bit (Grayscale or indexed color)</strong> → 256 colors</li>
+                    <li><strong>16-bit (High color)</strong> → 65,536 colors</li>
+                    <li><strong>24-bit (True color, used in most displays)</strong> → 16.7 million colors</li>
+                    <li><strong>32-bit (Includes alpha for transparency effects)</strong> → Same as 24-bit but with an
+                        extra 8-bit alpha channel for transparency.</li>
+                </ul>
+
+                <h3>How RGB Values Create Colors</h3>
+                <p>By mixing different intensities of R, G, and B, we can create a variety of colors.</p>
+
+                <h3>Some common RGB combinations:</h3>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Color</th>
+                            <th>Red (R)</th>
+                            <th>Green (G)</th>
+                            <th>Blue (B)</th>
+                        </tr>
+                        <tr>
+                            <td>Black</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>White</td>
+                            <td>255</td>
+                            <td>255</td>
+                            <td>255</td>
+                        </tr>
+                        <tr>
+                            <td>Red</td>
+                            <td>255</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Green</td>
+                            <td>0</td>
+                            <td>255</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Blue</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>255</td>
+                        </tr>
+                        <tr>
+                            <td>Yellow</td>
+                            <td>255</td>
+                            <td>255</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Cyan</td>
+                            <td>0</td>
+                            <td>255</td>
+                            <td>255</td>
+                        </tr>
+                        <tr>
+                            <td>Magenta</td>
+                            <td>255</td>
+                            <td>0</td>
+                            <td>255</td>
+                        </tr>
+                        <tr>
+                            <td>Gray</td>
+                            <td>128</td>
+                            <td>128</td>
+                            <td>128</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <div id="t3" class="in">
+                <h3>Image Resolution and Pixel Density</h3>
+                <ul>
+                    <li>Now that we have a solid understanding of pixels, let’s explore two fundamental concepts that
+                        directly impact the quality of an image: Image Resolution and Pixel Density (PPI - Pixels Per
+                        Inch). These two factors determine how sharp, detailed, and clear an image appears on a screen
+                        or in print.</li>
+                    <li>If you've ever wondered why a 4K display looks so much sharper than a 1080p screen or why some
+                        printed images appear blurry while others look crisp, understanding resolution and pixel density
+                        will make things much clearer!</li>
+                </ul>
+                <h3>Image Resolution: The Total Number of Pixels in an Image</h3>
+
+                <p><strong>What is Image Resolution?</strong></p>
+                <p>Resolution refers to the total number of pixels that make up an image. It’s typically expressed as
+                    Width × Height in pixels.</p>
+
+                <p>For example:</p>
+                <ul>
+                    <li><strong>1920 × 1080 (Full HD)</strong> → 2,073,600 pixels (about 2.07 megapixels)</li>
+                    <li><strong>3840 × 2160 (4K UHD)</strong> → 8,294,400 pixels (about 8.29 megapixels)</li>
+                </ul>
+
+                <p>The higher the resolution, the more pixels are used to display the image, which means more details
+                    and a clearer picture.</p>
+                <ul>
+                    <li>When a camera has 48 megapixels, it means the camera can capture 48 million pixels in each
+                        photo. To break it down, 1 megapixel equals 1 million pixels. So, a 48-megapixel camera captures
+                        48,000,000 pixels.</li>
+                    <li>More pixels in an image mean higher resolution, which translates to clearer, sharper, and more
+                        detailed photos. With 48 million pixels, you get much more detail than a camera with, say, 8 or
+                        12 megapixels.</li>
+                    <li>So, in short, a 48-megapixel camera can capture an image made up of 48 million tiny dots of
+                        color, allowing for much more precision and better quality, especially when you zoom in or crop
+                        the photo.</li>
+                </ul>
+
+                <p><strong>Why Does Higher Resolution Look Better?</strong></p>
+                <p>Let’s think of an image as a mosaic. Imagine you’re creating a painting using small colored tiles.
+                </p>
+                <ul>
+                    <li>If you have fewer tiles (low resolution) → the image looks blocky and less detailed.</li>
+                    <li>If you have more tiles (high resolution) → the image is smoother and has finer details.</li>
+                </ul>
+                <p>This is exactly how digital images work! More pixels = more detail.</p>
+
+                <p><strong>Types of Image Resolution</strong></p>
+
+                <ul>
+                    <li><strong>Screen Resolution (For Digital Displays)</strong>
+                        <ul>
+                            <li>The number of pixels that a display can show.</li>
+                            <li>Examples: 720p (1280 × 720), 1080p (1920 × 1080), 4K (3840 × 2160), 8K (7680 × 4320).
+                            </li>
+                            <li>Affects image clarity, sharpness, and detail on screens.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Print Resolution (For Physical Prints)</strong>
+                        <ul>
+                            <li>Printed images are measured in DPI (Dots Per Inch) instead of pixels.</li>
+                            <li>A 300 DPI print is considered high quality for photos.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Camera Resolution (Megapixels in Cameras)</strong>
+                        <ul>
+                            <li>The total number of pixels in an image captured by a camera.</li>
+                            <li>Example: A 12 MP (megapixel) camera captures images with about 12 million pixels.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>How Resolution Affects Image Quality</strong></p>
+
+                <ul>
+                    <li><strong>720p (1280×720)</strong> - Used in low-end monitors, budget phones. Looks decent, but
+                        lacks fine detail.</li>
+                    <li><strong>1080p (1920×1080)</strong> - Found in most laptops, monitors, and TVs. Clear and sharp
+                        for most users.</li>
+                    <li><strong>4K (3840×2160)</strong> - Common in high-end monitors, gaming, and TV screens. Extremely
+                        sharp and detailed.</li>
+                    <li><strong>8K (7680×4320)</strong> - Used in professional displays and high-end TVs. Overkill for
+                        most users.</li>
+                </ul>
+                <p><strong>Example: Calculating the Storage Required for an Image</strong></p>
+                <p>Let’s take an image with a resolution of <strong>1000 × 750 pixels</strong>.</p>
+
+                <ul>
+                    <li><strong>Step 1: Find the Total Number of Pixels</strong></li>
+                    <ul>
+                        <li>
+                            <p><strong>1000 × 750 = 750,000 pixels</strong></p>
+                        </li>
+                        <li>
+                            <p>This means the image is made up of 750,000 tiny colored squares.</p>
+                        </li>
+                    </ul>
+
+                    <li><strong>Step 2: Find the Total Storage Required</strong></li>
+                    <ul>
+                        <li>
+                            <p>Now, let’s assume <strong>24-bit color depth (8 bits per channel)</strong>:</p>
+                        </li>
+                        <li>
+                            <p><strong>750,000 × 24 bits per pixel = 18,000,000 bits</strong></p>
+                        </li>
+                        <li>
+                            <p>Since <strong>8 bits = 1 byte</strong>, we divide by 8:</p>
+                        </li>
+                        <li>
+                            <p><strong>18,000,000 ÷ 8 = 2,250,000 bytes</strong></p>
+                        </li>
+                    </ul>
+
+                    <li><strong>Step 3: Convert Bytes to Kilobytes (KB)</strong></li>
+                    <ul>
+                        <li>
+                            <p>To convert bytes to kilobytes, divide by <strong>1024</strong>:</p>
+                        </li>
+                        <li>
+                            <p><strong>2,250,000 bytes ÷ 1024 = 2,199.22 KB</strong></p>
+                        </li>
+                        <li>
+                            <p>This means the image takes up about <strong>2,199.22 KB</strong> of storage.</p>
+                        </li>
+                    </ul>
+
+                    <li><strong>Step 4: Convert Kilobytes to Megabytes (MB)</strong></li>
+                    <ul>
+                        <li>
+                            <p>If you want the size in megabytes, you divide by <strong>1024</strong> again:</p>
+                        </li>
+                        <li>
+                            <p><strong>2,199.22 KB ÷ 1024 = 2.15 MB</strong></p>
+                        </li>
+                        <li>
+                            <p>So, this image (1000 × 750 pixels, 24-bit color) will take up about <strong>2.15
+                                    MB</strong> of storage.</p>
+                        </li>
+                    </ul>
+                </ul>
+
+                <p><strong>Summary:</strong> The total storage required for the image is approximately <strong>2.15
+                        MB</strong> (or <strong>2,199.22 KB</strong>).</p>
+
+
+                <h3>Pixel Density (PPI - Pixels Per Inch)</h3>
+
+                <p><strong>What is Pixel Density?</strong></p>
+                <p>While resolution tells us how many pixels an image has, <strong>Pixel Density (PPI)</strong> tells us
+                    how tightly packed those pixels are within a given space.</p>
+
+                <ul>
+                    <li>Higher PPI = Sharper image</li>
+                    <li>Lower PPI = More pixelated image</li>
+                </ul>
+
+                <p><strong>How PPI Works</strong></p>
+                <p>Think of pixel density like a grid of dots on a piece of paper:</p>
+                <ul>
+                    <li>If you squeeze a lot of dots into a small space → the image looks smooth and detailed.</li>
+                    <li>If the dots are spread out too much → the image looks pixelated.</li>
+                </ul>
+
+                <p><strong>Pixel Density in Different Devices</strong></p>
+
+                <ul>
+                    <li><strong>Standard Monitor</strong> - Example Resolution: 1920 × 1080, Screen Size: 24 inches, PPI
+                        Approx: 92</li>
+                    <li><strong>Retina Display (MacBook)</strong> - Example Resolution: 2560 × 1600, Screen Size: 13
+                        inches, PPI Approx: 227</li>
+                    <li><strong>Smartphone Display</strong> - Example Resolution: 2400 × 1080, Screen Size: 6 inches,
+                        PPI Approx: 400+</li>
+                    <li><strong>4K TV</strong> - Example Resolution: 3840 × 2160, Screen Size: 55 inches, PPI Approx: 80
+                    </li>
+                </ul>
+
+                <p><strong>Why Does PPI Matter?</strong></p>
+
+                <p>If you’ve ever compared an iPhone screen to a laptop screen, you might have noticed that text and
+                    images look much sharper on the phone. This is because phones have very high PPI, while laptops and
+                    monitors have a lower PPI.</p>
+
+                <ul>
+                    <li><strong>Low PPI (&lt;100 PPI)</strong> - Can look pixelated when viewed up close.</li>
+                    <li><strong>High PPI (&gt;300 PPI)</strong> - Crisp, detailed images. Common in smartphones,
+                        high-end laptops, and tablets.</li>
+                </ul>
+
+                <p><strong>How to Calculate PPI?</strong></p>
+
+                <p>To calculate PPI, we use this formula:</p>
+
+                <p><strong>PPI = Diagonal Resolution (in pixels) ÷ Screen Size (in inches)</strong></p>
+
+                <p><strong>Example: Calculating PPI for a 1920 × 1080 resolution on a 24-inch monitor</strong></p>
+
+                <ul>
+                    <li>Find the diagonal resolution using the Pythagorean theorem:</li>
+                    <ul>
+                        <li>(1920² + 1080²) = 3,686,400 + 1,166,400 = 4,852,800</li>
+                        <li>√4,852,800 ≈ 2202</l>
+                    </ul>
+                </ul>
+                <ul>
+                    <li>Divide by screen size:</li>
+                    <ul>
+                        <li>2202 ÷ 24 ≈ 92 PPI</li>
+                    </ul>
+                </ul>
+                <p>So, a <strong>24-inch Full HD monitor</strong> has about <strong>92 PPI</strong>.</p>
+
+                <p><strong>For comparison:</strong></p>
+                <ul>
+                    <li><strong>13-inch MacBook Pro</strong> - Resolution: 2560 × 1600, PPI Approx: 227</li>
+                    <li><strong>6-inch Smartphone</strong> - Resolution: 2400 × 1080, PPI Approx: 400+</li>
+                </ul>
+
+                <h3>Understanding Aspect Ratio in Depth</h3>
+                <p>Aspect ratio plays a big role in how images, videos, and screens look. If you’ve ever seen a video
+                    that looks stretched or has black bars on the sides, that’s because of aspect ratio differences.
+                    Let’s break it down step by step.</p>
+
+                <p><strong>What is Aspect Ratio?</strong></h3>
+
+                <p>Aspect ratio is simply the proportional relationship between the width and height of an image or
+                    screen. It’s written as:</p>
+
+                <p><strong>Aspect Ratio = Width ÷ Height</strong></p>
+
+                <p>For example:</p>
+                <ul>
+                    <li><strong>1920 × 1080 resolution</strong> → 16:9 aspect ratio</li>
+                    <li><strong>1280 × 720 resolution</strong> → 16:9 aspect ratio</li>
+                    <li><strong>3840 × 2160 resolution</strong> → 16:9 aspect ratio</li>
+                </ul>
+
+                <p><strong>Why is Aspect Ratio Important?</strong></p>
+
+                <p>Aspect ratio affects how content is displayed. If you try to display a 16:9 video on a 4:3 screen,
+                    you’ll either:</p>
+
+                <ul>
+                    <li>Stretch the image, making it look distorted, or</li>
+                    <li>Add black bars (<strong>letterboxing</strong> or <strong>pillarboxing</strong>) to maintain the
+                        original aspect ratio.</li>
+                </ul>
+
+                <p>So, different aspect ratios are used for different purposes to optimize the viewing experience.</p>
+
+                <p><strong>Common Aspect Ratios and Where They Are Used</strong></p>
+
+                <ul>
+                    <li><strong>4:3 (Standard TV/Old Monitors)</strong>
+                        <ul>
+                            <li>Common Resolutions: 1024 × 768, 800 × 600</li>
+                            <li>Used in: Older CRT monitors, classic TV shows, projectors</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>16:9 (Widescreen, HD, 4K)</strong>
+                        <ul>
+                            <li>Common Resolutions: 1920 × 1080, 1280 × 720, 3840 × 2160</li>
+                            <li>Used in: Modern TVs, laptops, YouTube, gaming</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>21:9 (Ultrawide Monitors & Cinema)</strong>
+                        <ul>
+                            <li>Common Resolutions: 2560 × 1080, 3440 × 1440</li>
+                            <li>Used in: Gaming monitors, cinematic movies</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>32:9 (Super Ultrawide Monitors)</strong>
+                        <ul>
+                            <li>Common Resolutions: 3840 × 1080, 5120 × 1440</li>
+                            <li>Used in: High-end gaming, productivity setups</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>1:1 (Square Format)</strong>
+                        <ul>
+                            <li>Common Resolutions: 1080 × 1080</li>
+                            <li>Used in: Instagram, profile pictures</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>9:16 (Vertical Video)</strong>
+                        <ul>
+                            <li>Common Resolutions: 1080 × 1920</li>
+                            <li>Used in: TikTok, Instagram Reels, Snapchat</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>The Shift from 4:3 to 16:9</strong></p>
+
+                <p>Back in the early 2000s, 4:3 aspect ratio was the standard for TVs and monitors. But as HD content
+                    became more common, 16:9 widescreen format took over because it provided:</p>
+
+                <ul>
+                    <li>A more cinematic experience</li>
+                    <li>Better fit for modern displays</li>
+                    <li>More screen space for multitasking</li>
+                </ul>
+
+                <p>Today, 16:9 is the default for most screens, including laptops, TVs, and smartphones in landscape
+                    mode.</p>
+
+                <p><strong>How Aspect Ratio Affects Viewing Experience</strong></p>
+                <ol>
+                    <li><strong>Watching Videos and Movies</strong><br>
+
+                        Ever watched a movie and noticed black bars on the top and bottom? That happens when the movie's
+                        aspect ratio is wider than the screen.</li>
+
+                    <ul>
+                        <li><strong>16:9 video on a 16:9 screen</strong> → Perfect fit</li>
+                        <li><strong>21:9 movie on a 16:9 screen</strong> → Black bars (<strong>letterboxing</strong>)
+                            appear
+                            on top and bottom</li>
+                        <li><strong>16:9 video on a 4:3 screen</strong> → Black bars (<strong>pillarboxing</strong>)
+                            appear
+                            on the sides</li>
+                    </ul>
+                    <li><strong>Gaming and Productivity</strong></l>
+
+                        <ul>
+                            <li>Ultrawide monitors (21:9) provide more horizontal screen space in games and work
+                                applications.
+                            </li>
+                            <li>32:9 monitors are like having two 16:9 screens side by side, great for multitasking.
+                            </li>
+                        </ul>
+                    <li><strong>Social Media and Vertical Videos</strong></l>
+
+                        <ul>
+                            <li>9:16 aspect ratio (vertical) is used for platforms like TikTok, Instagram Reels, and
+                                Snapchat
+                                because people hold their phones vertically.</li>
+                            <li>If you upload a 16:9 video on TikTok, it will appear with huge black bars or get
+                                cropped.</li>
+                        </ul>
+                </ol>
+                <p><strong>How to Calculate Aspect Ratio</strong></p>
+
+                <p>To find the aspect ratio of any resolution, simply divide width by height, then reduce it to its
+                    simplest form.</p>
+
+                <ul>
+                    <li><strong>Example 1:</strong> For 1920 × 1080
+                        <ul>
+                            <li>1920 ÷ 1080 = 1.777</li>
+                            <li>Since 16 ÷ 9 = 1.777, the aspect ratio is <strong>16:9</strong>.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Example 2:</strong> For 2560 × 1080
+                        <ul>
+                            <li>2560 ÷ 1080 = 2.37</li>
+                            <li>Since 21 ÷ 9 = 2.33, it's an approximate <strong>21:9</strong> aspect ratio.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Changing Aspect Ratio: Cropping vs. Stretching</strong></p>
+
+                <p>If you have an image or video with a different aspect ratio than the display, you can adjust it in
+                    different ways:</p>
+
+                <ul>
+                    <li><strong>Stretching</strong> → Fills the screen but makes everything look distorted.</li>
+                    <li><strong>Cropping</strong> → Cuts off parts of the image to fit the screen.</li>
+                    <li><strong>Letterboxing/Pillarboxing</strong> → Adds black bars to maintain the original aspect
+                        ratio.</li>
+                </ul>
+
+                <p>For the best results, always use content that matches your display’s native aspect ratio.</p>
+
+            </div>
+            <div id="t4" class="in">
+                <h3>CMY Color Model</h3>
+                <ul>
+                    <li>The CMY color model is used in printing, and it works differently from how colors are created on
+                        screens. While screens use the RGB color model, which creates colors by adding light, CMY works
+                        by removing light. This is why it’s called a subtractive color model.</li>
+                    <li>Imagine a white piece of paper. White reflects all the colors of light. When you print with ink,
+                        the ink absorbs certain parts of the light, and only the remaining light is what you see.</li>
+                    <li>In the CMY model, there are three primary colors of ink:
+                        <ul>
+                            <li>Cyan (C)</li>
+                            <li>Magenta (M)</li>
+                            <li>Yellow (Y)</li>
+                        </ul>
+                    </li>
+                    <li>Each of these colors of ink removes a specific part of the light:
+                        <ul>
+                            <li>Cyan absorbs red light.</li>
+                            <li>Magenta absorbs green light.</li>
+                            <li>Yellow absorbs blue light.</li>
+                        </ul>
+                    </li>
+                    <li>By mixing these inks, printers can create a wide range of colors. When the cyan, magenta, and
+                        yellow inks are used together, they ideally absorb all the colors of light and leave nothing to
+                        reflect, which should create black. However, in practice, this mix results in a dark, muddy
+                        color, which is why printers use black ink to improve the color quality.</li>
+                    <li>The key takeaway from the CMY model is that it works by subtracting light. Instead of adding
+                        colors like on a screen, the printer removes certain wavelengths (or parts) of light to create
+                        the final color you see on the paper.</li>
+                </ul>
+                <h3>CMYK Color Model (Cyan, Magenta, Yellow, Black)</h3>
+                <ul>
+                    <li>The CMYK color model is an extension of the CMY model and is primarily used in printing. It
+                        stands for Cyan, Magenta, Yellow, and Black. While the CMY model works by removing light to
+                        create colors, CMYK adds black ink to improve the color depth and quality of printed images.
+                    </li>
+                    <li>In the CMY model, mixing the three primary colors of cyan, magenta, and yellow ideally creates
+                        black, but in reality, it results in a muddy dark brown. This is because mixing inks doesn’t
+                        produce a true, deep black, which is why printers use an additional black (K) ink to get better
+                        contrast and sharper details.</li>
+                    <li>Why Add Black (K)?
+                        <ul>
+                            <li>Better depth and clarity: Using just cyan, magenta, and yellow often results in a faded
+                                or dull black. Black ink is needed to create rich, true blacks and improve overall
+                                contrast in printed images.</li>
+                            <li>Cost and efficiency: Using a separate black ink cartridge is more economical than mixing
+                                three colors to create black every time, saving on ink costs.</li>
+                        </ul>
+                    </li>
+                    <li>How CMYK Works
+                        <ul>
+                            <li>In CMYK, each color of ink still works to absorb certain parts of the light:
+                                <ul>
+                                    <li>Cyan (C) absorbs red light.</li>
+                                    <li>Magenta (M) absorbs green light.</li>
+                                    <li>Yellow (Y) absorbs blue light.</li>
+                                    <li>Black (K) is used for the darkest areas and to sharpen details.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>When all four inks are used in combination, they create a full range of colors, allowing
+                        printers to reproduce everything from bright colors to deep blacks with high quality.</li>
+                    <li>The Process of Subtracting Light
+                        <ul>
+                            <li>Just like CMY, the CMYK model subtracts (removes) parts of light from a white surface
+                                (paper) to form the desired color. The difference here is the use of black ink to make
+                                the print look darker and more detailed, creating a richer color result than CMY alone.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>The CMYK model is the standard in color printing because it combines three primary colors (cyan,
+                        magenta, and yellow) with a separate black ink (K) to produce high-quality prints with
+                        true-to-life colors.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="wh">
+            <h2>Display Devices</h2>
+            <div id="t5" class="in">
+                <h3>Cathode Ray Tube</h3>
+                <ul>
+                    <li>A Cathode Ray Tube (CRT) is an electronic display device used primarily in older televisions and
+                        computer monitors. It works by firing electrons at a phosphor-coated screen, which lights up to
+                        form an image. The CRT operates by manipulating the electron beam and using a series of
+                        components to direct it onto the screen in such a way that it creates a full image.</li>
+                </ul>
+                <img src="../../images/cg1.jpeg" alt="">
+                <p><strong>Main Components of a CRT</strong></p>
+                <ol>
+                    <li><strong>Connector Pins and Base</strong>
+                        <ul>
+                            <li>The CRT’s base contains connector pins that connect the tube to external circuits. These
+                                pins deliver power and control signals to the internal components, like the electron gun
+                                and deflection system.</li>
+                            <li>They serve as the interface between the CRT and the rest of the system, providing
+                                necessary power and signals to function properly.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Electron Gun</strong>
+                        <ul>
+                            <li>Located at the rear of the tube, the electron gun is responsible for emitting a stream
+                                of electrons that are directed toward the screen.</li>
+                            <li>It consists of the following parts:
+                                <ul>
+                                    <li>Cathode: A heated filament that emits electrons when heated.</li>
+                                    <li>Control Grid: Regulates the flow of electrons from the cathode to ensure the
+                                        correct brightness and intensity.</li>
+                                    <li>Anode: Attracts the negatively charged electrons and accelerates them toward the
+                                        screen.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Focusing System</strong>
+                                <ul>
+                                    <li>This system focuses the electron beam into a fine point. It is made up of
+                                        electromagnetic or electrostatic lenses that direct the beam, ensuring that the
+                                        electrons don’t scatter.</li>
+                                    <li>By controlling the beam’s focus, the image produced is sharp and clear.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Deflection System (Vertical and Horizontal)</strong>
+                                <ul>
+                                    <li>The deflection system moves the electron beam across the screen. It works in two
+                                        directions:
+                                        <ul>
+                                            <li>Vertical Deflection: Uses electromagnetic coils that create a magnetic
+                                                field to move the electron beam up and down on the screen.</li>
+                                            <li>Horizontal Deflection: Uses a separate set of coils or deflection plates
+                                                to move the beam left and right.</li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li><strong>Phosphor-Coated Screen</strong>
+                                <ul>
+                                    <li>The front of the CRT is coated with phosphor material that glows when hit by the
+                                        electron beam. This screen is divided into red, green, and blue sections (RGB),
+                                        allowing the creation of full-color images by controlling the intensity and
+                                        duration of electron impacts.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Working of a CRT</strong></p>
+                <p>Now, let’s understand how all these components work together to display an image.</p>
+                <ol>
+                    <li><strong>Electron Emission (Electron Gun)</strong>
+                        <ul>
+                            <li>The electron gun at the back of the CRT emits electrons. The cathode inside the gun
+                                heats up, causing it to release electrons.</li>
+                            <li>The control grid adjusts how many electrons can pass through to ensure the correct
+                                brightness for the image.</li>
+                    </li>
+                    </ul>
+                    </li>
+                    <li><strong>Focusing the Electron Beam</strong>: Once the electrons are emitted, they need to be
+                        focused into a fine beam so that they
+                        don’t spread out and blur the image. The focusing system directs the beam, ensuring it
+                        stays tight and clear.
+                    </li>
+                    <li><strong>Deflecting the Electron Beam (Vertical and Horizontal)</strong>
+                        <ul>
+                            <li>The electron beam is directed across the screen in a raster pattern—starting at the
+                                top-left corner and sweeping across to the right, then moving down to the next line.
+                            </li>
+                            <li>The vertical deflection system moves the beam up or down using electromagnetic coils or
+                                deflection plates. The amount of voltage applied to these coils determines the vertical
+                                position of the beam.</li>
+                            <li>Similarly, the horizontal deflection system moves the beam left or right. It works in
+                                synchronization with the vertical system to ensure the beam covers the entire screen.
+                            </li>
+                            <li>Both deflection systems allow the electron beam to cover the whole screen
+                                systematically.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Phosphor Coating and Image Creation</strong>
+                        <ul>
+                            <li>The phosphor-coated screen reacts when the electron beam hits it. The phosphor material
+                                emits light in different colors (red, green, blue) depending on the section of the
+                                screen the electron hits.</li>
+                            <li>The screen is made up of millions of tiny phosphor dots or pixels, and each pixel
+                                consists of subpixels for red, green, and blue colors.</li>
+                            <li>The electron beam is directed to specific pixels, exciting the phosphor and making it
+                                glow, which in turn creates part of the image.</li>
+                            <li>By controlling the intensity and the location of the electron beam, a full-color image
+                                is formed, pixel by pixel.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Rapid Image Refresh</strong>
+                        <ul>
+                            <li>The CRT works by continuously refreshing the image many times per second. This happens
+                                so quickly that our eyes perceive a stable image.</li>
+                            <li>The scanning of the electron beam happens in a very fast, systematic pattern, creating
+                                the illusion of a steady image.</li>
+                            <li>This is necessary because the phosphorus coating on the screen has a decaying
+                                property—it can only glow for a short time before it fades. To keep the image from
+                                disappearing, the electron beam must refresh the screen rapidly.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3>Scanning Types in CRT</h3>
+                <p>In a CRT, scanning refers to how the electron beam moves across the screen to create an image. There
+                    are two main types of scanning:
+                <ol>
+                    <li>Raster Scan</li>
+                    <li>Random Scan</li>
+                </ol>
+                </p>
+                <h4>Raster Scan</h4>
+                <p>Raster scan is the most common type of scanning used in televisions and monitors. In this method, the
+                    electron beam systematically moves across the screen in a fixed pattern, covering the entire screen
+                    line by line from top to bottom.</p>
+                <ul>
+                    <li>How It Works
+                        <ul>
+                            <li>The electron beam starts at the top-left corner of the screen.</li>
+                            <li>It moves horizontally from left to right while turning pixels on or off to create part
+                                of the image.</li>
+                            <li>When it reaches the right edge, the beam quickly moves back to the left in a process
+                                called <strong>horizontal retrace</strong>.</li>
+                            <li>The beam then moves down to the next line and repeats the process.</li>
+                            <li>After scanning all the lines, the beam reaches the bottom-right corner.</li>
+                            <li>It then returns to the top-left corner in a process called <strong>vertical retrace</strong> and starts
+                                scanning the next frame.</li>
+                        </ul>
+                        This process repeats many times per second to maintain a smooth and continuous image. <br>
+                        <img src="../../images/cg29.svg" class="wb" alt="">
+                    </li>
+                    <li>Characteristics of Raster Scan
+                        <ul>
+                            <li>Used in TVs, monitors, and digital displays.</li>
+                            <li>Covers the entire screen, whether the image needs it or not.</li>
+                            <li>Requires a frame buffer, which stores the image before it is displayed.</li>
+                            <li>Works well for detailed, complex images.</li>
+                            <li>May experience flickering, which is reduced by increasing the refresh rate.</li>
+                        </ul>
+                    </li>
+                    <li>Example Applications
+                        <ul>
+                            <li>Televisions and computer monitors, Video games and multimedia displays, Digital image
+                                processing.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Random Scan</h4>
+                <p>Random scan, also known as vector scan or stroke writing, is different from raster scanning because
+                    the electron beam moves only to the parts of the screen where drawing is required. It does not scan
+                    the entire screen line by line.</p>
+                <ul>
+                    <li>How It Works
+                        <ul>
+                            <li>The beam directly moves from one point to another to draw the image.</li>
+                            <li>Instead of scanning the whole screen, it only draws lines, curves, and shapes as needed.
+                            </li>
+                            <li>The beam moves in any order instead of a fixed top-to-bottom pattern.</li>
+                            <li>The image is drawn by connecting points to form shapes, similar to how a pen plots
+                                points on paper.</li>
+                        </ul>
+                    </li>
+                    <li>Characteristics of Random Scan
+                        <ul>
+                            <li>Used in vector displays and older oscilloscopes (used to measure electrical signals in
+                                circuits).</li>
+                            <li>Produces sharp, flicker-free images for simple line drawings.</li>
+                            <li>Does not require a frame buffer because only the necessary parts of the screen are
+                                updated.</li>
+                            <li>Not suitable for complex, detailed images because the beam must trace every line
+                                individually.</li>
+                        </ul>
+                    </li>
+                    <li>Example Applications
+                        <ul>
+                            <li>Early CAD (Computer-Aided Design) systems.</li>
+                            <li>Oscilloscopes and scientific graphing tools.</li>
+                            <li>Military radar and air traffic control screens.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                      <tr>
+                        <th>Feature</th>
+                        <th>Raster Scan</th>
+                        <th>Random Scan</th>
+                      </tr>
+                      <tr>
+                        <td><strong>How it works</strong></td>
+                        <td>The electron beam systematically moves line by line from top to bottom, scanning the entire screen even if only a small portion of the image changes. Each pixel on the screen is updated based on the image stored in the frame buffer.</td>
+                        <td>The electron beam directly moves to specific points on the screen where drawing is required, instead of scanning the entire screen. It draws shapes like lines and curves by moving from one coordinate to another, like a pen on paper.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Speed</strong></td>
+                        <td>Slower compared to random scan because the entire screen is redrawn multiple times per second, even if some parts remain unchanged. The refresh rate determines how often the screen is updated (e.g., 60Hz means 60 times per second).</td>
+                        <td>Faster for line-based graphics because it only draws the necessary parts of the image instead of scanning the whole screen. It does not need to continuously refresh every pixel, making it more efficient for simple images.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Image Type</strong></td>
+                        <td>Best suited for detailed and complex images such as photographs, videos, and realistic graphics. Since every pixel is individually updated, it can handle high-resolution images smoothly.</td>
+                        <td>Works well for simple line drawings and geometric shapes. Since it does not scan the entire screen, it is inefficient for complex images that require shading and detailed textures.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Flickering</strong></td>
+                        <td>May experience flickering, especially at lower refresh rates. This happens because the image needs to be continuously refreshed, and if the refresh rate is too low, the human eye perceives noticeable flickers. Higher refresh rates (e.g., 120Hz) reduce flickering.</td>
+                        <td>Produces minimal flicker since the electron beam directly draws the necessary parts and does not rely on a full-screen refresh. This makes it more stable for applications that require precision, such as scientific measurements and CAD drawings.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Used In</strong></td>
+                        <td>Widely used in TVs, computer monitors, gaming consoles, and multimedia displays where full-screen graphics, colors, and animations are needed. All modern digital screens use raster scanning to create smooth visuals.</td>
+                        <td>Mostly used in CAD (Computer-Aided Design) systems, oscilloscopes, and radar displays where only wireframe graphics or simple geometric patterns are needed. It was popular in early computer graphics systems before raster scanning became dominant.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Frame Buffer Needed?</strong></td>
+                        <td>Yes, a frame buffer is required to store image data before it is displayed. The frame buffer holds pixel information and refreshes the screen continuously, ensuring smooth images.</td>
+                        <td>No, since the beam only moves to the required points, there is no need for a frame buffer. The image is directly generated by controlling the beam’s movement, reducing memory requirements.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Quick Working Difference</strong></td>
+                        <td>Think of this like how you read a book—line by line, from top to bottom. The electron beam sweeps across the entire screen, updating every pixel whether it needs to change or not. Even if only a small part of the image changes, the whole screen gets refreshed again and again. This is how TVs, monitors, and modern displays work.<br><br>So basically, Raster Scan is like a typewriter (covering everything line by line).</td>
+                        <td>Now, imagine drawing with a pen. Instead of covering everything, you only move the pen where needed to create lines, curves, or shapes. That’s exactly how Random Scan works—the electron beam jumps directly to the parts that need drawing instead of scanning the whole screen. This makes it perfect for simple line drawings, like CAD designs or radar screens.<br><br>So basically, Random Scan is like a pen (drawing only what’s needed).</td>
+                      </tr>
+                    </table>
+                  </div>
+                  
+            </div>
+            <div id="t6" class="in">
+                <h3>DVST (Direct View Storage Tube)</h3>
+
+                <ul>
+                    <li>DVST stands for <b>Direct View Storage Tube</b>, a type of display device used to store and
+                        display images without requiring constant refreshing.</li>
+                    <li>Unlike modern displays, once an image is drawn on a DVST screen, it remains visible until
+                        erased.</li>
+                </ul>
+                <img src="../../images/cg2.jpeg" alt="">
+                <p><strong>Step-by-Step Working of DVST (Direct View Storage Tube)</strong></p>
+                <p><strong>Step 1: Writing the Image – The Role of the Primary Gun</strong></p>
+                <p>The first step in DVST is creating the image, which is done by the Primary Electron Gun. This gun
+                    generates a high-energy electron beam that is directed toward the screen. However, before it reaches
+                    the screen, the beam passes through two important systems:
+                <ol>
+                    <li>Focusing System – This ensures the electron beam remains sharp and precise, preventing blurry or
+                        distorted images.</li>
+                    <li>Deflection System – This controls the movement of the beam, allowing it to draw different shapes
+                        and patterns on the screen.</li>
+                </ol>
+                Now, instead of directly displaying the image, this electron beam interacts with a special Storage Grid.
+                When the beam hits the Storage Grid, it creates an electric charge pattern that represents the image.
+                This means the image is now stored, but we still can’t see anything yet. The Storage Grid essentially
+                acts like an invisible memory that holds the drawing before it is displayed.
+                </p>
+                <p><strong>Step 2: Making the Image Visible – The Role of the Flood Gun</strong></p>
+                <ul>
+                    <li>Once the image is stored, the Flood Gun takes over. Unlike the Primary Gun, which moves around
+                        and draws, the Flood Gun emits a continuous flow of low-energy electrons that spread across the
+                        entire screen. These electrons don’t carry an image themselves; instead, they act like a
+                        background light source.</li>
+                    <li>Before reaching the screen, the flood electrons pass through the Collector Mesh, which helps
+                        filter out unnecessary electrons. This ensures that only the required electrons interact with
+                        the Storage Grid. Now, here’s where the magic happens—
+                        <ul>
+                            <li>Where the Storage Grid has a stored charge (from the Primary Gun), it allows the flood
+                                electrons to pass through.</li>
+                            <li>Where there is no charge, the grid blocks the electrons.</li>
+                        </ul>
+                    </li>
+                    <li>This selective passing of electrons creates the final image on the Phosphor-Coated Screen. The
+                        phosphor coating glows when struck by the flood electrons, making the stored image visible to
+                        the viewer.</li>
+                </ul>
+                <p><strong>Step 3: Keeping the Image Stable – Why DVST Doesn’t Flicker</strong></p>
+                <ul>
+                    <li>One major advantage of DVST is that once an image is written, it remains on the screen without
+                        flickering. This is because the Storage Grid continues to hold the charge, and the Flood Gun
+                        continuously lights it up. Unlike traditional CRT monitors, which need to refresh the image
+                        multiple times per second, DVST keeps displaying the same image without needing constant
+                        updates.</li>
+                    <li>This property made DVST useful for applications where stable images were required for a long
+                        time, such as radar displays, industrial monitors, and scientific instruments.</li>
+                </ul>
+                <p><strong>Step 4: Erasing & Redrawing – The Major Limitation</strong></p>
+                <ul>
+                    <li>The biggest downside of DVST is that it cannot partially update the image. If any part of the
+                        image needs to change, the entire screen must be erased and redrawn from scratch.</li>
+                    <li>To erase an image, the Storage Grid’s charge must be neutralized, completely removing the stored
+                        pattern. Once this happens, the screen becomes entirely blank, and the Primary Gun must redraw
+                        everything from the beginning.</li>
+                    <li>This makes DVST very slow for animations or dynamic displays, as even small updates require
+                        erasing and redrawing the entire screen. That’s why it eventually became obsolete, replaced by
+                        technologies that allow fast and smooth image updates.</li>
+                </ul>
+                <p><strong>Advantages of DVST</strong></p>
+                <ul>
+                    <li><strong>Stable Image – No Flickering:</strong> One of the biggest advantages of DVST is that
+                        once an image is displayed, it remains visible without needing continuous refreshing. In
+                        traditional CRT monitors, the electron beam must redraw the image multiple times per second to
+                        keep it visible, which can cause flickering if the refresh rate is too low. However, in DVST,
+                        the image is stored electrically in the storage grid, and the flood gun continuously lights it
+                        up. This means there is no need for repeated redrawing, making it ideal for applications that
+                        require stable and flicker-free images.</li>
+                    <li><strong>Good for Detailed Graphics – No Need for Constant Redrawing</strong>: DVST is
+                        particularly useful for displaying detailed and intricate graphics, such as technical drawings,
+                        maps, and engineering blueprints. Since the image is permanently stored in the storage grid
+                        until erased, there is no risk of distortion or loss of detail due to frequent refreshing. This
+                        was especially beneficial in scientific and industrial fields where high-precision graphics were
+                        necessary, such as displaying waveforms, architectural designs, and weather charts.</li>
+                    <li><strong>Useful for Scientific and Industrial Applications:</strong> DVST found extensive use in
+                        specialized fields where stable and precise visuals were critical. Some common applications
+                        included:
+                        <ul>
+                            <li>Radar Displays – Used in military and aviation systems to track aircraft, ships, and
+                                weather conditions. Since radar screens need to display a stable image for long periods,
+                                DVST was an ideal choice.</li>
+                            <li>Oscilloscopes – Used in electronics and physics labs to study waveforms and signals. The
+                                ability to hold an image without flickering made it easier for scientists and engineers
+                                to analyze data.</li>
+                            <li>Medical Imaging – Early medical imaging devices, such as X-ray monitors and
+                                electrocardiogram (ECG) displays, used DVST to provide stable images for diagnosis.</li>
+                            <li>Control Panels in Power Plants and Factories – DVST was used in process control systems,
+                                where important real-time data, such as temperature, pressure, and electrical flow,
+                                needed to be displayed clearly for operators.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Disadvantages of DVST</strong></p>
+                <ul>
+                    <li><strong>Cannot Update Part of the Image – Requires Full Erasure & Redrawing</strong>: One of the
+                        biggest drawbacks of DVST is that it does not allow partial updates. If any change is needed in
+                        the displayed image, the entire screen must be completely erased and redrawn from scratch. This
+                        makes it highly inefficient for dynamic applications, such as interactive systems or gaming,
+                        where frequent updates are required.
+                        <br>For example, if a small change was needed in a radar display, the entire map would have to
+                        be erased and redrawn, causing delays and inefficiencies. This limitation made DVST unsuitable
+                        for interactive applications where real-time updates are necessary.
+                    </li>
+                    <li><strong>Slow for Animations – Not Suitable for Video or Real-Time Graphics</strong>: Since DVST
+                        cannot refresh parts of the screen independently, it is extremely slow for animations and
+                        real-time graphics. Unlike modern screens, where images are updated multiple times per second,
+                        DVST can only display static images until manually erased. This makes it unsuitable for
+                        applications like video playback, gaming, and interactive graphics.
+                        <br>For example:
+                        <ul>
+                            <li>A moving object in a simulation would require the entire screen to be erased and redrawn
+                                at each step, making animations impractically slow.</li>
+                            <li>A video display would be impossible, as video requires constant updates at high speed
+                                (typically 24-60 frames per second).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Outdated Technology – Replaced by LCD, LED, and OLED</strong>: With the advancement of
+                        display technologies, DVST quickly became obsolete. Newer display systems such as LCD (Liquid
+                        Crystal Display), LED (Light Emitting Diode), and OLED (Organic Light Emitting Diode) offered
+                        significant improvements:
+                        <ul>
+                            <li>Faster Refresh Rates – Modern displays can update images in real time, making them ideal
+                                for gaming, videos, and dynamic applications.</li>
+                            <li>Lower Power Consumption – Unlike DVST, which requires continuous electron flow, LCDs and
+                                OLEDs consume much less power, making them more energy-efficient.</li>
+                            <li>Slimmer and Lighter Design – DVST screens were bulky and heavy, whereas modern displays
+                                are sleek and portable.</li>
+                        </ul>Due to these advancements, DVST is now primarily a historical topic, studied for its role
+                        in the evolution of computer graphics and display technology.
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Flat Panel Display</h3>
+                <p>A Flat Panel Display (FPD) is a thin, lightweight display technology that replaces the bulky Cathode
+                    Ray Tube (CRT) screens. Unlike CRTs, which require a large vacuum tube, FPDs use modern electronic
+                    methods to generate images, making them slimmer, energy-efficient, and more portable.</p>
+                <h4>Flat Panel Display (FPD) – Advantages Over CRT</h4>
+
+                <p>Flat-panel displays (FPDs) are modern video display devices that have several advantages over
+                    traditional Cathode Ray Tube (CRT) monitors. Unlike bulky CRTs, FPDs are sleek, energy-efficient,
+                    and highly portable.</p>
+
+                <p><strong>Here’s why FPDs are preferred over CRTs:</strong></p>
+
+                <ul>
+                    <li><strong>Thinner & Space-Saving Design</strong>
+                        <p>One of the biggest advantages of flat-panel displays is that they are extremely thin compared
+                            to CRTs, which have a large, bulky design.</p>
+                        <ul>
+                            <li><strong>Traditional CRTs</strong> require a deep cabinet to accommodate the electron gun
+                                and phosphor-coated screen.</li>
+                            <li><strong>Flat-panel displays</strong> use modern technology like liquid crystals (LCDs)
+                                or light-emitting diodes (LEDs) to display images, eliminating the need for a deep
+                                structure.</li>
+                            <li>This thin profile allows FPDs to be:
+                                <ul>
+                                    <li>Mounted on walls (like LED TVs).</li>
+                                    <li>Built into slim laptops and tablets.</li>
+                                    <li>Even worn on the wrist (as in smartwatches).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><strong> Example:</strong> Flat-screen TVs can be hung on walls, whereas old CRT TVs needed
+                            bulky furniture to support them.</p>
+                    </li>
+
+                    <li><strong>Lightweight & Portable</strong>
+                        <p>Another major advantage is that flat-panel displays are lightweight, making them easy to move
+                            and transport.</p>
+                        <ul>
+                            <li>CRT monitors contain heavy glass screens and metal components, making them difficult to
+                                lift and carry.</li>
+                            <li>FPDs use lightweight materials like thin plastic layers, LED panels, and liquid crystal
+                                layers, significantly reducing weight.</li>
+                            <li>Because of their low weight, FPDs can be easily integrated into portable devices like
+                                smartphones, tablets, and laptops.</li>
+                        </ul>
+                        <p><strong> Example:</strong> A 32-inch CRT TV can weigh over 30 kg, while a 32-inch LED TV
+                            weighs less than 5 kg!</p>
+                    </li>
+
+                    <li><strong>Low Power Consumption</strong>
+                        <p>Flat-panel displays consume less power than CRTs, making them more energy-efficient and
+                            cost-effective in the long run.</p>
+                        <ul>
+                            <li>CRTs require a lot of power to operate because they use electron beams to continuously
+                                refresh the image on the screen.</li>
+                            <li>FPDs use modern technologies like LED backlighting and OLED pixels, which are designed
+                                to operate at lower power levels.</li>
+                            <li>Since FPDs don’t require constant electron beam movement, they generate less heat and
+                                extend battery life in portable devices.</li>
+                        </ul>
+                        <p><strong> Example:</strong></p>
+                        <ul>
+                            <li>A CRT monitor consumes around 75-100W of power, while a similar-sized LCD/LED screen
+                                only needs 20-40W.</li>
+                            <li>This makes FPDs ideal for battery-powered devices like laptops, smartphones, and
+                                smartwatches.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Two Categories of Flat-Panel Displays: Emissive and Non-Emissive</h4>
+                <ol>
+                    <li><strong>Emissive Displays:</strong> Directly emit light to create images
+                        <ul>
+                            <li>Emissive displays are also called "emitters" because they convert electrical energy into
+                                light to create images. These displays do not require an external light source; they
+                                generate their own illumination. examples: Plasma Display Panels, LEDs, OLEDs</li>
+                        </ul>
+                    </li>
+                    <li><strong>Non-Emissive Displays:</strong> Use external light sources and modify them to display
+                        images.
+                        <ul>
+                            <li>Non-emissive displays do not generate their own light. Instead, they modify an external
+                                light source (such as backlight or ambient light) to create an image. Example: LCDs.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            <div id="t7" class="in">
+                <h3>Plasma Panel Display</h3>
+                <ul>
+                    <li>Plasma Panel Displays, also called Gas-Discharge Displays, were an early type of flat-panel
+                        display used before LCDs and OLEDs became popular. The name "Plasma" comes from the fact that
+                        these displays use ionized gas (plasma) to produce light. Unlike traditional CRT screens that
+                        rely on an electron beam, plasma displays use tiny gas-filled cells that light up when
+                        electricity is applied.</li>
+                    <li>A Plasma Panel Display is a self-emissive display that uses small gas-filled cells (pixels) to
+                        create an image. When an electric current passes through these cells, the gas inside (usually
+                        neon or xenon) gets ionized into plasma. This process emits light, which is used to form images
+                        on the screen.</li>
+                    <li>Plasma panels do not need constant refreshing like CRTs because once a pixel is lit, it stays on
+                        until deliberately erased. This makes them flicker-free and stable.</li>
+                </ul>
+                <p><strong>Key Components of a Plasma Panel Display</strong></p>
+                <ol>
+                    <li><strong>Cathode (Negative Electrode)</strong>: The cathode is a set of fine wires arranged
+                        horizontally across the panel. These wires deliver a negative voltage to the gas cells, sending
+                        electrical signals to different parts of the screen. They work together with the anode to
+                        control which areas of the display light up.</li>
+                    <li><strong>Anode (Positive Electrode)</strong>: The anode consists of another set of wires, but
+                        these are arranged vertically and carry a positive voltage. When combined with the cathode
+                        wires, they form a grid-like structure, determining which gas cells are activated and producing
+                        the required image on the screen.</li>
+                    <li><strong>Fluorescent Cells (Gas Pockets)</strong>: These tiny pockets of neon or xenon gas are
+                        trapped between two glass plates. When voltage is applied, the gas ionizes into plasma and
+                        begins to glow. This emitted light is what creates the bright and vibrant visuals on the plasma
+                        display.</li>
+                    <li><strong>Glass Plates</strong>: The plasma cells are enclosed between two glass plates, which act
+                        as capacitors to maintain the voltage across the display. These plates help ensure the screen
+                        stays illuminated properly and protect the internal components from external damage.</li>
+                </ol>
+                <p><strong>How Does a Plasma Panel Display Work?</strong></p>
+                <ol>
+                    <li>First, we have Grid Activation. Inside the plasma screen, there is a grid of cathode and anode
+                        wires. The cathode wires run horizontally, and the anode wires run vertically. Each point where
+                        these wires intersect represents a single pixel on the screen. When a voltage is applied to a
+                        particular intersection, it activates that specific pixel, determining which part of the screen
+                        lights up.</li>
+                    <li>Next comes the Ionization of Gas. Within each pixel, there are tiny cells filled with neon or
+                        xenon gas. When voltage is applied between a cathode and an anode, the gas inside that specific
+                        cell ionizes into plasma. This means the gas is now charged and ready to emit energy.</li>
+                    <li>Then, we have Light Emission. Once the gas is ionized, it emits ultraviolet (UV) light. However,
+                        UV light is invisible to our eyes, so each plasma cell is coated with fluorescent phosphors.
+                        These phosphors react to UV light and glow in one of three colors—Red, Green, or Blue (RGB). By
+                        combining these colors in different intensities, the display creates a full range of colors,
+                        producing clear and vibrant images.</li>
+                    <li>Now, unlike older CRT screens, plasma displays offer a Stable Display Without Refreshing. This
+                        means that once a pixel is lit, it stays illuminated as long as voltage is applied. CRT screens
+                        need constant refreshing to maintain an image, but plasma displays hold their image steady,
+                        reducing flicker and improving picture quality.</li>
+                    <li>Finally, there’s the Erasing & Updating the Screen. When an image needs to change, the voltage
+                        is lowered to around 90V, which stops the ionization process and turns off the pixel. Then, a
+                        new voltage pattern is applied to activate different pixels, creating the next frame of the
+                        image. This process happens extremely fast, allowing plasma displays to smoothly transition
+                        between images, making them perfect for high-quality visuals.</li>
+                </ol>
+                <p><strong>Advantages of Plasma Panel Displays</strong></p>
+                <ul>
+                    <li><strong>High Resolution</strong>: Plasma panels were capable of displaying sharp and detailed
+                        images with good clarity.</li>
+                    <li><strong>Large Screen Size Possible</strong>: Plasma technology allowed for bigger screens (up to
+                        100 inches), making them popular for televisions and digital signage.</li>
+                    <li><strong>Less Volume & Weight</strong>: Compared to bulky CRTs, plasma displays were thinner and
+                        lighter, making them easier to mount on walls.</li>
+                    <li><strong>Flicker-Free Display</strong>: Since plasma displays do not require constant refreshing,
+                        the images remain stable without flickering, reducing eye strain.</li>
+                </ul>
+                <p><strong>Disadvantages of Plasma Panel Displays</strong></p>
+                <ul>
+                    <li><strong>Poor Resolution in Early Models</strong>: The first plasma panels had lower resolution
+                        compared to modern LCDs and OLEDs.</li>
+                    <li><strong>Complex Wiring & Addressing</strong>: Since each pixel requires a dedicated cathode and
+                        anode, plasma panels had a complex wiring system.</li>
+                    <li><strong>Difficult to Control Addressing</strong>: Controlling and updating specific pixels in
+                        plasma displays was technically challenging, making manufacturing more expensive.</li>
+                </ul>
+            </div>
+            <div id="t8" class="in">
+                <h3>Light Emitting Diode (LED) Display</h3>
+                <ul>
+                    <li>LED displays are one of the most popular and widely used display technologies today. They are
+                        known for their bright visuals, energy efficiency, and long lifespan. The name "LED" (Light
+                        Emitting Diode) comes from the fact that these displays use small diodes that emit light when
+                        electricity is passed through them.</li>
+                    <li>An LED display is a flat-panel display that uses light-emitting diodes (LEDs) as the source of
+                        light. Unlike older display technologies like CRT (Cathode Ray Tube) and Plasma, LED displays
+                        are:
+                        <ul>
+                            <li>Thinner</li>
+                            <li>Brighter</li>
+                            <li>More energy-efficient</li>
+                        </ul>
+                    </li>
+                    <li>LEDs are tiny semiconductor devices that emit light when an electric current passes through
+                        them. These LEDs can be arranged in a grid to form images, text, or videos.</li>
+                    <li>Even though we call them "LED displays," many LED TVs today are actually LCD displays with LED
+                        backlighting rather than pure LED panels.</li>
+                </ul>
+                <p><strong>How Does an LED Display Work?</strong></p>
+                <ul>
+                    <li>An LED Display creates images using tiny Light Emitting Diodes (LEDs) that produce bright,
+                        colorful visuals. </li>
+                    <li>First, there’s Electric Current Activation . A small voltage is applied to each LED in the
+                        display. This voltage excites the electrons inside the LED material, causing them to move to a
+                        higher energy state. This is the first step in generating light.</li>
+                    <li>Next comes Light Emission . Once the excited electrons return to their original energy state,
+                        they release photons (light energy). The color of this emitted light depends on the material
+                        used in the LED. For example, some LEDs emit Red, Green, or Blue (RGB) light, which are the
+                        primary colors used to create images on the screen.</li>
+                    <li>Then, we have Brightness & Color Control . The intensity of light from each LED is controlled
+                        by adjusting the amount of electric current passing through it. By carefully controlling the
+                        brightness of individual Red, Green, and Blue LEDs, the display can produce millions of colors,
+                        creating a smooth and realistic image.</li>
+                    <li>Finally, the LEDs work together for Image Formation . LEDs are arranged in a pixel grid, and
+                        each pixel is made up of three tiny LEDs—one Red, one Green, and one Blue (called sub-pixels).
+                        By adjusting the brightness levels of these sub-pixels, the screen can display a wide range of
+                        colors, forming clear and vibrant images.</li>
+                </ul>
+                <p><strong>Advantages of LED Displays</strong></p>
+                <ul>
+                    <li><strong> High Brightness & Contrast</strong>: LED displays are brighter than LCDs and visible
+                        even in daylight.</li>
+                    <li><strong>Energy Efficient</strong>: LEDs consume less power compared to older display
+                        technologies like CRT and Plasma.</li>
+                    <li><strong>Slim & Lightweight</strong>: LED displays are thinner and lighter, making them ideal for
+                        wall-mounted TVs and portable devices.</li>
+                    <li><strong> Long Lifespan</strong>: LEDs can last 50,000+ hours, much longer than traditional
+                        fluorescent backlights.</li>
+                    <li><strong>No Flickering, Less Eye Strain</strong>: Since LEDs refresh faster and do not flicker,
+                        they reduce eye strain and provide a smoother viewing experience.</li>
+                    <li><strong>Environmentally Friendly</strong>: LEDs do not contain harmful mercury (unlike old CRTs
+                        and CCFL backlights).</li>
+                </ul>
+                <p><strong>Disadvantages of LED Displays</strong></p>
+                <ul>
+                    <li><strong>Higher Cost</strong>: Pure LED panels (like OLED & MicroLED) are expensive compared to
+                        LCDs.</li>
+                    <li><strong>Viewing Angle Issues (for some models)</strong>: Some LED-backlit LCDs have limited
+                        viewing angles, making colors look distorted from the sides.</li>
+                    <li><strong>Backlight Bleeding (for LED-backlit LCDs)</strong>: In LED-backlit LCDs, some light
+                        leaks around the edges, reducing contrast.</li>
+                    <li><strong>Shorter Lifespan for Certain Colors</strong>: Blue LEDs tend to degrade faster, leading
+                        to color shifts over time.</li>
+                </ul>
+                <p><strong>Where Are LED Displays Used?</strong></p>
+                <ul>
+                    <li>TVs & Monitors – LED-backlit LCDs are used in most modern televisions and computer screens.</li>
+                    <li>Smartphones & Tablets – Most phones today use LED-backlit LCDs or OLED screens.</li>
+                    <li> Outdoor Billboards – Large LED panels are used for advertising displays.</li>
+                    <li> Traffic Lights & Signboards – LEDs are used in traffic signals and digital road signs.</li>
+                    <li> Theater & Stage Displays – Concerts and events use large LED video walls.</li>
+                    <li> Wearable Devices – Smartwatches and fitness trackers often use OLED (a type of LED display).
+                    </li>
+                </ul>
+            </div>
+            <div id="t9" class="in">
+                <h3>Liquid Crystal Display (LCD)</h3>
+                <ul>
+                    <li>LCD (Liquid Crystal Display) is one of the most common display technologies used in devices like
+                        televisions, computer monitors, smartphones, and more. It's known for its thin profile, good
+                        image quality, and energy efficiency. However, unlike LED displays, LCDs don’t emit their own
+                        light—they rely on a backlight to illuminate the display.</li>
+                    <li>An LCD (Liquid Crystal Display) uses liquid crystals to form images. These liquid crystals don't
+                        emit light directly, but instead, they manipulate light from a backlight source to produce
+                        images.</li>
+                    <li>The LCD screen’s "liquid crystal" doesn't mean it’s a liquid like water; it’s a special
+                        substance that has properties of both liquids and solids, allowing it to adjust its transparency
+                        when electricity is applied.</li>
+                </ul>
+                <p><strong>How Does It Work?</strong></p>
+                <ul>
+                    <li>An LCD Display works by manipulating light to create vibrant images. </li>
+                    <li>First, there’s the Backlight. To get the display to shine, an LED or fluorescent light is used
+                        to shine through the LCD panel. This provides the necessary light for the display to work, as
+                        the liquid crystals themselves don’t emit light.</li>
+                    <li>Next, we have Liquid Crystals. These are special materials that can manipulate light when an
+                        electric current is applied. When voltage is passed through them, the liquid crystals change
+                        their alignment, controlling how light passes through them and allowing the display to produce
+                        different shades.</li>
+                    <li>Finally, there are Color Filters. The LCD uses filters to create the three primary colors—Red,
+                        Green, and Blue—by manipulating the light passing through the liquid crystals. These colors mix
+                        in different intensities to create a full spectrum of colors and form the image we see on the
+                        screen.</li>
+                    <li>And that’s how it works—using a backlight, liquid crystals, and color filters to produce images
+                        with vibrant colors and sharp detail!</li>
+                </ul>
+                <p><strong>Advantages of LCD Displays</strong></p>
+                <ul>
+                    <li><strong>Thin and Lightweight</strong>: LCDs are thinner and lighter compared to older CRTs,
+                        making them easier to mount on walls or fit into compact spaces.</li>
+                    <li><strong>Energy Efficient</strong>: LCDs are much more energy-efficient compared to older display
+                        technologies like CRT and Plasma.</li>
+                    <li><strong>High Brightness</strong>: Bright visuals, making them ideal for use in well-lit
+                        environments or even outdoors.</li>
+                    <li><strong>No Flickering</strong>: Stable image with no flicker, which reduces eye strain during
+                        prolonged usage.</li>
+                    <li><strong>Good Color Accuracy</strong>: With modern advancements, LCDs now offer excellent color
+                        reproduction.</li>
+                    <li><strong>Long Lifespan</strong>: Long-lasting displays that can function well for 50,000 hours or
+                        more.</li>
+                </ul>
+
+                <p><strong>Disadvantages of LCD Displays</strong></p>
+                <ul>
+                    <li><strong>Limited Viewing Angles</strong>: Color distortion can occur when viewed from an angle,
+                        especially with older or cheaper LCDs. This is improved in IPS (In-Plane Switching) displays.
+                    </li>
+                    <li><strong>Lower Contrast Ratios</strong>: Compared to OLED and plasma displays, LCDs generally
+                        have lower contrast ratios, which means blacks can appear greyish instead of deep black.</li>
+                    <li><strong>Backlight Bleeding</strong>: Some LCDs (especially cheaper models) can have backlight
+                        bleed, where light leaks around the edges or corners, affecting picture quality.</li>
+                    <li><strong>Slower Response Times</strong>: Faster-moving images (like sports or action scenes) may
+                        appear blurry on TN displays with slower response times.</li>
+                </ul>
+                <p><strong>Applications of LCD Displays</strong></p>
+                <ul>
+                    <li><strong>Televisions & Monitors</strong>: LCD TVs are very common for home entertainment.</li>
+                    <li><strong>Smartphones & Tablets</strong>: Most smartphones use IPS LCDs for vibrant color and good
+                        viewing angles.</li>
+                    <li><strong>Laptop Screens</strong>: Thin and lightweight, making them perfect for portable
+                        computers.</li>
+                    <li><strong>Digital Watches & Clocks</strong>: Low power consumption and simple designs make LCD
+                        ideal for portable, battery-operated devices.</li>
+                    <li><strong>Automotive Displays</strong>: LCDs are used in dashboard screens and in-car navigation.
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="t10" class="wh">
+            <h2>Input Devices</h2>
+            <p>Input devices are the tools that allow us to interact with the computer and provide it with data. These
+                devices help transfer data in various forms like text, graphics, sound, and more from the user to the
+                machine.</p>
+            <ol>
+                <li>
+                    <p><strong>Keyboard – The Essential Typing Tool</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>The keyboard is a classic input device used for typing text, numbers, and commands. It remains a
+                        core component of computer setups in 2025.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>Each key is connected to a switch that sends a signal to the computer when pressed. There are
+                        mechanical keyboards, membrane keyboards, and virtual keyboards for mobile devices.</p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Office work – Typing emails, documents, and spreadsheets.</li>
+                        <li>Programming – Essential for coding and development.</li>
+                        <li>Gaming – Many games use keyboards for controls.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p><strong>Mouse – The Pointer Tool</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>The mouse is still one of the most commonly used input devices to control the cursor on the
+                        screen.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>It uses either optical or laser sensors to detect movement and translate it to the computer
+                        screen.</p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Navigation – Clicking on icons, scrolling web pages, and managing files.</li>
+                        <li>Gaming – For aiming and controlling characters.</li>
+                        <li>Design – Graphic designers, 3D modelers, and digital artists rely on it for precise control.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p><strong>Touch Panels/Touchscreens – Direct Interaction with Devices</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>Touchscreens allow users to interact with the device directly by tapping, swiping, or pinching on
+                        the screen. It’s one of the most intuitive forms of input.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>Touchscreens use capacitive or resistive technology to detect touch. Capacitive screens detect
+                        the electrical charge from fingers, while resistive screens register pressure.</p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Smartphones and tablets – The main interaction method for mobile devices.</li>
+                        <li>POS Systems – In retail and self-checkout stations.</li>
+                        <li>Laptops and desktops – Many have touch-sensitive screens for additional control options.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p><strong>Voice Recognition – Speak to Your Computer</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>Voice recognition allows computers to understand and respond to spoken commands. In 2025, this
+                        technology is increasingly common for hands-free control and accessibility.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>It converts audio signals into text or commands using speech-to-text software and algorithms.</p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Virtual assistants – Siri, Google Assistant, and Alexa.</li>
+                        <li>Voice typing – Dictating documents or composing emails.</li>
+                        <li>Smart home devices – Voice control of lights, thermostats, and more.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p><strong>Image Scanner – Digitizing Physical Images</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>An image scanner converts physical documents, photos, or artwork into digital files.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>The scanner uses a light sensor to scan the document pixel by pixel and convert it into a digital
+                        image or text.</p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Document management – Digitizing paper documents for easier storage and access.</li>
+                        <li>Photography – Scanning old photos or artwork into digital formats.</li>
+                        <li>Healthcare – Scanning medical images like X-rays for digital use.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p><strong>Digital Pen/Stylus – For Drawing & Signing</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>A digital pen or stylus is used for precise input, such as drawing on a tablet or taking
+                        handwritten notes on a digital screen.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>A stylus uses pressure sensors to detect motion on a surface and translate it into digital form.
+                    </p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Digital art and design – Artists use it for drawing, painting, and editing.</li>
+                        <li>Note-taking – Tablets like the iPad and Microsoft Surface use digital pens for writing.</li>
+                        <li>Signature capture – Signing documents on digital devices in business or legal contexts.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p><strong>Trackpad – Alternative to Mouse for Laptops</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>A trackpad (also known as a touchpad) is built into laptops and serves as an alternative to a
+                        mouse. It uses multi-touch gestures to control the cursor.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>The trackpad detects finger movement and taps to perform tasks like scrolling, clicking, and
+                        zooming.</p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Laptops – The primary input method for many laptops.</li>
+                        <li>Portable devices – Tablets and compact laptops with touch interfaces.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <p><strong>Joystick – For Interactive Gaming</strong></p>
+
+                    <p><strong>What is it?</strong></p>
+                    <p>The joystick is commonly used for gaming and interactive simulations. It is an essential tool for
+                        controlling movement in games, especially flight and driving simulators.</p>
+
+                    <p><strong>How does it work?</strong></p>
+                    <p>A joystick has a stick that moves along X and Y axes and can also have buttons for extra
+                        functions like shooting or activating features.</p>
+
+                    <p><strong>Where is it used?</strong></p>
+                    <ul>
+                        <li>Gaming – For flight simulations, racing games, and action games.</li>
+                        <li>Virtual simulations – For training purposes in industries like aviation or military.</li>
+                    </ul>
+                </li>
+            </ol>
+
+        </div>
+        <div class="wh">
+            <h2>Output Devices</h2>
+            <div id="t11" class="in">
+                <h3>Printers</h3>
+
+                <pre>
+                    <code>
+Classification of Printers
+   ├── Impact
+   │   ├── Character
+   │   │   ├── Dot Matrix
+   │   │   ├── Daisy Wheel
+   │   ├── Line
+   │       ├── Drum Printer
+   │       ├── Chain Printer
+   ├── Non-Impact
+       ├── Inkjet
+       ├── Laser
+                    </code>
+                </pre>
+                <p>If you’ve ever used a printer, you might have noticed that some are noisier than others, some print
+                    faster, and some produce crisp, high-quality prints while others seem a bit rough. That’s because
+                    printers come in different types based on how they work. They are broadly classified into Impact
+                    Printers and Non-Impact Printers. Let’s break them down in a simple way.</p>
+                <p><strong>Impact Printers – The Old-School Workhorses</strong></p>
+                <p>Impact printers are like typewriters—they print by physically striking an ink ribbon against the
+                    paper to produce text or images. These printers are rugged and durable, making them great for
+                    environments where printing needs to be continuous, like bill printing in shops or bank statements.
+                </p>
+                <ul>
+                    <li>Impact Printers are further divided into:
+                        <ul>
+                            <li>Character Printers</li>
+                            <li>Line Printers</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Character Printers – The Old-School Text Machines</strong>
+                        <ul>
+                            <li>Character printers are a type of impact printer that print one character at a time.</li>
+                            <li>Think of them like an old typewriter—they physically strike an ink ribbon against the
+                                paper to produce letters and symbols.</li>
+                            <li>While they might seem outdated today, they were once widely used in offices and
+                                industries for document printing.</li>
+                            <li>Since these printers work character by character, they are slower compared to modern
+                                printers but were still considered efficient for their time.</li>
+                            <li>They were mostly used in environments where text-based printing was the main
+                                requirement, and fancy graphics or high-speed printing weren’t needed.</li>
+                            <li>Character printers are further divided into two main types:
+                                <ul>
+                                    <li>Dot Matrix Printer</li>
+                                    <li>Daisy Wheel Printer</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dot Matrix Printer – The Workhorse of the Past</strong>
+                        <ul>
+                            <li><strong>How Does It Work?</strong>
+                                <ul>
+                                    <li>Dot matrix printers are one of the most recognizable types of impact printers.
+                                    </li>
+                                    <li>If you’ve ever seen those noisy, old-style receipt or invoice printers in a
+                                        shop, you’ve probably come across a dot matrix printer.</li>
+                                    <li>A dot matrix printer has a print head with tiny pins arranged in a grid (often
+                                        9-pin or 24-pin).</li>
+                                    <li>These pins strike against an ink ribbon to form characters or images using a
+                                        series of dots.</li>
+                                    <li>The more pins a printer has, the better the print quality.</li>
+                                    <li>For example:
+                                        <ul>
+                                            <li>A 9-pin dot matrix printer produces basic, rough characters.</li>
+                                            <li>A 24-pin version offers better clarity and can even print simple
+                                                graphics.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Since these printers rely on a mechanical impact, they are loud and slow, but
+                                        they have one major advantage—they can print multiple copies at once using
+                                        carbon paper (which is why they are still used for receipts and invoices).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Advantages of Dot Matrix Printers</strong>
+                                <ul>
+                                    <li> Can Print Carbon Copies: Unlike inkjet or laser printers, a dot matrix printer
+                                        can print duplicate copies using multi-layered carbon paper in a single print
+                                        job.</li>
+                                    <li> Low Operating Cost: The ink ribbons used in dot matrix printers are cheaper
+                                        compared to inkjet or toner cartridges.</li>
+                                    <li> Durable and Reliable: These printers are rugged and can work in harsh
+                                        environments like dusty warehouses and factories.</li>
+                                    <li> Continuous Paper Printing: They can print on continuous sheets of perforated
+                                        paper (like old-school computer printouts), making them ideal for logs and
+                                        reports.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Disadvantages of Dot Matrix Printers</strong>
+                                <ul>
+                                    <li> Noisy Operation: Since the print head physically strikes the ribbon and paper,
+                                        these printers make a loud clicking noise during printing.</li>
+                                    <li> Slow Printing Speed: Because they print character by character, dot matrix
+                                        printers are significantly slower than modern printers.</li>
+                                    <li> Poor Print Quality: The characters and images are made up of small dots, so
+                                        they look rough and pixelated compared to laser or inkjet prints.</li>
+                                    <li> Limited Font Options: Dot matrix printers have fixed character sets, so they
+                                        can’t print fancy fonts or high-resolution graphics.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Common Uses of Dot Matrix Printers</strong>
+                                <ul>
+                                    <li>Retail and Billing: Many shops and supermarkets still use dot matrix printers to
+                                        generate receipts.</li>
+                                    <li>Banks and Financial Institutions: Used for printing passbooks, transaction logs,
+                                        and statements.</li>
+                                    <li>Factories and Warehouses: Since these printers can withstand dusty and rough
+                                        conditions, they are still used for printing logs, orders, and shipping labels.
+                                    </li>
+                                    <li>Railway and Bus Ticketing: Many older railway and bus systems still use dot
+                                        matrix printers for printing tickets.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Daisy Wheel Printer – The Typewriter’s Digital Cousin</strong>
+                        <ul>
+                            <li><strong>How Does It Work?</strong>
+                                <ul>
+                                    <li>Daisy wheel printers are another type of character printer, but unlike dot
+                                        matrix printers, they produce sharper and more professional-looking text.</li>
+                                    <li>They were commonly used in offices before laser and inkjet printers took over.
+                                    </li>
+                                    <li>A daisy wheel printer has a circular disk (the "daisy wheel") with characters
+                                        pre-formed on the edges.</li>
+                                    <li>When you print something, the wheel rotates to the correct character, and a
+                                        hammer strikes it against the ribbon and paper.</li>
+                                    <li>This is similar to how a typewriter works, except it’s automated.</li>
+                                    <li>Because each character is pre-formed, daisy wheel printers produce sharper text
+                                        than dot matrix printers.</li>
+                                    <li>However, they are still slow because they print one character at a time.</li>
+                                    <li>They also cannot print images or graphics—only text.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Advantages of Daisy Wheel Printers</strong>
+                                <ul>
+                                    <li> High Print Quality: Since the characters are pre-formed, the print quality is
+                                        much sharper than dot matrix printers.</li>
+                                    <li> More Professional Output: Daisy wheel printers were widely used in offices and
+                                        legal documentation because of their clear, typewriter-like text.</li>
+                                    <li> Less Maintenance: Since the characters are pre-made on the wheel, there are no
+                                        pins to get damaged like in dot matrix printers.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Disadvantages of Daisy Wheel Printers</strong>
+                                <ul>
+                                    <li> Very Slow: Since they print one character at a time, daisy wheel printers are
+                                        extremely slow compared to modern printers.</li>
+                                    <li> No Graphics or Images: Unlike dot matrix printers, which can print simple
+                                        graphics, daisy wheel printers only print text.</li>
+                                    <li> Expensive Ribbons and Wheels: The ribbons and replacement daisy wheels were
+                                        costly, making them less economical in the long run.</li>
+                                    <li> Noisy Operation: Just like typewriters, these printers made a loud mechanical
+                                        sound with each character printed.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Common Uses of Daisy Wheel Printers</strong>
+                                <ul>
+                                    <li>Official Documents: Before laser printers became common, these were used for
+                                        printing legal documents, office letters, and contracts.</li>
+                                    <li>Typewriter Replacement: Many businesses replaced manual typewriters with daisy
+                                        wheel printers for automated document creation.</li>
+                                    <li>Academic and Research Papers: Used in universities and offices for formal
+                                        documentation.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li><strong>Line Printers – The Speedy Text Machines</strong>
+                        <ul>
+                            <li>Line printers are a type of impact printer that print an entire line of text at once,
+                                unlike character printers, which print one character at a time.</li>
+                            <li>This feature makes them much faster than character printers.</li>
+                            <li>Line printers were commonly used in environments where high-volume printing was needed,
+                                such as in large corporations, data centers, and financial institutions.</li>
+                            <li>While their print quality isn't as high as modern printers, they are fast, reliable, and
+                                perfect for printing large batches of data.</li>
+                            <li><strong>How Do Line Printers Work?</strong>
+                                <ul>
+                                    <li>Instead of printing characters individually, line printers use a mechanism that
+                                        allows them to print an entire line in one go.</li>
+                                    <li>There are two common types of line printers:
+                                        <ul>
+                                            <li>Drum Printers</li>
+                                            <li>Chain Printers</li>
+                                        </ul>
+                                    </li>
+                                    <li>Both of these line printers use a mechanical method to strike an ink ribbon
+                                        against the paper, printing one line at a time.</li>
+                                    <li>The key difference lies in how they generate the text on the paper.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Drum Printer – The Heavy-Duty Workhorse</strong>
+                        <ul>
+                            <li><strong>How Does It Work?</strong>
+                                <ul>
+                                    <li>Drum printers have a rotating drum that contains pre-etched characters (think of
+                                        a circular band with rows of letters).</li>
+                                    <li>As the drum spins, the paper moves beneath it, and hammers strike the paper,
+                                        creating the text.</li>
+                                    <li>The drum’s rotation allows the printer to print an entire line at once, making
+                                        it much faster than character printers.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Advantages of Drum Printers</strong>
+                                <ul>
+                                    <li> Fast Printing: Drum printers can print a whole line at a time, making them much
+                                        faster than character printers.</li>
+                                    <li> Durable: They are built to handle high-volume printing over long periods, which
+                                        makes them a good choice for large companies.</li>
+                                    <li> Low Maintenance: Since there are no small pins to wear out (like in dot matrix
+                                        printers), drum printers generally require less maintenance.</li>
+                                    <li> Good for Long Continuous Prints: They work well for printing reports, logs, and
+                                        invoices that need continuous output.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Disadvantages of Drum Printers</strong>
+                                <ul>
+                                    <li> Limited to Pre-etched Characters: Drum printers are limited to the characters
+                                        etched on the drum, so custom fonts or styles are impossible without changing
+                                        the drum.</li>
+                                    <li> Noisy: Like all impact printers, drum printers are noisy due to the mechanical
+                                        hammers.</li>
+                                    <li> Bulky and Heavy: These printers are often large and heavy, making them
+                                        difficult to move or place in a small office.</li>
+                                    <li> Limited Graphics Support: Drum printers are designed for text and cannot print
+                                        high-quality images or complex graphics.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Common Uses of Drum Printers</strong>
+                                <ul>
+                                    <li>Large-Scale Business Printing: Drum printers were widely used for printing
+                                        payroll in companies, financial reports, and statements that needed to be
+                                        produced quickly.</li>
+                                    <li>Data Centers: They were used in environments where logs and data sets needed to
+                                        be printed continuously.</li>
+                                    <li>Banking and Finance: Drum printers were popular in banks for printing accounting
+                                        records and transaction logs.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Chain Printer – The Faster and More Flexible Option</strong>
+                        <ul>
+                            <li><strong>How Does It Work?</strong>
+                                <ul>
+                                    <li>Chain printers use a rotating chain of pre-formed characters, much like a drum
+                                        printer, but instead of a drum, the characters are on a moving chain.</li>
+                                    <li>The chain passes over a print head, which strikes the paper and prints the
+                                        entire line at once.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Advantages of Chain Printers</strong>
+                                <ul>
+                                    <li> Faster Than Drum Printers: Chain printers tend to be faster than drum printers
+                                        due to the continuous movement of the chain and the ability to adjust the
+                                        character set.</li>
+                                    <li> Flexible Character Sets: Chain printers allow for the replacement of the
+                                        character chain, so you can use different fonts or change the characters
+                                        printed.</li>
+                                    <li> Durability and Reliability: These printers are designed to handle heavy
+                                        workloads and can print for long hours without much wear and tear.</li>
+                                    <li> High-Speed Printing: As with drum printers, chain printers can print an entire
+                                        line of text at once, making them ideal for large printing jobs.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Disadvantages of Chain Printers</strong>
+                                <ul>
+                                    <li> Expensive Maintenance: While chain printers are more flexible than drum
+                                        printers, they can be expensive to maintain, especially if the chains need
+                                        frequent replacement.</li>
+                                    <li> Still Noisy: Chain printers, like other impact printers, are quite loud due to
+                                        the hammering mechanism.</li>
+                                    <li> Limited Graphics Support: Like drum printers, they are not designed for
+                                        printing high-quality images and are best used for text-based printing.</li>
+                                    <li> Bulky: They are also large and heavy, taking up more space in an office
+                                        environment compared to modern printers.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Common Uses of Chain Printers</strong>
+                                <ul>
+                                    <li>High-Volume Data Printing: These printers were ideal for printing bulk data like
+                                        monthly reports, financial statements, and logs.</li>
+                                    <li>Large Businesses: In industries such as banking, insurance, and
+                                        telecommunications, chain printers were used to print customer records, billing
+                                        statements, and other documents that required fast and reliable printing.</li>
+                                    <li>Data Centers and Warehouses: Like drum printers, chain printers were used in
+                                        environments that required continuous output, such as printing large volumes of
+                                        data for analysis or processing.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Non-Impact Printers – The Quiet and Modern Machines</strong></p>
+                <ul>
+                    <ul>
+                        <li>Non-impact printers are the modern type of printers that do not physically strike the paper
+                            while printing.</li>
+                        <li>Unlike impact printers (character and line printers) that use mechanical force to transfer
+                            ink, non-impact printers spray ink or use heat and laser technology to create text and
+                            images.</li>
+                        <li>These printers are quieter, faster, and can print both text and images with high quality.
+                        </li>
+                        <li>They have completely replaced impact printers in most offices, homes, and industries because
+                            they offer better print quality, support for graphics, and various printing materials.</li>
+                        <li><strong>Types of Non-Impact Printers:</strong>
+                            <ul>
+                                <li>Inkjet Printers – The Common Home & Office Printer</li>
+                                <li>Laser Printers – The High-Speed & Sharp Print Machines</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <li><strong>Inkjet Printers – The Budget-Friendly All-Rounder</strong>
+                        <ul>
+                            <li>Inkjet printers are the most common type of printers found in homes and offices.</li>
+                            <li>They work by spraying tiny droplets of liquid ink onto the paper to create text and
+                                images.</li>
+                            <li>The ink is stored in cartridges and can be either black or colored, allowing inkjet
+                                printers to print in full color as well.</li>
+                            <li><strong>How Do Inkjet Printers Work?</strong>
+                                <ul>
+                                    <li>An inkjet printer has small nozzles that spray ink onto the paper.</li>
+                                    <li>The nozzles are controlled electronically to form letters, shapes, and images
+                                        with precision.</li>
+                                    <li>There are two main techniques used in inkjet printing:
+                                        <ul>
+                                            <li><strong>Thermal Bubble (Bubble Jet) Technology:</strong> Uses heat to
+                                                create small ink bubbles that burst and release ink onto the paper.</li>
+                                            <li><strong>Piezoelectric Technology:</strong> Uses electric charges to
+                                                control ink flow and spray droplets with high accuracy.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Advantages of Inkjet Printers</strong>
+                                <ul>
+                                    <li> Affordable and Widely Available: Inkjet printers are usually cheaper than laser
+                                        printers, making them ideal for homes and small businesses.</li>
+                                    <li> High-Quality Color Printing: They can print vibrant colors and detailed images,
+                                        making them great for photos and presentations.</li>
+                                    <li> Compact Size: Most inkjet printers are small and lightweight, so they don’t
+                                        take up much space.</li>
+                                    <li> Can Print on Various Paper Types: Inkjet printers can print on glossy paper,
+                                        photo paper, and even fabric.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Disadvantages of Inkjet Printers</strong>
+                                <ul>
+                                    <li> Ink is Expensive: Ink cartridges can be costly, and they run out quickly,
+                                        increasing the long-term cost of use.</li>
+                                    <li> Slow Printing Speed: Compared to laser printers, inkjet printers are slower,
+                                        especially when printing large volumes.</li>
+                                    <li> Ink Smudging & Water Sensitivity: The ink can smudge if touched immediately
+                                        after printing, and water can ruin prints.</li>
+                                    <li> Requires Frequent Maintenance: Ink cartridges can dry out if not used
+                                        regularly, leading to clogged nozzles and poor print quality.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Common Uses of Inkjet Printers</strong>
+                                <ul>
+                                    <li>Home & Small Office Printing: Used for documents, school assignments, and
+                                        general printing needs.</li>
+                                    <li>Photo Printing: Many inkjet printers support photo-quality printing.</li>
+                                    <li>Creative Projects & Arts: Great for crafts, invitations, and customized prints.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Laser Printers – The Speed & Precision Master</strong>
+                        <ul>
+                            <li>Laser printers are faster, sharper, and more cost-effective for bulk printing.</li>
+                            <li>Instead of spraying ink, they use laser beams and toner (powdered ink) to produce
+                                high-quality text and images.</li>
+                            <li>These printers are commonly found in offices, businesses, and industries where fast and
+                                professional printing is needed.</li>
+                            <li><strong>How Do Laser Printers Work?</strong>
+                                <ul>
+                                    <li>Laser printers work using electrostatic charge and heat to transfer toner (a
+                                        fine powder) onto paper.</li>
+                                    <li>Here’s the process:
+                                        <ul>
+                                            <li>A laser beam creates a pattern (your text or image) on a drum inside the
+                                                printer.</li>
+                                            <li>The drum is coated with toner powder, which sticks to the charged areas.
+                                            </li>
+                                            <li>The toner is then transferred onto the paper.</li>
+                                            <li>Finally, the paper passes through a heated roller (fuser unit), which
+                                                melts and fuses the toner onto the paper permanently.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Advantages of Laser Printers</strong>
+                                <ul>
+                                    <li> Super Fast Printing: Laser printers can print dozens of pages per minute,
+                                        making them great for offices.</li>
+                                    <li> Sharp and Smudge-Free Prints: Since toner is a dry powder, the prints don’t
+                                        smudge and look crisp and professional.</li>
+                                    <li> Lower Cost for Large Printing Jobs: While the upfront cost of a laser printer
+                                        is high, the toner lasts longer than ink cartridges, making it cheaper in the
+                                        long run.</li>
+                                    <li> Durable & Low Maintenance: Laser printers don’t have clogging issues like
+                                        inkjet printers, and they require less frequent maintenance.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Disadvantages of Laser Printers</strong>
+                                <ul>
+                                    <li> Expensive Initial Cost: A laser printer costs more than an inkjet printer,
+                                        especially color laser printers.</li>
+                                    <li> Bulkier & Heavier: Most laser printers are large and heavy, taking up more
+                                        space in offices.</li>
+                                    <li> Limited Paper Compatibility: Unlike inkjets, laser printers don’t print well on
+                                        glossy or specialty papers.</li>
+                                    <li> Not Ideal for High-Quality Photo Printing: Laser printers are better for
+                                        text-based printing, and photo printing quality is lower compared to inkjets.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Common Uses of Laser Printers</strong>
+                                <ul>
+                                    <li>Offices & Businesses: Used for printing reports, invoices, and bulk documents.
+                                    </li>
+                                    <li>Educational Institutes & Libraries: Used for assignments, research papers, and
+                                        administrative printing.</li>
+                                    <li>Government & Corporate Printing: Used for legal documents, bank statements, and
+                                        official records.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div id="t12" class="in">
+                <h3>Plotters</h3>
+                <ul>
+                    <li>A plotter is a specialized printing device used for large-scale, high-precision graphics such as
+                        architectural blueprints, engineering drawings, circuit diagrams, and banners. Unlike
+                        traditional printers, which print by spraying ink or using toner, plotters use pens, inkjet
+                        heads, or cutting blades to create smooth, continuous lines.</li>
+                    <li>Plotters are mainly used in industries where accuracy and detail are critical, such as
+                        engineering, architecture, graphic design, and manufacturing. They can handle larger paper sizes
+                        (A0, A1, A2) and even materials like vinyl, fabric, and plastic sheets.</li>
+                    <li><strong>How Do Plotters Work?</strong>: Unlike regular printers that print pixel-by-pixel,
+                        plotters use mechanical arms or moving printheads to draw precise lines on a surface. This
+                        allows them to create extremely detailed and accurate drawings. Plotters can either use pens for
+                        traditional drawing, inkjets for high-resolution color graphics, or blades for cutting designs.
+                    </li>
+                </ul>
+                <p><strong>Types of Plotters:</strong>
+                </p>
+                <ol>
+                    <li><strong>Drum Plotter – The Rotating Precision Machine</strong>
+                        <ul>
+                            <li>A drum plotter has a rotating drum that moves the paper while the pen moves side-to-side
+                                to create drawings.</li>
+                            <li>The paper is wrapped around the drum, and as the drum rotates, the pen moves according
+                                to the programmed design.</li>
+                            <li><strong> Used For:</strong>
+                                <ul>
+                                    <li><strong>Engineering & Architectural Drawings</strong> – Ideal for large-scale
+                                        blueprints.</li>
+                                    <li><strong>Banner & Sign Making</strong> – Prints on long rolls of paper.</li>
+                                    <li><strong>Geographical Mapping</strong> – Creates detailed land survey maps.</li>
+                                </ul>
+                            </li>
+                            <li> Great for producing long, continuous prints with high precision.</li>
+                            <li> However, it's slower than modern inkjet plotters and requires special paper rolls.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Flatbed Plotter – The Blueprint Specialist</strong>
+                        <ul>
+                            <li>A flatbed plotter has a fixed, flat surface where the paper (or other material) is
+                                placed.</li>
+                            <li>The pens move in both horizontal (X-axis) and vertical (Y-axis) directions to draw the
+                                design.</li>
+                            <li>Unlike a drum plotter, the paper does not move, making it more stable for detailed and
+                                delicate drawings.</li>
+                            <li><strong> Used For:</strong>
+                                <ul>
+                                    <li><strong>Architectural & CAD Drawings</strong> – Common in architecture and
+                                        construction industries.</li>
+                                    <li><strong>PCB (Printed Circuit Board) Design</strong> – Used in electronics for
+                                        precise circuit layouts.</li>
+                                    <li><strong>Artwork & Calligraphy</strong> – Helps in detailed artistic sketches.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li> Perfect for precise, detailed drawings on a stable surface.</li>
+                            <li> It can even print on rigid materials like plastic and metal sheets.</li>
+                            <li> However, it takes up more space and is slower for very large designs.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Inkjet Plotter – The High-Resolution Graphics Printer</strong>
+                        <ul>
+                            <li>An inkjet plotter works like a regular inkjet printer but on a much larger scale.</li>
+                            <li>Instead of using pens, it sprays tiny droplets of ink to create detailed images,
+                                posters, and banners.</li>
+                            <li><strong> Used For:</strong>
+                                <ul>
+                                    <li><strong>Graphic Design & Advertising</strong> – Creates posters, billboards, and
+                                        banners.</li>
+                                    <li><strong>Photography & Art Reproduction</strong> – Produces high-quality prints
+                                        for artwork.</li>
+                                    <li><strong>Retail & Marketing</strong> – Prints store signs and promotional
+                                        materials.</li>
+                                </ul>
+                            </li>
+                            <li> Best for full-color, high-resolution graphics and widely used in advertising and
+                                photography.</li>
+                            <li> However, it requires expensive ink and is not as precise for technical drawings.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Cutting Plotter – The Sticker & Vinyl Cutter</strong>
+                        <ul>
+                            <li>A cutting plotter does not use pens or ink but instead has a blade that cuts designs out
+                                of materials like vinyl, paper, plastic, and fabric.</li>
+                            <li><strong> Used For:</strong>
+                                <ul>
+                                    <li><strong>Sign Making & Branding</strong> – Cuts out logos, decals, and store
+                                        signs.</li>
+                                    <li><strong>Vinyl Wrapping & Sticker Production</strong> – Used for making custom
+                                        stickers.</li>
+                                    <li><strong>Fashion & Textile Industry</strong> – Cuts fabric patterns for clothing
+                                        production.</li>
+                                </ul>
+                            </li>
+                            <li> Perfect for making customized shapes and designs.</li>
+                            <li> It's widely used in branding and textile industries.</li>
+                            <li> However, it does not print colors—only cuts materials into shapes.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Advantages & Disadvantages of Plotters</strong></p>
+                <ul>
+
+
+                    <li><strong> Advantages:</strong>
+                        <ul>
+                            <li> <strong>Extremely High Precision</strong> – Ideal for technical and engineering
+                                drawings.</li>
+                            <li> <strong>Large-Format Printing</strong> – Produces blueprints, banners, and posters
+                                without losing quality.</li>
+                            <li> <strong>Versatile Material Support</strong> – Works with paper, plastic sheets, fabric,
+                                and vinyl.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong> Disadvantages:</strong>
+                        <ul>
+                            <li> <strong>Expensive</strong> – Plotters cost more than regular printers.</li>
+                            <li> <strong>Slower Speed</strong> – Producing detailed drawings takes time.</li>
+                            <li> <strong>Requires Specialized Software</strong> – Needs CAD software or graphic design
+                                tools for operation.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <p><strong>Difference between Plotter and Printer :</strong></p>
+            <ul>
+                <li><strong>Printing Method:</strong> A plotter uses pens, inkjets, or blades to create detailed lines,
+                    while a printer uses dots or toner powder to form images.</li>
+                <li><strong>Output Type:</strong> A plotter is best for large-scale, precise line drawings, while a
+                    printer is best for text and general images.</li>
+                <li><strong>Print Size:</strong> A plotter supports very large formats like blueprints and posters,
+                    while a printer is limited to A4, A3, or smaller paper sizes.</li>
+                <li><strong>Speed:</strong> A plotter is slower but highly accurate, while a printer is faster but lacks
+                    fine details for technical drawings.</li>
+                <li><strong>Best For:</strong> A plotter is best for technical drawings, blueprints, graphics, and
+                    cutting designs, while a printer is best for documents, photos, and office printing.</li>
+            </ul>
+
+        </div>
+        <div id="t13" class="wh">
+            <h2>Digital Image Representation and Rendering Techniques</h2>
+            <p>Understanding Digital Images</p>
+
+            <p>Before we dive into the techniques, let’s first understand what a digital image is.</p>
+
+            <p>A digital image is basically a grid of tiny squares called pixels (short for “picture elements”). Each
+                pixel contains color information, and when you zoom in, you can see that the image is made up of these
+                little blocks.</p>
+
+            <p>There are two main ways to represent images:</p>
+            <ul>
+                <li><strong>Raster Images (Bitmap Images)</strong> – These are images made up of tiny squares called
+                    pixels. You can think of them like a puzzle, where each piece represents part of the image. Examples
+                    of raster images are PNG and JPEG. The downside is that when you zoom in on these images, they can
+                    get blurry or pixelated because the pixels become visible and stretch out.</li>
+                <li><strong>Vector Images</strong> – These images are created using mathematical formulas instead of
+                    pixels. They use shapes like lines and curves to represent the image. Examples of vector images
+                    include SVG and AI files. The cool thing about vector images is that you can zoom in or enlarge them
+                    as much as you want, and they won’t lose any quality. They always stay sharp and clear!</li>
+            </ul>
+            <p>Now that we know what digital images are, let’s talk about some common issues and techniques used to
+                improve how images look on screens and in prints.</p>
+
+            <ol>
+                <li>
+                    <p><strong>Dithering – Faking More Colors with Patterns</strong></p>
+
+                    <p>Problem: What if a device or printer can only display a limited number of colors, but we need
+                        more? That’s where dithering comes in.</p>
+
+                    <p><strong>What is Dithering?</strong></p>
+
+                    <p>Dithering is a technique that creates the illusion of more colors by placing tiny dots of
+                        different colors next to each other. When viewed from a distance, our eyes mix these dots and
+                        perceive a new color that isn’t actually there!</p>
+
+                    <p>Example:</p>
+
+                    <p>Imagine you only have black and white dots but want to display gray. Instead of a solid gray
+                        pixel, the system places black and white dots close together. When you step back, it looks like
+                        a shade of gray.</p>
+
+                    <p><strong>Where is Dithering Used?</strong></p>
+
+                    <ul>
+                        <li>Old video games (which had limited color palettes).</li>
+                        <li>Low-color displays (like early computer monitors).</li>
+                        <li>Printing (especially in newspapers and comics).</li>
+                    </ul>
+
+                    <p><strong>Benefit:</strong> Makes images look better when the color range is limited.</p>
+
+                    <p><strong>Drawback:</strong> Can create a grainy or noisy effect.</p>
+                </li>
+
+                <li>
+                    <p><strong>Half-toning – The Trick Behind Newspaper Images</strong></p>
+
+                    <p>Problem: How do printers create images using only black ink?</p>
+
+                    <p><strong>What is Half-toning?</strong></p>
+
+                    <p>Half-toning is a special form of dithering used in printing. Instead of solid colors, images are
+                        made up of tiny dots of different sizes and spacing. Large dots form darker areas, while smaller
+                        dots form lighter areas.</p>
+
+                    <p>Example:</p>
+
+                    <p>Pick up a newspaper and look at a photo closely—you’ll notice it’s actually made of tiny dots!
+                    </p>
+
+                    <p><strong>Where is Half-toning Used?</strong></p>
+
+                    <ul>
+                        <li>Newspapers & Magazines (since they use limited ink colors).</li>
+                        <li>Black-and-white printing (to create shades of gray).</li>
+                    </ul>
+
+                    <p><strong>Benefit:</strong> Allows printers to create detailed images using just one ink color.</p>
+
+                    <p><strong>Drawback:</strong> Loses detail compared to full-color images.</p>
+                </li>
+            </ol>
+            <p><strong>Image Rendering & Display Techniques</strong></p>
+
+            <p>These techniques are used to improve image quality and make things look smoother on digital screens.</p>
+
+            <ol>
+                <li>
+                    <p><strong>Aliasing – Why Do Some Images Look Blocky?</strong></p>
+                    <p><strong>The Problem:</strong></p>
+                    <p>Ever notice how diagonal lines or curves sometimes look blocky, almost like a staircase made of
+                        tiny squares, instead of smooth? That's a common issue!</p>
+
+                    <p><strong>The Cause:</strong></p>
+                    <p>This happens because the individual pixels are square-shaped. When trying to show a diagonal or
+                        curved shape, it doesn’t line up perfectly with the pixel grid, and as a result, the edges look
+                        rough or pixelated.</p>
+                    <p><strong>So, aliasing is basically:</strong> The visual effect where smooth lines or curves appear
+                        jagged or blocky due to the limitations of pixel grids. It happens because pixels can’t
+                        perfectly represent diagonal or curved shapes.</p>
+
+
+                    <p><strong>Examples:</strong></p>
+
+                    <ul>
+                        <li>Old video games (characters and objects had sharp, blocky edges).</li>
+                        <li>Low-resolution screens (text and images appeared rough or blurry).</li>
+                        <li>Early 3D graphics (3D models without smoothing techniques looked rough).</li>
+                    </ul>
+
+                    <p><strong>Disadvantage:</strong> This makes images and text look unnatural and rough, which can be
+                        distracting.</p>
+                </li>
+
+                <li>
+                    <p><strong>Anti-aliasing – The Fix for Blocky Edges</strong></p>
+
+                    <p><strong>The Solution:</strong></p>
+                    <p>Anti-aliasing is like a magic trick for smoothness! It works by blending the rough edges with
+                        intermediate shades, which creates a smoother, more natural transition between colors and
+                        shapes.</p>
+                    <p><strong>So, anti-aliasing is basically:</strong> A technique that smooths out the blocky or rough
+                        edges caused by aliasing. It works by adding extra pixels of intermediate colors along the edges
+                        to make the transition look smoother and more natural.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <ul>
+                        <li>Modern video games (anti-aliasing helps make graphics look smooth and lifelike).</li>
+                        <li>Text rendering (anti-aliasing makes text clearer and easier to read on screens).</li>
+                        <li>3D animation & modeling (helps eliminate rough edges in animated movies).</li>
+                    </ul>
+
+                    <p><strong>Advantage:</strong> It makes graphics and text look smoother and much more realistic!</p>
+
+                    <p><strong>Disadvantage:</strong> It requires more processing power, which can slow things down in
+                        real-time applications, like video games or live graphics.</p>
+                </li>
+            </ol>
+
+        </div>
+    </div>
+    <div class="content-box">
+        <p>Reference</p>
+        <ul>
+            <li><a href="https://youtu.be/wh54cmWLdHQ?si=RdWJkIWKDR9zwka0" target="_blank">What Is A Pixel In Computer
+                    Graphics | What Is A Pixel | Pixel Kya Hota Hai Youtube Video Lecture &neArr;</a></li>
+            <li><a href="https://youtu.be/B0sksFkAMyk?si=lD9M9dkx-t0W94HU" target="_blank">CRT Youtube Video Lecture
+                    &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=koYVnBt4ZSk" target="_blank">Flat panel display Youtube lecture
+                    &neArr;</a></li>
+        </ul>
+    </div>
+    <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>

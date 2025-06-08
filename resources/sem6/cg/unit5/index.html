@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation and GKS Standards</title>
+  <link rel="stylesheet" href="../../../../public/style.css">
+  <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+</head>
+
+<body class="bg-c">
+  <div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="../index.html" class="home">back</a>
+    <div class="fix-column-links">
+      <a href="#t1" class="link">Intro to Animation</a>
+      <a href="#t2" class="link">GKS</a>
+      <div class="botbut">
+        <a href="" class="link">Next Topic &rarr;</a>
+        <a href="" class="link">&larr; Previous Topic</a>
+      </div>
+    </div>
+  </div>
+  <div id="navbar" class="grad">
+    <div>
+      <div class="openbtn" onclick="openNav()">
+        <div id="nav-icon1" for="nav-menu1">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>Animation and GKS Standards</h2>
+    </div>
+  </div>
+  <div class="content-box">
+    <h3>Unit Structure</h3>
+    <pre>
+            <code>
+Computer Graphics: Animation and GKS Standards
+|
+├── 1. Animation
+│   ├── Introduction to Animation
+│   ├── Principles of Animation
+│   ├── Types of Animation
+│   └── Types of Animation Systems
+│       ├── Scripting Systems
+│       ├── Procedural Systems
+│       ├── Representational Systems
+│       └── Stochastic Systems
+│
+└── 2. GKS (Graphical Kernel System) Standards
+    ├── GKS Primitives
+    │   ├── Polyline
+    │   ├── Polymarker
+    │   ├── Fill Area
+    │   └── Text
+    └── GKS Workstation and Metafiles
+            </code>
+        </pre>
+    <ul>
+      <li>Computer Graphics isn’t just about drawing lines and shapes — it's also about bringing visuals to life
+        and standardizing how graphics are created across systems. In this unit, we focus on two exciting areas:
+        Animation and GKS Standards.</li>
+      <li>We begin with Animation, where you’ll explore the basics of how motion is created on screen. You’ll
+        learn about the core principles of animation (like timing and squash & stretch), the different types of
+        animations used in games, movies, and interfaces, and finally, the various animation systems — including
+        scripting-based, procedural, representational, and stochastic systems, each with its own way of
+        controlling how things move and behave.</li>
+      <li>Next, we dive into the Graphical Kernel System (GKS) — one of the first standards for computer graphics.
+        You’ll understand how GKS defines basic building blocks called primitives, like polylines, polymarkers,
+        filled areas, and text. We’ll also look at how GKS handles workstations and metafiles, which allow
+        graphics to be rendered across different platforms in a consistent way.</li>
+    </ul>
+    <div id="t1" class="wh">
+      <h2>ANIMATION</h2>
+      <ul>
+        <li>Animation is a process of displaying still images in a rapid sequence to create the illusion of
+          movement. In computer graphics, it involves programming or designing movement by
+          manipulating images using various techniques.</li>
+        <li>A person who creates animations is called animator.
+          He use various computer technologies to capture the pictures and then
+          to animate these in the desired sequence.</li>
+      </ul>
+      <p><strong>Example Of Animation</strong></p>
+      <img src="../../images/animation1.png" alt="" class="wb">
+      <img src="../../images/animation2.png" alt="" class="wb">
+      <ul>
+        <li>Animation includes all the visual changes on the screen of display devices these are: change of
+          shape, size, color, structure, angle.</li>
+      </ul>
+      <div class="in">
+        <h3>Application of animation</h3>
+        <ol>
+          <li>
+            <strong>Education and Training:</strong> Animation is used in school, colleges and
+            training centers for education purpose. Flight simulators for aircraft
+            are also animation based.
+          </li>
+          <li><strong>Entertainment:</strong> Animation methods are now commonly used in
+            making motion pictures, music videos and television shows, etc.</li>
+          <li><strong>Computer Aided Design (CAD):</strong> One of the best applications of
+            computer animation is Computer Aided Design and is generally
+            referred to as CAD. One of the earlier applications of CAD was
+            automobile designing. But now almost all types of designing are
+            done by using CAD application, and without animation, all these
+            work can't be possible.</li>
+          <li><strong>Advertising:</strong> This is one of the significant applications of computer
+            animation. The most important advantage of an animated
+            advertisement is that it takes very less space and capture people
+            attention.</li>
+          <li><strong>Presentation:</strong> Animated Presentation is the most effective way to
+            represent an idea. It is used to describe financial, statistical,
+            mathematical, scientific & economic data.</li>
+        </ol>
+      </div>
+      <div class="in">
+        <h3>Principles of Animation</h3>
+        <p>
+          Animation isn’t just about moving drawings — it’s about bringing characters and actions to life in a way that feels real and engaging. To do that well, animators follow a set of tried-and-true principles that make movements look more natural and expressive. Whether you're making a simple cartoon or a complex 3D movie, these principles help give your animations personality, clarity, and flow. Let’s break them down in a simple way:
+        </p>
+      
+        <div class="table-wrapper">
+          <table class="new-table">
+            <tr>
+              <th>Principle</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>Squash and Stretch</td>
+              <td>Makes things look more alive by showing how they stretch or squash — like a ball flattening when it hits the ground and stretching as it bounces back up.</td>
+            </tr>
+            <tr>
+              <td>Anticipation</td>
+              <td>Prepares the viewer for what’s coming. For example, a character bends their knees before jumping — it helps the action feel believable.</td>
+            </tr>
+            <tr>
+              <td>Staging</td>
+              <td>Helps the audience focus on what’s important in a scene — like using lighting or positioning to draw attention to a key moment or character.</td>
+            </tr>
+            <tr>
+              <td>Straight Ahead & Pose to Pose</td>
+              <td>Two ways to animate: “Straight Ahead” means drawing frame by frame in order — great for spontaneous actions. “Pose to Pose” uses planned key poses first, then fills in the gaps — good for control and timing.</td>
+            </tr>
+            <tr>
+              <td>Follow Through & Overlapping Action</td>
+              <td>Things don’t just stop all at once. If a character runs and stops, their hair or clothes might keep moving — that’s follow through. Overlapping means different parts move at slightly different times.</td>
+            </tr>
+            <tr>
+              <td>Slow In and Slow Out</td>
+              <td>Movements usually start slowly, speed up, then slow down again. This makes things feel smoother and more natural.</td>
+            </tr>
+            <tr>
+              <td>Arcs</td>
+              <td>Most actions in nature don’t move in straight lines — they follow a curved path. Using arcs makes movements feel more realistic.</td>
+            </tr>
+            <tr>
+              <td>Secondary Action</td>
+              <td>Extra little movements that support the main action. Like a character talking while also moving their hands or shifting weight — it adds depth.</td>
+            </tr>
+            <tr>
+              <td>Timing</td>
+              <td>How fast or slow something happens. Quick timing can show energy or excitement; slow timing can show calmness or sadness.</td>
+            </tr>
+            <tr>
+              <td>Exaggeration</td>
+              <td>Pushing actions a bit beyond real life to make them more fun or dramatic. Like stretching a surprised face more than normal to get the emotion across.</td>
+            </tr>
+            <tr>
+              <td>Solid Drawing</td>
+              <td>Even in cartoons, characters should feel like they have weight, depth, and balance — not flat or awkward.</td>
+            </tr>
+            <tr>
+              <td>Appeal</td>
+              <td>Characters should be interesting to look at and easy to connect with. Think of it like the animation version of charisma.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <div class="in">
+        <h3>Types of Animation</h3>
+        <ol>
+          <li>
+            <strong>2D Animation</strong>
+            <ul>
+              <li>The classic flat animation style (just width and height)</li>
+              <li>Used in Disney classics, Saturday morning cartoons, and mobile games</li>
+              <li>Works by showing slightly different drawings in quick succession</li>
+              <li>Popular tools: Adobe Animate (pro), Pencil2D (free)</li>
+              <li>Perfect for educational videos and explainer content</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>3D Animation</strong>
+            <ul>
+              <li>Adds depth (Z-axis) to make objects look real</li>
+              <li>Used in Pixar movies, video games, and product visualizations</li>
+              <li>Four main steps: modeling → rigging → animating → rendering</li>
+              <li>Industry tools: Blender (free), Maya, 3DS Max</li>
+              <li>Creates realistic lighting and textures</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Stop-Motion Animation</strong>
+            <ul>
+              <li>Real objects moved slightly between photographed frames</li>
+              <li>Gives that charming handmade look (think Wallace & Gromit)</li>
+              <li>Types include: Claymation (clay), Puppet (dolls), Cut-out (paper)</li>
+              <li>Time-consuming but creates unique physical presence</li>
+              <li>Often used in indie films and music videos</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Motion Graphics</strong>
+            <ul>
+              <li>Animation focused on text and simple shapes</li>
+              <li>Common in ads, YouTube intros, and explainer videos</li>
+              <li>Great for visualizing data and abstract concepts</li>
+              <li>Often combined with voiceovers for maximum clarity</li>
+              <li>Tools: After Effects, Premiere Pro, online animators</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Keyframe Animation</strong>
+            <ul>
+              <li>Animator sets important poses (keyframes)</li>
+              <li>Software fills in the movement between (tweening)</li>
+              <li>Saves time while keeping control over movement</li>
+              <li>Used for everything from bouncing balls to complex fights</li>
+              <li>Fundamental to most digital animation</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Path Animation</strong>
+            <ul>
+              <li>Objects follow predefined routes or trajectories</li>
+              <li>Perfect for cars driving, birds flying, or camera moves</li>
+              <li>Ensures smooth, repeatable motion paths</li>
+              <li>Can be combined with other animation types</li>
+              <li>Often used in technical animations and simulations</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Morphing</strong>
+            <ul>
+              <li>Smooth transformation between shapes/images</li>
+              <li>Made famous in 90s movies (Terminator 2 effects)</li>
+              <li>Now used for subtle transitions in apps and videos</li>
+              <li>Software calculates all the in-between stages</li>
+              <li>Creates eye-catching visual metaphors</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <div class="in">
+        <h3>Types of Animation Systems</h3>
+        <p>
+          Animations can be created in different ways depending on how much control you want and how you want the motion to behave. Some systems let you write detailed instructions, others let the computer handle movements using rules or physics. Let's look at 4 major types — starting from the most manual and moving toward more automated or natural systems.
+        </p>
+      
+        <ol>
+          <li>
+            <strong>Scripting Systems</strong>
+            <p><em>Main idea:</em> You write code to control animations step by step.</p>
+            <p>
+              In scripting systems, you're basically telling the animation exactly what to do using a programming language. Want a square to bounce or rotate on click? You write the code for that. This method gives you full control and is great for custom effects or repetitive tasks.
+            </p>
+            <ul>
+              <li>JavaScript is used for animating things on web pages.</li>
+              <li>Blender uses Python to automate movements or rigging.</li>
+              <li>Maya has its own scripting language called MEL.</li>
+              <li>Ideal when you want custom tools or interactive behavior.</li>
+            </ul>
+          </li>
+      
+          <li>
+            <strong>Procedural Animation</strong>
+            <p><em>Main idea:</em> Instead of coding every frame, you define rules or physics, and the system generates motion automatically.</p>
+            <p>
+              Unlike scripting, where you control every move, procedural animation uses mathematical formulas or physics simulations to create motion. For example, a waving flag, water ripples, or falling leaves — the movement is generated based on behavior, not pre-written steps.
+            </p>
+            <ul>
+              <li>Used for cloth simulation, hair physics, or water flow.</li>
+              <li>Motion adjusts automatically based on environment.</li>
+              <li>Great for effects that are dynamic and hard to animate manually.</li>
+              <li>Saves memory by calculating movements in real-time.</li>
+            </ul>
+          </li>
+      
+          <li>
+            <strong>Representational Animation Systems</strong>
+            <p><em>Main idea:</em> Animates digital models using bones, joints, and real-world movement logic.</p>
+            <p>
+              Here, characters are rigged with a digital skeleton (like bones and joints), and you animate those bones to move the character. It’s how most 3D movies and games animate humans, animals, and creatures.
+            </p>
+            <ul>
+              <li>Uses techniques like inverse kinematics (e.g., keeping feet planted).</li>
+              <li>Constraint systems avoid unnatural bending or stretching.</li>
+              <li>Focuses on realistic body movement.</li>
+              <li>The backbone of 3D character animation in films and games.</li>
+            </ul>
+          </li>
+      
+          <li>
+            <strong>Stochastic Animation</strong>
+            <p><em>Main idea:</em> Adds natural randomness to make animations feel less robotic and more organic.</p>
+            <p>
+              Stochastic animation doesn't create the main motion, but it adds subtle variations to make things look real. Think of a crowd of people where no two walk the same, or a fire where every flame flickers slightly differently. It relies on randomness — but in a controlled way.
+            </p>
+            <ul>
+              <li>Used for effects like smoke, dust, fire, or raindrops.</li>
+              <li>Creates believable crowd scenes or weather effects.</li>
+              <li>Helps avoid repetitive or “too perfect” motion.</li>
+              <li>Often used together with procedural or scripted animations.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      
+    </div>
+    <div id="t2" class="wh">
+      <h2>GKS (Graphical Kernel System) – The Universal Drawing Language</h2>
+
+<div class="in">
+  <h3>1. What is GKS, and Why Was It Needed?</h3>
+
+  <p>
+    GKS stands for <strong>Graphical Kernel System</strong>. It’s not a kernel like the Linux OS kernel — instead, it’s a <strong>standard set of core graphics functions</strong> (like drawing lines, circles, text, etc.) used to create 2D vector graphics. The term "kernel" here simply means "core" — like a shared toolbox or foundation that all systems could use to handle graphics in the same way.
+  </p>
+
+  <p>
+    Back in the 1970s–80s, every computer, monitor, printer, or plotter had its own unique way of drawing graphics. There was no common format or system, which made life difficult for developers. Imagine this:
+  </p>
+
+  <ul>
+    <li>Every printer speaking a different graphics language</li>
+    <li>Monitors only understanding commands from their own manufacturer</li>
+    <li>Programmers having to rewrite drawing code for every new device</li>
+  </ul>
+
+  <p>
+    This lack of standardization meant you couldn’t build one graphics program and expect it to work everywhere. Everything had to be customized — making graphics programming frustrating and inefficient.
+  </p>
+
+  <p>
+    That’s why the <strong>International Organization for Standardization (ISO)</strong> created <strong>GKS</strong>. It became the first official standard for 2D computer graphics. The goal was simple: 
+  </p>
+
+  <ul>
+    <li>Define a <strong>common set of drawing commands</strong> (like <code>draw_line()</code>, <code>fill_area()</code>, etc.)</li>
+    <li>Allow graphics programs to run on <strong>any device or system</strong> that supported GKS</li>
+    <li>Ensure <strong>graphics looked the same</strong> across all platforms</li>
+    <li>Help developers learn <strong>one unified system</strong> instead of dozens</li>
+  </ul>
+
+  <p>
+    So rather than building separate “kernels” into printers or monitors, device manufacturers and software platforms simply agreed to follow this <strong>GKS standard API</strong> — making it easier for everyone to speak the same graphics language.
+  </p>
+
+  <p>
+    In short, GKS acted like a universal translator for drawing commands. It made graphics <strong>portable, consistent, and cross-compatible</strong> — just like how HTML standardized web pages or how USB standardized device connections.
+  </p>
+</div>
+
+      
+
+      <div class="in">
+        <h3>2. The GKS Toolbox (Primitives)</h3>
+        <p>GKS gives programmers four basic tools that combine like LEGO to make complex images:</p>
+        <img src="../../images/cg6.svg" alt="" class="wb">
+      </div>
+
+      <div class="in">
+        <h3>3. Workstation Concept (The Magic Translator)</h3>
+        <p>GKS's clever solution to the device problem:</p>
+
+        <ul>
+          <li><strong>What it is:</strong> A software layer that translates GKS commands to what each device understands
+          </li>
+          <li><strong>Like:</strong> A universal remote that works with all TV brands</li>
+          <li><strong>Types:</strong>
+            <ul>
+              <li><strong>Output:</strong> For screens/printers (showing graphics)</li>
+              <li><strong>Input:</strong> For mice/keyboards (interacting with graphics)</li>
+              <li><strong>Combined:</strong> Devices like touchscreens</li>
+            </ul>
+          </li>
+          <li><strong>Practical benefit:</strong> Write code once → runs on any supported device</li>
+        </ul>
+      </div>
+
+      <div class="in">
+        <h3>4. Metafiles (The Replay Function)</h3>
+        <p>How GKS saves and shares drawings:</p>
+
+        <ul>
+          <li><strong>What they are:</strong> Digital recordings of drawing commands</li>
+          <li><strong>Like:</strong> Saving a list of "how to draw" instructions rather than a photo</li>
+          <li><strong>Why better than images:</strong>
+            <ul>
+              <li>Can edit later (change colors, text)</li>
+              <li>Smaller file size</li>
+              <li>Perfect quality at any zoom level</li>
+            </ul>
+          </li>
+          <li><strong>Practical use:</strong> Saving vector graphics (like company logos)</li>
+        </ul>
+      </div>
+
+      <div class="in">
+        <h3>GKS in Today's World</h3>
+        <div class="table-wrapper">
+          <table class="new-table">
+            <tr>
+              <th>Concept</th>
+              <th>Modern Equivalent</th>
+              <th>Where You See It</th>
+            </tr>
+            <tr>
+              <td>GKS Primitives</td>
+              <td>HTML Canvas/SVG shapes</td>
+              <td>Web charts, mobile apps</td>
+            </tr>
+            <tr>
+              <td>Workstation</td>
+              <td>Graphics drivers</td>
+              <td>Games adjusting to your GPU</td>
+            </tr>
+            <tr>
+              <td>Metafiles</td>
+              <td>PDF vector graphics</td>
+              <td>Scalable logos, digital art</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>

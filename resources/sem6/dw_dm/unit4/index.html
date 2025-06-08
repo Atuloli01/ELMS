@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mining Techniques</title>
+    <link rel="stylesheet" href="../../../../public/style.css">
+    <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+</head>
+
+<body class="bg-c">
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html" class="home">back</a>
+        <div class="fix-column-links">
+            <a href="#" class="link"></a>
+            <div class="botbut">
+                <a href="../unit5/index.html" class="link">Next Topic &rarr;</a>
+                <a href="../unit3/index.html" class="link">&larr; Previous Topic</a>
+            </div>
+        </div>
+    </div>
+    <div id="navbar" class="grad">
+        <div>
+            <div class="openbtn" onclick="openNav()">
+                <div id="nav-icon1" for="nav-menu1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Data Mining Techniques</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <pre>
+            <code>
+Data Mining Techniques
+|
+├── 1. Association Rules
+│   ├── From Transaction Databases
+│   ├── From Relational Databases
+│   └── Correlation Analysis
+│
+├── 2. Classification and Prediction
+│   └── Using Decision Tree Induction
+│
+└── 3. Clustering Techniques
+    ├── Introduction to Clustering
+    ├── Partition Method
+    └── Hierarchical Method
+            </code>
+        </pre>
+        <ul>
+            <li>Once you understand what data mining is, the next step is learning how to actually discover patterns in
+                data — and that’s where Data Mining Techniques come in. These techniques are like different tools in
+                your toolbox, each made for digging out a specific kind of insight.</li>
+            <li>We’ll start with Association Rules, which help uncover interesting relationships between items — like
+                figuring out that people who buy bread often buy butter too. You’ll learn how these rules are mined from
+                transactional databases (like shopping records) and relational databases, and how to measure the
+                strength of these relationships using correlation analysis.</li>
+            <li>Next, we move on to Classification and Prediction, where you’ll see how data can be used to predict
+                outcomes — for example, classifying emails as spam or not spam. Here, we focus on a popular method
+                called decision tree induction, which builds flowchart-like models for decision making.</li>
+            <li>Finally, you’ll dive into Clustering Techniques, where the goal is to group similar data points
+                together. You’ll explore the basics of clustering, and two main approaches: the partition method (like
+                k-means clustering) and the hierarchical method (which builds nested clusters).</li>
+        </ul>
+        <div class="wh">
+            <h2>Association Rules – Discovering Item Relationships in Data</h2>
+
+            <ul>
+                <li> Association rule mining is a data mining technique used to identify
+                    interesting relationships or patterns between items in large datasets. It aims to find rules that
+                    predict the occurrence of an item based on the occurrences of other items.
+                </li>
+                <!-- <li>
+                    <strong>Purpose:</strong> The primary goal is to discover hidden correlations, co-occurrences, or
+                    dependencies between variables in transactional or relational data.
+                </li> -->
+                <li>Association rules are widely applied in market basket
+                    analysis, where the objective is to determine which items are frequently purchased together by
+                    customers.
+                </li>
+            </ul>
+
+            <div class="in">
+                <h3>Association Rule Mining in Transactional Databases</h3>
+                <p>Consider a transaction database of a retail grocery store, where each transaction records a set of
+                    items purchased by a customer during a single visit.</p>
+                <p>A sample of such a database is shown below:</p>
+
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Items Bought</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Bread, Milk</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Bread, Eggs, Beer</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Milk, Eggs, Beer, Cola</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Bread, Milk, Eggs, Beer</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Bread, Milk, Eggs, Cola</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p>From this dataset, we can identify recurring combinations of items. For example, customers who
+                    purchase both Bread and Milk also tend to purchase Eggs. This relationship is expressed as an
+                    <strong>association rule</strong>:
+                </p>
+                <p class="ms">\( \text{Bread} \land \text{Milk} \Rightarrow \text{Eggs} \)</p>
+                
+                <p>The usefulness and strength of such a rule are measured using:</p>
+                <ul>
+                    <li><strong>Support</strong>: How often the itemset appears in the dataset.</li>
+                    <li><strong>Confidence</strong>: Likelihood of buying the consequent (e.g., Eggs) given the
+                        antecedent (e.g., Bread and Milk).</li>
+                    <li><strong>Lift</strong>: Indicates how much more often the consequent is bought with the
+                        antecedent than expected. Lift &gt; 1 suggests a positive association.</li>
+                </ul>
+                <p>These metrics help determine whether a rule is meaningful or coincidental.</p>
+
+                <h3>Apriori Algorithm for Association Rule Mining</h3>
+
+                <p>Now that we understand what association rules are and how they reveal patterns in data, the next
+                    question is: <strong>How do we find these rules?</strong></p>
+                <p>That’s where the <strong>Apriori Algorithm</strong> comes in. It is a foundational technique used to
+                    automatically generate frequent itemsets and discover association rules from large datasets
+                    efficiently.</p>
+
+                <h4>Introduction</h4>
+                <p>Association Rule Mining is commonly used in <strong>Market Basket Analysis</strong> to discover
+                    patterns such as:</p>
+                <ul>
+                    <li>Which items are purchased together</li>
+                    <li>Likelihood of selling items together</li>
+                    <li>If item X is bought, how likely is item Y also bought?</li>
+                </ul>
+
+                <h4>Problem Statement</h4>
+                <p>Given transaction data, generate association rules like:</p>
+                <p class="ms">\( X \Rightarrow Y \)</p>
+                <p>This means: If X is purchased, then Y is also likely purchased.</p>
+
+                <h4>Key Parameters</h4>
+                <ul>
+                    <li><strong>Minimum Support</strong>: 50%</li>
+                    <li><strong>Minimum Confidence</strong>: 75%</li>
+                </ul>
+
+                <h4>Sample Dataset</h4>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Items</th>
+                        </tr>
+                        <tr>
+                            <td>T1</td>
+                            <td>Bread, Butter, Milk</td>
+                        </tr>
+                        <tr>
+                            <td>T2</td>
+                            <td>Bread, Butter, Jam</td>
+                        </tr>
+                        <tr>
+                            <td>T3</td>
+                            <td>Bread, Milk, Juice</td>
+                        </tr>
+                        <tr>
+                            <td>T4</td>
+                            <td>Curd, Milk, Juice</td>
+                        </tr>
+                        <tr>
+                            <td>T5</td>
+                            <td>Bread, Butter, Milk, Juice</td>
+                        </tr>
+                    </table>
+                </div>
+                <p><strong>Total Transactions:</strong> 5</p>
+                <h4>Understanding Itemsets (Quick Note)</h4>
+                <p><em><strong>Note:</strong> An <strong>itemset</strong> just means a group of items that appear
+                        together in a transaction.
+                        <br>– A <strong>1-itemset</strong> is a single item (like Bread).
+                        <br>– A <strong>2-itemset</strong> is a pair of items (like Bread and Milk).
+                        <br>– A <strong>3-itemset</strong> is a group of three items (like Bread, Milk, and Juice).
+                        <br>We look for these sets in the data and check how often they appear (called support). If they
+                        appear frequently, we keep them. If not, we drop them.</em></p>
+
+
+                        <h4>Step 1: 1-Itemsets and Support</h4>
+                        <p><strong>Goal:</strong> First, we list all individual items (1-itemsets) and count how many transactions they appear in.</p>
+                        <p>Support is calculated using the formula:</p>
+                        <p class="ms">\( \text{Support} = \left(\frac{\text{Item Count}}{\text{Total Transactions}}\right) \times 100\% \)</p>
+                        <p><strong>Total Transactions = 5</strong></p>
+                        <ul>
+                            <li><strong>Bread</strong> appears in T1, T2, T3, and T5 → that’s 4 transactions → 4/5 = <strong>80%</strong></li>
+                            <li><strong>Butter</strong> appears in T1, T2, and T5 → 3 transactions → 3/5 = <strong>60%</strong></li>
+                            <li><strong>Jam</strong> appears in only T2 → 1 transaction → 1/5 = <strong>20%</strong></li>
+                            <li><strong>Milk</strong> appears in T1, T3, T4, and T5 → 4 transactions → 4/5 = <strong>80%</strong></li>
+                            <li><strong>Juice</strong> appears in T3, T4, and T5 → 3 transactions → 3/5 = <strong>60%</strong></li>
+                            <li><strong>Curd</strong> appears in only T4 → 1 transaction → 1/5 = <strong>20%</strong></li>
+                        </ul>
+                        <p><strong>Minimum Support = 50%</strong>. So we remove items with less than 50% support.</p>
+                        <p><strong>Frequent 1-Itemsets:</strong> Bread (80%), Butter (60%), Milk (80%), Juice (60%)</p>
+                        <p>These are called <strong>frequent</strong> because they appear in at least 50% of transactions.</p>
+                        
+                        <h4>Step 2: 2-Itemsets and Support</h4>
+                        <p><strong>Now we combine the frequent 1-itemsets in pairs</strong> and check how often those pairs occur together in transactions.</p>
+                        <p>Only combinations of previously frequent 1-itemsets are considered (Bread, Butter, Milk, Juice).</p>
+                        <ul>
+                            <li><strong>{Bread, Milk}</strong> appears in T1, T3, T5 → 3 transactions → 3/5 = <strong>60%</strong></li>
+                            <li><strong>{Milk, Juice}</strong> appears in T3, T4, T5 → 3 transactions → 3/5 = <strong>60%</strong></li>
+                            <li><strong>{Bread, Butter}</strong> appears in T1, T2, T5 → 3 transactions → 3/5 = <strong>60%</strong></li>
+                            <li><strong>{Butter, Milk}</strong> appears in T1, T5 → 2 transactions → 2/5 = <strong>40%</strong> (not frequent)</li>
+                            <li><strong>{Bread, Juice}</strong> appears in T3, T5 → 2 transactions → 2/5 = <strong>40%</strong> (not frequent)</li>
+                            <li><strong>{Butter, Juice}</strong> appears in T5 only → 1 transaction → 1/5 = <strong>20%</strong> (not frequent)</li>
+                        </ul>
+                        <p>Again, we apply the <strong>minimum support = 50%</strong>.</p>
+                        <p><strong>Frequent 2-Itemsets:</strong> {Bread, Milk}, {Milk, Juice}, {Bread, Butter}</p>
+                        
+                        <h4>Step 3: 3-Itemsets and Support</h4>
+                        <p><strong>Now we form groups of 3 items from the frequent 2-itemsets.</strong></p>
+                        <p>Only valid combinations from previous frequent sets are checked:</p>
+                        <ul>
+                            <li><strong>{Bread, Milk, Juice}</strong> appears in T3 and T5 → 2 transactions → 2/5 = <strong>40%</strong></li>
+                            <li><strong>{Bread, Milk, Butter}</strong> appears in T1 and T5 → 2 transactions → 2/5 = <strong>40%</strong></li>
+                        </ul>
+                        <p>Both are <strong>less than 50%</strong>, so they are not frequent.</p>
+                        <p><strong>Frequent 3-Itemsets:</strong> None</p>
+                        
+                        <h4>Step 4: Association Rules and Confidence</h4>
+                        <p>Now we take the frequent 2-itemsets and generate rules like X → Y.</p>
+                        <p>Confidence is calculated using:</p>
+                        <p class="ms">\( \text{Confidence}(X \Rightarrow Y) = \frac{\text{Support}(X \cup Y)}{\text{Support}(X)} \times 100\% \)</p>
+                        
+                        <ul>
+                            <li><strong>Bread → Milk</strong>: Support(Bread ∪ Milk) = 60%, Support(Bread) = 80% → 60/80 = <strong>75%</strong></li>
+                            <li><strong>Milk → Bread</strong>: Support(Milk ∪ Bread) = 60%, Support(Milk) = 80% → 60/80 = <strong>75%</strong></li>
+                            <li><strong>Milk → Juice</strong>: Support(Milk ∪ Juice) = 60%, Support(Milk) = 80% → 60/80 = <strong>75%</strong></li>
+                            <li><strong>Juice → Milk</strong>: Support(Juice ∪ Milk) = 60%, Support(Juice) = 60% → 60/60 = <strong>100%</strong></li>
+                        </ul>
+                        
+                        <h4>Final Valid Rules (Confidence ≥ 75%)</h4>
+                        <div class="table-wrapper">
+                            <table class="new-table">
+                                <tr>
+                                    <th>Rule</th>
+                                    <th>Confidence</th>
+                                    <th>Interpretation</th>
+                                </tr>
+                                <tr>
+                                    <td>Bread → Milk</td>
+                                    <td>75%</td>
+                                    <td>75% of the time, when Bread is bought, Milk is also bought</td>
+                                </tr>
+                                <tr>
+                                    <td>Milk → Bread</td>
+                                    <td>75%</td>
+                                    <td>75% of the time, when Milk is bought, Bread is also bought</td>
+                                </tr>
+                                <tr>
+                                    <td>Milk → Juice</td>
+                                    <td>75%</td>
+                                    <td>75% of the time, when Milk is bought, Juice is also bought</td>
+                                </tr>
+                                <tr>
+                                    <td>Juice → Milk</td>
+                                    <td>100%</td>
+                                    <td>100% of the time, when Juice is bought, Milk is always bought</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <h4>Insights</h4>
+                        <ul>
+                            <li><strong>Strongest Rule:</strong> Juice → Milk (100%) — Milk is always bought when Juice is bought.</li>
+                            <li><strong>Moderate Associations:</strong> Bread ↔ Milk, Milk ↔ Juice (75%)</li>
+                            <li><strong>Business Tip:</strong> Promote or bundle Milk and Juice together, as they have a strong association.</li>
+                        </ul>
+                        
+
+                <h4>Algorithm Summary</h4>
+                <ol>
+                    <li>Find 1-itemsets → calculate support → apply threshold</li>
+                    <li>Generate k-itemsets → calculate support → filter</li>
+                    <li>Repeat until no frequent itemsets</li>
+                    <li>Generate association rules from frequent itemsets</li>
+                    <li>Calculate confidence for each rule</li>
+                    <li>Filter rules by confidence threshold</li>
+                    <li>Interpret valid rules for business use</li>
+                </ol>
+                <p>This process uncovers strong purchasing patterns and aids in data-driven decisions for
+                    retail and
+                    e-commerce.</p>
+            </div>
+
+
+
+            <div class="in">
+                <h3>Association Rule Mining in Relational Databases</h3>
+
+                <ul>
+                    <li>
+                        In many real-world scenarios, data is not stored as simple itemsets within a single
+                        table.
+                        Instead, it is often organized in the form of <strong>relational databases</strong>,
+                        which
+                        consist of multiple interconnected tables.
+                    </li>
+                    <li>
+                        For example, a business may store customer-related data in one table
+                        (<em>Customers</em>),
+                        transaction details in another (<em>Orders</em>), and product information in a third
+                        (<em>Products</em>).
+                    </li>
+                    <li>
+                        In such cases, association rule mining can be extended beyond basic itemset analysis to
+                        discover
+                        complex patterns involving multiple attributes and relationships.
+                    </li>
+                    <li>
+                        A representative association rule derived from relational data could be:
+                        <ul>
+                            <li><strong>“Customers aged 25–34 who purchase protein bars also tend to purchase
+                                    bottled
+                                    water.”</strong></li>
+                        </ul>
+                    </li>
+                    <li>
+                        This rule incorporates structured information drawn from multiple sources: age from the
+                        <em>Customers</em> table and purchase behavior from the <em>Orders</em> table.
+                    </li>
+                    <li>
+                        As such, relational association rules are often more informative and context-aware,
+                        allowing the
+                        discovery of deeper, attribute-driven insights.
+                    </li>
+                    <li>
+                        However, these rules tend to be more complex to generate and require careful data
+                        preprocessing,
+                        including table joins, attribute selection, and normalization.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="in">
+                <h3>Correlation Analysis – Understanding If Patterns Are Truly Related</h3>
+
+                <p>
+                    In data mining, we often find patterns using association rules. These rules tell us which
+                    items are
+                    frequently bought together.
+                    However, frequent co-occurrence does not always mean a real relationship exists between the
+                    items.
+                    This is where <strong>correlation analysis</strong> comes in.
+                </p>
+
+                <h4>Why Correlation Analysis?</h4>
+                <ul>
+                    <li>Sometimes, rules like <strong>"Toothpaste → Bananas"</strong> appear in data. But this
+                        could
+                        just be a coincidence.</li>
+                    <li>Correlation analysis helps check whether such patterns are actually meaningful or just
+                        random.
+                    </li>
+                    <li>It measures the strength and direction of the relationship between two items or
+                        variables.</li>
+                    <li>This makes sure businesses use only useful rules for decisions like product placement or
+                        bundling offers.</li>
+                </ul>
+
+                <h4>Key Types of Correlation</h4>
+                <ul>
+                    <li><strong>Positive Correlation</strong>: Both variables increase together</li>
+                    <li><strong>Negative Correlation</strong>: One increases, the other decreases</li>
+                    <li><strong>No Correlation</strong>: Variables change independently</li>
+                </ul>
+
+                <!-- <h4>Correlation Coefficient (Pearson’s r)</h4>
+                <p>
+                    The Pearson correlation coefficient (\( \gamma \) or \( r \)) tells how strongly and in what
+                    direction two variables are related.
+                </p>
+                <p class="ms">
+                    \[ \gamma(A,B) = \frac{\sum (A - \bar{A})(B - \bar{B})}{(n-1) \cdot \sigma_A \cdot \sigma_B}
+                    \]
+                </p>
+                <ul>
+                    <li>\( \bar{A} \): Mean of A</li>
+                    <li>\( \bar{B} \): Mean of B</li>
+                    <li><span class="ms">\( \sigma_A \), \( \sigma_B \)</span>: Standard deviations</li>
+                    <li>\( n \): Number of tuples in the data</li>
+                </ul>
+
+                <h4>Interpretation of Values</h4>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>Value</th>
+                                <th>Interpretation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>+1</td>
+                                <td>Perfect positive correlation</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>No correlation</td>
+                            </tr>
+                            <tr>
+                                <td>-1</td>
+                                <td>Perfect negative correlation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Step-by-Step Calculation</h4>
+
+                <h4>Step 1: Calculate Means</h4>
+                <p>\( \bar{A} = \frac{\sum A}{n} \), \( \bar{B} = \frac{\sum B}{n} \)</p>
+
+                <h4>Step 2: Calculate Sample Standard Deviation</h4>
+                <p class="ms">
+                    \[ \sigma = \sqrt{\frac{\sum (x - \bar{x})^2}{n - 1}} \]
+                </p>
+
+                <h4>Step 3: Apply the Correlation Formula</h4>
+                <p>Plug in all values into the main formula for \( \gamma(A,B) \)</p>
+
+                <h4>Worked Example</h4>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>34</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Step 1:</strong> Calculate means</p>
+                <ul>
+                    <li class="ms">\( \bar{A} = \frac{20 + 12 + 9}{3} = 13.66 \)</li>
+                    <li class="ms">\( \bar{B} = \frac{8 + 34 + 4}{3} = 15.33 \)</li>
+                </ul>
+
+                <p><strong>Step 2:</strong> Calculate standard deviations</p>
+                <p class="ms">
+                    \[ \sigma_A = \sqrt{\frac{(6.34)^2 + (-1.66)^2 + (-4.66)^2}{2}} = \sqrt{32.34} = 5.68 \]
+                    \[ \sigma_B = \sqrt{\frac{(-7.33)^2 + (18.67)^2 + (-11.33)^2}{2}} = \sqrt{265.34} = 16.28 \]
+                </p>
+
+                <p><strong>Step 3:</strong> Apply correlation formula</p>
+                <p class="ms">
+                    \[
+                    \gamma(A,B) = \frac{(6.34)(-7.33) + (-1.66)(18.67) + (-4.66)(-11.33)}{2 \cdot 5.68 \cdot
+                    16.28} \\
+                    = \frac{-46.48 - 30.99 + 52.80}{184.94} = \frac{-24.67}{184.94} \approx -0.13
+                    \]
+                </p>
+
+                <h4>Conclusion</h4>
+                <ul>
+                    <li>\( \gamma(A,B) \approx -0.13 \) suggests a weak negative correlation.</li>
+                    <li>If \( \gamma \approx -1 \), then it's a strong inverse relationship.</li>
+                </ul> -->
+<h4>Correlation Coefficient (Pearson's r)</h4>
+                <p>
+                    The Pearson correlation coefficient (\( \gamma \) or \( r \)) tells how strongly and in what
+                    direction two variables are related. It measures the strength and direction of a linear relationship
+                    between two continuous variables, ranging from -1 to +1.
+                </p>
+                <p class="ms">
+                    \[ \gamma(A,B) = \frac{\sum (A - \bar{A})(B - \bar{B})}{(n-1) \cdot \sigma_A \cdot \sigma_B}
+                    \]
+                </p>
+                <ul>
+                    <li>\( \bar{A} \): Mean of A</li>
+                    <li>\( \bar{B} \): Mean of B</li>
+                    <li><span class="ms">\( \sigma_A \), \( \sigma_B \)</span>: Standard deviations</li>
+                    <li>\( n \): Number of tuples in the data</li>
+                    <li>\( (A - \bar{A}) \): Deviation of each A value from its mean</li>
+                    <li>\( (B - \bar{B}) \): Deviation of each B value from its mean</li>
+                </ul>
+
+                <h4>Interpretation of Values</h4>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>Value</th>
+                                <th>Interpretation</th>
+                                <th>Strength</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>+1</td>
+                                <td>Perfect positive correlation</td>
+                                <td>Perfect</td>
+                            </tr>
+                            <tr>
+                                <td>+0.7 to +0.9</td>
+                                <td>Strong positive correlation</td>
+                                <td>Strong</td>
+                            </tr>
+                            <tr>
+                                <td>+0.3 to +0.7</td>
+                                <td>Moderate positive correlation</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>No correlation</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>-0.3 to -0.7</td>
+                                <td>Moderate negative correlation</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr>
+                                <td>-0.7 to -0.9</td>
+                                <td>Strong negative correlation</td>
+                                <td>Strong</td>
+                            </tr>
+                            <tr>
+                                <td>-1</td>
+                                <td>Perfect negative correlation</td>
+                                <td>Perfect</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Step-by-Step Calculation</h4>
+
+                <h4>Step 1: Calculate Means</h4>
+                <p>First, find the average of each variable:</p>
+                <p class="ms">\( \bar{A} = \frac{\sum A}{n} = \frac{A_1 + A_2 + ... + A_n}{n} \)</p>
+                <br>
+                <p class="ms">\( \bar{B} = \frac{\sum B}{n} = \frac{B_1 + B_2 + ... + B_n}{n} \)</p>
+
+                <h4>Step 2: Calculate Deviations from Mean</h4>
+                <p>For each data point, calculate how far it is from the mean:</p>
+                <p>For A: \( d_{A_i} = A_i - \bar{A} \)</p>
+                <p>For B: \( d_{B_i} = B_i - \bar{B} \)</p>
+                <p>Some deviations will be positive (above mean) and some negative (below mean).</p>
+
+                <h4>Step 3: Calculate Sample Standard Deviation</h4>
+                <p>Calculate the standard deviation for each variable:</p>
+                <p class="ms">
+                    \[ \sigma_A = \sqrt{\frac{\sum (A - \bar{A})^2}{n - 1}} \]
+                </p>
+                <br>
+                <p class="ms">
+                    \[\sigma_A = \sqrt{\frac{(A_1 - \bar{A})^2 + (A_2 - \bar{A})^2 + ... + (A_n - \bar{A})^2}{n - 1}} \]
+                </p>
+                <br>
+                <p class="ms">
+                    \[ \sigma_B = \sqrt{\frac{\sum (B - \bar{B})^2}{n - 1}}  \]
+                </p>
+                <br>
+                <p class="ms">
+                    \[ \sigma_B = \sqrt{\frac{(B_1 - \bar{B})^2 + (B_2 - \bar{B})^2 + ... + (B_n - \bar{B})^2}{n - 1}} \]
+                </p>
+                <p><strong>Note:</strong> We use (n-1) instead of n for sample standard deviation (Bessel's correction).</p>
+
+                <h4>Step 4: Calculate the Numerator (Sum of Products of Deviations)</h4>
+                <p>Calculate the sum of products of deviations (this measures covariance):</p>
+                <p class="ms">
+                    \[ \text{Numerator} = \sum (A - \bar{A})(B - \bar{B}) = (A_1 - \bar{A})(B_1 - \bar{B}) + (A_2 - \bar{A})(B_2 - \bar{B}) + ... + (A_n - \bar{A})(B_n - \bar{B}) \]
+                </p>
+
+                <h4>Step 5: Apply the Correlation Formula</h4>
+                <p>Plug in all calculated values into the main formula:</p>
+                <p class="ms">
+                    \[ \gamma(A,B) = \frac{\text{Numerator}}{(n-1) \cdot \sigma_A \cdot \sigma_B} \]
+                </p>
+
+                <h4>Worked Example</h4>
+                <p><strong>Given Data:</strong></p>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>Point</th>
+                                <th>A</th>
+                                <th>B</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>20</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>12</td>
+                                <td>34</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>9</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Step 1:</strong> Calculate means</p>
+                <ul>
+                    <li class="ms">\( \bar{A} = \frac{20 + 12 + 9}{3} = \frac{41}{3} = 13.67 \)</li> <br>
+                    <li class="ms">\( \bar{B} = \frac{8 + 34 + 4}{3} = \frac{46}{3} = 15.33 \)</li>
+                </ul>
+
+                <p><strong>Step 2:</strong> Calculate deviations from mean</p>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>Point</th>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>\(A - \bar{A}\)</th>
+                                <th>\(B - \bar{B}\)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>20</td>
+                                <td>8</td>
+                                <td>20 - 13.67 = 6.33</td>
+                                <td>8 - 15.33 = -7.33</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>12</td>
+                                <td>34</td>
+                                <td>12 - 13.67 = -1.67</td>
+                                <td>34 - 15.33 = 18.67</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>9</td>
+                                <td>4</td>
+                                <td>9 - 13.67 = -4.67</td>
+                                <td>4 - 15.33 = -11.33</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Step 3:</strong> Calculate standard deviations</p>
+                <p>First, calculate squared deviations:</p>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>Point</th>
+                                <th>\((A - \bar{A})^2\)</th>
+                                <th>\((B - \bar{B})^2\)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>\((6.33)^2 = 40.07\)</td>
+                                <td>\((-7.33)^2 = 53.73\)</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>\((-1.67)^2 = 2.79\)</td>
+                                <td>\((18.67)^2 = 348.57\)</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>\((-4.67)^2 = 21.81\)</td>
+                                <td>\((-11.33)^2 = 128.37\)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sum</strong></td>
+                                <td><strong>64.67</strong></td>
+                                <td><strong>530.67</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>Now calculate standard deviations:</p>
+                <p class="ms">
+                    \[ \sigma_A = \sqrt{\frac{64.67}{3-1}} = \sqrt{\frac{64.67}{2}} = \sqrt{32.34} = 5.69 \]
+                </p>
+                <br>
+                <p class="ms">
+                    \[ \sigma_B = \sqrt{\frac{530.67}{3-1}} = \sqrt{\frac{530.67}{2}} = \sqrt{265.34} = 16.29 \]
+                </p>
+
+                <p><strong>Step 4:</strong> Calculate products of deviations</p>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <thead>
+                            <tr>
+                                <th>Point</th>
+                                <th>\((A - \bar{A})\)</th>
+                                <th>\((B - \bar{B})\)</th>
+                                <th>\((A - \bar{A})(B - \bar{B})\)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>6.33</td>
+                                <td>-7.33</td>
+                                <td>\((6.33)(-7.33) = -46.40\)</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>-1.67</td>
+                                <td>18.67</td>
+                                <td>\((-1.67)(18.67) = -31.16\)</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>-4.67</td>
+                                <td>-11.33</td>
+                                <td>\((-4.67)(-11.33) = 52.91\)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sum</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>-24.65</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Step 5:</strong> Apply correlation formula</p>
+                <p class="ms">
+                    \[
+                    \gamma(A,B) = \frac{-24.65}{(3-1) \cdot 5.69 \cdot 16.29}
+                    \]
+                </p>
+                <p class="ms">
+                    \[
+                    = \frac{-24.65}{2 \cdot 5.69 \cdot 16.29} = \frac{-24.65}{185.38} = -0.133
+                    \]
+                </p>
+
+                <h4>Conclusion</h4>
+                <ul>
+                    <li>\( \gamma(A,B) \approx -0.13 \) suggests a weak negative correlation.</li>
+                    <li>The negative sign indicates that as A increases, B tends to decrease slightly.</li>
+                    <li>The magnitude (0.13) is close to 0, indicating a very weak linear relationship.</li>
+                    <li>Only about 1.7% of the variation in B can be explained by A (r² = 0.13² = 0.017).</li>
+                    <li>If \( \gamma \approx -1 \), then it's a strong inverse relationship.</li>
+                    <li>If \( \gamma \approx +1 \), then it's a strong positive relationship.</li>
+                </ul>
+                <h4>Applications in Data Mining</h4>
+                <ul>
+                    <li>Filtering out random associations from association rule mining</li>
+                    <li>Feature selection: removing redundant features</li>
+                    <li>Improving model accuracy by using only meaningful variable relationships</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="wh">
+            <h2>Classification and Prediction – Making Smart Decisions from Data</h2>
+
+            <ul>
+                <li>Alright, so we just talked about how association rules help us find patterns, like "People who
+                    buy
+                    bread and milk also buy eggs." But what if you want to predict something? Like, based on a
+                    customer's previous shopping behavior, can we guess what they might buy next? Or in a medical
+                    setting, can we predict if a patient has a disease based on their symptoms?</li>
+                <li>That's where Classification and Prediction come into play. These techniques help us categorize
+                    data
+                    into classes (classification) or predict continuous values (prediction). For now, let's focus on
+                    classification using one popular method called Decision Tree Induction.</li>
+            </ul>
+
+            <div class="in">
+                <h3>Introduction to Decision Tree (Classifier)</h3>
+
+                <h4>What is a Decision Tree?</h4>
+                <ul>
+                    <li>A Decision Tree is a type of algorithm mainly used for classification, though it can also be
+                        used for regression tasks.</li>
+                    <li>A Decision Tree helps us take decisions based on data. It breaks a large decision into
+                        smaller
+                        ones by checking attributes (conditions) step-by-step.</li>
+                    <ul>
+                        <li>It mimics human decision-making.</li>
+                        <li>Real-life example:
+                            <ul>
+                                <li>"Is the email spam or not spam?" → This is a binary classification.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+
+                <h4>Example: Higher Studies Decision Using Decision Tree</h4>
+                <ul>
+                    <li>Imagine you're a final-year B.Tech student, and you're confused:</li>
+                    <ul>
+                        <li>Should I go for higher studies or not?</li>
+                    </ul>
+                    <li>Let’s structure this into a Decision Tree</li>
+                    <img src="../../images/dw22.svg" alt="" class="wb">
+                    <li>This is a simplified example of how we can structure a decision logically using a tree.</li>
+                    <li>We can add more conditions too. For example:</li>
+                    <ul>
+                        <li>Instead of just "Placed", we can consider Package Value:</li>
+                        <ul>
+                            <li>Package High → No (Don’t go for higher studies)</li>
+                            <li>Package Low → Consider going for higher studies</li>
+                        </ul>
+                    </ul>
+                </ul>
+
+                <h4>Why Use a Decision Tree?</h4>
+                <ul>
+                    <li>When we have training data (sample data from students), we want to classify future
+                        decisions.
+                    </li>
+                    <li>Based on this data, the Decision Tree model learns how to take decisions.</li>
+                    <li>Example: Whether a student should go for higher studies or not can be predicted using their
+                        placement status, GATE result, etc.</li>
+                </ul>
+
+                <h4>Core Concepts Behind Decision Tree</h4>
+                <ul>
+                    <li>You can’t just split based on any attribute randomly. There is math behind it.</li>
+                </ul>
+
+                <h4>Key Terms:</h4>
+                <ul>
+                    <li><strong>Entropy</strong>
+                        <ul>
+                            <li>Measures the impurity or randomness in data.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Information Gain</strong>
+                        <ul>
+                            <li>Tells us how much useful info we get after splitting the data on an attribute.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>How It Works:</h4>
+                <ul>
+                    <li>Calculate Entropy of the full dataset.</li>
+                    <li>Calculate Information Gain for each attribute.</li>
+                    <li>The attribute with the highest information gain becomes the Root Node.</li>
+                    <li>Repeat the process for further splits (child nodes).</li>
+                </ul>
+
+                <h4>Weather Example (Real-Life Decision)</h4>
+                <ul>
+                    <li>Let’s take another decision-making scenario: "Should I play football today?"</li>
+                    <img src="../../images/dw23.svg" alt="" class="wb">
+                    <li>Interpretation:</li>
+                    <ul>
+                        <li>If it's cloudy or rainy, → "Yes, go play."</li>
+                        <li>If it’s sunny, check temperature:
+                            <ul>
+                                <li>Extreme Hot → No</li>
+                                <li>Mild or Normal → Yes</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <li><strong>The final decisions (Yes/No) are called Leaf Nodes.</strong></li>
+                </ul>
+
+                <h4>Structure of a Decision Tree</h4>
+                <ul>
+                    <pre><code>       [Root Node]
+            |
+      ---------------
+     |       |       |
+ [Decision Nodes]  (attributes)
+     |       |
+ [Leaf Nodes] → Final decisions (Yes/No)</code></pre>
+                    <li>Vertex/Node = Decision point or final output.</li>
+                    <li>Edge = Connection between decision steps.</li>
+                </ul>
+
+                <h4>Extra Concept: Pruning (To Simplify Tree)</h4>
+                <ul>
+                    <li>Sometimes the tree becomes too complex, with unnecessary branches.</li>
+                    <ul>
+                        <li><strong>Pruning</strong> = Removing those unnecessary parts.</li>
+                        <li>Helps in avoiding overfitting (making the model too specific to training data).</li>
+                    </ul>
+                </ul>
+
+            </div>
+        </div>
+        <div class="wh">
+            <h2>Clustering Techniques</h2>
+            <ul>
+                <li>Clustering is a fundamental technique in data mining that aims to group a set of data objects
+                    into
+                    clusters, such that objects within the same cluster are more similar to each other than to those
+                    in
+                    other clusters. It is considered an unsupervised learning method because it does not rely on
+                    predefined class labels; instead, the algorithm discovers inherent groupings in the data based
+                    on
+                    similarity measures.</li>
+                <li>In clustering, the main objective is to identify natural groupings or patterns in a dataset,
+                    enabling analysts to gain insights or simplify further processing. Unlike classification, where
+                    the
+                    outcome classes are known in advance, clustering algorithms work without prior knowledge of the
+                    data
+                    labels.</li>
+                <li>Types of Clustering Methods:
+                    <br>Clustering methods can be broadly classified into:
+                    <ul>
+                        <li><strong>Partitioning Methods: Divide data into k non-overlapping Subsets.</strong></li>
+                        <li><strong>Hierarchical Methods:</strong> Create a tree-like structure (dendogram) of
+                            nested
+                            clusters.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="in">
+                <h3>Partition Method</h3>
+                <p>Partition methods construct <strong>k partitions (clusters)</strong> of the data, where each data
+                    point belongs to exactly one cluster. The goal is to find the optimal grouping of data points
+                    such
+                    that:
+                <ul>
+                    <li>Each group (cluster) is internally cohesive (data points in the same group are similar),
+                    </li>
+                    <li>And externally separated (data points in different groups are dissimilar).</li>
+                </ul>Among all partitioning methods, <strong>K-Means</strong> is the most prominent and foundational
+                algorithm covered in data mining.</p>
+                <div class="wh">
+                    <h3>K-Means Clustering</h3>
+                    <p>
+                        K-Means is one of the most popular clustering algorithms used to group similar
+                        data
+                        points into clusters. It is mainly used in clustering problems where we don't have labeled
+                        data.
+                        The
+                        goal is to divide the data into <strong>K</strong> groups (clusters) based on similarity.
+                    </p>
+
+                    <h4>Key Concepts</h4>
+                    <ul>
+                        <li><strong>Centroid:</strong> The center of a cluster.</li>
+                        <li><strong>K:</strong> Number of clusters we want to form.</li>
+                        <li><strong>Euclidean Distance:</strong> The distance between a data point and a centroid.
+                        </li>
+                    </ul>
+
+                    <h4>How K-Means Works (Incremental Method)</h4>
+                    <ul>
+                        <li>Step 1: Choose the number of clusters K.</li>
+                        <li>Step 2: Randomly initialize K centroids.</li>
+                        <li>Step 3: Go through each data point one by one:</li>
+                        <ul>
+                            <li>Assign it to the nearest centroid (based on distance).</li>
+                            <li><strong>Immediately update</strong> the centroid of that cluster using the mean of
+                                current
+                                members.</li>
+                        </ul>
+                        <li>Step 4: Repeat this for all points. Optionally loop again if needed.</li>
+                    </ul>
+                    <h4>Distance Formula (1D)</h4>
+                    <p>When using just one feature like Shoe Size, distance between two points is the absolute
+                        difference:
+                    </p>
+                    <p class="ms">
+                        \( d = |x_2 - x_1| \)
+                    </p>
+
+                    <h4>Example Dataset</h4>
+                    <p>Consider the following dataset of clients and their shoe sizes:</p>
+                    <div class="table-wrapper">
+                        <table class="new-table">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Shoe Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alice</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>Bob</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <td>Charlie</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>Diana</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>Edward</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>Fiona</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>George</td>
+                                    <td>11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>K-Means (K = 2)</h4>
+                    <ul>
+                        <li>Step 1: Choose K = 2 (we want 2 clusters).</li>
+                        <li>Step 2: Randomly select initial centroids:</li>
+                        <ul>
+                            <li>Centroid A = Alice = 6</li>
+                            <li>Centroid B = Bob = 9</li>
+                        </ul>
+                        <img src="../../images/ml12.svg" alt="" class="wb">
+                    </ul>
+
+                    <h4>Step-by-Step Assignment & Updating</h4>
+
+                    <ul>
+                        <li><strong>Point Charlie = 7:</strong></li>
+                        <ul>
+                            <li>Distance to A = |7 - 6| = 1</li>
+                            <li>Distance to B = |7 - 9| = 2</li>
+                            <li>→ Assign to Cluster A</li>
+                            <li>Update Centroid A = Average of (6, 7) = 6.5</li>
+                            <img src="../../images/ml13.svg" alt="" class="wb">
+                        </ul>
+
+                        <li><strong>Point Diana = 5:</strong></li>
+                        <ul>
+                            <li>Distance to A = |5 - 6.5| = 1.5</li>
+                            <li>Distance to B = |5 - 9| = 4</li>
+                            <li>→ Assign to Cluster A</li>
+                            <li>Update Centroid A = Average of (6, 7, 5) = 6</li>
+                            <img src="../../images/ml14.svg" alt="" class="wb">
+                        </ul>
+
+                        <li><strong>Point Edward = 8:</strong></li>
+                        <ul>
+                            <li>Distance to A = |8 - 6| = 2</li>
+                            <li>Distance to B = |8 - 9| = 1</li>
+                            <li>→ Assign to Cluster B</li>
+                            <li>Update Centroid B = Average of (9, 8) = 8.5</li>
+                            <img src="../../images/ml15.svg" alt="" class="wb">
+                        </ul>
+
+                        <li><strong>Point Fiona = 10:</strong></li>
+                        <ul>
+                            <li>Distance to A = |10 - 6| = 4</li>
+                            <li>Distance to B = |10 - 8.5| = 1.5</li>
+                            <li>→ Assign to Cluster B</li>
+                            <li>Update Centroid B = Average of (9, 8, 10) = 9</li>
+                            <img src="../../images/ml16.svg" alt="" class="wb">
+                        </ul>
+
+                        <li><strong>Point George = 11:</strong></li>
+                        <ul>
+                            <li>Distance to A = |11 - 6| = 5</li>
+                            <li>Distance to B = |11 - 9| = 2</li>
+                            <li>→ Assign to Cluster B</li>
+                            <li>Update Centroid B = Average of (9, 8, 10, 11) = 9.5</li>
+                            <img src="../../images/ml17.svg" alt="" class="wb">
+                        </ul>
+                    </ul>
+
+                    <h4>Final Clusters (After All Points)</h4>
+                    <ul>
+                        <li>Cluster A (Centroid ≈ 6): Alice, Charlie, Diana</li>
+                        <li>Cluster B (Centroid ≈ 9.5): Bob, Edward, Fiona, George</li>
+                    </ul>
+
+
+                    <h4>Euclidean Distance Formula</h4>
+                    <p>This formula is used to measure how far two points are from each other in a 2D space (like
+                        age
+                        and
+                        amount):</p>
+                    <p class="ms">
+                        \( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \)
+                    </p>
+
+                    <h4>Example Dataset</h4>
+                    <p>Let’s consider the following dataset:</p>
+                    <div class="table-wrapper">
+                        <table class="new-table">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Age</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>C1</td>
+                                    <td>20</td>
+                                    <td>500</td>
+                                </tr>
+                                <tr>
+                                    <td>C2</td>
+                                    <td>40</td>
+                                    <td>1000</td>
+                                </tr>
+                                <tr>
+                                    <td>C3</td>
+                                    <td>30</td>
+                                    <td>800</td>
+                                </tr>
+                                <tr>
+                                    <td>C4</td>
+                                    <td>18</td>
+                                    <td>300</td>
+                                </tr>
+                                <tr>
+                                    <td>C5</td>
+                                    <td>28</td>
+                                    <td>1200</td>
+                                </tr>
+                                <tr>
+                                    <td>C6</td>
+                                    <td>35</td>
+                                    <td>1400</td>
+                                </tr>
+                                <tr>
+                                    <td>C7</td>
+                                    <td>45</td>
+                                    <td>1800</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>K-Means (K = 2)</h4>
+                    <ul>
+                        <li>Step 1: Choose K = 2 (we want 2 clusters).</li>
+                        <li>Step 2: Randomly select 2 initial centroids:</li>
+                        <ul>
+                            <li>Centroid A = C1 = (20, 500)</li>
+                            <li>Centroid B = C2 = (40, 1000)</li>
+                        </ul>
+                    </ul>
+
+                    <h4>Step-by-Step Assignment & Updating</h4>
+
+                    <ul>
+                        <li><strong>Point C3 = (30, 800):</strong></li>
+                        <ul>
+                            <li>Distance to A = √((30 - 20)² + (800 - 500)²) = √(100 + 90000) = √90100 ≈ 300.17</li>
+                            <li>Distance to B = √((30 - 40)² + (800 - 1000)²) = √(100 + 40000) = √40100 ≈ 200.25
+                            </li>
+                            <li>→ Assign to Cluster B</li>
+                            <li>Update Centroid B = Average of (40,1000) and (30,800) = (35, 900)</li>
+                        </ul>
+
+                        <li><strong>Point C4 = (18, 300):</strong></li>
+                        <ul>
+                            <li>Distance to A = √((18 - 20)² + (300 - 500)²) = √(4 + 40000) = √40004 ≈ 200.01</li>
+                            <li>Distance to B = √((18 - 35)² + (300 - 900)²) = √(289 + 360000) = √360289 ≈ 600.24
+                            </li>
+                            <li>→ Assign to Cluster A</li>
+                            <li>Update Centroid A = Average of (20,500) and (18,300) = (19, 400)</li>
+                        </ul>
+
+                        <li><strong>Point C5 = (28, 1200):</strong></li>
+                        <ul>
+                            <li>Distance to A = √((28 - 19)² + (1200 - 400)²) = √(81 + 640000) = √640081 ≈ 800.05
+                            </li>
+                            <li>Distance to B = √((28 - 35)² + (1200 - 900)²) = √(49 + 90000) = √90049 ≈ 300.08</li>
+                            <li>→ Assign to Cluster B</li>
+                            <li>Update Centroid B = Avg of (40,1000), (30,800), (28,1200) = (32.67, 1000)</li>
+                        </ul>
+
+                        <li><strong>Point C6 = (35, 1400):</strong></li>
+                        <ul>
+                            <li>Distance to A = √((35 - 19)² + (1400 - 400)²) = √(256 + 1000000) = √1000256 ≈
+                                1000.13
+                            </li>
+                            <li>Distance to B = √((35 - 32.67)² + (1400 - 1000)²) = √(5.45 + 160000) = √160005.45 ≈
+                                400.01
+                            </li>
+                            <li>→ Assign to Cluster B</li>
+                            <li>Update Centroid B = Avg of C2, C3, C5, C6 = (40+30+28+35)/4 = 133/4 = 33.25 and
+                                (1000+800+1200+1400)/4 = 4400/4 = 1100</li>
+                            <li>→ New Centroid B = (33.25, 1100)</li>
+                        </ul>
+
+                        <li><strong>Point C7 = (45, 1800):</strong></li>
+                        <ul>
+                            <li>Distance to A = √((45 - 19)² + (1800 - 400)²) = √(676 + 1960000) = √1960676 ≈
+                                1400.24
+                            </li>
+                            <li>Distance to B = √((45 - 33.25)² + (1800 - 1100)²) = √(138.06 + 490000) = √490138.06
+                                ≈
+                                700.10
+                            </li>
+                            <li>→ Assign to Cluster B</li>
+                            <li>Update Centroid B = Avg of C2, C3, C5, C6, C7 = (40+30+28+35+45)/5 = 178/5 = 35.6
+                                and
+                                (1000+800+1200+1400+1800)/5 = 6200/5 = 1240</li>
+                            <li>→ Final Centroid B = (35.6, 1240)</li>
+                        </ul>
+                    </ul>
+
+                    <h4>Final Clusters (After All Points)</h4>
+                    <ul>
+                        <li>Cluster A (Centroid ≈ 19, 400): C1, C4</li>
+                        <li>Cluster B (Centroid ≈ 35.6, 1240): C2, C3, C5, C6, C7</li>
+                        <img src="../../images/ml18.svg" alt="" class="wb">
+                    </ul>
+                </div>
+            </div>
+            <div class="in">
+                <h3>Hierarchical Clustering</h3>
+
+                <p>
+                    Hierarchical clustering builds a hierarchy of clusters. Unlike K-Means, it does not require
+                    choosing the number of clusters (K) beforehand. There are two main approaches:
+                </p>
+
+                <h4>Types of Hierarchical Clustering</h4>
+                <ul>
+                    <li><strong>Agglomerative (Bottom-Up):</strong> Start with each point as its own cluster, and
+                        keep
+                        merging the closest pairs until one cluster remains.</li>
+                    <li><strong>Divisive (Top-Down):</strong> Start with all points in one cluster, and keep
+                        splitting
+                        it into smaller clusters.</li>
+                </ul>
+
+                <h4>Distance Measurement (Linkage Methods)</h4>
+                <ul>
+                    <li><strong>Single Linkage:</strong> Distance between the closest pair of points in two
+                        clusters.
+                    </li>
+                    <li><strong>Complete Linkage:</strong> Distance between the farthest pair of points in two
+                        clusters.
+                    </li>
+                    <li><strong>Average Linkage:</strong> Average of all pairwise distances between points in two
+                        clusters.</li>
+                </ul>
+
+                <h4>Example: Agglomerative Clustering</h4>
+                <p>Given 1D data points: <strong>[1, 5, 8, 10, 19, 20]</strong></p>
+
+                <p>Step-by-step using <strong>single linkage</strong>:</p>
+                <ol>
+                    <li>Start with each point as its own cluster:
+                        <br />
+                        [1], [5], [8], [10], [19], [20]
+                    </li>
+
+                    <li>Find the closest pair (minimum distance):
+                        <br />
+                        Distance(19, 20) = 1 → Merge → [19, 20]
+                    </li>
+
+                    <li>Next closest:
+                        <br />
+                        Distance(8, 10) = 2 → Merge → [8, 10]
+                    </li>
+
+                    <li>Next closest:
+                        <br />
+                        Distance(5, 8) = 3 → Merge → [5, 8, 10]
+                    </li>
+
+                    <li>Next closest:
+                        <br />
+                        Distance(1, 5) = 4 → Merge → [1, 5, 8, 10]
+                    </li>
+
+                    <li>Final merge:
+                        <br />
+                        Distance(10, 19) = 9 → Merge all → [1, 5, 8, 10, 19, 20]
+                    </li>
+                </ol>
+                <img src="../../images/ml5.svg" alt="" class="wb">
+                <h4>Dendrogram</h4>
+                <p>
+                    A dendrogram is a tree-like diagram that shows the sequence of merges (or splits).
+                    You can “cut” the dendrogram at any level to get the desired number of clusters.
+                </p>
+
+                <h4>Divisive Clustering (Top-Down)</h4>
+                <p>
+                    This method starts with all points in one big cluster and splits them recursively.
+                    It's less common and computationally heavier than agglomerative.
+                </p>
+
+                <p>Steps:</p>
+                <ol>
+                    <li>Start with all points in one cluster: [1, 5, 8, 10, 19, 20]</li>
+                    <li>Split into two clusters based on large distance gap → [1, 5, 8, 10] and [19, 20]</li>
+                    <li>Keep splitting each sub-cluster until each point is separate.</li>
+                </ol>
+                <img src="../../images/ml6.svg" alt="" class="wb">
+                <h4>Advantages</h4>
+                <ul>
+                    <li>No need to pre-define K (number of clusters).</li>
+                    <li>Produces a full cluster hierarchy.</li>
+                    <li>Works well with small datasets and dendrograms help visualize structure.</li>
+                </ul>
+
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Computationally expensive for large datasets.</li>
+                    <li>Not suitable for streaming or dynamic data.</li>
+                    <li>Once a merge/split happens, it can't be undone.</li>
+                </ul>
+
+                <h4>Note:</h4>
+                <p>
+                    Use libraries like <strong>scipy.cluster.hierarchy</strong> in Python to create dendrograms and
+                    perform
+                    clustering automatically.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <p>Reference</p>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=mvveVcbHynE" target="_blank"> Lec-9: Introduction to
+                    Decision
+                    Tree 🌲 with Real life examples Video Lecture &neArr;</a></li>
+            <li><a href="https://www.youtube.com/watch?v=Dy9urawfXos&t=47s" target="_blank"> #13 Correlation
+                    Analysis - Pearson's Correlation Coefficient |DM| Youtube Video Lecture &neArr;</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+    <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>

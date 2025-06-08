@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP and System Security</title>
+    <link rel="stylesheet" href="../../../../public/style.css">
+    <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+</head>
+
+<body class="bg-c">
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html" class="home">back</a>
+        <div class="fix-column-links">
+            <a href="#" class="link"></a>
+            <div class="botbut">
+                <a href="../unit4/index.html" class="link">Next Topic &rarr;</a>
+                <a href="../unit2/index.html" class="link">&larr; Previous Topic</a>
+            </div>
+        </div>
+    </div>
+    <div id="navbar" class="grad">
+        <div>
+            <div class="openbtn" onclick="openNav()">
+                <div id="nav-icon1" for="nav-menu1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>IP and System Security</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <pre>
+            <code>
+Cybersecurity: IP and System Security
+├── 1. IP Security (IPSec)
+│   ├── Authentication Header (AH)
+│   └── Encapsulating Security Payload (ESP)
+│
+└── 2. System Security
+    ├── Intruders
+    ├── Intrusion Detection System (IDS)
+    ├── Viruses
+    ├── Firewall Design Principles
+    ├── Trusted Systems
+    ├── OS Security
+    └── Program Security
+            </code>
+        </pre>
+        <ul>
+            <li>When we think of cybersecurity, protecting systems and data goes beyond just passwords — it’s about
+                securing both the communication channels and the systems themselves. In this unit, we focus on two key
+                areas: IP Security and System Security.</li>
+            <li>We’ll start with IP Security (IPSec), which is all about protecting data as it travels over networks.
+                You’ll learn about two core components — the Authentication Header (AH), which ensures the data hasn't
+                been tampered with, and the Encapsulating Security Payload (ESP), which keeps the contents confidential
+                and secure.</li>
+            <li>After that, we move on to the broader topic of System Security, where we look at threats like intruders
+                and viruses, and how we can detect or block them using tools like Intrusion Detection Systems (IDS) and
+                firewalls. We also explore what makes a system "trusted", how the operating system plays a major role in
+                security, and how vulnerabilities in programs themselves can be exploited if not properly secured.</li>
+        </ul>
+        <div class="wh">
+            <h2>Authentication Header (AH) – Verifying the Sender and Integrity</h2>
+
+            <ul>
+                <li>Think of AH as a digital signature on your message. It doesn't hide the content, but it makes sure:
+                </li>
+                <ul>
+                    <li>The data really came from the sender.</li>
+                    <li>It wasn't changed during transmission.</li>
+                </ul>
+                <li>AH is like sealing the envelope with a signature wax stamp.
+                    Anyone can read the letter (because it's not encrypted), but if the seal is broken or the stamp
+                    doesn't match, you know something's wrong.</li>
+                <li><strong>What AH Protects:</strong>
+                    <ul>
+                        <li>Source authenticity: Confirms who sent the data.</li>
+                        <li>Integrity: Ensures the data wasn't modified.</li>
+                        <li>Anti-replay: Blocks old or duplicated packets from being reused in attacks.</li>
+                        <li>But remember—AH doesn't provide confidentiality. The data inside is still visible to anyone.
+                            That's
+                            where ESP comes in.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Encapsulating Security Payload (ESP) – Keeping Data Confidential</h2>
+
+            <ul>
+                <li>Now, imagine you want to send a secret message—one that nobody else should read. You'd use a locked
+                    box. That's what ESP does.</li>
+                <li>ESP encrypts the data, which means even if someone intercepts it, they'll only see gibberish. And
+                    just like AH, ESP can also verify authenticity and integrity (if configured to do so).</li>
+            </ul>
+
+            <div class="in">
+                <h3>What ESP Offers:</h3>
+
+                <ul>
+                    <li>Confidentiality: Encrypts the data so it can't be read by others.</li>
+                    <li>Integrity and authenticity: Optional features to ensure the data is genuine and unchanged.</li>
+                    <li>Replay protection: Prevents attackers from resending captured packets.</li>
+                    <li>So, ESP = encryption + optional integrity + anti-replay</li>
+                    <li>Whereas AH = only integrity + authenticity + anti-replay</li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>AH vs. ESP — Which One Do You Use?</h3>
+
+                <ul>
+                    <li>It depends on the situation.</li>
+                </ul>
+                <div class="table-wrapper">
+                    <table class="new-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>AH</th>
+                            <th>ESP</th>
+                        </tr>
+                        <tr>
+                            <td>Encrypts data?</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Verifies sender?</td>
+                            <td>Yes</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Checks for tampering?</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Protects header?</td>
+                            <td>Some parts</td>
+                            <td>More parts</td>
+                        </tr>
+                        <tr>
+                            <td>Used for privacy?</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <ul>
+                    <li>So, if you're sending something sensitive like a password or personal message, you'd use ESP.
+                    </li>
+                    <li>If you just need to make sure the data hasn't been tampered with, AH might be enough.</li>
+                    <li>In most real-world scenarios today, ESP is more commonly used, because encryption is usually
+                        essential.</li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Where is IP Security (IPSec) Used?</h3>
+                <ul>
+                    <li>IPSec is widely used in:</li>
+                    <ul>
+                        <li>VPNs (Virtual Private Networks): To create secure "tunnels" between your device and a remote
+                            server.</li>
+                        <li>Secure communication between offices or servers.</li>
+                        <li>Protecting data in sensitive systems, like banking, defense, or healthcare.</li>
+                    </ul>
+                    <li>Let's say you're working remotely and connecting to your company network using a VPN. That
+                        secure
+                        connection? Most likely built using IPSec!</li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Wrapping Up — Why Does IPSec Matter?</h3>
+                <ul>
+                    <li>Because it ensures:</li>
+                    <ul>
+                        <li>Your private emails, passwords, and sensitive info stay safe while traveling across the
+                            internet.</li>
+                        <li>Hackers can't snoop, tamper, or pretend to be someone else.</li>
+                        <li>Big networks like corporate or government systems can trust their communication pipelines.
+                        </li>
+                    </ul>
+                    <li>So next time you hear about a secure connection or see the term "IPSec tunnel," you'll know it's
+                        not magic—just some clever use of AH and ESP working behind the scenes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="wh">
+            <h2>What is System Security?</h2>
+            <ul>
+                <li>Imagine your computer or network is a kingdom. System Security is the entire army, walls, moats, and
+                    laws that protect it from invaders (hackers), disasters (viruses), and internal spies (insiders).
+                    It’s not just one tool—it’s a combination of strategies, tools, and practices to keep everything
+                    safe.
+                </li>
+                <li> System Security refers to the collection of security mechanisms, policies, and procedures used to
+                    protect computer systems and networks from unauthorized access, misuse, malfunction, modification,
+                    destruction, or improper disclosure.</li>
+            </ul>
+
+            <h3>Why does it matter?</h3>
+            <ul>
+                <li>Protects your data (photos, bank details, secrets).</li>
+                <li>Keeps services running (no ransomware shutting down hospitals!).</li>
+                <li>Builds trust (would you shop on a website that gets hacked every week?).</li>
+                <li>Real-Life Example: When the Colonial Pipeline got hacked in 2021, it disrupted fuel supply across
+                    the U.S. for days. System Security failures can have real-world chaos!</li>
+            </ul>
+
+            <h3>Breaking Down System Security</h3>
+            <ul>
+                <li>Under the "System Security" umbrella, we tackle threats from all angles. Let’s explore each
+                    sub-topic in order, like layers of defense:</li>
+            </ul>
+
+            <div class="in">
+                <h4>1. Intruders: Who’s Trying to Break In?</h4>
+                <ul>
+                    <li>Think of intruders as uninvited guests at a party. They want to crash your system, steal data,
+                        or cause chaos.</li>
+                    <li> An intruder is any unauthorized entity (user, script, or program) attempting to gain access to
+                        system resources or data without proper authorization.</li>
+                    <li><strong>Types of Intruders:</strong>
+                        <ul>
+                            <li>Script Kiddies: Amateurs using pre-made tools (like a thief with a crowbar from
+                                YouTube).</li>
+                            <li>Hacktivists: Motivated by politics or ideology (e.g., hacking a government site to
+                                protest).</li>
+                            <li>Insiders: Employees leaking data—like a cashier sneaking money from the register.</li>
+                            <li>Advanced Persistent Threats (APTs): Sophisticated, long-term attackers (think “spy
+                                movie” hackers).</li>
+                        </ul>
+                    </li>
+                    <li><strong>How They Get In:</strong>
+                        <ul>
+                            <li>Phishing emails (“Click this fake UPS link!”).</li>
+                            <li>Exploiting weak passwords (“password123”).</li>
+                            <li>Unpatched software vulnerabilities (like leaving a window unlocked).</li>
+                        </ul>
+                    </li>
+                    <li>Real-Life Example: The 2013 Target breach started with hackers stealing an HVAC vendor’s
+                        credentials!</li>
+                    <li><strong>Why Care? →</strong> Intruders are the reason we need tools like IDS to catch them
+                        before they cause harm.</li>
+                </ul>
+            </div>
+            <div class="in">
+                <h4>2. Intrusion Detection Systems (IDS): The Digital Watchdog</h4>
+                <ul>
+                    <li>An IDS isn’t just a guard—it’s a guard with a magnifying glass, analyzing everything.</li>
+                    <li> An IDS (Intrusion Detection System) is a device or software application that monitors network
+                        or system activities for malicious activities or policy violations.</li>
+                    <li><strong>How It Works:</strong>
+                        <ul>
+                            <li><strong>Signature-Based Detection:</strong>
+                                <ul>
+                                    <li>Matches patterns to a database of known attacks (like recognizing a wanted
+                                        criminal’s face).</li>
+                                    <li>Example: Blocking traffic that matches a known ransomware signature.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Anomaly-Based Detection:</strong>
+                                <ul>
+                                    <li>Learns “normal” behavior and flags deviations (e.g., your quiet office printer
+                                        suddenly sending gigabytes of data).</li>
+                                    <li>Example: Your smart fridge trying to connect to a Russian server at 2 AM.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Hybrid Systems:</strong> Combine both for better accuracy (like a detective
+                                using fingerprints and witness accounts).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Limitations:</strong>
+                        <ul>
+                            <li>False alarms (your cat stepping on the keyboard might look like a hacker!).</li>
+                            <li>Can’t stop attacks—only alert you. That’s why we pair it with… firewalls!</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h4>3. Viruses & Malware: The Sneaky Saboteurs</h4>
+                <ul>
+                    <li>Viruses are just one type of malware. Let’s meet the whole “malicious family”:</li>
+                    <li> Malware (malicious software) is any software intentionally designed to cause damage to a
+                        computer, server, client, or network.</li>
+                    <li><strong>Types of Malware:</strong>
+                        <ul>
+                            <li>Viruses: Attach to files (e.g., a corrupted Word doc).</li>
+                            <li>Worms: Spread without user action.</li>
+                            <li>Trojans: Disguised as harmless software.</li>
+                            <li>Ransomware: Locks your files until you pay.</li>
+                        </ul>
+                    </li>
+                    <li><strong>How They Spread:</strong>
+                        <ul>
+                            <li>Email attachments, infected ads (malvertising), USB drives, pirated software.</li>
+                        </ul>
+                    </li>
+                    <li>Real-Life Example: The ILOVEYOU virus (2000) caused $15 billion in damage by tricking users to
+                        open a “love letter” email.</li>
+                    <li><strong>Fighting Back:</strong> Use antivirus software, but also build a strong gatekeeper—your
+                        firewall.</li>
+                </ul>
+            </div>
+
+            <div class="in">
+                <h4>4. Firewalls: The Ultimate Gatekeeper</h4>
+                <ul>
+                    <li>A firewall isn’t just a wall—it’s a smart filter deciding what traffic enters/leaves your
+                        network.</li>
+                    <li> A firewall is a network security device that monitors and filters incoming and outgoing
+                        network
+                        traffic based on predetermined security rules.</li>
+                    <li><strong>Types of Firewalls:</strong>
+                        <ul>
+                            <li>Packet-Filtering: Checks basic headers (IP address, port).</li>
+                            <li>Stateful Inspection: Tracks active connections.</li>
+                            <li>Next-Gen Firewalls (NGFW): Adds deep packet inspection.</li>
+                            <li>Proxy Firewalls: Acts as a middleman, hiding your network.</li>
+                        </ul>
+                    </li>
+                    <li>Home Example: Your Wi-Fi router’s firewall blocks strangers from accessing your smart TV.
+                    </li>
+                    <li>Corporate Example: A company firewall blocks employees from accessing risky sites like
+                        illegal
+                        torrents.</li>
+                    <li><strong>But Even Firewalls Can’t Stop Everything →</strong> For critical systems, we need
+                        Trusted Systems.</li>
+                </ul>
+                <h4>Firewall Design Principles</h4>
+                <p>Firewalls are a critical line of defense for any network, but to be truly effective, they need to
+                    be thoughtfully designed. Below are the key principles to guide you when building or managing a
+                    firewall system.</p>
+
+                <h4>1. Developing a Security Policy</h4>
+                <p>Before setting up a firewall, you need a well-defined <strong>security policy</strong> — this
+                    acts as the blueprint for what your firewall should allow or block. A clear policy ensures your
+                    firewall protects the right things without overcomplicating the setup.</p>
+                <ul>
+                    <li>Identify what services the organization needs:
+                        <ul>
+                            <li>Web browsing (HTTP/HTTPS)</li>
+                            <li>Email (SMTP/IMAP/POP3)</li>
+                            <li>Remote access (VPN, SSH)</li>
+                        </ul>
+                    </li>
+                    <li>Decide who should access what:
+                        <ul>
+                            <li>Admins: full access</li>
+                            <li>Employees: limited access</li>
+                        </ul>
+                    </li>
+                    <li>Define acceptable use policies and risk levels you're willing to tolerate.</li>
+                </ul>
+                <p>Having a policy helps you avoid vague rules like “block bad traffic” and instead focus on
+                    meaningful, targeted protection.</p>
+
+                <h4>2. Simple Design</h4>
+                <p>When designing firewall rules, <strong>simplicity wins</strong>. A clean, minimal rule set is
+                    easier to manage, reduces errors, and improves security.</p>
+                <ul>
+                    <li>Use only the rules you need — keep them easy to understand</li>
+                    <li>Eliminate redundant or conflicting rules</li>
+                    <li>Start with “deny all,” then allow specific, necessary traffic</li>
+                </ul>
+                <p>A simple setup leads to better visibility, easier troubleshooting, and faster updates.</p>
+
+                <h4>3. Choosing the Right Device</h4>
+                <p>Firewalls come in different types — each suited for specific needs. Choosing the right one
+                    depends on your network's size, complexity, and security demands.</p>
+                <ul>
+                    <li><strong>Packet-filtering firewall</strong>:
+                        <ul>
+                            <li>Fast and simple but has limited filtering capabilities</li>
+                        </ul>
+                    </li>
+                    <li><strong>Stateful inspection firewall</strong>:
+                        <ul>
+                            <li>Monitors active connections and provides better control</li>
+                        </ul>
+                    </li>
+                    <li><strong>Application-layer firewall (proxy)</strong>:
+                        <ul>
+                            <li>Understands specific protocols like HTTP/FTP</li>
+                            <li>Offers deeper security but may slow traffic</li>
+                        </ul>
+                    </li>
+                    <li><strong>Next-Gen Firewall (NGFW)</strong>:
+                        <ul>
+                            <li>Includes advanced features like IDS/IPS, app control, deep inspection</li>
+                            <li>Ideal for modern enterprise environments</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Select based on your current needs and future scalability.</p>
+
+                <h4>4. Layered Defense (Defense in Depth)</h4>
+                <p>Firewalls are strongest when used as part of a <strong>layered security approach</strong>.
+                    Relying on just one security layer is risky — multiple layers create backup protection.</p>
+                <ul>
+                    <li>Deploy firewalls both at the network perimeter and internally</li>
+                    <li>Combine with:
+                        <ul>
+                            <li>IDS/IPS systems</li>
+                            <li>Antivirus and endpoint protection tools</li>
+                            <li>Network segmentation using VLANs</li>
+                        </ul>
+                    </li>
+                    <li>If one defense fails, others are still in place to stop the threat</li>
+                </ul>
+                <p>It’s like having multiple locks on a door — more barriers mean better security.</p>
+
+                <h4>5. Consider Internal Threats</h4>
+                <p>Firewalls shouldn’t just focus on threats from the outside. Internal users can also pose risks —
+                    intentionally or by accident.</p>
+                <ul>
+                    <li>Set up internal firewalls between departments or zones</li>
+                    <li>Monitor and log internal traffic patterns for anything unusual</li>
+                    <li>Use role-based access control (RBAC):
+                        <ul>
+                            <li>Users only get access to what they need — nothing more</li>
+                        </ul>
+                    </li>
+                    <li>Regularly audit internal access attempts and activities</li>
+                </ul>
+                <p>Employees might fall for phishing emails or unknowingly install malware, so your firewall
+                    strategy must account for internal risks too.</p>
+
+            </div>
+            <div class="in">
+                <h4>5. Trusted Systems: The Digital Fort Knox</h4>
+                <ul>
+                    <li>These are systems built with security as the #1 priority, often used for top-secret data.</li>
+                    <li> A trusted system is a system that employs security measures to enforce a set of policies and is
+                        trusted to handle sensitive or critical operations without compromising integrity,
+                        confidentiality, or availability.</li>
+                    <li><strong>Key Features:</strong>
+                        <ul>
+                            <li>Mandatory Access Control (MAC): Users can’t override permissions.</li>
+                            <li>Audit Logs: Records every action.</li>
+                            <li>Formal Verification: Mathematically proven to be secure.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Real-World Uses:</strong>
+                        <ul>
+                            <li>Military databases, nuclear power plant controls, medical records.</li>
+                        </ul>
+                    </li>
+                    <li>Example: Apple’s T2 Security Chip encrypts data on MacBooks—a “trusted” hardware layer.</li>
+                    <li><strong>But Trusted Systems Still Run on… →</strong> Operating Systems, which need their own
+                        security!</li>
+                </ul>
+            </div>
+            <div class="in">
+                <h4>6. OS Security: Protecting the Foundation</h4>
+                <ul>
+                    <li>Your OS (Windows, macOS, Linux) is like the foundation of a house. If it’s weak, everything
+                        collapses.</li>
+                    <li> Operating System Security involves implementing security measures at the OS level to ensure the
+                        confidentiality, integrity, and availability of the system and data.</li>
+                    <li><strong>Key Protections:</strong>
+                        <ul>
+                            <li>User Account Control (UAC): Asks for permission before installing software.</li>
+                            <li>File Permissions: Stops guests from deleting system files.</li>
+                            <li>Kernel Protection: Safeguards the core of the OS.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Common Threats:</strong>
+                        <ul>
+                            <li>Privilege escalation (a hacker gaining admin access).</li>
+                            <li>Zero-day exploits (attacks on unpatched vulnerabilities).</li>
+                        </ul>
+                    </li>
+                    <li>Example: Windows Defender (built-in antivirus) vs. ransomware attacks.</li>
+                    <li><strong>But Even a Secure OS Can’t Fix… →</strong> Badly coded apps! Enter Program Security.
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h4>7. Program Security: Coding Without “Oops” Moments</h4>
+                <ul>
+                    <li>Program security is about writing software that’s resistant to attacks.</li>
+                    <li> Program Security involves designing, writing, and maintaining software in a way that prevents
+                        vulnerabilities that could be exploited by attackers.</li>
+                    <li><strong>Common Vulnerabilities:</strong>
+                        <ul>
+                            <li>Buffer Overflow: Hackers flood a program with data to hijack it.</li>
+                            <li>SQL Injection: Sending malicious database queries through a login form (e.g.,
+                                <pre><code>' OR 1=1 --</code></pre> to bypass passwords).
+                            </li>
+                            <li>Cross-Site Scripting (XSS): Injecting malicious code into websites (e.g., stealing
+                                cookies).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Secure Coding Practices:</strong>
+                        <ul>
+                            <li>Input validation (sanitizing user data).</li>
+                            <li>Using prepared statements for databases.</li>
+                            <li>Regular code reviews and penetration testing.</li>
+                        </ul>
+                    </li>
+                    <li>Real-Life Fail: The 2017 Equifax breach happened due to unpatched Apache Struts software.</li>
+                </ul>
+            </div>
+            <h3>How Everything Connects: The Security Puzzle</h3>
+            <ul>
+                <li>Intruders try to sneak in → IDS spots them → Firewalls block suspicious traffic.</li>
+                <li>Viruses slip through → Antivirus quarantines them → OS Security limits damage.</li>
+                <li>Trusted Systems protect critical data → Program Security ensures apps don’t have backdoors.</li>
+                <li>It’s like a castle with walls, guards, traps, and a moat—each layer adds protection!</li>
+            </ul>
+        </div>
+    
+    </div>
+    <div class="in">
+        <p>Reference</p>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=BK6nxKDKijc" target="_blank">67. Firewall Definition, Design Principles Of Firewalls |CNS| Video Lecture &neArr;</a></li>
+        </ul>
+    </div>
+    <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>

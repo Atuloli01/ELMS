@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1</title>
+    <link rel="stylesheet" href="../../../../public/style.css">
+    <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+</head>
+
+<body class="bg-c">
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html" class="home">back</a>
+        <div class="fix-column-links">
+            <a href="#" class="link"></a>
+            <div class="botbut">
+                <a href="../unit2/index.html" class="link">Next Topic &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <div id="navbar" class="grad">
+        <div>
+            <div class="openbtn" onclick="openNav()">
+                <div id="nav-icon1" for="nav-menu1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Unit 1</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <div class="wh">
+            <h2>Fundamental Concepts of Statistics and Probability</h2>
+            <p> Statistics and probability play a crucial role in analyzing data and making informed decisions. This
+                guide covers essential statistical concepts, including measures of central tendency (mean, median,
+                mode), data dispersion (range, standard deviation), and probability fundamentals. Understanding these
+                concepts helps in interpreting data accurately, identifying patterns, and making predictions in various
+                fields, from finance to machine learning. Whether you're a student or a professional, mastering these
+                principles provides a strong foundation for data analysis and decision-making.</p>
+            <div class="in">
+                <h3>Mean (Average)</h3>
+
+                <p>The mean, also known as the average, is a simple way to find the central value of a set of numbers.
+                    It helps us understand the overall trend of the data.</p>
+
+                <ul>
+
+                    <li><strong>Formula:</strong>
+                        <p>
+                            Mean = (Sum of all values) ÷ (Number of values)
+                        </p>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Let's say we have the numbers [2, 4, 6, 8]. To find the mean:</p>
+                        <p>(2 + 4 + 6 + 8) ÷ 4 = 20 ÷ 4 = 5</p>
+                        <p>So, the mean of these numbers is 5.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>The mean helps us understand the central tendency of data. It gives a single value that
+                            represents the overall dataset. For example, if we calculate the mean score of students in a
+                            class, we can quickly see the average performance of the class.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Median</h3>
+
+                <p>The median is the middle value of a dataset when the numbers are arranged in order. It helps find the
+                    central point of data, especially when there are extreme values (outliers) that might distort the
+                    mean.</p>
+
+                <ul>
+                    <li><strong>How to find it:</strong>
+                        <ul>
+                            <li><strong>If the dataset has an odd number of values:</strong> The median is the middle
+                                value.</li>
+                            <li><strong>If the dataset has an even number of values:</strong> The median is the average
+                                of the two middle values.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider these numbers: [3, 1, 7, 5, 9]</p>
+                        <ul>
+                            <li>Step 1: Arrange them in ascending order → [1, 3, 5, 7, 9]</l>
+                            <li>Step 2: The middle value is <strong>5</strong>, so the median is 5.</li>
+                        </ul>
+                        <p>Now, for an even-numbered dataset: [2, 4, 6, 8, 10, 12]</p>
+                        <ul>
+                            <li>Step 1: Arrange them in order (already sorted).</li>
+                            <li>Step 2: The two middle numbers are 6 and 8.</l>
+                            <li>Step 3: Find the average: (6 + 8) ÷ 2 = 7</li>
+                        </ul>
+                        <p>So, the median is <strong>7</strong>.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>The median is a great way to find the center of a dataset without being affected by very high
+                            or very low values. For example, if a few students in a class score extremely high or low,
+                            the median gives a better idea of the typical score than the mean.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Mode</h3>
+
+                <p>The mode is the value that appears most frequently in a dataset. It’s useful for understanding the
+                    most common or popular value in a set of data.</p>
+
+                <ul>
+                    <li><strong>How to find it:</strong>
+                        <ul>
+                            <li>If one value appears more often than any other, it is the mode.</li>
+                            <li>If there are multiple values that appear the same number of times, the dataset is said
+                                to have more than one mode (this is called "multimodal").</li>
+                            <li>If no value repeats, the dataset has no mode.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider the numbers: [2, 4, 4, 6, 7, 8, 8, 8]</p>
+                        <p>The number 8 appears three times, more than any other number. So, the mode is
+                            <strong>8</strong>.
+                        </p>
+
+                        <p>Now, consider these numbers: [1, 2, 2, 3, 3, 4, 5]</p>
+                        <p>Here, both 2 and 3 appear twice, so this dataset has two modes: <strong>2 and 3</strong>.</p>
+
+                        <p>And for these numbers: [5, 7, 9, 10, 12]</p>
+                        <p>Since no number repeats, there is <strong>no mode</strong> in this dataset.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>The mode is great when you want to know which value appears most often. For example, if
+                            you’re looking at the most common shoe size in a store, the mode would tell you the most
+                            popular size.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Outliers</h3>
+
+                <p>Outliers are data points that lie far from the majority of values in a dataset, significantly
+                    differing by being much higher or lower, and can strongly affect statistical analysis results.</p>
+
+                <ul>
+
+                    <li><strong>How to identify outliers:</strong>
+                        <ul>
+                            <li>Outliers are usually much smaller or much larger than the rest of the data.</li>
+                            <li>They can be identified visually in a graph or by using statistical methods like
+                                calculating the interquartile range (IQR).</li>
+                            <li>For example, any value that is more than 1.5 times the IQR above the third quartile or
+                                below the first quartile could be considered an outlier.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider the numbers: [1, 2, 3, 4, 5, 100]</p>
+                        <p>The number 100 is much larger than the others, so it’s an outlier in this dataset.</p>
+
+                        <p>Now, consider these numbers: [50, 52, 53, 51, 49, 200]</p>
+                        <p>The number 200 is much higher than the rest of the values, so it’s an outlier.</p>
+                    </li>
+
+                    <li><strong>Why it’s important:</strong>
+                        <p>Outliers are important to identify because they can distort results. For example, in a test
+                            where most students score between 50 and 80, a student who scores 200 might skew the average
+                            score, making it higher than it actually is. In such cases, it's important to consider
+                            whether to remove or adjust outliers based on the context of the data.</p>
+                    </li>
+
+                    <li><strong>What to do with outliers:</strong>
+                        <ul>
+                            <li>Outliers can be removed or adjusted if they are errors or if they don't represent
+                                typical data.</li>
+                            <li>However, sometimes outliers are real data points that need to be kept, especially if
+                                they provide valuable information.</li>
+                        </ul>
+                    </li>
+                    <li><strong>How Do Outliers Impact Statistical Measures?</strong>
+                        <ul>
+                            <li>Outliers can distort statistical measures, making data appear different from reality.
+                            </li>
+                            <li>Impact on Mean: Since the mean considers every value, an outlier can drag it up or down,
+                                making it unrepresentative of the majority of the data.</li>
+                            <li>Impact on Standard Deviation :
+
+                                Outliers increase the spread of data, making the standard deviation larger than it
+                                should be. This gives the impression that the data is more spread out than it actually
+                                is.</li>
+                            <li>In real-world analysis, outliers are often removed or adjusted to prevent misleading
+                                conclusions.</li>
+                            <li>Example: Imagine five friends' pocket money per week:
+                                <ul>
+                                    <li>₹50, ₹60, ₹55, ₹65, ₹500 (one rich friend).</li>
+                                    <li>Mean without outlier (₹50, ₹60, ₹55, ₹65) → ₹57.5</li>
+                                    <li>Mean with outlier (₹50, ₹60, ₹55, ₹65, ₹500) → ₹146 (Much higher!)</li>
+                                    <li>Standard deviation also jumps up because ₹500 is too far from the rest.</li>
+                                </ul>
+                                Learning: Outliers can mislead data, making it seem higher or more spread out than it
+                                really is!
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Range</h3>
+
+                <p>The range is a simple way to measure how spread out the values are in a dataset. It gives you an idea
+                    of the difference between the highest and lowest values.</p>
+
+                <ul>
+                    <li><strong>Formula:</strong>
+                        <p>Range = (Largest value) - (Smallest value)</p>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider the numbers: [4, 7, 2, 9, 5]</p>
+                        <ul>
+                            <li>Step 1: Find the largest value, which is 9.</li>
+                            <li>Step 2: Find the smallest value, which is 2.</li>
+                            <li>Step 3: Subtract the smallest value from the largest value: 9 - 2 = 7.</li>
+                        </ul>
+                        <p>So, the range of this dataset is <strong>7</strong>.</p>
+
+                        <p>Now, consider the numbers: [15, 18, 25, 12, 30]</p>
+                        <ul>
+                            <li>Step 1: The largest value is 30, and the smallest value is 12.</li>
+                            <li>Step 2: Subtract 12 from 30: 30 - 12 = 18.</li>
+                        </ul>
+                        <p>So, the range is <strong>18</strong>.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>The range is a quick way to get an idea of the spread or variability in your data. It tells
+                            you how wide the values are between the smallest and largest. For example, if you were
+                            measuring the temperature in a city over a week, a large range would suggest big temperature
+                            fluctuations, while a small range would indicate consistent temperatures.</p>
+                    </li>
+
+                    <li><strong>Limitations:</strong>
+                        <p>Although the range is easy to calculate, it’s sensitive to outliers. A very high or low value
+                            can drastically change the range, even if it’s not typical of the data. So, while it’s
+                            helpful, it may not always give the full picture of how data is distributed.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Average Deviation</h3>
+
+                <p>Average deviation measures how far each value in a dataset is from the mean (average). It tells you
+                    how spread out or clustered the data points are around the mean. The smaller the average deviation,
+                    the more consistent the values are, and vice versa.</p>
+
+                <ul>
+                    <li><strong>What it is:</strong> Average deviation is the average of the absolute differences
+                        between each data point and the mean of the dataset.</li>
+
+                    <li><strong>Formula:</strong>
+                        <p>The formula for average deviation is:</p>
+                        <p><strong>Average Deviation</strong> =
+                            <span class="ms">
+                                \[
+                                \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|
+                                \]
+                            </span>
+                        </p>
+                        <p>Where:
+                        <ul>
+                            <li>\(n\) is the number of data points.</li>
+                            <li><span class="ms">\(x_i\)</span> represents each individual data point.</li>
+                            <li><span class="ms">\(\bar{x}\)</span> is the mean (average) of the data.</li>
+                            <li><span class="ms">\(|x_i - \bar{x}|\)</span> is the absolute difference between each data
+                                point and the mean.
+                            </li>
+                        </ul>
+                        </p>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider the numbers: [3, 7, 5, 10]</p>
+                        <p>Step 1: Find the mean (average) of the dataset: </p>
+                        <p class="ms">\[
+                            \bar{x} = \frac{3 + 7 + 5 + 10}{4} = \frac{25}{4} = 6.25
+                            \]</p>
+                        <p>Step 2: Find the absolute differences between each value and the mean: </p>
+                        <ul>
+                            <li>|3 - 6.25| = 3.25</li>
+                            <li>|7 - 6.25| = 0.75</li>
+                            <li>|5 - 6.25| = 1.25</li>
+                            <li>|10 - 6.25| = 3.75</li>
+                        </ul>
+                        <p>Step 3: Find the average of these absolute differences:</p>
+                        <p class="ms">\[
+                            \frac{3.25 + 0.75 + 1.25 + 3.75}{4} = \frac{9}{4} = 2.25
+                            \]</p>
+                        <p>So, the average deviation is <strong>2.25</strong>.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>Average deviation gives you an idea of how spread out the data points are around the mean. If
+                            the average deviation is small, it means the values are close to the mean, and if it's
+                            large, the values are more spread out. This can be useful for understanding how consistent
+                            or varied the data is in fields like quality control or financial analysis.</p>
+                    </li>
+
+                    <li><strong>Limitations:</strong>
+                        <p>While average deviation is a helpful measure of spread, it doesn’t take into account the
+                            direction of the differences (whether they’re above or below the mean). Additionally, it
+                            might be less commonly used than other measures like standard deviation, which gives more
+                            insight into the data's variability.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Absolute Deviation</h3>
+
+                <p>Absolute deviation measures how far a value in a dataset is from a reference point, usually the mean
+                    or median. It looks at the absolute differences, meaning it doesn't consider whether a value is
+                    above or below the reference point—it only measures how far the value is, regardless of direction.
+                </p>
+
+                <ul>
+                    <li><strong>What it is:</strong> Absolute deviation is the distance between each data point and a
+                        reference point (typically the mean or median) in a dataset. It's always a positive value since
+                        we ignore the direction of the deviation.</li>
+
+                    <li><strong>Formula:</strong>
+                        <p>The formula for absolute deviation is:</p>
+                        <p><strong>Absolute Deviation</strong> =
+                            <span class="ms">
+                                \[
+                                |x_i - \bar{x}|
+                                \]
+                            </span>
+                        </p>
+                        <p>Where:
+                        <ul>
+                            <li><span class="ms">\(x_i\)</span> represents each individual data point.</li>
+                            <li><span class="ms">\(\bar{x}\)</span> is the reference point, often the mean or median.
+                            </li>
+                            <li><span class="ms">\(|x_i - \bar{x}|\)</span> is the absolute difference between the data
+                                point and the reference
+                                point.</li>
+                        </ul>
+                        </p>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider the numbers: [3, 7, 5, 10] and we’ll use the mean (average) as the reference point.
+                        </p>
+                        <p>Step 1: Find the mean of the dataset: </p>
+                        <p>
+                            <span class="ms">
+                                \[
+                                \bar{x} = \frac{3 + 7 + 5 + 10}{4} = \frac{25}{4} = 6.25
+                                \]
+                            </span>
+                        </p>
+                        <p>Step 2: Find the absolute deviation for each value by subtracting the mean and taking the
+                            absolute value:</p>
+                        <ul>
+                            <li>|3 - 6.25| = 3.25</li>
+                            <li>|7 - 6.25| = 0.75</li>
+                            <li>|5 - 6.25| = 1.25</li>
+                            <li>|10 - 6.25| = 3.75</li>
+                        </ul>
+                        <p>So, the absolute deviations for the dataset are: 3.25, 0.75, 1.25, and 3.75.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>Absolute deviation is useful when you want to measure how spread out data points are around a
+                            reference point without considering direction. It helps in understanding the consistency of
+                            data, especially when you want to focus on the size of the deviation rather than whether the
+                            values are above or below the mean.</p>
+                    </li>
+
+                    <li><strong>Limitations:</strong>
+                        <p>Absolute deviation is simple to calculate, but it doesn't provide as much insight into
+                            variability as other measures, like standard deviation, because it doesn't take into account
+                            the overall spread of the data. It also doesn't work as well when comparing data that is
+                            heavily influenced by extreme values or outliers.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Squared Deviation</h3>
+
+                <p>Squared deviation is a measure of how far each data point is from the mean, but with a twist: it
+                    squares the differences between the data points and the mean. This gives more weight to larger
+                    deviations, making it useful for measuring variance and understanding how spread out the data is.
+                </p>
+
+                <ul>
+                    <li><strong>What it is:</strong> Squared deviation is the square of the difference between each data
+                        point and the mean of the dataset. By squaring the differences, we emphasize larger deviations,
+                        which helps to highlight data points that are far away from the mean.</li>
+
+                    <li><strong>Formula:</strong>
+                        <p>The formula for squared deviation is:</p>
+                        <p><strong>Squared Deviation</strong> =
+                            <span class="ms">
+                                \[
+                                (x_i - \bar{x})^2
+                                \]
+                            </span>
+                        </p>
+                        <p>Where:
+                        <ul>
+                            <li><span class="ms">\(x_i\)</span> represents each individual data point.</li>
+                            <li><span class="ms">\(\bar{x}\)</span> is the mean (average) of the dataset.</li>
+                            <li>\((x_i - \bar{x})^2\) is the squared difference between the data point and the mean.
+                            </li>
+                        </ul>
+                        </p>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider the numbers: [4, 6, 8, 10] and we’ll calculate the squared deviation based on the
+                            mean of the dataset.</p>
+                        <p>Step 1: Find the mean (average) of the dataset:</p>
+                        <p><span class="ms">
+                                \[
+                                \bar{x} = \frac{4 + 6 + 8 + 10}{4} = \frac{28}{4} = 7
+                                \]
+                            </span></p>
+                        <p>Step 2: Find the squared deviation for each value by subtracting the mean and squaring the
+                            result:</p>
+                        <ul>
+                            <li>(4 - 7)<sup>2</sup> = (-3)<sup>2</sup> = 9</li>
+                            <li>(6 - 7)<sup>2</sup> = (-1)<sup>2</sup> = 1</li>
+                            <li>(8 - 7)<sup>2</sup> = (1)<sup>2</sup> = 1</li>
+                            <li>(10 - 7)<sup>2</sup> = (3)<sup>2</sup> = 9</li>
+                        </ul>
+                        <p>So, the squared deviations for the dataset are: 9, 1, 1, and 9.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>Squared deviation is helpful because it makes large deviations stand out more. This is useful
+                            when we want to measure how spread out the data is, and it is a key part of calculating the
+                            variance and standard deviation, which are commonly used in statistics to understand the
+                            variability in a dataset.</p>
+                    </li>
+
+                    <li><strong>Limitations:</strong>
+                        <p>While squared deviation is useful for emphasizing larger deviations, it can be sensitive to
+                            extreme values (outliers). Because it squares the differences, large deviations can have a
+                            disproportionately large effect on the final result. This is why squared deviation is often
+                            used in combination with other measures like variance or standard deviation to get a more
+                            complete picture of the data’s spread.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Standard Deviation</h3>
+
+                <p>Standard deviation is a measure of how spread out the values in a dataset are. It tells you how much
+                    each value deviates (or differs) from the mean (average) of the dataset. The larger the standard
+                    deviation, the more spread out the data points are. The smaller the standard deviation, the closer
+                    the data points are to the mean.</p>
+
+                <ul>
+                    <li><strong>What it is:</strong> Standard deviation is the square root of the average of the squared
+                        deviations from the mean. It’s a common measure used in statistics to express the variability or
+                        dispersion of a dataset.</li>
+
+                    <li><strong>Formula:</strong>
+                        <p>The formula for standard deviation is:</p>
+                        <p><strong>Standard Deviation</strong> =
+                            <span class="ms">
+                                \[
+                                \sigma = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2}
+                                \]
+                            </span>
+                        </p>
+                        <p>Where:
+                        <ul>
+                            <li>\(n\) is the number of data points.</li>
+                            <li><span class="ms">\(x_i\)</span> represents each individual data point.</li>
+                            <li><span class="ms">\(\bar{x}\)</span> is the mean (average) of the dataset.</li>
+                            <li><span class="ms">\((x_i - \bar{x})^2\)</span> is the squared deviation for each data
+                                point.</li>
+                            <li><span class="ms">\(\sigma\)</span> is the standard deviation.</li>
+                        </ul>
+                        </p>
+                    </li>
+
+                    <li><strong>Example:</strong>
+                        <p>Consider the numbers: [2, 4, 6, 8, 10]. Let's calculate the standard deviation for this
+                            dataset.</p>
+                        <p>Step 1: Find the mean (average) of the dataset:</p>
+                        <p class="ms">\[
+                            \bar{x} = \frac{2 + 4 + 6 + 8 + 10}{5} = \frac{30}{5} = 6
+                            \]</p>
+                        <p>Step 2: Find the squared deviation for each value:</p>
+                        <ul>
+                            <li>(2 - 6)<sup>2</sup> = (-4)<sup>2</sup> = 16</li>
+                            <li>(4 - 6)<sup>2</sup> = (-2)<sup>2</sup> = 4</li>
+                            <li>(6 - 6)<sup>2</sup> = (0)<sup>2</sup> = 0</li>
+                            <li>(8 - 6)<sup>2</sup> = (2)<sup>2</sup> = 4</li>
+                            <li>(10 - 6)<sup>2</sup> = (4)<sup>2</sup> = 16</li>
+                        </ul>
+                        <p>Step 3: Find the average of the squared deviations (variance):</p>
+                        <p class="ms">\[
+                            \text{Variance} = \frac{16 + 4 + 0 + 4 + 16}{5} = \frac{40}{5} = 8
+                            \]</p>
+                        <p>Step 4: Take the square root of the variance to find the standard deviation:</p>
+                        <p class="ms">\[
+                            \sigma = \sqrt{8} \approx 2.83
+                            \]</p>
+                        <p>So, the standard deviation of the dataset is approximately <strong>2.83</strong>.</p>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>Standard deviation is widely used because it gives you a clear idea of how much variation
+                            there is in your data. In simple terms, it tells you whether the data points are mostly
+                            close to the mean (low standard deviation) or spread out over a wide range (high standard
+                            deviation). This is particularly helpful in fields like finance, science, and engineering
+                            where understanding the consistency or variability of data is important.</p>
+                    </li>
+
+                    <li><strong>Limitations:</strong>
+                        <p>While standard deviation is a great measure of spread, it is sensitive to outliers (extreme
+                            values). A few extreme values can cause the standard deviation to be much higher than it
+                            would be otherwise. In these cases, other measures of spread, like interquartile range
+                            (IQR), may be more useful.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>Probability Theory</h3>
+
+                <p>Probability theory is all about understanding and predicting uncertainty. It helps us figure out the
+                    likelihood of different events happening, whether we're flipping a coin, rolling a die, or
+                    predicting the weather. It’s a fundamental area of mathematics that is widely used in statistics,
+                    machine learning, and decision-making when outcomes are uncertain.</p>
+
+                <ul>
+                    <li><strong>What it is:</strong> Probability theory studies how likely events are to happen. It
+                        involves calculating the chance of different outcomes based on certain conditions or
+                        assumptions. By using probability, we can quantify uncertainty and make informed predictions.
+                    </li>
+
+                    <li><strong>Key Concepts:</strong>
+                        <ul>
+                            <li><strong>1. Probability:</strong> Probability is a number between 0 and 1 that represents
+                                how likely an event is to happen. A probability of 0 means the event will never happen,
+                                and a probability of 1 means the event will definitely happen.</li>
+                            <p><strong>Example:</strong> If we flip a fair coin, the probability of getting heads is
+                                0.5, or 50%. This means that, on average, you’ll get heads half of the time over many
+                                flips.</p>
+
+                            <li><strong>2. Event:</strong> An event is a specific outcome or set of outcomes from an
+                                experiment or trial. Events can be simple or complex, depending on what we are looking
+                                for.</li>
+                            <p><strong>Example:</strong> If we roll a die, the event could be rolling a 6, which is one
+                                specific outcome from the roll.</p>
+
+                            <li><strong>3. Sample Space:</strong> The sample space is the set of all possible outcomes
+                                for an experiment. It includes every potential result you could get.</li>
+                            <p><strong>Example:</strong> If we roll a six-sided die, the sample space is {1, 2, 3, 4, 5,
+                                6}, because these are all the possible outcomes of a die roll.</p>
+
+                            <li><strong>4. Independent Events:</strong> Two events are independent if the outcome of one
+                                event does not affect the outcome of the other. The probability of independent events
+                                occurring together is the product of their individual probabilities.</li>
+                            <p><strong>Example:</strong> Flipping a coin multiple times is an example of independent
+                                events. The outcome of one flip (e.g., heads or tails) does not affect the outcome of
+                                the next flip.</p>
+
+                            <li><strong>5. Conditional Probability:</strong> Conditional probability is the probability
+                                of an event occurring given that another event has already occurred. It’s useful when
+                                you want to know the chance of something happening under certain conditions.</li>
+                            <p><strong>Example:</strong> If you know it’s cloudy outside, the probability of rain may be
+                                higher. The probability of rain, given that it’s cloudy, is an example of conditional
+                                probability.</p>
+                        </ul>
+                    </li>
+
+                    <li><strong>Why it’s useful:</strong>
+                        <p>Probability theory forms the foundation of many fields like statistics, data science, and
+                            machine learning. It helps us model uncertainty, make predictions, and inform
+                            decision-making under uncertainty. Whether you're assessing the chances of a stock price
+                            going up or predicting the weather, probability plays a key role in understanding the world
+                            around us.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="wh">
+            <h2>Review of Linear Algebra</h2>
+            <div class="in">
+                <h3>Vectors</h3>
+
+                <p>A vector is an ordered list of numbers that can represent different things like positions,
+                    directions, or data points. It is a fundamental concept in mathematics, physics, and machine
+                    learning.</p>
+
+                <ul>
+                    <li><strong>Example:</strong> The vector below has three numbers: <br>
+                        <p class="ms">
+                            \[
+                            \begin{bmatrix} 2 \\ 3 \\ 5 \end{bmatrix}
+                            \]
+                        </p>
+                        This is called a <strong>3-dimensional (3D) vector</strong> because it has three
+                        elements.
+                    </li>
+
+                    <li><strong>Key Properties of Vectors:</strong>
+                        <ul>
+                            <li><strong>Dimension:</strong> The number of elements in a vector determines its
+                                <strong>dimension</strong>.
+                                <ul>
+                                    <li class="ms">\(\begin{bmatrix} 2 \\ 3 \end{bmatrix}\) → 2D vector (2 elements).
+                                    </li>
+                                    <br>
+                                    <br>
+                                    <li class="ms">\(\begin{bmatrix} 4 \\ 7 \\ 9 \end{bmatrix}\) → 3D vector (3
+                                        elements).</li>
+                                </ul>
+                            </li>
+
+                            <li><strong>Magnitude (Length):</strong> The <strong>size</strong> of the vector, found
+                                using the
+                                <strong>Pythagorean theorem</strong>:
+                                <p>
+                                    If <span class="ms">\( v = \begin{bmatrix} a \\ b \\ c \end{bmatrix} \)</span>, then
+                                    its magnitude is:
+                                    <span class="ms">
+                                        \[
+                                        |v| = \sqrt{a^2 + b^2 + c^2}
+                                        \]
+                                    </span>
+                                </p>
+                                <p>
+                                    <strong>Example:</strong> For <span class="ms">\( v = \begin{bmatrix} 2 \\ 3 \\ 5
+                                        \end{bmatrix} \)</span>,
+                                    <br>
+                                    <span class="ms">
+                                        \[
+                                        |v| = \sqrt{2^2 + 3^2 + 5^2} = \sqrt{4 + 9 + 25} = \sqrt{38}
+                                        \]
+                                    </span>
+                                </p>
+                            </li>
+
+                            <li><strong>Direction:</strong> A vector has a direction, meaning where it "points" in
+                                space. For example:
+                                <ul>
+                                    <li>\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\) points along the
+                                        <strong>x-axis</strong>.
+                                    </li>
+                                    <li>\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\) points along the
+                                        <strong>y-axis</strong>.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Uses of Vectors:</strong>
+                        <ul>
+                            <li><strong>Representing data points:</strong>
+                                <ul>
+                                    <li>For example, in real estate, a vector could represent a house with features
+                                        like: <br>
+                                        <span class="ms">
+                                            \[
+                                            \text{House} = \begin{bmatrix} \text{Size (sq. ft.)} \\ \text{Price} \\
+                                            \text{Location (latitude, longitude)} \end{bmatrix}
+                                            \]
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Representing directions and forces:</strong>
+                                <ul>
+                                    <li>In <strong>physics</strong>, vectors represent forces, velocity, or
+                                        acceleration.</li>
+                                    <li>For example, a wind blowing east at 10 m/s can be represented as:
+                                        <span class="ms">
+                                            \[
+                                            \begin{bmatrix} 10 \\ 0 \end{bmatrix}
+                                            \]
+                                        </span>
+                                        (10 m/s in the <strong>x-direction</strong>, 0 m/s in the
+                                        <strong>y-direction</strong>).
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Vector Operations</h3>
+                <div class="wh">
+                    <h3>Vector Addition</h3>
+
+                    <p>Vector addition is the process of combining two or more vectors to get a new vector. In machine
+                        learning,
+                        vectors are often used to represent data points, feature sets, or weights in models. Adding
+                        vectors helps
+                        in operations like updating model parameters and aggregating feature representations.</p>
+
+                    <ul>
+                        <li><strong>Methods of Vector Addition:</strong>
+                            <ul>
+                                <li><strong>Component-wise Addition (Algebraic Method)</strong>
+                                    <ul>
+                                        <li>Add the corresponding components of the vectors.</li>
+                                        <li>If \( A = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} \) and \( B =
+                                            \begin{bmatrix} b_1 \\ b_2 \end{bmatrix} \), then:
+                                            <p class="ms">
+                                                \[
+                                                A + B = \begin{bmatrix} a_1 + b_1 \\ a_2 + b_2 \end{bmatrix}
+                                                \]
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li><strong>Graphical Interpretation:</strong>
+                                    <ul>
+                                        <li>Each vector can be visualized as an arrow in space.</li>
+                                        <li>Adding vectors means shifting one vector so that it starts where the other
+                                            ends.</li>
+                                        <li>The resultant vector represents the overall change when combining both.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Example Problems</h3>
+
+                    <ul>
+                        <li><strong>Example 1: Adding Feature Vectors</strong>
+                            <p>In machine learning, a data point can be represented as a vector of features. Suppose we
+                                have two feature vectors:</p>
+                            <p class="ms">
+                                \[
+                                X_1 = \begin{bmatrix} 1.2 \\ 3.5 \end{bmatrix}, \quad X_2 = \begin{bmatrix} 2.8 \\ -1.5
+                                \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Find the combined feature representation:</p>
+                            <p class="ms">
+                                \[
+                                X_1 + X_2 = \begin{bmatrix} 1.2 + 2.8 \\ 3.5 + (-1.5) \end{bmatrix} = \begin{bmatrix}
+                                4.0 \\ 2.0 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The new feature vector is \( \begin{bmatrix} 4.0 \\ 2.0
+                                \end{bmatrix} \).</p>
+                        </li>
+
+                        <li><strong>Example 2: Combining Word Embeddings</strong>
+                            <p>Word embeddings in NLP (Natural Language Processing) represent words as vectors. If:</p>
+                            <p class="ms">
+                                \[
+                                W_{\text{happy}} = \begin{bmatrix} 0.5 \\ 0.7 \end{bmatrix}, \quad W_{\text{excited}} =
+                                \begin{bmatrix} 0.6 \\ 0.9 \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Find the combined representation:</p>
+                            <p class="ms">
+                                \[
+                                W_{\text{happy}} + W_{\text{excited}} = \begin{bmatrix} 0.5 + 0.6 \\ 0.7 + 0.9
+                                \end{bmatrix} = \begin{bmatrix} 1.1 \\ 1.6 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The new vector \( \begin{bmatrix} 1.1 \\ 1.6 \end{bmatrix} \)
+                                represents a combined sentiment.</p>
+                        </li>
+
+                        <li><strong>Example 3: Summing Weight Updates in a Model</strong>
+                            <p>During training, weight updates in a neural network can be represented as vectors. If the
+                                weight update in two iterations is:</p>
+                            <p class="ms">
+                                \[
+                                W_{\text{update 1}} = \begin{bmatrix} -0.1 \\ 0.3 \end{bmatrix}, \quad
+                                \]
+                                \[
+                                W_{\text{update 2}} = \begin{bmatrix} 0.05 \\ -0.2 \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Find the net update:</p>
+                            <p class="ms">
+                                \[
+                                W_{\text{update 1}} + W_{\text{update 2}} = \begin{bmatrix} -0.1 + 0.05 \\ 0.3 + (-0.2)
+                                \end{bmatrix} = \begin{bmatrix} -0.05 \\ 0.1 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The overall weight update is \( \begin{bmatrix} -0.05 \\ 0.1
+                                \end{bmatrix} \).</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wh">
+                    <h3>Vector Subtraction</h3>
+
+                    <p>Vector subtraction is the process of finding the difference between two vectors. In machine
+                        learning,
+                        vector subtraction is used in feature scaling, computing error values, and comparing data
+                        points.</p>
+
+                    <ul>
+                        <li><strong>Component-wise Subtraction (Algebraic Method):</strong>
+                            <ul>
+                                <li>Subtract corresponding components of the vectors.</li>
+                                <li>If \( A = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} \) and \( B = \begin{bmatrix} b_1
+                                    \\ b_2 \end{bmatrix} \), then:
+                                    <p class="ms">
+                                        \[
+                                        A - B = \begin{bmatrix} a_1 - b_1 \\ a_2 - b_2 \end{bmatrix}
+                                        \]
+                                    </p>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><strong>Graphical Interpretation:</strong>
+                            <ul>
+                                <li>Subtracting a vector is the same as adding its negative.</li>
+                                <li>If \( B \) is subtracted from \( A \), we reverse the direction of \( B \) and then
+                                    add it to \( A \).</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Example Problems</h3>
+
+                    <ul>
+                        <li><strong>Example 1: Subtracting Feature Vectors</strong>
+                            <p>In machine learning, feature vectors can be compared using subtraction. Suppose we have
+                                two feature vectors:</p>
+                            <p class="ms">
+                                \[
+                                X_1 = \begin{bmatrix} 3.2 \\ 5.4 \end{bmatrix}, \quad X_2 = \begin{bmatrix} 1.8 \\ 2.9
+                                \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Find the difference:</p>
+                            <p class="ms">
+                                \[
+                                X_1 - X_2 = \begin{bmatrix} 3.2 - 1.8 \\ 5.4 - 2.9 \end{bmatrix} = \begin{bmatrix} 1.4
+                                \\ 2.5 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The difference vector is \( \begin{bmatrix} 1.4 \\ 2.5
+                                \end{bmatrix} \), showing how the first feature vector differs from the second.</p>
+                        </li>
+
+                        <li><strong>Example 2: Computing Error in Predictions</strong>
+                            <p>In machine learning, prediction errors are calculated using vector subtraction. Suppose:
+                            </p>
+                            <p class="ms">
+                                \[
+                                \text{Actual Output} = \begin{bmatrix} 4.5 \\ 3.2 \end{bmatrix}, \quad
+                                \]
+                                \[
+                                \text{Predicted Output} = \begin{bmatrix} 3.9 \\ 2.8 \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Find the error vector:
+                                <br>
+                                E = Actual Output - Predicted Output
+                            </p>
+                            <p class="ms">
+                                \[
+                                = \begin{bmatrix} 4.5 - 3.9 \\ 3.2 -
+                                2.8 \end{bmatrix} = \begin{bmatrix} 0.6 \\ 0.4 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The error vector \( \begin{bmatrix} 0.6 \\ 0.4 \end{bmatrix} \)
+                                tells us how much the prediction deviates from the actual values.</p>
+                        </li>
+
+                        <li><strong>Example 3: Subtracting Word Embeddings for Semantic Difference</strong>
+                            <p>In NLP, subtracting word embeddings can capture relationships between words. If:</p>
+                            <p class="ms">
+                                \[
+                                W_{\text{"king"}} = \begin{bmatrix} 1.2 \\ 2.3 \end{bmatrix}, \quad W_{\text{"man"}} =
+                                \begin{bmatrix} 0.8 \\ 1.5 \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Find the semantic difference:</p>
+                            <p class="ms">
+                                \[
+                                W_{\text{"king"}} - W_{\text{"man"}} = \begin{bmatrix} 1.2 - 0.8 \\ 2.3 - 1.5
+                                \end{bmatrix} = \begin{bmatrix} 0.4 \\ 0.8 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The difference vector \( \begin{bmatrix} 0.4 \\ 0.8
+                                \end{bmatrix} \) represents the unique attributes of "king" compared to "man" (like
+                                power or royalty).</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wh">
+                    <h3>Scalar Multiplication of Vectors</h3>
+
+                    <p>Scalar multiplication is the process of multiplying a vector by a single number (a scalar). This
+                        operation
+                        scales the vector by stretching or shrinking it while keeping its direction the same (or
+                        reversing it if
+                        multiplied by a negative scalar).</p>
+
+                    <p>In machine learning, scalar multiplication is used in operations like scaling feature vectors,
+                        adjusting
+                        learning rates, and updating weights in optimization algorithms.</p>
+
+                    <ul>
+                        <li><strong>Component-wise Multiplication:</strong>
+                            <ul>
+                                <li>Each element of the vector is multiplied by the scalar.</li>
+                                <li>If \( A = \begin{bmatrix} a_1 \\ a_2 \end{bmatrix} \) and scalar \( k \), then:
+                                    <p class="ms">
+                                        \[
+                                        kA = \begin{bmatrix} k \cdot a_1 \\ k \cdot a_2 \end{bmatrix}
+                                        \]
+                                    </p>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><strong>Effects of Scalar Multiplication:</strong>
+                            <ul>
+                                <li>If \( k > 1 \), the vector stretches (gets longer).</li>
+                                <li>If \( 0 < k < 1 \), the vector shrinks (gets shorter).</li>
+                                <li>If \( k < 0 \), the vector flips direction.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Example Problems</h3>
+
+                    <ul>
+                        <li><strong>Example 1: Scaling a Feature Vector</strong>
+                            <p>Feature vectors often need to be scaled for better performance in ML models. Suppose we
+                                have:</p>
+                            <p class="ms">
+                                \[
+                                X = \begin{bmatrix} 2.5 \\ 4.0 \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Scale the vector by \( k = 0.5 \):</p>
+                            <p class="ms">
+                                \[
+                                0.5 \cdot X = \begin{bmatrix} 0.5 \times 2.5 \\ 0.5 \times 4.0 \end{bmatrix} =
+                                \begin{bmatrix} 1.25 \\ 2.0 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The vector is reduced to half its original size.</p>
+                        </li>
+
+                        <li><strong>Example 2: Adjusting Learning Rate in Gradient Descent</strong>
+                            <p>Gradient descent updates weights using a learning rate \( \alpha \). If the gradient
+                                vector is:</p>
+                            <p class="ms">
+                                \[
+                                G = \begin{bmatrix} -0.2 \\ 0.5 \end{bmatrix}
+                                \]
+                            </p>
+                            <p>And learning rate \( \alpha = 0.1 \), compute the weight update:</p>
+                            <p class="ms">
+                                \[
+                                \alpha G = \begin{bmatrix} 0.1 \times (-0.2) \\ 0.1 \times 0.5 \end{bmatrix} =
+                                \begin{bmatrix} -0.02 \\ 0.05 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The weight update is a smaller step in the direction of the
+                                gradient.</p>
+                        </li>
+
+                        <li><strong>Example 3: Flipping a Word Embedding</strong>
+                            <p>In NLP, reversing a vector can change its meaning. If the word embedding for "happy" is:
+                            </p>
+                            <p class="ms">
+                                \[
+                                W_{\text{happy}} = \begin{bmatrix} 0.3 \\ 0.7 \end{bmatrix}
+                                \]
+                            </p>
+                            <p>Multiplying by \( k = -1 \) flips its direction:</p>
+                            <p class="ms">
+                                \[
+                                -1 \cdot W_{\text{happy}} = \begin{bmatrix} -0.3 \\ -0.7 \end{bmatrix}
+                                \]
+                            </p>
+                            <p><strong>Result:</strong> The flipped vector may now represent an opposite sentiment.</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="in">
+                <h3>Matrices</h3>
+
+                <p>A matrix is a powerful mathematical tool that organizes numbers in a structured way. It's widely used
+                    in various fields like physics, computer science, machine learning, and graphics.</p>
+
+                <ul>
+                    <li><strong>What is a Matrix?</strong>
+                        <ul>
+                            <li>A matrix is a rectangular grid of numbers arranged in <strong>rows</strong> and
+                                <strong>columns</strong>. It is
+                                like a table of numbers where each number has a specific position.
+                            </li>
+                            <li><strong>Example:</strong> The following is a 2 × 3 matrix (2 rows, 3 columns):</li>
+                            <p class="ms">
+                                \[
+                                \begin{bmatrix}
+                                1 & 2 & 3 \\
+                                4 & 5 & 6
+                                \end{bmatrix}
+                                \]
+                            </p>
+                        </ul>
+                    </li>
+
+                    <li><strong>Key Properties:</strong>
+                        <ul>
+                            <li><strong>Shape:</strong> The number of rows and columns. A matrix with \(m\) rows and
+                                \(n\) columns is called an <strong>m × n</strong> matrix.</li>
+                            <li><strong>Elements:</strong> Each number in a matrix is called an
+                                <strong>element</strong>. For
+                                example, in the matrix above, <strong>5</strong> is the element in the 2nd row and 2nd
+                                column.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Uses of Matrices:</strong>
+                        <ul>
+                            <li>Representing datasets (e.g., each row is a data point, and each column is a feature).
+                            </li>
+                            <li>Used in graphics for transformations like rotating, scaling, or translating objects.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Matrix Operations:</strong> Matrices can be manipulated using various operations:</li>
+                    <ul>
+                        <li><strong>Addition and Subtraction:</strong>
+                            <ul>
+                                <li>We can add or subtract two matrices element by element, but they must have the same
+                                    shape.</li>
+                                <li><strong>Example:</strong></li>
+                                <p class="ms">
+                                    \[
+                                    \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+                                    +
+                                    \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
+                                    =
+                                    \begin{bmatrix} 6 & 8 \\ 10 & 12 \end{bmatrix}
+                                    \]
+                                </p>
+                            </ul>
+                        </li>
+
+                        <li><strong>Scalar Multiplication:</strong>
+                            <ul>
+                                <li>When a matrix is multiplied by a single number (scalar), each element of the matrix
+                                    is multiplied by that number.</li>
+                                <li><strong>Example:</strong></li>
+                                <p class="ms">
+                                    \[
+                                    2 \times
+                                    \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+                                    =
+                                    \begin{bmatrix} 2 & 4 \\ 6 & 8 \end{bmatrix}
+                                    \]
+                                </p>
+                            </ul>
+                        </li>
+
+                        <li><strong>Matrix Multiplication:</strong>
+                            <ul>
+                                <li>To multiply two matrices, the <strong>number of columns in the first matrix</strong>
+                                    must match
+                                    the <strong>number of rows in the second matrix</strong>.</li>
+                                <li><strong>Example:</strong></li>
+                                <p class="ms">
+                                    \[
+                                    \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+                                    \times
+                                    \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
+                                    =
+                                    \begin{bmatrix} (1\times5 + 2\times7) & (1\times6 + 2\times8) \\ (3\times5 +
+                                    4\times7) & (3\times6 + 4\times8) \end{bmatrix}
+                                    =
+                                    \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}
+                                    \]
+                                </p>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+                <h3>Transpose of a Matrix</h3>
+
+                <p>The transpose of a matrix is a fundamental operation in linear algebra, especially important in
+                    machine learning for matrix manipulations, such as feature transformation, data normalization, and
+                    more.</p>
+
+                <p>The transpose of a matrix involves swapping the rows and columns.</p>
+
+                <ul>
+                    <li><strong>Definition:</strong>
+                        <p>If \( A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix} \), then the
+                            transpose of \( A \) is denoted as \( A^T \) and is given by:</p>
+                        <p class="ms">
+                            \[
+                            A^T = \begin{bmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{bmatrix}
+                            \]
+                        </p>
+                        <p>So, the element at row \( i \) and column \( j \) in matrix \( A \) becomes the element at
+                            row \( j \) and column \( i \) in \( A^T \).</p>
+                    </li>
+
+                    <li><strong>Properties of Transpose:</strong>
+                        <ul>
+                            <li><strong>Transpose of a transpose:</strong>
+                                <span class="ms">
+                                    \[
+                                    (A^T)^T = A
+                                    \]
+                                </span>
+                            </li>
+                            <li><strong>Transpose of a sum of matrices:</strong>
+                                <span class="ms">
+                                    \[
+                                    (A + B)^T = A^T + B^T
+                                    \]
+                                </span>
+                            </li>
+                            <li><strong>Transpose of a product of matrices:</strong>
+                                <span class="ms">
+                                    \[
+                                    (A \cdot B)^T = B^T \cdot A^T
+                                    \]
+                                </span>
+                            </li>
+                            <li><strong>Transpose of a scalar multiplied matrix:</strong>
+                                <span class="ms">
+                                    \[
+                                    (kA)^T = kA^T
+                                    \]
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>Example Problems</p>
+
+                <ul>
+                    <li><strong>Example 1: Transpose of a 2x2 Matrix</strong>
+                        <p>Given the matrix:</p>
+                        <p class="ms">
+                            \[
+                            A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+                            \]
+                        </p>
+                        <p>The transpose of \( A \), denoted as \( A^T \), is:</p>
+                        <p class="ms">
+                            \[
+                            A^T = \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}
+                            \]
+                        </p>
+                        <p><strong>Result:</strong> We swapped rows and columns of the original matrix.</p>
+                    </li>
+
+                    <li><strong>Example 2: Transpose of a 3x2 Matrix</strong>
+                        <p>Given the matrix:</p>
+                        <p class="ms">
+                            \[
+                            B = \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix}
+                            \]
+                        </p>
+                        <p>The transpose of \( B \), denoted as \( B^T \), is:</p>
+                        <p class="ms">
+                            \[
+                            B^T = \begin{bmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{bmatrix}
+                            \]
+                        </p>
+                        <p><strong>Result:</strong> The 3x2 matrix becomes a 2x3 matrix after transposing.</p>
+                    </li>
+                </ul>
+                <h3>Special Matrices:</h3>
+                <ul>
+                    <li><strong>Identity Matrix:</strong> A square matrix with 1s on the diagonal and 0s
+                        elsewhere.</li>
+                    <p class="ms">
+                        \[
+                        \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+                        \]
+                    </p>
+
+                    <li><strong>Diagonal Matrix:</strong> A matrix where only the diagonal elements are
+                        non-zero.</li>
+                    <p class="ms">
+                        \[
+                        \begin{bmatrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 5 \end{bmatrix}
+                        \]
+                    </p>
+
+                    <li><strong>Symmetric Matrix:</strong> A matrix that is equal to its
+                        <strong>transpose</strong>.
+                    </li>
+                    <p class="ms">
+                        \[
+                        \begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 5 \\ 3 & 5 & 6 \end{bmatrix}
+                        \]
+                    </p>
+                </ul>
+                <h3>Matrix Inverse:</h3>
+                <ul>
+                    <li>The inverse of a matrix \( A \), denoted as \( A^{-1} \), satisfies:</li>
+                    <p class="ms">
+                        \[
+                        A \times A^{-1} = I
+                        \]
+                    </p>
+                    <li><strong>Example:</strong></li>
+                    <p class="ms">
+                        If
+                        \[
+                        A = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}
+                        \]
+                        then
+                        \[
+                        A^{-1} = \begin{bmatrix} 1 & -1 \\ -1 & 2 \end{bmatrix}
+                        \]
+                    </p>
+                    <li><strong>Note:</strong> Not all matrices have an inverse. A matrix must be
+                        <strong>square</strong> and
+                        have a <strong>non-zero determinant</strong> to have an inverse.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="wh">
+            <h2>Introduction to Machine Learning</h2>
+            <ul>
+                <li>Machine Learning (ML) is a part of Artificial Intelligence (AI) that helps computers
+                    learn from data and make decisions or predictions without needing explicit instructions
+                    for every step. Instead of just following fixed rules, it finds patterns in data and
+                    keeps improving over time.</li>
+                <li>It works by using algorithms to process large amounts of data, recognize trends, and
+                    refine its accuracy with experience. That’s why it's used in things like speech recognition,
+                    recommendation systems, and even fraud detection.</li>
+                <li>Ever noticed how YouTube suggests videos you might like or how online shopping sites
+                    recommend products based on what you've browsed? That’s Machine Learning in action—analyzing
+                    your past behavior to make smart suggestions without anyone manually programming each choice.</li>
+                <li>The Three Main Approaches to Machine Learning:
+                    <ol>
+                        <li>Supervised Learning</li>
+                        <li>Unsupervised Learning</li>
+                        <li>Reinforcement Learning</li>
+                    </ol>
+                </li>
+            </ul>
+            <div class="in">
+                <h3>1. Supervised Learning</h3>
+                <ul>
+                    <li>Supervised learning is a machine learning approach where the algorithm is trained using
+                        labeled data. This means that for every input, the correct output is already known, allowing
+                        the model to learn patterns and relationships.</li>
+
+                    <li>The process starts with feeding the algorithm structured data, where inputs and their
+                        corresponding outputs are provided. Over time, it analyzes this data and learns to make
+                        accurate predictions on new, unseen inputs.</li>
+
+                    <li>This method is widely used in various applications, such as:
+                        <ul>
+                            <li>Determining property prices based on factors like location, size, and amenities.</li>
+                            <li>Detecting spam emails by analyzing patterns in subject lines and content.</li>
+                            <li>Interpreting handwritten numbers in banking or postal systems.</li>
+                        </ul>
+                    </li>
+
+                    <li>Since the model learns from labeled examples, its accuracy improves as more data is provided,
+                        making it a powerful tool for predictive tasks.</li>
+                </ul>
+                <p>Here are some key supervised learning algorithms:</p>
+
+                <ul>
+                    <li><strong>Linear Regression:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It is used to predict continuous values, such as house
+                                prices or temperatures.</li>
+                            <li><strong>How it works:</strong> It tries to fit the best possible straight line through
+                                the given data points, minimizing the difference between predicted and actual values.
+                            </li>
+                            <li><strong>Example:</strong> Suppose we want to predict house prices based on the size of
+                                the house. Linear regression will find a line that best represents how house size
+                                affects price.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Logistic Regression:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It is used for classification problems where the output
+                                is either one category or another (e.g., Yes/No, Spam/Not Spam).</li>
+                            <li><strong>How it works:</strong> Instead of a straight line, it uses a curve (logistic
+                                function) that squashes values between 0 and 1, representing probabilities.</li>
+                            <li><strong>Example:</strong> Email spam detection – logistic regression helps decide
+                                whether an email is spam (1) or not spam (0) based on features like the number of links,
+                                special characters, and sender information.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Decision Trees:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It makes predictions by breaking the data into smaller
+                                and smaller groups based on certain conditions.</li>
+                            <li><strong>How it works:</strong> Imagine a flowchart where each question leads to a
+                                different path. The tree splits the data at each step based on the most important
+                                features, eventually leading to a final decision.</li>
+                            <li><strong>Example:</strong> Predicting whether a customer will buy a product based on age,
+                                income, and browsing history. The tree might start by checking age, then income, and so
+                                on.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Support Vector Machines (SVM):</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It is mainly used for classification, finding the best
+                                possible boundary between different categories.</li>
+                            <li><strong>How it works:</strong> Imagine drawing a line that best separates two groups of
+                                data points. SVM finds the "widest possible street" that keeps the groups apart.</li>
+                            <li><strong>Example:</strong> Classifying images of cats and dogs. The algorithm finds the
+                                best dividing line (or curve) that separates cat images from dog images.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Neural Networks:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It is inspired by how the human brain works and is used
+                                to model complex relationships between inputs and outputs.</li>
+                            <li><strong>How it works:</strong> It consists of layers of "neurons" that process
+                                information and adjust their connections based on errors.</li>
+                            <li><strong>Example:</strong> Recognizing handwritten digits – the network learns from
+                                thousands of digit images and then can identify new handwritten numbers.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="in">
+                <h3>2.Unsupervised Learning</h3>
+                <ul>
+                    <li>Unsupervised learning is a type of machine learning where the algorithm works with data
+                        that has no predefined labels or categories. Instead of being told what the correct
+                        answers are, the model identifies patterns and relationships on its own.</li>
+
+                    <li>The algorithm analyzes the data and groups similar items together based on shared
+                        characteristics. It is often used for discovering hidden structures in large datasets
+                        without human intervention.</li>
+
+                    <li>Common real-world applications include:
+                        <ul>
+                            <li>Grouping customers with similar shopping behaviors for targeted marketing.</li>
+                            <li>Detecting unusual patterns in financial transactions to identify fraud.</li>
+                            <li>Organizing news articles into different categories based on content similarity.</li>
+                        </ul>
+                    </li>
+
+                    <li>This learning method is especially useful when dealing with vast amounts of data where
+                        predefined labels are unavailable, making it an essential tool for data analysis and
+                        pattern recognition.</li>
+                </ul>
+
+                <p>Here are some key unsupervised learning algorithms:</p>
+
+                <ul>
+                    <li><strong>K-Means Clustering:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It groups similar data points into a fixed number of
+                                clusters (k).</li>
+                            <li><strong>How it works:</strong> It assigns each data point to the nearest cluster center
+                                (centroid) and keeps adjusting the clusters to minimize the distance between points and
+                                their assigned centroid.</li>
+                            <li><strong>Example:</strong> Businesses use K-Means to group customers based on their
+                                shopping behavior. For instance, some customers may prefer luxury products, while others
+                                go for budget-friendly items.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Hierarchical Clustering:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> Instead of fixing the number of clusters beforehand, it
+                                builds a tree-like structure (dendrogram) to show how data points are related.</li>
+                            <li><strong>How it works:</strong> It either starts by treating each data point as its own
+                                cluster and merging similar ones (bottom-up) or starts with all data points in one
+                                cluster and keeps splitting them (top-down).</li>
+                            <li><strong>Example:</strong> Biologists use hierarchical clustering to group species based
+                                on genetic similarity, creating a family tree of related organisms.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Principal Component Analysis (PCA):</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It reduces the number of variables in a dataset while
+                                preserving the most important information.</li>
+                            <li><strong>How it works:</strong> It transforms the data into a new set of uncorrelated
+                                features (principal components) that capture the most variance.</li>
+                            <li><strong>Example:</strong> Imagine you have a dataset with 100 features, making it hard
+                                to visualize. PCA helps reduce it to 2D or 3D while keeping the key patterns intact,
+                                making it easier to analyze.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Apriori Algorithm:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It finds frequently occurring groups of items in large
+                                datasets.</li>
+                            <li><strong>How it works:</strong> It follows a "bottom-up" approach, starting with
+                                individual items and combining them into larger sets based on how often they appear
+                                together.</li>
+                            <li><strong>Example:</strong> In market basket analysis, this algorithm helps stores find
+                                product pairs that are often bought together, like bread and butter. This is how online
+                                stores recommend "Customers who bought this also bought..." items.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise):</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It groups data points based on how densely packed they
+                                are and marks outliers as noise.</li>
+                            <li><strong>How it works:</strong> Instead of assuming a fixed number of clusters, it
+                                identifies high-density areas and considers points in low-density regions as noise.</li>
+                            <li><strong>Example:</strong> It is used in fraud detection to spot unusual financial
+                                transactions that do not fit into normal spending patterns.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="in">
+                <h3>3. Reinforcement Learning</h3>
+                <ul>
+                    <li>Reinforcement Learning (RL) is a machine learning approach where an agent learns by interacting
+                        with an environment. Instead of being given direct answers, the agent takes actions and receives
+                        feedback in the form of rewards or penalties.</li>
+
+                    <li>The goal is to maximize rewards over time by improving decision-making based on past
+                        experiences. The agent continuously adjusts its strategy to achieve better outcomes.</li>
+
+                    <li>Real-world applications of reinforcement learning include:
+                        <ul>
+                            <li>Teaching robots how to walk or perform tasks by learning from trial and error.</li>
+                            <li>Training AI to play video games and improve its strategies through repeated gameplay.
+                            </li>
+                            <li>Optimizing stock trading strategies by learning from market fluctuations.</li>
+                        </ul>
+                    </li>
+
+                    <li>This method is highly effective for solving complex problems where the best solution is not
+                        immediately obvious, making it widely used in automation, gaming, and robotics.</li>
+                </ul>
+                <p>Here are some key reinforcement learning algorithms:</p>
+
+                <ul>
+                    <li><strong>Q-Learning:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It helps an agent learn the best actions to take in
+                                different situations by estimating their future rewards.</li>
+                            <li><strong>How it works:</strong> It maintains a Q-table, which stores the expected reward
+                                for each action in each state. The table is updated over time as the agent explores and
+                                learns.</li>
+                            <li><strong>Example:</strong> A robot learning to navigate a maze. It tries different paths,
+                                learns which ones lead to the goal, and eventually finds the shortest way.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Deep Q-Networks (DQN):</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It improves Q-learning by using deep neural networks to
+                                handle complex environments with many possible states.</li>
+                            <li><strong>How it works:</strong> Instead of storing Q-values in a table, it uses a neural
+                                network to approximate them, making it more scalable.</li>
+                            <li><strong>Example:</strong> AI playing Atari games. It watches the game screen, learns
+                                which moves score the most points, and eventually masters the game.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Policy Gradient Methods:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It directly learns the best strategy (policy) for
+                                choosing actions to maximize rewards.</li>
+                            <li><strong>How it works:</strong> Instead of estimating Q-values, it continuously adjusts
+                                its policy using gradient ascent, improving its performance over time.</li>
+                            <li><strong>Example:</strong> Teaching a robot to walk. The algorithm refines the robot's
+                                movements based on how well it balances and moves forward.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Actor-Critic Methods:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It combines two approaches—one that evaluates actions
+                                (critic) and one that selects them (actor) to improve stability and efficiency.</li>
+                            <li><strong>How it works:</strong> The actor makes decisions, and the critic provides
+                                feedback on whether those decisions were good or bad, helping the actor improve.</li>
+                            <li><strong>Example:</strong> Training self-driving cars. The actor decides how to steer,
+                                and the critic evaluates whether the car is following the safest route.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Monte Carlo Methods:</strong>
+                        <ul>
+                            <li><strong>What it does:</strong> It learns by completing entire sequences of actions
+                                (episodes) before updating its knowledge.</li>
+                            <li><strong>How it works:</strong> Instead of learning step-by-step, it waits until the end
+                                of an episode and then adjusts its strategy based on the total reward received.</li>
+                            <li><strong>Example:</strong> Learning to play board games like chess. The agent plays full
+                                games, then updates its strategy based on whether it won or lost.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <p>In supervised learning, it's like teaching with examples. The algorithm gets both the input and the
+                correct output, so it knows what the right answer is. It learns by making connections between the two,
+                so it can predict the correct answer for new data. Now, in unsupervised learning, there are no correct
+                answers given. The algorithm just gets the input data and has to figure out patterns or groupings all on
+                its own. It’s like trying to make sense of a puzzle without knowing what the final picture looks like.
+                Finally, in reinforcement learning, the algorithm learns by doing. It takes actions, gets feedback in
+                the form of rewards or penalties, and then adjusts to make better choices. It's like learning by trial
+                and error, where it gets better the more it tries. So, while supervised learning needs both input and
+                output, unsupervised learning only has input and figures things out, and reinforcement learning learns
+                by interacting and improving from feedback.</p>
+        </div>
+    </div>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+    <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>

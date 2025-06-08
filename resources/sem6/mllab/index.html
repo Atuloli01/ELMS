@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Lab</title>
+    <link rel="icon" href="../../../public/logo/favicon_io/favicon.ico">
+    <link rel="stylesheet" href="../../../public/style.css">
+    <link rel="stylesheet" id="highlightStylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-blue.min.css">
+</head>
+
+<body>
+    <div id="navbar" class="grad">
+        <div class="back">
+            <a href="../../../index.html"><img src="../../../public/back.svg" alt=""></a>
+        </div>
+        <div>
+            <h2>Machine Learning Lab</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Swap two numbers without using third variable
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+a = 100
+b = 20
+
+print(f"before swap a = {a} and b = {b}")
+a = a + b
+b = a - b 
+a = a - b
+print(f"after swap a = {a} and b = {b}")
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program to get a random number between 0 and 100
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+# Import the random module to generate random numbers
+import random
+
+# Generate a random number between 0 and 100 (both inclusive)
+random_number = random.randint(0, 100)
+
+# Print the randomly generated number
+print("Random number between 0 and 100:", random_number)
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program to Find Factorial of a Number
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+# Function to calculate factorial using recursion
+def factorial(n):
+    if n == 0 or n == 1:  # Base case: Factorial of 0 and 1 is 1
+        return 1
+    else:
+        return n * factorial(n - 1)  # Recursive call
+
+# Taking input from the user
+num = int(input("Enter a number: "))
+
+# Check for negative numbers
+if num < 0:
+    print("Factorial is not defined for negative numbers.")
+else:
+    print(f"Factorial of {num} is {factorial(num)}")
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program to Check if a Number is a Palindrome
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+# Function to check palindrome using string manipulation
+def is_palindrome_string(n):
+    return str(n) == str(n)[::-1]  # Convert number to string and compare with its reverse
+
+# Function to check palindrome using mathematical method (division by 10)
+def is_palindrome_math(n):
+    temp = n  # Store the original number
+    reverse = 0  # Variable to store reversed number
+
+    while temp > 0:
+        reverse = reverse * 10 + int(temp % 10)  # Build the reversed number
+        temp = int(temp / 10)  # Remove the last digit
+
+    return n == reverse  # Compare original with reversed number
+
+# Taking input from the user
+num = int(input("Enter a number: "))
+
+# Checking using string method
+if is_palindrome_string(num):
+    print(f"{num} is a palindrome (checked using string method).")
+else:
+    print(f"{num} is not a palindrome (checked using string method).")
+
+# Checking using math method
+if is_palindrome_math(num):
+    print(f"{num} is a palindrome (checked using math method).")
+else:
+    print(f"{num} is not a palindrome (checked using math method).")
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program to Sum All Numbers in a List
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+# Function to sum all the numbers in a given list
+def sum_of_list(numbers):
+    total = 0  # Variable to store the sum
+    for num in numbers:
+        total += num  # Add each number to the total
+    return total  # Return the total sum
+
+# Example list of numbers
+numbers = [10, 20, 30, 40, 50]
+
+# Call the function and display the result
+result = sum_of_list(numbers)
+print(f"The sum of all numbers in the list is: {result}")
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program that finds the minimum and maximum numbers in a given array
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+import numpy as np
+
+# Function to find the min and max of an array
+def find_min_max(arr):
+    # Check if the array is not empty
+    if arr.size == 0:
+        print("The array is empty.")
+        return
+
+    # Find minimum and maximum
+    min_val = np.min(arr)
+    max_val = np.max(arr)
+                            
+    # Print the results
+    print(f"The minimum number in the array is: {min_val}")
+    print(f"The maximum number in the array is: {max_val}")
+
+# Example NumPy array
+arr = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])
+
+# Call the function to print the min and max
+find_min_max(arr)
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Function to perform a linear search.
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+import numpy as np
+
+my_arr = np.array([2, 3, 4, 5, 1, 55])
+
+search = int(input("Enter a searching element: "))
+
+def search_ele(arr, ele):
+    for i in range(len(arr)):  
+        if arr[i] == ele:
+            return i
+    return -1
+
+index = search_ele(my_arr, search)
+
+if index == -1:
+    print("Element not found")
+else:
+    print(f"Element found at index {index}")
+
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program to print all prime numbers from 1 to 300
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+import math  # Importing math module for sqrt()
+
+def is_prime(x):
+    if x < 2:
+        return False  # 0 and 1 are not prime numbers
+    for i in range(2, int(math.sqrt(x)) + 1):  # Checking up to sqrt(x)
+        if x % i == 0:
+            return False  # If divisible, not prime
+    return True
+
+print("Prime numbers from 1 to 300 are:")
+for num in range(1, 301):  # Looping from 1 to 300
+    if is_prime(num):
+        print(num, end=" ")  # Print prime numbers in one line
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program to check if a string is Palindrome
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+def is_palindrome(s):
+    s = s.lower().replace(" ","") # Converting to lower case then removing all the spaces
+    return s == s[::-1]
+
+my_str = input("Enter your string")
+
+if(is_palindrome(my_str)):
+    print("String is Palindrome")
+else:
+    print("String is not Palindrome")
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Program to generate the Fibonacci sequence up to n terms
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+# Function to print Fibonacci numbers
+def fibonacci(n):
+    a = 0  # First number
+    b = 1  # Second number
+    
+    for i in range(n):  # Repeat n times
+        print(a, end=" ")  # Print the current number
+        temp = a + b  # Add a and b to get the next number
+        a = b  # Move b to a
+        b = temp  # Move new number to b
+
+# Ask the user how many numbers to print
+n = int(input("Enter how many numbers you want: "))
+fibonacci(n)  # Call the function
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Count the frequency of each word in a given text
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+def count_word_frequency(text):
+    words = text.split()  # Make a list of each word by splitting the text at spaces
+    word_count = {}  # Create an empty dictionary to store word counts
+
+    for word in words:  # Go through each word in the list
+        word = word.lower()  # Convert to lowercase to count words without case differences
+        
+        if word in word_count:  
+            word_count[word] += 1  # If the word already exists, increase its count by 1
+        else:
+            word_count[word] = 1  # If the word is new, add it to the dictionary with count 1
+
+    print(word_count)
+
+# Ask the user for input
+text = input("Enter a text: ")  
+count_word_frequency(text)  # Call the function with user input
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Check the strength of a password based on rules (e.g., length, uppercase, lowercase, digits, special
+                    characters).
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+import re  # Importing regular expressions module for pattern matching
+
+def password_strength(password):
+    # Check if password is at least 8 characters long
+    if len(password) < 8:
+        return "Weak: Password should be at least 8 characters long."
+
+    # Check for at least one uppercase letter (A-Z)
+    if not re.search(r"[A-Z]", password):
+        return "Weak: Password should contain at least one uppercase letter."
+
+    # Check for at least one lowercase letter (a-z)
+    if not re.search(r"[a-z]", password):
+        return "Weak: Password should contain at least one lowercase letter."
+
+    # Check for at least one digit (0-9)
+    if not re.search(r"[0-9]", password):
+        return "Weak: Password should contain at least one digit."
+
+    # Check for at least one special character (!@#$%^&*())
+    if not re.search(r"[!@#$%^&*()]", password):
+        return "Weak: Password should contain at least one special character."
+
+    # If all checks pass, password is strong
+    return "Strong: Password meets all requirements."
+
+# Ask the user for input
+password = input("Enter your password: ")  # Take password input from user
+print(password_strength(password))  # Print whether password is strong or weak
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Reverse a string without using built-in functions
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+def reverse_string(s):
+    reversed_str = ""  # Start with an empty string
+    for char in s:
+        reversed_str = char + reversed_str  # Add each character to the front
+    return reversed_str
+
+print(reverse_string("Python"))  # Output: nohtyP
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Find the second largest number in a list
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+def second_largest_sort(lst):
+    if len(lst) < 2:
+        return "List must have at least two numbers."
+    
+    lst = list(set(lst))  # Remove duplicates to avoid issues
+    # set(lst) converts the list into a set, which automatically removes duplicate values.
+    # list(set(lst)) converts it back into a list, so we can sort it and find the second largest.
+    
+    lst.sort()  # Sort the list in ascending order
+    
+    return lst[-2]  # Second last element is the second largest
+
+# Example usage
+numbers = [10, 20, 5, 40, 30, 40]
+print(second_largest_sort(numbers))  # Output: 30
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Merge two dictionaries into one
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3, "d": 4}
+
+merged_dict = {}  # Empty dictionary to store merged key-value pairs
+
+# First loop for dict1
+for key in dict1:  
+    merged_dict[key] = dict1[key]  # Copy key-value pairs from dict1
+
+# Second loop for dict2
+for key in dict2:  
+    merged_dict[key] = dict2[key]  # Copy key-value pairs from dict2
+
+print(merged_dict)
+# Output: {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+    Find common elements between two lists.
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
+
+common_elements = []  # Empty list to store common elements
+
+for item in list1:
+    if item in list2:  # Check if item is in list2
+        common_elements.append(item)
+
+print("Common Elements:", common_elements)
+# Output: Common Elements: [4, 5]
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+    Remove duplicates from a list while preserving the order
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+def remove_duplicates(lst):
+    unique_list = []  # Create an empty list to store unique elements
+    for item in lst:
+        if item not in unique_list:  # Only add if it's not already present
+            unique_list.append(item)
+    return unique_list
+
+# Example usage
+numbers = [1, 2, 2, 3, 4, 4, 5, 1, 6]
+print(remove_duplicates(numbers))
+# Output: [1, 2, 3, 4, 5, 6]
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+    Check if two strings are anagrams (contain the same characters in a different order
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+def are_anagrams(str1, str2):
+    return sorted(str1.lower()) == sorted(str2.lower())  # Convert to lowercase before sorting
+    #The sorted() function takes an iterable (like a string, list, etc.) and returns a sorted list of the elements.
+    #It sorts in ascending order by default. For strings, it sorts characters alphabetically.
+# Example usage
+print(are_anagrams("Listen", "Silent"))  # Output: True
+print(are_anagrams("Hello", "World"))    # Output: False
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+    Find the longest word in a given sentence
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+def longest_word(sentence):
+    words = sentence.split()  # Split the sentence into a list of words
+    longest = ""  # Initialize an empty string to keep track of the longest word
+    
+    for word in words:
+        if len(word) > len(longest):  # Compare lengths of the words
+            longest = word  # Update the longest word
+    
+    return longest
+
+# Example usage
+print(longest_word("I am learning Python programming"))  # Output: programming
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Generate a random password of a specified length
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+import random
+import string
+
+def generate_password(length):
+    # Create the pool using string methods
+    all_characters = string.ascii_letters + string.digits + string.punctuation
+
+    # Create an empty password string
+    password = ""
+
+    # Loop to add random characters to the password
+    for i in range(length):
+        password += random.choice(all_characters)
+
+    return password
+
+# Example usage
+password_length = int(input("Enter the length of the password: "))
+print(f"Generated Password: {generate_password(password_length)}")
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="wh">
+            <div class='code'>
+                <div class='dotc'></div>
+                <button class="ac">
+                    Given a dataset of student scores, calculate the mean, median, mode, range,
+                    average deviation, absolute deviation, squared deviation, and standard
+                    deviation.
+                </button>
+                <div class="panel">
+                    <pre>
+                        <code class="language-python">
+import numpy as np
+from statistics import mode
+
+# Sample dataset
+scores = [56, 67, 45, 89, 78, 90, 56, 67, 56, 100]
+
+# Mean
+mean_val = np.mean(scores)
+
+# Median
+median_val = np.median(scores)
+
+# Mode
+mode_val = mode(scores)
+
+# Range
+range_val = max(scores) - min(scores)
+
+# Average Deviation (from mean)
+avg_deviation = np.mean([abs(x - mean_val) for x in scores])
+
+# Absolute Deviation (MAD - Median Absolute Deviation)
+absolute_deviation = np.median([abs(x - median_val) for x in scores])
+# list comprehension is a compact way to create a new list by applying an operation to each element of an existing list (scores).
+
+# Squared Deviation (Variance)
+squared_deviation = np.var(scores)
+
+# Standard Deviation
+std_dev = np.std(scores)
+
+# Print results
+print(f"Mean: {mean_val:.2f}")
+print(f"Median: {median_val:.2f}")
+print(f"Mode: {mode_val}")
+print(f"Range: {range_val}")
+print(f"Average Deviation: {avg_deviation:.2f}")
+print(f"Absolute Deviation (MAD): {absolute_deviation:.2f}")
+print(f"Squared Deviation (Variance): {squared_deviation:.2f}")
+print(f"Standard Deviation: {std_dev:.2f}")
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!--
+
+    <div class="wh">
+        <div class='code'>
+            <div class='dotc'></div>
+            <button class="ac">
+
+            </button>
+            <div class="panel">
+                <pre>
+                    <code class="language-python">
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="module" src="../../../public/main.js"></script>
+</body>
+
+</html>

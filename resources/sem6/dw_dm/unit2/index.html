@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Warehouse System</title>
+    <link rel="stylesheet" href="../../../../public/style.css">
+    <link rel="icon" href="../../../../public/logo/favicon_io/favicon.ico">
+</head>
+
+<body class="bg-c">
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html" class="home">back</a>
+        <div class="fix-column-links">
+            <a href="#" class="link"></a>
+            <div class="botbut">
+                <a href="../unit3/index.html" class="link">Next Topic &rarr;</a>
+                <a href="../unit1/index.html" class="link">&larr; Previous Topic</a>
+            </div>
+        </div>
+    </div>
+    <div id="navbar" class="grad">
+        <div>
+            <div class="openbtn" onclick="openNav()">
+                <div id="nav-icon1" for="nav-menu1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Data Warehouse System</h2>
+        </div>
+    </div>
+    <div class="content-box">
+        <pre>
+            <code>
+Data Warehouse System
+├─ Data Warehouse Architecture
+│  ├─ Three-Tier Data Warehouse Architecture
+│  └─ Categories of Tools
+└─ OLAP (Online Analytical Processing)
+   ├─ Operations in OLAP
+   ├─ Advantages of OLAP over OLTP
+   ├─ OLAP Guidelines
+   ├─ Multidimensional vs Multirelational OLAP
+   └─ OLAP Tools and the Internet
+            </code>
+        </pre>
+        <div class="wh">
+            <h2>Data Warehouse Architecture</h2>
+            <div class="in">
+                <h3>2-Tier Architecture</h3>
+
+                <p>The <strong>2-Tier Architecture</strong> is a client-server architecture commonly used in database
+                    systems, including data warehouses. In this setup, the system is divided into two layers: the client
+                    layer (end-user layer) and the server layer (data source layer). It is a simpler, faster
+                    architecture but has limitations when dealing with large-scale systems.</p>
+
+                <h4>Key Features of 2-Tier Architecture</h4>
+
+                <ul>
+                    <li><strong>Client-Server Architecture:</strong> In this model, the client (end-user) directly
+                        communicates with the server, where the data is stored and managed.</li>
+                    <li><strong>Available Sources:</strong> The server layer may include sources like operational
+                        databases, external data systems, or an existing data warehouse.</li>
+                    <li><strong>Not Expandable:</strong> This architecture is typically not expandable in terms of
+                        handling large numbers of end users or big datasets efficiently.</li>
+                    <li><strong>Limited User Support:</strong> It struggles to support large numbers of concurrent users
+                        due to limited scalability.</li>
+                    <li><strong>Easy to Maintain:</strong> As it has only two layers, maintenance is simpler and quicker
+                        compared to more complex architectures.</li>
+                    <li><strong>Fast Communication:</strong> Direct communication between the client and server allows
+                        faster data transfer and response times.</li>
+                </ul>
+
+                <h4>How It Works</h4>
+
+                <p>In a 2-Tier architecture, the client (end-user) sends a request to the server, which processes the
+                    request, retrieves the necessary data from the data source, and sends a response back to the client.
+                </p>
+
+                <p><strong>Example:</strong> A retail company’s data warehouse uses a 2-tier architecture. The sales
+                    team (client) directly queries the database (server) for daily sales data. The system processes the
+                    query and provides the requested data to the sales team.</p>
+
+                <h4>Diagram of 2-Tier Architecture</h4>
+                <img src="../../images/dw4.jpeg" alt="">
+                <p><strong>1. End-User Layer:</strong> This represents the clients (end-users) who request information
+                    from the system.</p>
+                <p><strong>2. Server Layer:</strong> The server processes the client’s request and interacts with the
+                    data source (data warehouse or database) to retrieve the necessary data.</p>
+
+                <p><strong>Example scenario:</strong> A manager (end-user) requests a sales report. The client sends a
+                    query to the server. The server queries the database for the required data and returns the report to
+                    the manager.</p>
+
+                <p>The 2-tier architecture is ideal for smaller systems that do not require handling a large number of
+                    concurrent users or complex data. It is easy to implement, provides fast communication, and is
+                    simple to maintain. However, it is not expandable and does not support large-scale data processing,
+                    making it unsuitable for organizations that need to scale up.</p>
+
+                <ul>
+                    <li><strong>Best for:</strong> Small to medium-sized systems with limited data volume and user
+                        traffic.</li>
+                    <li><strong>Not ideal for:</strong> Large-scale systems with complex data or a large number of
+                        users.</li>
+                </ul>
+
+            </div>
+            <div class="in">
+                <h3>3-Tier Architecture</h3>
+
+                <p>The <strong>3-Tier Architecture</strong> is one of the most widely used architectures in data
+                    warehousing. It divides the system into three distinct layers: the bottom tier (Database), the
+                    middle tier (OLAP Server), and the top tier (Client Layer). This architecture is designed to provide
+                    a scalable, efficient solution for handling large volumes of data and numerous end-users.</p>
+
+                <h4>Key Features of 3-Tier Architecture</h4>
+
+                <ul>
+                    <li><strong>Most Widely Used:</strong> The 3-tier architecture is the most common setup for
+                        enterprise-level data warehouses because it provides scalability, flexibility, and supports
+                        large-scale data operations.</li>
+                    <li><strong>Separation of Concerns:</strong> It separates data management, business logic, and user
+                        interaction into distinct layers, making the system more organized and easier to maintain.</li>
+                    <li><strong>Scalability:</strong> The architecture can handle a growing number of users and
+                        increasing data volumes efficiently.</li>
+                    <li><strong>Flexibility:</strong> Each tier can be optimized independently for performance and
+                        scalability.</li>
+                </ul>
+
+                <h4>How It Works</h4>
+                <img src="../../images/dw5.jpeg" alt="">
+                <p>In a 3-tier architecture, data flows through three layers:</p>
+
+                <h3>1️⃣ Bottom Tier: Database (RDBMS)</h3>
+
+                <p>The bottom tier is where the <strong>data resides</strong>. It is typically a relational database
+                    management system (RDBMS) like <strong>Oracle, SQL Server, or MySQL</strong>. In this layer, raw
+                    data is cleaned, transformed, and loaded (ETL process) before being stored for analysis.</p>
+
+                <ul>
+                    <li><strong>Data Cleaning:</strong> The raw data is cleaned to remove inconsistencies.</li>
+                    <li><strong>Data Transformation:</strong> The data is transformed into a consistent format for
+                        analysis.</li>
+                    <li><strong>Data Storage:</strong> After cleaning and transformation, the data is stored in tables
+                        or other structures for efficient querying.</li>
+                </ul>
+
+                <p><strong>Example:</strong> A company’s sales data, after being cleaned (removing invalid entries like
+                    incorrect transaction dates) and transformed (standardizing the format), is loaded into the database
+                    for analysis.</p>
+
+                <h3>2️⃣ Middle Tier: OLAP Server</h3>
+
+                <p>The middle tier is the <strong>OLAP (Online Analytical Processing) server</strong>, which is
+                    responsible for performing business logic and processing queries. The OLAP server provides
+                    multidimensional analysis capabilities, allowing users to perform complex queries efficiently.</p>
+
+                <ul>
+                    <li><strong>Business Logic:</strong> This layer applies rules and logic for aggregating and
+                        transforming data according to business needs.</li>
+                    <li><strong>Multidimensional Analysis:</strong> The OLAP server enables data to be analyzed across
+                        different dimensions, like time, geography, and product categories.</li>
+                    <li><strong>Query Processing:</strong> It processes user queries quickly, using indexing and caching
+                        to speed up response times.</li>
+                </ul>
+
+                <p><strong>Example:</strong> A manager queries sales performance by region, time period, and product
+                    category. The OLAP server retrieves and aggregates the data from the database based on these
+                    dimensions.</p>
+
+
+                <h3>3️⃣ Top Tier: Front-End Client Layer (Query Tools)</h3>
+
+                <p>The top tier consists of <strong>front-end client tools</strong> that allow end-users to interact
+                    with the system. These tools are used for querying, reporting, and analysis. The front-end tools
+                    include tools like <strong>BI tools (Business Intelligence), reporting tools, and custom
+                        dashboards</strong>.</p>
+
+                <ul>
+                    <li><strong>User Interface:</strong> Provides a user-friendly interface for non-technical users to
+                        interact with the data.</li>
+                    <li><strong>Query Tools:</strong> Allows users to run queries, generate reports, and visualize data.
+                    </li>
+                    <li><strong>Access to OLAP Server:</strong> The client tools communicate with the OLAP server to
+                        fetch the processed data and present it to the user.</li>
+                </ul>
+
+                <p><strong>Example:</strong> A business analyst uses a reporting tool (like Tableau or Power BI) to
+                    visualize sales data by region and create interactive reports for management.</p>
+
+
+                <p>The 3-tier architecture provides a robust and scalable solution for large-scale data management and
+                    analysis. By separating the system into three layers, organizations can optimize each layer for its
+                    specific function, making the system efficient and flexible.</p>
+
+                <ul>
+                    <li><strong>Best for:</strong> Large organizations with complex data and multiple users requiring
+                        advanced analytical capabilities.</li>
+                    <li><strong>Not ideal for:</strong> Small systems or organizations with limited resources.</li>
+                </ul>
+
+            </div>
+            <div class="in">
+                <h3>4-Tier Architecture</h3>
+
+                <p>The <strong>4-Tier Architecture</strong> is a more advanced and flexible architecture used in data
+                    management and application development. It divides the system into four distinct layers: Database,
+                    Application, Presentation, and Client. This architecture allows for more separation of concerns,
+                    better scalability, and improved performance when dealing with complex systems.</p>
+
+                <h4>Key Features of 4-Tier Architecture</h4>
+
+                <ul>
+                    <li><strong>Increased Separation of Concerns:</strong> By adding the presentation layer and
+                        separating the business logic from the data access, it enables easier management of each
+                        component.</li>
+                    <li><strong>Scalable:</strong> The architecture supports scaling up and down as needed by managing
+                        different layers independently.</li>
+                    <li><strong>Flexible and Maintainable:</strong> Each layer can be developed and maintained
+                        independently, which makes it easier to implement changes without affecting the whole system.
+                    </li>
+                    <li><strong>Enhanced Security:</strong> The layers are isolated, which can lead to improved security
+                        by limiting access to sensitive data.</li>
+                </ul>
+
+                <h4>How It Works</h4>
+
+                <p>In the 4-Tier Architecture, the system is divided into four layers that interact with each other in a
+                    sequential flow:</p>
+
+
+
+                <h3>1️⃣ Database Layer</h3>
+
+                <p>The <strong>Database Layer</strong> is the bottom-most layer and holds the data for the system. This
+                    layer typically includes a relational database management system (RDBMS), where raw data is stored
+                    and managed.</p>
+
+                <ul>
+                    <li><strong>Data Storage:</strong> Raw data is stored in the database in a structured format.</li>
+                    <li><strong>Data Access:</strong> This layer is responsible for providing data to the application
+                        layer through data access mechanisms.</li>
+                    <li><strong>Data Integrity:</strong> Ensures that the data is accurate and consistent.</li>
+                </ul>
+
+                <p><strong>Example:</strong> A company’s employee records are stored in a database, including personal
+                    information, salary details, and job history.</p>
+
+
+
+                <h3>2️⃣ Application Layer</h3>
+
+                <p>The <strong>Application Layer</strong> is where the business logic is implemented. This layer acts as
+                    the intermediary between the database and the client, processing data and managing transactions.</p>
+
+                <ul>
+                    <li><strong>Business Logic:</strong> Handles the core functionality, processing user requests and
+                        ensuring that data is manipulated according to the business rules.</li>
+                    <li><strong>Data Manipulation:</strong> This layer retrieves data from the database, processes it,
+                        and sends it to the presentation layer.</li>
+                    <li><strong>Business Objects:</strong> Contains business-related data structures that are used to
+                        carry out specific business operations.</li>
+                </ul>
+
+                <p><strong>Example:</strong> The business logic could include rules for calculating employee bonuses
+                    based on performance, experience, and salary.</p>
+
+
+
+                <h3>3️⃣ Presentation Layer</h3>
+
+                <p>The <strong>Presentation Layer</strong> is the interface between the application and the end user. It
+                    is responsible for presenting data to the user and receiving input from the client (user).</p>
+
+                <ul>
+                    <li><strong>Controller:</strong> The controller receives the user input from the client, processes
+                        the data, and sends requests to the business logic layer for further processing.</li>
+                    <li><strong>View:</strong> The view is responsible for rendering the data from the business logic
+                        layer in a format that the user can interact with, such as a web page or application screen.
+                    </li>
+                    <li><strong>User Interface:</strong> The presentation layer provides the user interface, allowing
+                        users to interact with the system and make requests.</li>
+                </ul>
+
+                <p><strong>Example:</strong> A user views their employee information on a webpage. The controller sends
+                    a request to the business logic to fetch the necessary data, and the view displays the data on the
+                    screen.</p>
+
+
+
+                <h3>4️⃣ Client Layer</h3>
+
+                <p>The <strong>Client Layer</strong> is where the user interacts with the system. It is typically a
+                    user’s device (like a desktop, tablet, or smartphone) that communicates with the system to access
+                    the application.</p>
+
+                <ul>
+                    <li><strong>User Interaction:</strong> The client layer allows users to make requests and interact
+                        with the application through input forms, buttons, and other interface components.</li>
+                    <li><strong>Communication with Presentation Layer:</strong> The client communicates with the
+                        presentation layer to submit queries and receive responses.</li>
+                </ul>
+
+                <p><strong>Example:</strong> A user opens a web browser and logs into the company’s HR portal, which is
+                    the client interacting with the application layers behind the scenes.</p>
+
+                <h3>Diagram</h3>
+                <img src="../../images/dw6.jpeg" alt="">
+                <ul>
+
+                    <li>In the 4-Tier Architecture, when a user makes a request, it is first sent to the Presentation
+                        Layer where the Controller receives the request. The controller processes the request and
+                        forwards it to the Business Logic (or Business Objects) for further handling. From there, it
+                        moves to the Data Access Layer, where it fetches the relevant data from the Database. Once the
+                        data is retrieved, it is sent back to the Application Layer and passed to the Model, which
+                        processes it according to the business rules. Finally, the processed data moves back to the View
+                        in the Presentation Layer, where it is formatted and displayed to the user. This flow ensures
+                        that each layer performs its specific function, providing an organized, efficient process for
+                        data retrieval and presentation to the user.</li>
+                </ul>
+
+                <p>The 4-tier architecture is an advanced, flexible approach to managing large, complex systems. By
+                    splitting the architecture into four distinct layers, it allows for better separation of concerns,
+                    scalability, and easier maintenance. It is ideal for applications that require high levels of
+                    performance, security, and user interaction.</p>
+
+                <ul>
+                    <li><strong>Best for:</strong> Large-scale enterprise applications, especially those requiring
+                        complex business logic and a high level of user interaction.</li>
+                    <li><strong>Not ideal for:</strong> Small applications with less complex logic and limited user
+                        interaction.</li>
+                </ul>
+                </h3>
+            </div>
+        </div>
+        <p><strong>Basic Walk-through of OLTP and OLAP</strong></p>
+        <ul>
+            <li>Before diving into OLAP, we need to understand OLTP because they are two sides of the same coin. OLTP,
+                or Online Transaction Processing, is what keeps businesses running daily; it’s the system that handles
+                real-time transactions like bank transfers, hotel bookings, and product purchases on Amazon. Every time
+                you buy something online, OLTP ensures your order is placed, the inventory updates, and your payment
+                goes through instantly. These systems prioritize speed and efficiency, handling thousands (or even
+                millions) of transactions every second. To maintain consistency and avoid duplication, OLTP databases
+                are designed using a highly structured, normalized format.</li>
+            <li>On the other hand, businesses don’t just need to process transactions; they also need to analyze them to
+                make decisions. That’s where OLAP, or Online Analytical Processing, comes in. Instead of focusing on
+                individual transactions, OLAP looks at data trends over time. Imagine Amazon wanting to analyze last
+                year’s sales to understand which products were most popular, which regions had the highest demand, or
+                how discounts affected revenue. This kind of in-depth analysis isn’t possible with OLTP because OLTP
+                systems are designed for fast transactions, not complex queries. OLAP, in contrast, is optimized for
+                analysis and stores data in a way that makes it easy to explore different angles; like total sales per
+                month, per city, or even per product category. Instead of the strict, normalized structure of OLTP, OLAP
+                databases are often denormalized to improve query performance.</li>
+            <li>Since OLAP is all about analyzing large datasets, it supports different operations to make querying
+                easier. If a company wants to see total sales at a higher level (like total sales per country instead of
+                per city), they can use a roll-up operation. But if they want more details, they can drill down to see
+                city-wise or even store-wise sales. Similarly, they can slice the data to focus on a particular time
+                period or dice it to filter multiple dimensions at once (e.g., sales in 2023 for a specific product
+                category). These operations help businesses get exactly the insights they need from their data.</li>
+            <li>Now, OLAP itself comes in different types based on how data is stored. ROLAP (Relational OLAP) works
+                directly with relational databases like SQL, allowing for flexible but slower queries. MOLAP
+                (Multidimensional OLAP) stores data in precomputed OLAP cubes, making it much faster but requiring more
+                storage. HOLAP (Hybrid OLAP) combines both approaches, keeping summary data in cubes for quick access
+                while allowing more detailed analysis in relational tables when needed.</li>
+            <li>The real reason businesses invest in OLAP is its ability to support decision-making. While OLTP is
+                necessary for everyday transactions, it doesn’t help in strategic planning. That’s why companies use
+                OLAP to study customer behavior, optimize pricing, and even predict future trends. Without OLAP,
+                organizations would struggle to turn raw transaction data into meaningful insights.</li>
+            <li>To make OLAP practical, different tools are used to query, visualize, and interpret the data. Some
+                tools, like Tableau and Power BI, allow businesses to generate interactive reports. Others, like Excel
+                PivotTables, help users analyze multidimensional data without needing technical expertise. Many modern
+                OLAP systems now run on cloud-based platforms like Google BigQuery or AWS Redshift, allowing companies
+                to analyze massive datasets in real-time over the internet.</li>
+            <li>In short, OLTP and OLAP are both essential, but they serve different purposes; OLTP focuses on speed and
+                accuracy in transaction processing, while OLAP is all about data analysis and business insights. They
+                work together to help organizations run efficiently while also making informed decisions for the future.
+            </li>
+        </ul>
+        <div class="wh">
+            <h2>OLTP</h2>
+            <ul>
+                <li>OLTP (Online Transaction Processing) refers to systems that manage real-time transactions, like bank
+                    transfers or online shopping payments. These systems are designed to handle large numbers of quick
+                    transactions efficiently.</li>
+                <li>The main focus of OLTP systems is to store, retrieve, and update data quickly. They ensure
+                    <strong>fast
+                        query processing</strong> (retrieving results quickly), maintain <strong>data integrity</strong>
+                    (keeping data accurate
+                    and consistent), and support multiple users accessing the same data at the same time.
+                </li>
+                <li>OLTP systems are responsible for handling the <strong>daily operations</strong> of an organization,
+                    such as
+                    booking a ticket, updating inventory, or processing a sale.</li>
+                <li>Since these systems support <strong>simple database queries</strong> (basic search operations), the
+                    response time
+                    for any user action is <strong>very fast</strong>.</li>
+                <li>They are characterized by a <strong>large number of short online transactions</strong> (like
+                    inserting, updating,
+                    or deleting records in a database).</li>
+            </ul>
+            <h4>Challenges of an OLTP system:</h4>
+            <ul>
+                <li>Since multiple users can access and modify data at the same time, OLTP systems need
+                    <strong>concurrency control</strong> (a method to manage multiple requests without errors) and a
+                    <strong>recovery
+                        mechanism</strong> (a way to restore data in case of failure) to prevent issues like data
+                    conflicts or
+                    system crashes.
+                </li>
+            </ul>
+
+        </div>
+        <div class="wh">
+            <h2>OLAP (On-Line Analytical Processing)</h2>
+            <ul>
+                <li>OLAP is a category of software that helps analysts, managers, and executives gain insights into data
+                    by providing <strong>fast</strong>, <strong>consistent</strong>, and <strong>interactive</strong>
+                    access to information. This data is transformed from raw data into a more <strong>meaningful
+                        format</strong> that reflects the different aspects of a business, as understood by the user.
+                </li>
+                <li>OLAP is typically characterized by a <strong>relatively low volume of transactions</strong> (fewer,
+                    but more complex, data operations compared to OLTP systems).</li>
+                <li>Queries in OLAP systems are often <strong>very complex</strong> and involve
+                    <strong>aggregations</strong> (combining data to get summaries, like total sales over a year). For
+                    OLAP systems, <strong>response time</strong> (how quickly the system gives results) is an important
+                    measure of how effective the system is.
+                </li>
+                <li>OLAP applications are commonly used with <strong>data mining techniques</strong> (methods to
+                    discover patterns and trends from large data sets) to analyze historical data and make predictions.
+                </li>
+                <li>In OLAP, data is stored in a <strong>multi-dimensional schema</strong> (a way of organizing data
+                    across multiple dimensions, like time, location, product). This schema is often a <strong>star
+                        schema</strong> (a simple structure where one central table is connected to multiple other
+                    tables, like a star). The data is usually <strong>aggregated</strong> (summarized) and historical,
+                    helping with trend analysis and decision-making.</li>
+            </ul>
+            <div class="in">
+                <h3>OLAP Operations</h3>
+                <p>OLAP operations help analyze data in different ways by allowing users to explore information from
+                    various angles. These operations make it easier to summarize data, look at detailed records, filter
+                    specific information, or rearrange data for better insights. Some common OLAP operations include
+                    Drill Down, Roll Up, Slice, Dice, and Pivot.</p>
+
+                <h3>1: Drill Down</h3>
+                <ul>
+                    <li>Drill down is an operation that <strong>converts less detailed data into highly detailed
+                            data</strong>. In
+                        simple terms, it helps you go deeper into the data to see more specific details.</li>
+                    <li>It can be done in two ways:
+                        <ul>
+                            <li><strong>Moving down in the concept hierarchy</strong> (a structured way of organizing
+                                data, like
+                                going from a general level to a more specific level, such as from "Year" to "Quarter" to
+                                "Month").</li>
+                            <li><strong>Adding a new dimension</strong> (introducing another factor to analyze, such as
+                                including
+                                "Region" along with "Time" for a more detailed view).</li>
+                        </ul>
+                    </li>
+                    <li>For example, in the data cube shown below, the drill-down operation is performed by
+                        <strong>moving
+                            down in the time dimension</strong>; from "Quarter" to "Month," giving a more detailed
+                        breakdown of the
+                        data.
+                    </li>
+                </ul>
+                <img src="../../images/dw11.jpeg" alt="Drill Down Example">
+                <h3>2: Roll Up</h3>
+                <ul>
+                    <li>Roll up is the <strong>opposite of the drill-down operation</strong>. Instead of going into more
+                        detail, it
+                        <strong>summarizes data at a higher level</strong> by combining smaller data points into a
+                        broader view.
+                    </li>
+                    <li>It performs <strong>aggregation</strong> (grouping and summarizing data, like calculating total
+                        sales for a
+                        year instead of showing sales for each month) on the OLAP cube.</li>
+                    <li>Roll up can be done in two ways:
+                        <ul>
+                            <li><strong>Climbing up in the concept hierarchy</strong> (moving from a detailed level to a
+                                broader
+                                level, such as from "City" to "Country").</li>
+                            <li><strong>Reducing the number of dimensions</strong> (removing one or more factors from
+                                analysis to
+                                simplify the data view).</li>
+                        </ul>
+                    </li>
+                    <li>For example, in the data cube shown below, the roll-up operation is performed by
+                        <strong>climbing up
+                            in the location dimension</strong>—moving from "City" to "Country" to get a higher-level
+                        summary of the
+                        data.
+                    </li>
+                </ul>
+                <img src="../../images/dw12.jpeg" alt="Roll Up Example">
+                <h3>3: Dice</h3>
+                <ul>
+                    <li>Dice is an OLAP operation that <strong>selects a smaller portion of data</strong> from the OLAP
+                        cube by
+                        applying conditions on <strong>two or more dimensions</strong> (different factors of data, like
+                        time,
+                        location, or product).</li>
+                    <li>In simple terms, it <strong>creates a subcube</strong> (a smaller, filtered version of the main
+                        dataset) by
+                        focusing on specific values in multiple dimensions.</li>
+                    <li>For example, in the cube shown below, a subcube is selected based on the following criteria:
+                        <ul>
+                            <li><strong>Location</strong> = "Delhi" or "Kolkata"</li>
+                            <li><strong>Time</strong> = "Q1" or "Q2"</li>
+                            <li><strong>Item</strong> = "Car" or "Bus"</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="../../images/dw13.jpeg" alt="Dice Example">
+                <h3>4: Slice</h3>
+                <ul>
+                    <li>Slice is an OLAP operation that <strong>selects data based on a single dimension</strong>, which
+                        results in the creation of a <strong>new subcube</strong> (a smaller portion of the data that
+                        focuses only on one specific value in a chosen dimension).</li>
+                    <li>In simple terms, it <strong>cuts out a specific section of data</strong> based on one condition
+                        while keeping the rest of the dimensions unchanged.</li>
+                    <li>For example, in the cube shown below, the slice operation is performed on the <strong>Time
+                            dimension</strong>, where <strong>Time = "Q1"</strong>. This means the new subcube will only
+                        contain data related to the first quarter (Q1), filtering out all other time periods.</li>
+                </ul>
+                <img src="../../images/dw14.jpeg" alt="Slice Example">
+                <h3>5: Pivot</h3>
+                <ul>
+                    <li>Pivot, also known as the <strong>rotation operation</strong>, is used to rotate the current view
+                        of data to get a different perspective of the same information.</li>
+                    <li>In simple terms, it changes how the data is presented by swapping rows and columns or rotating
+                        the axes of the OLAP cube.</li>
+                    <li>For example, if a report shows "Products" in rows and "Time" in columns, applying a pivot
+                        operation can swap them, so "Time" appears in rows and "Products" in columns, making it easier
+                        to analyze from a different angle.</li>
+                    <li>In the subcube obtained after the <strong>Slice operation</strong>, performing a pivot operation
+                        gives a new view of the same data.</li>
+                </ul>
+                <img src="../../images/dw15.jpeg" alt="Pivot Example">
+
+            </div>
+            <div class="in">
+                <h3>Types of OLAP</h3>
+                <p>OLAP (Online Analytical Processing) comes in different types, each designed to handle data in a
+                    unique way based on how it is stored and processed. The main goal of OLAP is to help users analyze
+                    large amounts of data efficiently, but different approaches have their own advantages and
+                    limitations. These types are classified based on whether they use relational databases,
+                    multidimensional databases, or a combination of both. Understanding these types helps in choosing
+                    the right OLAP model for different business needs.</p>
+                <h3>1: ROLAP (Relational OLAP)</h3>
+                <ul>
+                    <li>ROLAP stands for <strong>Relational OLAP</strong>. It stores data in a relational database and
+                        uses complex queries to analyze large datasets.</li>
+                    <li>Unlike traditional OLAP, which uses a multi-dimensional cube, ROLAP works directly on relational
+                        tables using SQL (Structured Query Language).</li>
+                    <li>It is useful when dealing with huge amounts of data because it does not require pre-computed
+                        cubes. Instead, it dynamically generates queries to fetch data as needed.</li>
+                    <li>Since ROLAP relies on relational databases, it follows <strong>Normalization</strong>
+                        (organizing data to reduce redundancy and improve consistency) techniques to store data
+                        efficiently.</li>
+                    <li>Although ROLAP provides flexibility, it can sometimes be slower than other OLAP types because
+                        queries are processed in real-time rather than from pre-stored data cubes.</li>
+                </ul>
+                <h3>2: MOLAP (Multidimensional OLAP)</h3>
+                <ul>
+                    <li>MOLAP stands for <strong>Multidimensional OLAP</strong>. Unlike ROLAP, which works directly on
+                        relational databases, MOLAP stores data in a pre-built, multi-dimensional cube.</li>
+                    <li>These OLAP cubes organize data into multiple dimensions (like time, product, and location) to
+                        allow fast and efficient analysis.</li>
+                    <li>Since the data is pre-processed and stored in an optimized structure, MOLAP provides much faster
+                        query performance compared to ROLAP.</li>
+                    <li>However, one downside is that MOLAP requires more storage space because it creates pre-computed
+                        summaries and aggregates (pre-calculated values for faster retrieval).</li>
+                    <li>MOLAP is best suited for situations where <strong>
+                            speed is a priority
+                        </strong> and data does not change frequently.</li>
+                </ul>
+                <h3>3: HOLAP (Hybrid OLAP)</h3>
+                <ul>
+                    <li>HOLAP stands for <strong>Hybrid OLAP</strong>, which combines the best features of both ROLAP
+                        and MOLAP.</li>
+                    <li>In HOLAP, detailed data is stored in a <strong>relational database</strong> (like ROLAP), while
+                        summarized data (pre-aggregated data) is stored in a <strong>multi-dimensional cube</strong>
+                        (like MOLAP).</li>
+                    <li>This hybrid approach gives you the flexibility and scalability of relational databases with the
+                        fast query performance of pre-built cubes.</li>
+                    <li>HOLAP is a good option when you need to analyze both large amounts of detailed data and
+                        pre-aggregated, summarized data efficiently.</li>
+                    <li>The main advantage of HOLAP is that it balances speed and storage by storing detailed data in
+                        relational databases while keeping frequently used summary data in OLAP cubes for quick access.
+                    </li>
+                </ul>
+
+            </div>
+            <div class="in">
+                <h3>Difference between MOLAP, ROLAP & HOLAP</h3>
+                <img src="../../images/dw16.jpeg" alt="">
+                <p>So basically, in MOLAP, data is stored in pre-arranged cubes, which makes retrieving data really
+                    fast, but it uses up more storage. ROLAP, on the other hand, stores data in regular tables (like in
+                    a simple database) and creates queries on the spot, which can be a bit slower but is more flexible
+                    and doesn't need as much storage. While in HOLAP, it combines the two: detailed data is kept in
+                    tables, and summary data is stored in cubes. This gives a good balance of fast data retrieval and
+                    flexibility, depending on the needs of the business.</p>
+
+            </div>
+            <div class="in">
+                <h3>Multidimensional vs. Multirelational OLAP</h3>
+                <p>When it comes to OLAP systems, there are two main approaches: <strong>Multidimensional OLAP</strong>
+                    and
+                    <strong>Multirelational OLAP</strong>. These two approaches handle data storage and analysis in
+                    different ways.
+                </p>
+
+                <h4>Multidimensional OLAP</h4>
+                <ul>
+                    <li>In <strong>Multidimensional OLAP</strong> (also called MOLAP), data is stored in a pre-arranged,
+                        cube-based
+                        structure. This structure allows data to be viewed from multiple dimensions (like time,
+                        location, and product) to perform quick analysis.</li>
+                    <li>Because data is pre-aggregated (pre-calculated), it makes querying and retrieving data faster,
+                        which is great for real-time analysis.</li>
+                    <li>However, it requires more storage space to hold these cubes, and it’s less flexible if you need
+                        to analyze new types of data.</li>
+                </ul>
+
+                <h4>Multirelational OLAP</h4>
+                <ul>
+                    <li>On the other hand, <strong>Multirelational OLAP</strong> (also called ROLAP) uses relational
+                        tables (standard
+                        database tables) to store data. It doesn’t rely on pre-arranged cubes but instead dynamically
+                        generates queries to fetch data from these tables when needed.</li>
+                    <li>This approach is more flexible because you can store large amounts of data in normal tables, but
+                        it tends to be slower compared to MOLAP since it doesn’t use pre-aggregated data.</li>
+                    <li>It’s a good choice when you need to handle large datasets that are constantly changing or when
+                        you need more flexibility in how you analyze the data.</li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="wh">
+            <h2>OLTP vs. OLAP</h2>
+            <p>OLTP (Online Transaction Processing) and OLAP (Online Analytical Processing) are both used in data
+                systems, but they serve different purposes. Let’s compare them side by side:</p>
+            <div class="table-wrapper">
+                <table class="new-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>OLTP</th>
+                            <th>OLAP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Purpose</strong></td>
+                            <td>Handles day-to-day operations like sales, inventory, and order processing. Focus is on
+                                managing many small transactions quickly.</td>
+                            <td>Analyzes large sets of historical data to help businesses make decisions and understand
+                                trends.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Handling</strong></td>
+                            <td>Works with real-time, up-to-date data. Involves inserting, updating, or deleting
+                                individual
+                                transactions.</td>
+                            <td>Deals with large volumes of historical data, often summarized or aggregated across
+                                dimensions like time or geography.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Query Complexity</strong></td>
+                            <td>Simple and fast queries designed for transactional tasks.</td>
+                            <td>Complex queries that involve analysis, aggregation, and reporting on large datasets.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>Banking, order processing, ticket bookings.</td>
+                            <td>Business intelligence tools, data mining, reporting systems.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Volume</strong></td>
+                            <td>Handles a large number of small transactions.</td>
+                            <td>Deals with fewer but more complex transactions involving huge volumes of data.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>So basically, OLTP is all about fast, real-time transactions, while OLAP is about analyzing data to
+                uncover valuable insights for decision-making. They work together in a business, but each has its own
+                role.</p>
+
+        </div>
+        <div class="wh">
+            <h2>Advantages of OLAP over OLTP</h2>
+            <p>OLAP (Online Analytical Processing) has some clear advantages over OLTP (Online Transaction Processing)
+                when it comes to analyzing large datasets for decision-making. Let’s look at these advantages:</p>
+
+            <ul>
+                <li><strong>Analytical vs Transactional Processing:</strong> OLAP is designed for <strong>analytical
+                        processing</strong>, where you analyze historical data to make business decisions. OLTP,
+                    however, is focused on <strong>transactional processing</strong>, handling day-to-day operations
+                    like updating or deleting data. OLAP systems are better suited for digging deep into data to uncover
+                    insights, while OLTP is more about real-time transactions.</li>
+
+                <li><strong>Complex Queries Handling:</strong> OLAP systems are optimized to handle <strong>complex
+                        queries</strong> that involve summarizing or aggregating large volumes of data. OLTP systems, on
+                    the other hand, focus on <strong>simple queries</strong> related to individual transactions, which
+                    makes them less efficient for complex data analysis. So, OLAP is ideal for business intelligence
+                    tasks where you need detailed reports or multi-dimensional views.</li>
+
+                <li><strong>Aggregated Data for Decision Making:</strong> OLAP systems provide <strong>aggregated
+                        data</strong> that helps businesses make informed decisions. For example, OLAP can show sales
+                    trends over time or customer behavior across regions. OLTP doesn’t provide this level of
+                    aggregation; it’s more about <strong>recording individual transactions</strong>, so it’s not
+                    designed to help in decision-making based on historical trends.</li>
+            </ul>
+
+            <p>In summary, OLAP is more suited for <strong>deep analysis</strong> of data, handling <strong>complex
+                    queries</strong> and <strong>aggregating data</strong> for better business decisions, while OLTP
+                focuses on quick, real-time transactions for day-to-day operations.</p>
+
+        </div>
+        <div class="wh">
+            <h2>OLAP Tools</h2>
+            <p>OLAP tools are essential for analyzing large datasets and providing valuable insights for
+                decision-making. These tools help you interact with data, run queries, and generate reports to support
+                business intelligence. Let’s break down the different types of OLAP tools and their role in data
+                analysis:</p>
+
+            <h3>Categories of OLAP Tools</h3>
+
+            <ul>
+                <li><strong>Query and Reporting Tools:</strong> These tools are focused on helping users
+                    <strong>query</strong> and
+                    <strong>retrieve</strong> data from OLAP systems and then generate <strong>reports</strong>. They
+                    allow users to ask questions
+                    about the data, like "What were our sales in Q1?" or "Which products had the highest growth last
+                    year?" These tools focus on making it easy to access and present data in a user-friendly way.
+                </li>
+
+                <li><strong>Multidimensional Analysis Tools:</strong> These tools let users explore data from different
+                    <strong>dimensions</strong>, like time, location, or product. Users can <strong>slice</strong>,
+                    <strong>dice</strong>, <strong>drill down</strong>, or
+                    <strong>roll up</strong> the data to understand it better and look at trends across different
+                    dimensions. This
+                    type of tool is powerful for analyzing large datasets from multiple perspectives.
+                </li>
+
+                <li><strong>Data Mining Tools:</strong> Data mining tools go a step further and help businesses discover
+                    <strong>hidden patterns</strong> or <strong>insights</strong> in the data using statistical analysis
+                    and algorithms. These
+                    tools can help predict future trends, detect anomalies, or segment data into meaningful groups. For
+                    example, a data mining tool might predict customer behavior based on past transactions.
+                </li>
+            </ul>
+
+            <h3>OLAP Tools and the Internet</h3>
+            <p>With the rise of cloud computing and internet technologies, <strong>OLAP tools have also expanded to the
+                    web</strong>.
+                Now, many OLAP tools are <strong>web-based</strong>, which means businesses can access them from
+                anywhere,
+                collaborate in real-time, and share data analysis easily. This also allows for faster updates and better
+                integration with other business applications, as data is stored on the cloud and can be accessed via a
+                web interface.</p>
+
+            <p>In summary, OLAP tools come in different types, including those for <strong>querying</strong>,
+                <strong>multidimensional
+                    analysis</strong>, and <strong>data mining</strong>. With the integration of the internet, OLAP
+                tools have become more
+                accessible and collaborative, making it easier to analyze and make decisions based on data.
+            </p>
+
+        </div>
+    </div>
+    <div class="content-box">
+        <p>Reference</p>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=ig1j8-DJl8U" target="_blank">Data Warehouse Architecture Video
+                    Lecture &neArr;</a></li>
+            <li><a href="https://youtu.be/A-vJCLqzJFU?si=dTlVyPdiBRNCBOAf" target="_blank"> OLTP, OLAP, OLAP Operation
+                    and difference b/w OLTP and OLAP Youtube Video Lecture &neArr;</a></li>
+        </ul>
+    </div>
+    <script type="module" src="../../../../public/main.js"></script>
+</body>
+
+</html>
