@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shared Notes Project</title>
+    <title>GEHU Notes Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <style>
         :root {
-            --primary: #4f8cff;
-            --primary-dark: #3a6fd8;
-            --background: #181a1b;
-            --card-bg: #23272a;
+            --primary: #760404;
+            --primary-dark: #e48e8e;
+            --background: #eec9ff;
+            --background-gradient: linear-gradient(to right, #760404, #e48e8e);
+            --card-bg: #fff;
             --border-radius: 22px;
-            --shadow: 0 4px 24px rgba(0,0,0,0.25);
-            --input-bg: #23272a;
-            --input-border: #353b41;
+            --shadow: 0 4px 24px rgba(0,0,0,0.18);
+            --input-bg: #fff;
+            --input-border: #e48e8e;
             --highlight: #ffb300;
             --highlight-dark: #e09c00;
-            --text-main: #f1f1f1;
-            --text-secondary: #b0b3b8;
-            --accent: #4f8cff;
+            --text-main: #222;
+            --text-secondary: #760404;
+            --accent: #e48e8e;
             --danger: #ff4d4f;
         }
         html, body {
@@ -27,21 +30,60 @@
             padding: 0;
         }
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background: var(--background);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             color: var(--text-main);
+            background: var(--background-gradient);
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* GEHU Watermark Background */
+        .background-text {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.32; /* Increased for better visibility */
+            user-select: none;
+        }
+        .background-text span {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 8vw; /* Slightly larger for more impact */
+            font-weight: 900;
+            color: #090324;
+            text-shadow:
+                0 0 32px #760404, /* Stronger shadow for contrast */
+                0 0 8px #fff,
+                0 2px 18px #e48e8e,
+                0 0 2px #e48e8e;
+            margin: 0 1vw;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            opacity: 0.38; /* Increased for better visibility */
+            animation: watermarkFade 6s infinite alternate;
+        }
+        @keyframes watermarkFade {
+            0% { opacity: 0.32; }
+            100% { opacity: 0.48; }
         }
         .container {
             width: 100%;
             max-width: 600px;
-            margin: 48px auto 0 auto;
+            margin: 64px auto 0 auto;
             padding: 0 16px 40px 16px;
             position: relative;
+            z-index: 2;
         }
         .top-image-wrapper {
             display: flex;
@@ -54,16 +96,20 @@
             max-width: 160px;
             width: 100%;
             border-radius: 18px;
-            box-shadow: 0 4px 24px #0005;
+            box-shadow: 0 4px 24px #76040455;
+            border: 3px solid #fff;
         }
         h1 {
             color: var(--primary);
             text-align: center;
             margin-bottom: 24px;
             letter-spacing: 2px;
-            font-size: 2.1em;
-            font-weight: 800;
-            text-shadow: 0 2px 16px #0008;
+            font-size: 2.2em;
+            font-weight: 900;
+            text-shadow: 0 2px 16px #e48e8e88, 0 0 8px #fff;
+            background: linear-gradient(90deg, #760404 60%, #e48e8e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         #note-form {
             margin-bottom: 36px;
@@ -74,11 +120,13 @@
             display: flex;
             flex-direction: column;
             gap: 22px;
+            z-index: 2;
+            border: 2.5px solid #e48e8e;
         }
         .input-section {
-            background: #1a1d1f;
+            background: #f8e6f6;
             border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            box-shadow: 0 2px 12px rgba(228, 142, 142, 0.10);
             padding: 18px 16px 12px 16px;
             margin-bottom: 0;
             display: flex;
@@ -95,12 +143,12 @@
             padding: 12px 14px;
             outline: none;
             transition: border 0.2s, background 0.2s;
-            box-shadow: 0 1px 4px #0003;
+            box-shadow: 0 1px 4px #e48e8e33;
         }
         #note-form input:focus,
         #note-form .content-editable-div:focus {
             border: 2px solid var(--primary);
-            background: #232c3a;
+            background: #fbe9e9;
         }
         #note-form .content-editable-div {
             min-height: 70px;
@@ -125,11 +173,11 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 2px 8px #0002;
+            box-shadow: 0 2px 8px #e48e8e22;
         }
         #note-form .add-image-btn:hover, #note-form .add-image-btn:focus {
             background: linear-gradient(90deg, var(--primary-dark), var(--primary));
-            box-shadow: 0 4px 16px #4f8cff33;
+            box-shadow: 0 4px 16px #e48e8e33;
         }
         #note-form button[type="submit"] {
             background: linear-gradient(90deg, var(--highlight), var(--highlight-dark));
@@ -158,20 +206,6 @@
         #note-form input[type="file"] {
             display: none;
         }
-        .image-preview-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 6px;
-        }
-        .image-preview-list img {
-            max-width: 60px;
-            max-height: 60px;
-            border-radius: 8px;
-            border: 1px solid #353b41;
-            object-fit: cover;
-        }
-        /* Show All Notes Button - round, fixed top/middle right */
         .show-notes-btn {
             position: fixed;
             top: 40px;
@@ -187,7 +221,7 @@
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
             border: none;
-            box-shadow: 0 4px 16px #4f8cff55, 0 2px 12px #0008;
+            box-shadow: 0 4px 16px #e48e8e55, 0 2px 12px #76040488;
             font-size: 1.7em;
             font-weight: 800;
             cursor: pointer;
@@ -200,7 +234,7 @@
         }
         .show-notes-btn:hover, .show-notes-btn:focus {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            box-shadow: 0 6px 24px #4f8cff88, 0 2px 12px #0008;
+            box-shadow: 0 6px 24px #e48e8e88, 0 2px 12px #76040488;
             transform: scale(1.08);
         }
         .show-notes-btn .show-notes-icon {
@@ -212,76 +246,20 @@
         .show-notes-btn .show-notes-label {
             display: none;
         }
-        @media (max-width: 700px) {
-            .container {
-                max-width: 98vw;
-                margin-top: 18px;
-                padding: 0 4vw 24px 4vw;
-            }
-            #note-form {
-                padding: 16px 8px 14px 8px;
-            }
-            .fullscreen-note-content {
-                padding: 18px 4vw 14px 4vw;
-            }
-            .show-notes-btn {
-                top: 18px;
-                right: 12px;
-                width: 52px;
-                height: 52px;
-                min-width: 52px;
-                min-height: 52px;
-                max-width: 52px;
-                max-height: 52px;
-                font-size: 1.25em;
-            }
-        }
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.4em;
-            }
-            #note-form input,
-            #note-form .content-editable-div {
-                font-size: 0.98em;
-                padding: 8px 8px;
-            }
-            #note-form button[type="submit"] {
-                font-size: 1em;
-                padding: 10px 0;
-            }
-            #note-form .add-image-btn {
-                font-size: 1em;
-                padding: 10px 0;
-            }
-            .input-section {
-                padding: 10px 6px 8px 6px;
-            }
-            .show-notes-btn {
-                top: 10px;
-                right: 6px;
-                width: 44px;
-                height: 44px;
-                min-width: 44px;
-                min-height: 44px;
-                max-width: 44px;
-                max-height: 44px;
-                font-size: 1em;
-            }
-        }
-        /* Modal and Fullscreen note styles (copied from original) */
+        /* Modal and Fullscreen note styles */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.45);
+            background: rgba(228, 142, 142, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
         }
         .modal {
-            background: #23272a;
+            background: #fff;
             border-radius: 18px;
-            box-shadow: 0 4px 32px #000a;
+            box-shadow: 0 4px 32px #e48e8e88;
             padding: 28px 24px 22px 24px;
             min-width: 280px;
             max-width: 95vw;
@@ -323,7 +301,7 @@
         .fullscreen-note {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: #181a1b;
+            background: #eec9ff;
             z-index: 2000;
             overflow-y: auto;
             padding: 40px 0 0 0;
@@ -336,9 +314,9 @@
         .fullscreen-note-content {
             max-width: 700px;
             width: 98vw;
-            background: #23272a;
+            background: #fff;
             border-radius: 22px;
-            box-shadow: 0 4px 32px #000a;
+            box-shadow: 0 4px 32px #e48e8e88;
             padding: 38px 28px 28px 28px;
             margin: 0 auto;
             color: var(--text-main);
@@ -356,7 +334,7 @@
             font-size: 1.7em;
             cursor: pointer;
             z-index: 2100;
-            box-shadow: 0 2px 8px #0005;
+            box-shadow: 0 2px 8px #e48e8e55;
             transition: background 0.18s;
         }
         .fullscreen-note .close-btn:hover {
@@ -370,20 +348,168 @@
         }
         .fullscreen-note-images img {
             border-radius: 10px;
-            border: 1.5px solid #353b41;
+            border: 1.5px solid #e48e8e;
             object-fit: contain;
             max-width: 100%;
             height: auto;
             display: block;
         }
+        /* Responsive */
+        @media (max-width: 700px) {
+            .container {
+                max-width: 98vw;
+                margin-top: 18px;
+                padding: 0 4vw 24px 4vw;
+            }
+            #note-form {
+                padding: 16px 8px 14px 8px;
+            }
+            .fullscreen-note-content {
+                padding: 18px 4vw 14px 4vw;
+            }
+            .show-notes-btn {
+                top: 18px;
+                right: 12px;
+                width: 52px;
+                height: 52px;
+                min-width: 52px;
+                min-height: 52px;
+                max-width: 52px;
+                max-height: 52px;
+                font-size: 1.25em;
+            }
+            .background-text span {
+                font-size: 12vw;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.4em;
+            }
+            #note-form input,
+            #note-form .content-editable-div {
+                font-size: 0.98em;
+                padding: 8px 8px;
+            }
+            #note-form button[type="submit"] {
+                font-size: 1em;
+                padding: 10px 0;
+            }
+            #note-form .add-image-btn {
+                font-size: 1em;
+                padding: 10px 0;
+            }
+            .input-section {
+                padding: 10px 6px 8px 6px;
+            }
+            .show-notes-btn {
+                top: 10px;
+                right: 6px;
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                min-height: 44px;
+                max-width: 44px;
+                max-height: 44px;
+                font-size: 1em;
+            }
+            .background-text span {
+                font-size: 18vw;
+            }
+        }
+        /* Footer styles */
+        footer {
+            position: fixed !important;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: 18px;
+            width: 340px;
+            max-width: 92vw;
+            border-radius: 18px;
+            z-index: 1000;
+            box-shadow: 0 0 12px 0 #e48e8e55, 0 2px 12px #76040488;
+            background: linear-gradient(90deg, #fff 60%, #e48e8e 100%);
+            padding: 10px 18px 10px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body {
+            padding-bottom: 60px; /* adjust for new footer height */
+        }
+        @media (max-width: 480px) {
+            footer {
+                width: 98vw;
+                max-width: 98vw;
+                padding: 8px 4vw 8px 4vw;
+                border-radius: 10px;
+            }
+            body {
+                padding-bottom: 48px;
+            }
+            #sticky-footer-text {
+                font-size: 0.95em !important;
+            }
+        }
+        @keyframes glowFooter {
+            0% {
+                text-shadow: 0 0 8px #e48e8e, 0 0 2px #fff, 0 2px 8px #76040488;
+                filter: drop-shadow(0 0 8px #e48e8e88);
+            }
+            100% {
+                text-shadow: 0 0 18px #e48e8e, 0 0 8px #fff, 0 2px 18px #e48e8e88;
+                filter: drop-shadow(0 0 18px #e48e8ecc);
+            }
+        }
+        footer span {
+            font-weight: 700;
+            text-shadow: 0 0 8px #ffb300, 0 0 2px #fff;
+            filter: drop-shadow(0 0 8px #ffb30088);
+            animation: glowFooterSpan 2.2s infinite alternate;
+        }
+        @keyframes glowFooterSpan {
+            0% {
+                text-shadow: 0 0 8px #ffb300, 0 0 2px #fff;
+                filter: drop-shadow(0 0 8px #ffb30088);
+            }
+            100% {
+                text-shadow: 0 0 18px #ffb300, 0 0 8px #fff;
+                filter: drop-shadow(0 0 18px #ffb300cc);
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="background-text" aria-hidden="true">
+        <span>GEHU</span><span>GEHU</span><span>GEHU</span><span>GEHU</span>
+        <span>GEHU</span><span>GEHU</span><span>GEHU</span><span>GEHU</span>
+        <span>GEHU</span><span>GEHU</span><span>GEHU</span><span>GEHU</span>
+        <span>GEHU</span><span>GEHU</span><span>GEHU</span><span>GEHU</span>
+        <span>GEHU</span><span>GEHU</span><span>GEHU</span><span>GEHU</span>
+        <span>GEHU</span><span>GEHU</span><span>GEHU</span><span>GEHU</span>
+    </div>
     <div class="container">
         <div class="top-image-wrapper">
             <img src="https://images.pexels.com/photos/4238511/pexels-photo-4238511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Notes Hub" />
         </div>
-        <h1>📝 NOTES . HUB 📝</h1>
+        <h1>
+        <span style="
+            display: inline-block;
+            padding: 0.4em 1.2em;
+            background: linear-gradient(90deg, #760404 60%, #e48e8e 100%);
+            color: #fff;
+            border-radius: 18px;
+            font-weight: 800;
+            font-size: 2.1rem;
+            letter-spacing: 2px;
+            box-shadow: 0 2px 16px #76040433, 0 1px 8px #e48e8e44;
+            text-shadow: 0 2px 8px #e48e8e88, 0 0 2px #fff;
+            margin-bottom: 0.2em;
+        ">
+            YOUR NOTES
+        </span>
+        </h1>
         <form id="note-form" autocomplete="off">
             <div class="input-section">
                 <input type="text" id="author" placeholder="Your name" required maxlength="32">
@@ -396,19 +522,21 @@
             </div>
             <div class="input-section" style="gap: 0;">
                 <button type="button" class="add-image-btn" id="add-image-btn" tabindex="0">
-                    <svg width="20" height="20" fill="none" style="vertical-align:middle;" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="2" fill="none"/><circle cx="7" cy="10" r="1.5" fill="#fff"/><path d="M8 13l2-2 3 3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                    <i class="fa-solid fa-image"></i>
                     Add Image
                 </button>
                 <input type="file" id="images" accept="image/*">
             </div>
             <div class="form-actions input-section" style="margin-bottom:0;">
-                <button type="submit" id="add-note-btn">Add Note</button>
+                <button type="submit" id="add-note-btn">
+                    <i class="fa-solid fa-plus"></i> Add Note
+                </button>
             </div>
         </form>
     </div>
     <!-- Show All Notes Button: round, fixed top/middle right -->
     <button class="show-notes-btn" id="show-notes-btn" title="Show All Notes" aria-label="Show All Notes">
-        <span class="show-notes-icon" aria-hidden="true">&#128196;</span>
+        <span class="show-notes-icon" aria-hidden="true"><i class="fa-solid fa-list"></i></span>
         <span class="show-notes-label">Show All Notes</span>
     </button>
     <div id="modal-root"></div>
@@ -475,7 +603,7 @@
                 <div class="fullscreen-note" tabindex="-1">
                     <button class="close-btn" onclick="closeFullscreenNote()" title="Close">&times;</button>
                     <div class="fullscreen-note-content">
-                        <h2 style="margin-top:0;color:var(--primary);font-weight:800;text-shadow:0 1px 8px #0005;">${escapeHTML(note.title)}</h2>
+                        <h2 style="margin-top:0;color:var(--primary);font-weight:800;text-shadow:0 1px 8px #e48e8e55;">${escapeHTML(note.title)}</h2>
                         <div style="color:var(--text-secondary);font-size:1em;margin-bottom:8px;">by ${escapeHTML(note.author)} &middot; ${new Date(note.timestamp).toLocaleString()}</div>
                         <div class="note-content" style="margin-bottom:10px;">${note.content}</div>
                     </div>
@@ -510,10 +638,10 @@
                             <span>${new Date(note.timestamp).toLocaleString()}</span>
                         </div>
                         <div class="note-actions">
-                            <button type="button" class="view-btn" data-idx="${idx}">View</button>
+                            <button type="button" class="view-btn" data-idx="${idx}"><i class="fa-solid fa-eye"></i> View</button>
                             ${note.userId === currentUserId ? `
-                                <button type="button" class="edit-btn" data-idx="${idx}">Edit</button>
-                                <button type="button" class="delete-btn" data-idx="${idx}">Delete</button>
+                                <button type="button" class="edit-btn" data-idx="${idx}"><i class="fa-solid fa-pen"></i> Edit</button>
+                                <button type="button" class="delete-btn" data-idx="${idx}"><i class="fa-solid fa-trash"></i> Delete</button>
                             ` : ''}
                         </div>
                     </li>
@@ -523,7 +651,7 @@
                 <h3>All Notes</h3>
                 <ul id="notes-list-modal" style="list-style:none;padding:0;margin:0 0 12px 0;">${notesHtml}</ul>
                 <div class="modal-actions">
-                    <button type="button" onclick="closeModal()">Close</button>
+                    <button type="button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i> Close</button>
                 </div>
             `);
 
@@ -556,14 +684,13 @@
                             </div>
                             <div class="input-section" style="gap:0;">
                                 <button type="button" class="add-image-btn" id="edit-add-image-btn" style="margin-top:8px;">
-                                    <svg width="20" height="20" fill="none" style="vertical-align:middle;" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="2" fill="none"/><circle cx="7" cy="10" r="1.5" fill="#fff"/><path d="M8 13l2-2 3 3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-                                    Add Image
+                                    <i class="fa-solid fa-image"></i> Add Image
                                 </button>
                                 <input type="file" id="edit-images" accept="image/*" style="display:none;">
                             </div>
                             <div class="modal-actions">
-                                <button type="button" onclick="closeModal()">Cancel</button>
-                                <button type="submit">Save</button>
+                                <button type="button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i> Cancel</button>
+                                <button type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                             </div>
                         </form>
                     `);
@@ -623,8 +750,8 @@
                         <h3>Delete Note</h3>
                         <div>Are you sure you want to delete this note?</div>
                         <div class="modal-actions">
-                            <button type="button" onclick="closeModal()">Cancel</button>
-                            <button type="button" id="confirm-delete-btn">Delete</button>
+                            <button type="button" onclick="closeModal()"><i class="fa-solid fa-xmark"></i> Cancel</button>
+                            <button type="button" id="confirm-delete-btn"><i class="fa-solid fa-trash"></i> Delete</button>
                         </div>
                     `);
                     document.getElementById('confirm-delete-btn').addEventListener('click', function() {
@@ -733,99 +860,18 @@
         window.closeModal = closeModal;
     </script>
 </body>
-<footer style="
-    position: fixed !important;
-    left: 0;
-    right: 0;
-    bottom: 18px;
-    margin: 0 auto;
-    width: 340px;
-    max-width: 92vw;
-    background: linear-gradient(90deg, #23272a 60%, #4f8cff 100%);
-    padding: 10px 18px 10px 18px;
-    text-align: center;
-    box-shadow: 0 0 12px 0 #4f8cff55, 0 2px 12px #0008;
-    border-radius: 18px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-">
+<footer>
     <p style="
-        color: #fdf6f6;
+        color: #760404;
         font-size: 1em;
         font-weight: 600;
         letter-spacing: 1px;
-        text-shadow: 0 0 6px #4f8cff, 0 0 2px #fff, 0 2px 6px #0008;
+        text-shadow: 0 0 6px #e48e8e, 0 0 2px #fff, 0 2px 6px #76040488;
         margin: 0;
-        filter: drop-shadow(0 0 6px #4f8cff88);
+        filter: drop-shadow(0 0 6px #e48e8e88);
         animation: glowFooter 2.2s infinite alternate;
     " id="sticky-footer-text">
         Add your notes here. Need help? <span style="color:#ffb300;text-shadow:0 0 6px #ffb300,0 0 2px #fff;">Contact us</span>
     </p>
-    <style>
-        footer {
-            position: fixed !important;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            bottom: 18px;
-            width: 340px;
-            max-width: 92vw;
-            border-radius: 18px;
-            z-index: 1000;
-            box-shadow: 0 0 12px 0 #4f8cff55, 0 2px 12px #0008;
-            background: linear-gradient(90deg, #23272a 60%, #4f8cff 100%);
-            padding: 10px 18px 10px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        body {
-            padding-bottom: 60px; /* adjust for new footer height */
-        }
-        @media (max-width: 480px) {
-            footer {
-                width: 98vw;
-                max-width: 98vw;
-                padding: 8px 4vw 8px 4vw;
-                border-radius: 10px;
-            }
-            body {
-                padding-bottom: 48px;
-            }
-            #sticky-footer-text {
-                font-size: 0.95em !important;
-            }
-        }
-    </style>
-    <style>
-        @keyframes glowFooter {
-            0% {
-                text-shadow: 0 0 8px #4f8cff, 0 0 2px #fff, 0 2px 8px #0008;
-                filter: drop-shadow(0 0 8px #4f8cff88);
-            }
-            100% {
-                text-shadow: 0 0 18px #4f8cff, 0 0 8px #fff, 0 2px 18px #4f8cff88;
-                filter: drop-shadow(0 0 18px #4f8cffcc);
-            }
-        }
-        footer span {
-            font-weight: 700;
-            text-shadow: 0 0 8px #ffb300, 0 0 2px #fff;
-            filter: drop-shadow(0 0 8px #ffb30088);
-            animation: glowFooterSpan 2.2s infinite alternate;
-        }
-        @keyframes glowFooterSpan {
-            0% {
-                text-shadow: 0 0 8px #ffb300, 0 0 2px #fff;
-                filter: drop-shadow(0 0 8px #ffb30088);
-            }
-            100% {
-                text-shadow: 0 0 18px #ffb300, 0 0 8px #fff;
-                filter: drop-shadow(0 0 18px #ffb300cc);
-            }
-        }
-    </style>
 </footer>
 </html>
