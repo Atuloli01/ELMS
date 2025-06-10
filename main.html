@@ -1172,14 +1172,14 @@
       let currentAngle = 0;
       const ROTATE_SPEED = 0.5 * Math.PI / 4; // radians per second (adjust for speed)
 
-      function animateCircleButtons(ts) {
-        if (!lastTimestamp) lastTimestamp = ts;
-        const dt = (ts - lastTimestamp) / 1000;
-        lastTimestamp = ts;
-        currentAngle += ROTATE_SPEED * dt;
-        positionAndRotateCircleButtons(currentAngle);
-        requestAnimationFrame(animateCircleButtons);
-      }
+      // function animateCircleButtons(ts) {
+      //   if (!lastTimestamp) lastTimestamp = ts;
+      //   const dt = (ts - lastTimestamp) / 1000;
+      //   lastTimestamp = ts;
+      //   currentAngle += ROTATE_SPEED * dt;
+      //   positionAndRotateCircleButtons(currentAngle);
+      //   requestAnimationFrame(animateCircleButtons);
+      // }
 
       // Initial position and start animation
       window.addEventListener('DOMContentLoaded', () => {
@@ -1189,6 +1189,24 @@
       // Reposition on resize
       window.addEventListener('resize', () => positionAndRotateCircleButtons(currentAngle));
     </script>
+  <script>
+    // Add click event to "Courses" button to redirect to a custom link
+    document.addEventListener('DOMContentLoaded', function() {
+      // Replace the selector below with the actual selector for your Courses button
+      // For example, if your Courses button has id="coursesBtn", use '#coursesBtn'
+      // If it has a class, e.g. class="courses-btn", use '.courses-btn'
+      // Here, we try to find a button with text "Courses" among .round-btn elements
+      const courseBtn = Array.from(document.querySelectorAll('.round-btn')).find(btn => {
+        return btn.textContent.trim().toLowerCase().includes('courses');
+      });
+      if (courseBtn) {
+        courseBtn.addEventListener('click', function() {
+          // Replace the URL below with your desired link
+          window.location.href = 'https://27-atul-pahadicoder.github.io/HomePage_ELMS-AI/';
+        });
+      }
+    });
+  </script>
   </body>
 </html>
 
